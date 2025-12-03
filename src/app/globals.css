@@ -5,9 +5,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -25,4 +22,34 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-anim {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-anim::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #eddced;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
+.nav-anim:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-anim.active::before {
+  transform: scaleX(1);
+}
+
+.nav-anim.active {
+  color: #050509;
+  background: #e0b4e0;
+  /* ピンク文字（画像のスタイル） */
 }
