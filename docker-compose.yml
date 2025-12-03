@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: animora-app
+    ports:
+      - "3000:3000"
+    volumes:
+      # プロジェクト全体をコンテナにマウント
+      - .:/app
+      # ホスト側の node_modules を上書きしないようにする
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+    command: npm run dev
