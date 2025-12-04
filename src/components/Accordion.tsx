@@ -5,14 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { AccordionItem } from "@/data/accordionData";
 
+// Accordionが受け取る型の定義
 interface AccordionProps {
     title: string;
     items: AccordionItem[];
+    onSelect?: (key: string) => void; // ← 子から親へ通知用の関数
+    selectedItem?: string | null;
 }
 
-export default function Accordion({ title, items }: AccordionProps) {
+// Accordionは以下のProps(親から子へのデータ)を受け取れますよとTypescriptに教えている
+export default function Accordion({ title, items, onSelect, selectedItem }: AccordionProps) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+    const handleClick = (key: string) => {
+        if (onSelect) onSelect(key); // 親へ通知
+    };
 
     return (
         <div className="border-b border-gray-400 body-color">
@@ -44,10 +51,10 @@ export default function Accordion({ title, items }: AccordionProps) {
                     <ul>
                     {items.map((item) => (
                         <li
-                        key={item.title}
-                        onClick={() => setSelectedItem(item.title)}   // ← クリックで選択
+                        key={item.key}
+                        onClick={() => handleClick(item.key)}   // ← クリックで選択
                         className={`p-4 cursor-pointer w-full  nav-anim
-                        ${selectedItem === item.title ? "bg-purple-100 text-purple-600 font-semibold" : ""}
+                        ${selectedItem === item.key ? "bg-purple-100 text-purple-600 font-semibold" : ""}
                         `}
                         >
                         <span className="font-medium">{item.title}</span>

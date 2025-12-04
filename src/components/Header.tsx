@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Accordion from "@/components/Accordion";
-import { accordionData } from "@/data/accordionData";
+import NavMenu from "@/components/NavMenu";
 
-export default function Header() {
+interface HeaderProps {
+    onSelectItem: (key: string) => void;
+}
+
+export default function Header({ onSelectItem }: HeaderProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -56,13 +59,16 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
             >
-                {accordionData.map((category) => (
-                <Accordion
-                    key={category.title}
-                    title={category.title}
-                    items={category.items}
+                {/* モバイル版 */}
+                <NavMenu
+                    isMobile
+                    isOpen={isOpen}
+                    onSelectItem={(key) => {
+                        onSelectItem(key);   // Home の selectedItem を更新
+                        setIsOpen(false);    // メニューを閉じる
+                    }}
+                    selectedItem={null}
                 />
-                ))}
             </motion.nav>
             )}
         </AnimatePresence>

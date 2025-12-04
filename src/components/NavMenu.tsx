@@ -4,12 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import Accordion from "@/components/Accordion";
 import { accordionData } from "@/data/accordionData";
 
+// NavMenuが受け取る型の定義
 interface NavMenuProps {
     isMobile?: boolean;
     isOpen?: boolean;
+    onSelectItem: (key: string) => void;
+    selectedItem: string | null;
 }
 
-export default function NavMenu({ isMobile = false, isOpen = true }: NavMenuProps) {
+export default function NavMenu({
+    isMobile = false,
+    isOpen = true,
+    onSelectItem,selectedItem}: NavMenuProps) {
     if (!isMobile) {
         /* PC用ナビ */
         return (
@@ -19,6 +25,8 @@ export default function NavMenu({ isMobile = false, isOpen = true }: NavMenuProp
                     key={category.title}
                     title={category.title}
                     items={category.items}
+                    onSelect={onSelectItem}
+                    selectedItem={selectedItem}
                 />
                 ))}
             </nav>
@@ -40,6 +48,8 @@ export default function NavMenu({ isMobile = false, isOpen = true }: NavMenuProp
                 key={category.title}
                 title={category.title}
                 items={category.items}
+                onSelect={onSelectItem}
+                selectedItem={selectedItem}
                 />
             ))}
             </motion.nav>
