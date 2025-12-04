@@ -2,70 +2,70 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Accordion from "@/components/Accordion";
+import { accordionData } from "@/data/accordionData";
 
-interface HeaderProps {
-    categories: string[];
-}
-
-export default function Header({ categories }: HeaderProps) {
+export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
-    const [currentCategory, setCurrentCategory] = useState("");
 
     return (
-        <header className="w-full bg-white/70 backdrop-blur-md shadow-md fixed top-0 left-0 z-50 md:static md:w-60 md:min-h-screen">
-        {/* PC用左ナビ */}
-        <nav className="hidden md:flex flex-col ">
-            <h1 className="text-4xl font-bold p-4" style={{ fontFamily: "'Alex Brush', cursive"}}>Animora</h1>
-            {categories.map((cat) => (
-            <a
-                key={cat}
-                href="#"
-                onClick={() => setCurrentCategory(cat)}
-                className={`p-4 nav-anim ${
-                    currentCategory === cat ? "active" : ""
-                }`}
+        <header className="w-full h-[72px] fixed top-0 left-0 z-50 body-color">
+        {/* PCヘッダー */}
+        <div className="hidden md:block p-4">
+            <h1
+            className="text-5xl font-bold text-white"
+            style={{ fontFamily: "'Alex Brush', cursive" }}
             >
-                {cat}
-            </a>
-            ))}
-        </nav>
+            Animora
+            </h1>
+        </div>
 
         {/* モバイル・タブレット用ヘッダー */}
         <div className="flex md:hidden justify-between items-center p-4">
-            <h1 className="text-3xl font-bold" style={{ fontFamily: "'Alex Brush', cursive"}}>Animora</h1>
-            <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="focus:outline-none"
+            <h1
+            className="text-5xl font-bold text-gray-300"
+            style={{ fontFamily: "'Alex Brush', cursive" }}
             >
-            <div className="space-y-1">
-                <span className="block w-6 h-0.5 bg-gray-800"></span>
-                <span className="block w-6 h-0.5 bg-gray-800"></span>
-                <span className="block w-6 h-0.5 bg-gray-800"></span>
-            </div>
+            Animora
+            </h1>
+            <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none relative w-10 h-5 text-gray-300">
+                <motion.span
+                className="absolute block w-8 h-0.5 bg-gray-400 top-0 right-0"
+                animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 10 : 0 }}
+                transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                className="absolute block w-8 h-0.5 bg-gray-400 top-1/2 right-0 -translate-y-1/2"
+                animate={{ opacity: isOpen ? 0 : 1 }}
+                transition={{ duration: 0.2 }}
+                />
+                <motion.span
+                className="absolute block w-8 h-0.5 bg-gray-400 bottom-0 right-0"
+                animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -8 : 0 }}
+                transition={{ duration: 0.3 }}
+                />
             </button>
         </div>
 
-        {/* ハンバーガーメニュー開閉 */}
+        {/* モバイル用ハンバーガーメニュー */}
         <AnimatePresence>
             {isOpen && (
             <motion.nav
-                className="flex flex-col items-center p-4 space-y-4 bg-white shadow-md md:hidden"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
+                className="flex flex-col p-4 bg-white shadow-md md:hidden max-h-screen overflow-y-auto"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
             >
-                {categories.map((cat) => (
-                <a
-                    key={cat}
-                    href="#"
-                    className="p-2 rounded hover:cursor"
-                >
-                    {cat}
-                </a>
+                {accordionData.map((category) => (
+                <Accordion
+                    key={category.title}
+                    title={category.title}
+                    items={category.items}
+                />
                 ))}
             </motion.nav>
             )}
         </AnimatePresence>
-        </header>
+    </header>
     );
 }
