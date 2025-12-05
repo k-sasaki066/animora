@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
+import LoadingList from "@/components/animations/loading/LoadingList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -85,7 +86,7 @@ export default function HomePage() {
                         <NavMenu onSelectItem={setSelectedItem} selectedItem={selectedItem} />
 
                         {/* メインコンテンツ */}
-                        <main className="flex-1 md:ml-0 p-4">
+                        <main className="flex-1 md:ml-0 p-4 h-screen overflow-y-scroll">
                             {!selectedItem && (
                                 <>
                                     <h2 className="text-3xl font-bold mb-4">Welcome to Animora!</h2>
@@ -98,7 +99,7 @@ export default function HomePage() {
                             {selectedItem && (
                                 <div>
                                   <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
-                                  {/* ここへアニメーション一覧を表示するコンポーネントを読み込む */}
+                                    {selectedItem === "Loading" && <LoadingList />}
                                 </div>
                             )}
                         </main>
