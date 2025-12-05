@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
 import LoadingList from "@/components/animations/loading/LoadingList";
+import ButtonHoverList from "@/components/animations/micro-interactions/LoadingList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -99,7 +100,8 @@ export default function HomePage() {
                             {selectedItem && (
                                 <div>
                                   <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
-                                    {selectedItem === "Loading" && <LoadingList />}
+                                      {selectedItem === "Loading" && <LoadingList />}
+                                      {selectedItem === "Micro" && <ButtonHoverList />}
                                 </div>
                             )}
                         </main>
