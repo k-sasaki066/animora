@@ -21,12 +21,23 @@ const buttonAnimationTypes = [
 
 const buttonHoverTypes = [
     "ExtendLeft",
+    "DiagonalSwipe",
+    "DoubleSwipe",
+    "StopSwipe",
     "Passing",
+    "CircleOut",
     "ArrowExtend",
     "Click",
     "Flip",
-    "ColorCycle"
-
+    "ColorCycle",
+    "ColorIntoCenter",
+    "ChangeShape",
+    "SideBrackets",
+    "HiddenText",
+    "ColorFlow",
+    "TransformShape",
+    "HoverLine",
+    "Rotate"
 ];
 
 const buttonDesignTypes = [
