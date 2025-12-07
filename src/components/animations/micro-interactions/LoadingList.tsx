@@ -26,22 +26,29 @@ const buttonHoverTypes = [
     "StopSwipe",
     "Passing",
     "CircleOut",
-    "ArrowExtend",
     "Click",
     "Flip",
     "ColorCycle",
     "ColorIntoCenter",
     "ChangeShape",
-    "SideBrackets",
     "HiddenText",
     "ColorFlow",
-    "TransformShape",
-    "HoverLine",
-    "Rotate"
 ];
 
 const buttonDesignTypes = [
-    "Test",
+    "SideBrackets",
+    "TransformShape",
+    "HoverLine",
+    "Rotate",
+    "ArrowExtend",
+    "Sporty",
+    "HoverOutline",
+    "Hover4Corner",
+    "HoverSurround",
+    "PileUp",
+    "Parallelogram",
+    "Parallelogram2",
+    "OutlineHover"
 ];
 
 const componentMap = {
