@@ -3,11 +3,10 @@ import { motion } from "framer-motion";
 
 interface ButtonHoverProps {
     className?: string;
-    type: "ExtendLeft" | "DiagonalSwipe" | "DoubleSwipe" | "StopSwipe" | "Passing" | "CircleOut" | "ArrowExtend" | "Click" | "Flip" | "ColorCycle" | "ColorIntoCenter" | "ChangeShape" | "SideBrackets" | "HiddenText" | "ColorFlow" | "TransformShape" | "HoverLine" | "Rotate";
+    type: "ExtendLeft" | "DiagonalSwipe" | "DoubleSwipe" | "StopSwipe" | "Passing" | "CircleOut" | "Click" | "Flip" | "ColorCycle" | "ColorIntoCenter" | "ChangeShape" | "HiddenText" | "ColorFlow";
 }
 
 export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps) {
-    const baseClass = `rounded-full ${className}`;
     const animations = {
 
         ExtendLeft: (
@@ -229,34 +228,6 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
             </motion.div>
         ),
 
-        ArrowExtend: (
-            <motion.div
-                className={`relative inline-flex items-center justify-center cursor-pointer rounded-full overflow-hidden ${className}`}
-                whileHover="hovered"
-                initial="initial"
-                animate="initial"
-            >
-                {/* 背景丸 */}
-                <motion.div
-                    className="absolute top-0 -left-full w-full h-full bg-yellow-400 z-0 rounded-full"
-                    variants={{
-                        initial: { left: "-72%" },
-                        hovered: { left: 0 }
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                />
-
-                {/* 矢印 + テキスト */}
-                <div className="relative z-10 flex items-center space-x-8 px-4 py-3 w-full h-full">
-                    {/* 矢印を左 */}
-                    <motion.div
-                    className="w-2 h-2 border-r-2 border-b-2 border-black -rotate-45"
-                    />
-                    <span className="font-semibold">Button</span>
-                </div>
-            </motion.div>
-        ),
-
         Click: (
             <div className={`relative px-8 py-4 bg-gray-400 cursor-pointer z-5 ${className}`}>
                 <motion.div
@@ -431,41 +402,6 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
             </motion.div>
         ),
 
-        SideBrackets: (
-            <motion.button
-                className={`relative px-8 py-4 ${className}`}
-                initial="rest"
-                whileHover="hover"
-            >
-
-                {/* 左 bracket */}
-                <motion.span
-                className="absolute left-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl"
-                variants={{
-                    rest: { opacity: 0, x: -10 },
-                    hover: { opacity: 1, x: -2 }
-                }}
-                transition={{ duration: 0.25 }}
-                >
-                [
-                </motion.span>
-
-                {/* ボタンのテキスト */}
-                <span className="relative z-10">Button</span>
-
-                {/* 右 bracket */}
-                <motion.span
-                className="absolute right-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl"
-                variants={{
-                    rest: { opacity: 0, x: 10 },
-                    hover: { opacity: 1, x: 2 }
-                }}
-                transition={{ duration: 0.25 }}
-                >
-                ]
-                </motion.span>
-            </motion.button>
-        ),
 
         HiddenText: (
             <motion.div
@@ -540,163 +476,6 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                         &raquo;
                     </motion.span>
                 </div>
-            </motion.div>
-        ),
-
-        TransformShape: (
-            <motion.div
-                className={`relative px-8 py-4 cursor-pointer flex items-center justify-center ${className}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-                variants={{
-                rest: {
-                    borderTop: "1px solid rgba(0,0,0,0)",
-                    borderRight: "1px solid rgba(0,0,0,0)",
-                    borderLeft: "1px solid rgba(0,0,0,0)",
-                    borderBottom: "2px solid #8b5cf6",
-                    borderRadius: "0px",
-                },
-                hover: {
-                    borderTop: "2px solid #d1d5dc",
-                    borderRight: "2px solid #d1d5dc",
-                    borderLeft: "2px solid #d1d5dc",
-                    borderBottom: "2px solid #d1d5dc",
-                    borderRadius: "999px",
-                }
-                }}
-                transition={{ duration: 0.6 }}
-            >
-                Button
-            </motion.div>
-        ),
-
-        HoverLine: (
-            <motion.button
-                className={`relative overflow-hidden border-none bg-emerald-600 text-white font-semibold px-8 py-4 cursor-pointer ${className}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                {/* 上線：右→左 に伸びる */}
-                <motion.span
-                    className="absolute top-0 right-0 h-0.5 bg-emerald-600 z-20"
-                    variants={{
-                        rest: { width: 0 },
-                        hover: { width: "100%" },
-                    }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
-
-                {/* 下線：左→右 に伸びる */}
-                <motion.span
-                    className="absolute bottom-0 left-0 h-0.5 bg-emerald-600 z-20"
-                    variants={{
-                        rest: { width: 0 },
-                        hover: { width: "100%" },
-                    }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
-
-                {/* 背景 & テキスト変化 */}
-                <motion.div
-                    className="absolute inset-0 z-0 flex justify-center items-center"
-                    variants={{
-                    rest: { backgroundColor: "#00c48d" },
-                    hover: { backgroundColor: "#ffffff" },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                    <motion.span
-                    className="relative z-10"
-                    variants={{
-                    rest: { color: "#ffffff" },
-                    hover: { color: "#00c48d" },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                    Button
-                </motion.span>
-                </motion.div>
-            </motion.button>
-        ),
-
-        Rotate: (
-            <motion.div
-                className={`relative px-8 py-4 cursor-pointer flex justify-center items-center bg-transparent text-purple-600 ${className}`}
-                initial="initial"
-                animate="initial"
-                whileHover="hover"
-            >
-                {/* 外枠（時計回り） */}
-                <motion.div
-                    className="absolute inset-0 border border-purple-300 pointer-events-none"
-                    style={{
-                    margin: "auto",
-                    }}
-                    variants={{
-                        initial: {
-                            width: "100%",
-                            height: "100%",
-                            rotate: 0,
-                            transition: {
-                                width: { duration: 0.25, ease: "easeOut" },
-                                height: { duration: 0.25, ease: "easeOut" },
-                                rotate: { duration: 0.25 },
-                            },
-                        },
-                        hover: {
-                            width: 60,
-                            height: 60,
-                            rotate: 360,
-                            transition: {
-                                width: { duration: 0.25, ease: "easeOut" },
-                                height: { duration: 0.25, ease: "easeOut" },
-                                rotate: {
-                                    duration: 1.6,
-                                    repeat: Infinity,
-                                    ease: "linear",
-                                },
-                            },
-                        },
-                    }}
-                />
-
-                {/* 内枠（反時計回り） */}
-                <motion.div
-                    className="absolute inset-0 border border-purple-300 pointer-events-none"
-                    style={{
-                        margin: "auto",
-                    }}
-                    variants={{
-                        initial: {
-                            width: "100%",
-                            height: "100%",
-                            rotate: 0,
-                            transition: {
-                                width: { duration: 0.25, ease: "easeOut" },
-                                height: { duration: 0.25, ease: "easeOut" },
-                                rotate: { duration: 0.25 },
-                            },
-                        },
-                        hover: {
-                            width: 60,
-                            height: 60,
-                            rotate: -360,
-                            transition: {
-                                width: { duration: 0.25, ease: "easeOut" },
-                                height: { duration: 0.25, ease: "easeOut" },
-                                rotate: {
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    ease: "linear",
-                                },
-                            },
-                        },
-                    }}
-                />
-
-                <span className="relative z-10">{type}</span>
             </motion.div>
         ),
     };
