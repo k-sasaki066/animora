@@ -1,7 +1,8 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ButtonHover } from "@/components/animations/micro-interactions/ButtonHover";
 import { ButtonAnimation } from "@/components/animations/micro-interactions/ButtonAnimation";
-import { ButtonDesign } from "@/components/animations/micro-interactions/ButtonDesign";
+import { ButtonHoverLine } from "@/components/animations/micro-interactions/ButtonHoverLine";
+import { ButtonHoverText } from "@/components/animations/micro-interactions/ButtonHoverText";
 import { motion } from "framer-motion";
 
 const buttonAnimationTypes = [
@@ -33,9 +34,10 @@ const buttonHoverTypes = [
     "ChangeShape",
     "HiddenText",
     "ColorFlow",
+    "Mochi"
 ];
 
-const buttonDesignTypes = [
+const buttonHoverLineTypes = [
     "SideBrackets",
     "TransformShape",
     "HoverLine",
@@ -48,13 +50,22 @@ const buttonDesignTypes = [
     "PileUp",
     "Parallelogram",
     "Parallelogram2",
-    "OutlineHover"
+    "OutlineHover",
+    "MoveAndSurround",
+    "LineSurround"
+];
+
+const buttonHoverTextTypes = [
+    "ChangeText",
+    "Flow",
+    "FancyButton"
 ];
 
 const componentMap = {
     buttonAnimation: buttonAnimationTypes,
     buttonHover: buttonHoverTypes,
-    buttonDesign: buttonDesignTypes,
+    buttonHoverLine: buttonHoverLineTypes,
+    buttonHoverTextLine: buttonHoverTextTypes,
 };
 
 const loadingItems = Object.entries(componentMap).flatMap(([comp, types]) =>
@@ -65,8 +76,10 @@ const loadingItems = Object.entries(componentMap).flatMap(([comp, types]) =>
             <ButtonAnimation type={type as any} />
         ) : comp === "buttonHover" ? (
             <ButtonHover type={type as any} />
+        ) : comp === "buttonHoverLine" ? (
+            <ButtonHoverLine type={type as any} />
         ) : (
-            <ButtonDesign type={type as any} />
+            <ButtonHoverText type={type as any} />
         ),
     }))
 );
