@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 interface ButtonHoverProps {
     className?: string;
-    type: "ExtendLeft" | "DiagonalSwipe" | "DoubleSwipe" | "StopSwipe" | "Passing" | "CircleOut" | "Click" | "Flip" | "ColorCycle" | "ColorIntoCenter" | "ChangeShape" | "HiddenText" | "ColorFlow";
+    type: "ExtendLeft" | "DiagonalSwipe" | "DoubleSwipe" | "StopSwipe" | "Passing" | "CircleOut" | "Click" | "Flip" | "ColorCycle" | "ColorIntoCenter" | "ChangeShape" | "HiddenText" | "ColorFlow" | "Mochi";
 }
 
 export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps) {
@@ -478,7 +478,80 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                 </div>
             </motion.div>
         ),
+
+        Mochi: (
+            <div className={`relative w-40 h-12 ${className}`} style={{ filter: "url(#goo)" }}>
+                <motion.div
+                    className="relative w-full h-full inline-block cursor-pointer rounded-xl" initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                >
+                    {/* 上の丸 */}
+                    <motion.div
+                    className="absolute bg-gray-400 rounded-full z-0"
+                    style={{
+                        width: "36%",   // 親幅の40%
+                        height: "85%",  // 親高さの80%
+                        top: "-20%",    // 親上端より少し上
+                        left: "22%",    // 親幅の10%左から
+                    }}
+                    variants={{
+                        rest: { scale: 0 },
+                        hover: { scale: 1.15 }
+                    }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    />
+
+                    {/* 下の丸 */}
+                    <motion.div
+                    className="absolute bg-gray-400 rounded-full z-0"
+                    style={{
+                        width: "36%",
+                        height: "85%",
+                        bottom: "-20%",
+                        right: "20%",
+                    }}
+                    variants={{
+                        rest: { scale: 0 },
+                        hover: { scale: 1.15 }
+                    }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    />
+
+                    {/* ボタン本体 */}
+                    <motion.button
+                    className="relative z-10 w-full h-full rounded-xl font-bold text-white bg-gray-400"
+                    >
+                    Button
+                    </motion.button>
+                </motion.div>
+            </div>
+        ),
     };
 
-    return animations[type];
+    // return animations[type];
+    return (
+        <>
+            {/* Gooey フィルター定義 */}
+            <svg style={{ display: "none" }}>
+                <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix
+                    in="blur"
+                    mode="matrix"
+                    values="
+                    1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 28 -15
+                    " //20 はアルファ値のスケーリング（大きいほど強く結合）、-15 はしきい値（小さいほど余白・影が残る）
+                    result="goo"
+                />
+                <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </svg>
+
+            {animations[type]}
+        </>
+  );
 }
