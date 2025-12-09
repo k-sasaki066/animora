@@ -3,7 +3,7 @@ import { useState } from "react";
 
 interface ButtonHoverTextProps {
     className?: string;
-    type: "ChangeText" | "Flow" | "FancyButton";
+    type: "ChangeText" | "Flow" | "FancyButton" | "Smoke";
 }
 
 export function ButtonHoverText({ className = "w-40 h-12", type }: ButtonHoverTextProps) {
@@ -101,34 +101,71 @@ export function ButtonHoverText({ className = "w-40 h-12", type }: ButtonHoverTe
 
         FancyButton: (
             <motion.div
-  className={`relative px-8 py-4 rounded-sm border border-black cursor-pointer overflow-hidden ${className}`}
-  // 親のホバーは背景専用にする
-  onMouseEnter={() => setIsHover(true)}
-  onMouseLeave={() => setIsHover(false)}
->
-  {/* 背景 */}
-  <motion.div
-    className="absolute -bottom-full left-0 w-full h-full bg-black"
-    animate={isHover ? { bottom: 0 } : { bottom: "-100%" }}
-    transition={{ duration: 0.4, ease: "easeInOut" }}
-  />
+                className={`relative px-8 py-4 rounded-sm border border-black cursor-pointer overflow-hidden ${className}`}
+                // 親のホバーは背景専用にする
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
+                >
+                {/* 背景 */}
+                <motion.div
+                    className="absolute -bottom-full left-0 w-full h-full bg-black"
+                    animate={isHover ? { bottom: 0 } : { bottom: "-100%" }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                />
 
-  {/* テキスト（hovered を使わない） */}
-  <div className="relative z-10 w-full h-full flex justify-center items-center space-x-px">
-    {"Button".split("").map((char, i) => (
-      <motion.span
-        key={i}
-        className="inline-block"
-        initial={{ color: "#000" }}
-        animate={{ color: isHover ? "#fff" : "#000" }}
-        transition={{ duration: 0.25, ease: [0.19, 1, 0.22, 1] }}
-        whileHover={{ y: -4 }}  // ← 個別 hover は正常に動く
-      >
-        {char}
-      </motion.span>
-    ))}
-  </div>
-</motion.div>
+                {/* テキスト（hovered を使わない） */}
+                <div className="relative z-10 w-full h-full flex justify-center items-center space-x-px">
+                    {"Button".split("").map((char, i) => (
+                    <motion.span
+                        key={i}
+                        className="inline-block"
+                        initial={{ color: "#000" }}
+                        animate={{ color: isHover ? "#fff" : "#000" }}
+                        transition={{ duration: 0.25, ease: [0.19, 1, 0.22, 1] }}
+                        whileHover={{ y: -4 }}  // ← 個別 hover は正常に動く
+                    >
+                        {char}
+                    </motion.span>
+                    ))}
+                </div>
+            </motion.div>
+        ),
+
+        Smoke: (
+            <motion.button
+                className={`px-8 py-4 rounded-full bg-black text-white font-semibold relative overflow-hidden flex justify-center items-center ${className}`}
+                whileHover="hover"
+                initial="rest"
+            >
+                {"Button".split("").map((char, i) => (
+                <motion.span
+                    key={i}
+                    className="inline-block"
+                    variants={{
+                        rest: {
+                            x: 0,
+                            y: 0,
+                            opacity: 1,
+                            filter: "blur(0px)",
+                            transition: { duration: 0.4 },
+                        },
+                        hover: {
+                            x: [0, 8, -12, 0], // 左右に揺れて飛ぶ
+                            y: [0, -6, -12, 0], // 少し浮く
+                            opacity: [1, 1, 0, 0, 1],      // 一瞬消える
+                            filter: ["blur(0px)", "blur(2px)", "blur(6px)", "blur(10px)", "blur(0px)"],
+                            transition: {
+                                duration: 1,
+                                delay: i * 0.05, // ← 文字ごとにズラす
+                                ease: "easeOut",
+                            },
+                        },
+                    }}
+                >
+                    {char}
+                </motion.span>
+                ))}
+            </motion.button>
         ),
     };
 
