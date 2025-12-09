@@ -1,12 +1,22 @@
 import { motion } from "framer-motion";
+import { useState, useMemo } from "react";
 // import { div } from "framer-motion/client";
 
 interface ButtonHoverProps {
     className?: string;
-    type: "ExtendLeft" | "DiagonalSwipe" | "DoubleSwipe" | "StopSwipe" | "Passing" | "CircleOut" | "Click" | "Flip" | "ColorCycle" | "ColorIntoCenter" | "ChangeShape" | "HiddenText" | "ColorFlow" | "Mochi";
+    type: "ExtendLeft" | "DiagonalSwipe" | "DoubleSwipe" | "StopSwipe" | "Passing" | "CircleOut" | "Click" | "Flip" | "ColorCycle" | "ColorIntoCenter" | "ChangeShape" | "HiddenText" | "ColorFlow" | "Mochi" | "Wave" | "BackgroundMoves" | "GradientSlide" | "Toggle" | "PixelHover" | "Bubble";
 }
 
 export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps) {
+    const [isChecked, setIsChecked] = useState(false);
+    const bubbles = useMemo(() => {
+        return [...Array(4)].map(() => ({
+            size: 20 + Math.random() * 20,
+            left: 1 + Math.random() * 70 ,
+            rise: 60 + Math.random() * 40,
+            duration: 1.5 + Math.random() * 1.5,
+        }));
+    }, []);
     const animations = {
 
         ExtendLeft: (
@@ -527,9 +537,240 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                 </motion.div>
             </div>
         ),
+
+        Wave: (
+            <motion.button
+                className={`flex items-center justify-center relative px-8 py-4 font-bold uppercase text-indigo-400 border-2 border-blue-500  ${className}`}
+                style={{ filter: "url(#goo)" }}
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
+            >
+
+                {/* Blob container */}
+                <span className="absolute inset-0 -z-10 flex overflow-hidden">
+                {[0, 1, 2, 3].map((i) => (
+                    <motion.span
+                    key={i}
+                    className="flex-1 bg-blue-500 rounded-full"
+                    style={{ height: "180%" }}
+                    variants={{
+                        rest: {
+                        y: "100%",
+                        scale: 1.3,
+                        transition: {
+                            duration: 0.8,
+                            delay: i * 0.1,
+                            ease: "easeOut",
+                        },
+                        },
+                        hover: {
+                        y: -8,
+                        scale: 1.3,
+                        transition: {
+                            duration: 0.8,
+                            delay: i * 0.08,
+                            ease: "easeOut",
+                        },
+                        },
+                    }}
+                    />
+                ))}
+                </span>
+
+                {/* ボタンテキスト */}
+                <motion.span
+                    className="z-2 flex justify-center items-center"
+                    variants={{
+                        rest: { color: "#3B82F6" },
+                        hover: { color: "#fff" },
+                    }}
+                >
+                Button
+                </motion.span>
+
+                {/* 外側の枠 */}
+                <motion.span
+                className="absolute inset-0 border-2 border-gray-300"
+                variants={{
+                    rest: { scale: 1, transition: { duration: 0.5, ease: "easeInOut" } },
+                    hover: { scale: 0.9, transition: { duration: 0.5, ease: "easeInOut" } },
+                }}
+                />
+            </motion.button>
+        ),
+
+        BackgroundMoves: (
+            <motion.button
+                className={`
+                px-8 py-4 rounded-sm border-3 font-bold
+                bg-transparent 
+                border-neutral-200 text-neutral-400
+                transition-all duration-300 flex justify-center items-center
+                ${className}
+                `}
+                initial={{
+                backgroundPosition: "0 0",
+                }}
+                whileHover={{
+                borderColor: "#50514f",
+                color: "#50514f",
+                backgroundImage:
+                    "repeating-linear-gradient(-25deg, #e5e5e5, #e5e5e5 3px, transparent 4px, transparent 7px)", //グレーの帯を 3px の幅で描く→直後に 1px だけ透明→透明部分をさらに 7px まで拡大
+                backgroundSize: "12px 16px", //背景画像を 12px × 16px のタイルとして配置する
+                backgroundPosition: ["0px 0px", "300px 0px"], //背景を 右へ300px スライドさせる指定
+                }}
+                transition={{
+                backgroundPosition: {
+                    repeat: Infinity,
+                    duration: 5,
+                    ease: "linear",
+                },
+                duration: 0.8,
+                }}
+            >
+                BUTTON
+            </motion.button>
+        ),
+
+        GradientSlide: (
+            <motion.div
+                className={`
+                    ${className}
+                    px-8 py-4 rounded-lg cursor-pointer text-white font-semibold
+                    bg-size-[200%_auto]
+                    bg-linear-to-r from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb] flex justify-center items-center
+                `}
+                initial={{ backgroundPosition: "0% center" }}
+                whileHover={{ backgroundPosition: "100% center" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+                Button
+            </motion.div>
+        ),
+
+        Toggle: (
+            <motion.div
+                className="bg-stone-600/50 rounded-full w-30 h-12 flex items-center"
+                onClick={() => setIsChecked(!isChecked)}
+            >
+                <motion.div
+                    className="relative w-10 h-10 rounded-full"
+                    animate={{
+                        rotate: isChecked ? 360 : 0,
+                        backgroundColor: isChecked ? "#8BC34A" : "#c34a4a",
+                        x: isChecked ? 74 : 6,
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                    {/* 線1 */}
+                    <motion.div
+                    className="absolute bg-white h-1 rounded-full"
+                    animate={{
+                        width: isChecked ? 26 : 30,
+                        rotate: -45,
+                        x: isChecked ? 11 : 5,
+                        y: isChecked ? 20 : 18,
+                    }}
+                    transition={{ duration: 0.4 }}
+                    />
+
+                    {/* 線2 */}
+                    <motion.div
+                    className="absolute bg-white h-1 rounded-full"
+                    animate={{
+                        width: isChecked ? 16 : 30,
+                        rotate: 45,
+                        x: isChecked ? 3 : 5,
+                        y: isChecked ? 23 : 18,
+                    }}
+                    transition={{ duration: 0.4 }}
+                    />
+                </motion.div>
+            </motion.div>
+        ),
+
+        PixelHover: (
+            <motion.div
+                className={`relative border border-red-500 flex justify-center items-center text-black uppercase bg-position-[180px] ${className}`
+                }
+                style={{
+                backgroundSize: "180px",
+                }}
+                whileHover="hover"
+                variants={{
+                    hover: {
+                        color: "#ffffff", 
+                        backgroundImage:
+                        "url(https://i.postimg.cc/wBXGXbWN/pixel.png)",
+                        backgroundPositionY: [
+                        "0px",
+                        "-60px",
+                        "-120px",
+                        "-180px",
+                        "-240px",
+                        "-300px",
+                        "-360px",
+                        "-420px",
+                        "-480px",
+                        ], //コマ送りで背景画像をずらす
+                        transition: {
+                        duration: 0.8,
+                        ease: "linear",
+                        times: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
+                        },
+                    },
+                }}
+            >
+                Button
+            </motion.div>
+        ),
+
+        Bubble: (
+            <div className="relative inline-block"
+            style={{ filter: "url(#goo)" }}>
+
+                {/* Main Button */}
+                <motion.button
+                className={`relative px-6 py-3 rounded-xl text-white bg-purple-500 ${className}`}
+                style={{ filter: "url(#goo)" }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 150 }}
+                >
+                Button
+
+                    {/* Bubbles container */}
+                    <div className="absolute inset-0 pointer-events-none -z-1">
+                        {bubbles.map((b, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute bg-purple-500 rounded-full"
+                                style={{
+                                    width: b.size,
+                                    height: b.size,
+                                    left: `${b.left}%`,
+                                    bottom: 0,
+                                    opacity: 1,
+                                }}
+                                animate={{
+                                    y: [0, -b.rise],
+                                    opacity: [1, 1, 0.9, 0.3, 0],
+                                    scale: [1, 0.8, 0.5, 0.3],
+                                }}
+                                transition={{
+                                    duration: b.duration,
+                                    repeat: Infinity,
+                                    delay: i * 0.2,
+                                    ease: "easeInOut",
+                                }}
+                            />
+                        ))}
+                    </div>
+                </motion.button>
+            </div>
+        ),
     };
 
-    // return animations[type];
     return (
         <>
             {/* Gooey フィルター定義 */}
@@ -543,7 +784,7 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                     1 0 0 0 0
                     0 1 0 0 0
                     0 0 1 0 0
-                    0 0 0 28 -15
+                    0 0 0 30 -15
                     " //20 はアルファ値のスケーリング（大きいほど強く結合）、-15 はしきい値（小さいほど余白・影が残る）
                     result="goo"
                 />

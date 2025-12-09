@@ -34,7 +34,13 @@ const buttonHoverTypes = [
     "ChangeShape",
     "HiddenText",
     "ColorFlow",
-    "Mochi"
+    "Mochi",
+    "Wave",
+    "BackgroundMoves",
+    "GradientSlide",
+    "Toggle",
+    "PixelHover",
+    "Bubble"
 ];
 
 const buttonHoverLineTypes = [
@@ -58,7 +64,8 @@ const buttonHoverLineTypes = [
 const buttonHoverTextTypes = [
     "ChangeText",
     "Flow",
-    "FancyButton"
+    "FancyButton",
+    "Smoke"
 ];
 
 const componentMap = {
