@@ -5,7 +5,8 @@ interface ButtonHoverLineProps {
     type: "SideBrackets" | "TransformShape" | "HoverLine" | "ArrowExtend" | "Sporty" | "HoverOutline" | "Hover4Corner" | "HoverSurround" | "PileUp" | "Parallelogram" | "Parallelogram2" | "OutlineHover" | "MoveAndSurround" | "LineSurround";
 }
 
-export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLineProps) {
+export function ButtonHoverLine({ className = "w-40 h-12 cursor-pointer", type }: ButtonHoverLineProps) {
+    const flexCenter = "flex justify-center items-center";
     const animations = {
         SideBrackets: (
             <motion.button
@@ -45,25 +46,25 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
         TransformShape: (
             <motion.div
-                className={`relative px-8 py-4 cursor-pointer flex items-center justify-center ${className}`}
+                className={`relative px-8 py-4 cursor-pointer ${className} ${flexCenter}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
                 variants={{
-                rest: {
-                    borderTop: "1px solid rgba(0,0,0,0)",
-                    borderRight: "1px solid rgba(0,0,0,0)",
-                    borderLeft: "1px solid rgba(0,0,0,0)",
-                    borderBottom: "2px solid #8b5cf6",
-                    borderRadius: "0px",
-                },
-                hover: {
-                    borderTop: "2px solid #d1d5dc",
-                    borderRight: "2px solid #d1d5dc",
-                    borderLeft: "2px solid #d1d5dc",
-                    borderBottom: "2px solid #d1d5dc",
-                    borderRadius: "999px",
-                }
+                    rest: {
+                        borderTop: "1px solid rgba(0,0,0,0)",
+                        borderRight: "1px solid rgba(0,0,0,0)",
+                        borderLeft: "1px solid rgba(0,0,0,0)",
+                        borderBottom: "2px solid #8b5cf6",
+                        borderRadius: "0px",
+                    },
+                    hover: {
+                        borderTop: "2px solid #d1d5dc",
+                        borderRight: "2px solid #d1d5dc",
+                        borderLeft: "2px solid #d1d5dc",
+                        borderBottom: "2px solid #d1d5dc",
+                        borderRadius: "999px",
+                    }
                 }}
                 transition={{ duration: 0.6 }}
             >
@@ -73,7 +74,7 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
         HoverLine: (
             <motion.button
-                className={`relative overflow-hidden border-none bg-emerald-600 text-white font-semibold px-8 py-4 cursor-pointer ${className}`}
+                className={`relative overflow-hidden border-none bg-emerald-600 text-white font-semibold px-8 py-4 ${className}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -100,7 +101,7 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
                 {/* 背景 & テキスト変化 */}
                 <motion.div
-                    className="absolute inset-0 z-0 flex justify-center items-center"
+                    className={`absolute inset-0 z-0 ${flexCenter}`}
                     variants={{
                     rest: { backgroundColor: "#00c48d" },
                     hover: { backgroundColor: "#ffffff" },
@@ -108,22 +109,22 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                     <motion.span
-                    className="relative z-10"
-                    variants={{
-                    rest: { color: "#ffffff" },
-                    hover: { color: "#00c48d" },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                    Button
-                </motion.span>
+                        className="relative z-10"
+                        variants={{
+                            rest: { color: "#ffffff" },
+                            hover: { color: "#00c48d" },
+                        }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                        Button
+                    </motion.span>
                 </motion.div>
             </motion.button>
         ),
 
         Rotate: (
             <motion.div
-                className={`relative px-8 py-4 cursor-pointer flex justify-center items-center bg-transparent text-purple-600 ${className}`}
+                className={`relative px-8 py-4 bg-transparent text-purple-600 ${className} ${flexCenter}`}
                 initial="initial"
                 animate="initial"
                 whileHover="hover"
@@ -202,14 +203,14 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
         ArrowExtend: (
             <motion.div
-                className={`relative inline-flex items-center justify-center cursor-pointer rounded-full overflow-hidden ${className}`}
+                className={`relative rounded-full overflow-hidden ${className} ${flexCenter}`}
                 whileHover="hovered"
                 initial="initial"
                 animate="initial"
             >
                 {/* 背景丸 */}
                 <motion.div
-                    className="absolute top-0 -left-full w-full h-full bg-yellow-400 z-0 rounded-full"
+                    className="absolute top-0 w-full h-full bg-yellow-400 z-0 rounded-full"
                     variants={{
                         initial: { left: "-72%" },
                         hovered: { left: 0 }
@@ -231,11 +232,7 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
         Sporty: (
             <motion.a
                 href="#"
-                className={`
-                    relative inline-flex items-center justify-center 
-                    font-bold uppercase text-transparent bg-clip-text
-                    bg-linear-to-r from-[#ff8282] to-[#e178ed]
-                    ${className}
+                className={`relative font-bold uppercase text-transparent bg-clip-text bg-linear-to-r from-[#ff8282] to-[#e178ed] ${className} ${flexCenter}
                 `}
                 whileHover="hover"
                 initial="rest"
@@ -269,14 +266,14 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
                         vectorEffect="non-scaling-stroke"
                         variants={{
                             rest: {
-                            strokeDasharray: "220 0", //見える線の長さ,空白部分の長さ
-                            strokeDashoffset: 0,
-                            transition: { duration: 0.6, ease: "easeInOut" },
+                                strokeDasharray: "220 0", //見える線の長さ,空白部分の長さ
+                                strokeDashoffset: 0,
+                                transition: { duration: 0.6, ease: "easeInOut" },
                             },
                             hover: {
-                            strokeDasharray: "120 320",
-                            strokeDashoffset: 260,
-                            transition: { duration: 0.6, ease: "easeInOut" },
+                                strokeDasharray: "120 320",
+                                strokeDashoffset: 260,
+                                transition: { duration: 0.6, ease: "easeInOut" },
                             },
                         }}
                     />
@@ -286,44 +283,44 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
         HoverOutline: (
             <motion.div
-                className={`relative cursor-pointer ${className}`}
+                className={`relative ${className}`}
                 whileHover="hover"
                 initial="initial"
             >
                 {/* SVG の線 */}
                 <motion.svg
-                className="absolute top-0 left-0 w-full h-full"
-                viewBox="0 0 150 40"
-                fill="none"
+                    className="absolute top-0 left-0 w-full h-full"
+                    viewBox="0 0 150 40"
+                    fill="none"
                 >
-                <motion.rect
-                    x="3"
-                    y="3"
-                    width="144"
-                    height="34"
-                    rx="4"
-                    stroke="#009FFD"
-                    strokeWidth="2"
-                    variants={{
-                    initial: {
-                        strokeDasharray: "85 400",
-                        strokeDashoffset: -200,
-                        stroke: "#009FFD",
-                        strokeWidth: 2,
-                    },
-                    hover: {
-                        strokeDasharray: "50 0",
-                        strokeDashoffset: 0,
-                        stroke: "#06D6A0",
-                        strokeWidth: 1,
-                        transition: { duration: 1, ease: "easeInOut" },
-                    },
-                    }}
-                />
+                    <motion.rect
+                        x="3"
+                        y="3"
+                        width="144"
+                        height="34"
+                        rx="4"
+                        stroke="#009FFD"
+                        strokeWidth="2"
+                        variants={{
+                            initial: {
+                                strokeDasharray: "85 400",
+                                strokeDashoffset: -200,
+                                stroke: "#009FFD",
+                                strokeWidth: 2,
+                            },
+                            hover: {
+                                strokeDasharray: "50 0",
+                                strokeDashoffset: 0,
+                                stroke: "#06D6A0",
+                                strokeWidth: 1,
+                                transition: { duration: 1, ease: "easeInOut" },
+                            },
+                        }}
+                    />
                 </motion.svg>
 
                 {/* テキスト */}
-                <span className="absolute inset-0 flex items-center justify-center text-gray font-light">
+                <span className={`absolute inset-0 text-gray-600 font-light ${flexCenter}`}>
                 Button
                 </span>
             </motion.div>
@@ -331,7 +328,7 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
         Hover4Corner: (
             <motion.button
-                className={`relative overflow-hidden  bg-gray-200 text-white font-semibold px-8 py-4 cursor-pointer ${className}`}
+                className={`relative overflow-hidden  bg-gray-200 text-white font-semibold px-8 py-4 ${className}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -378,30 +375,30 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
                 {/* 背景 & テキスト変化 */}
                 <motion.div
-                    className="absolute inset-0 z-0 flex justify-center items-center"
+                    className={`absolute inset-0 z-0 ${flexCenter}`}
                     variants={{
-                    rest: { backgroundColor: "#e5e7eb" },
-                    hover: { backgroundColor: "#ffffff" },
-                    }}
+                        rest: { backgroundColor: "#e5e7eb" },
+                        hover: { backgroundColor: "#ffffff" },
+                        }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                     <motion.span
-                    className="relative z-10"
+                    className="z-10"
                     variants={{
-                    rest: { color: "#99a1af" },
-                    hover: { color: "#00c48d" },
+                        rest: { color: "#99a1af" },
+                        hover: { color: "#00c48d" },
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                    Button
-                </motion.span>
+                    >
+                        Button
+                    </motion.span>
                 </motion.div>
             </motion.button>
         ),
 
         HoverSurround: (
             <motion.button
-                className={`relative font-semibold px-8 py-4 cursor-pointer ${className}`}
+                className={`relative font-semibold px-8 py-4 ${className}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -448,30 +445,30 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
                 {/* 背景 & テキスト変化 */}
                 <motion.div
-                    className="absolute w-38 h-10 top-1 left-1 z-0 flex justify-center items-center"
+                    className={`absolute w-38 h-10 top-1 left-1 z-0 ${flexCenter}`}
                     variants={{
-                    rest: { backgroundColor: "#e5e7eb" },
-                    hover: { backgroundColor: "#fb923c" },
+                        rest: { backgroundColor: "#e5e7eb" },
+                        hover: { backgroundColor: "#fb923c" },
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                     <motion.span
-                    className="relative z-10"
+                    className="z-10"
                     variants={{
-                    rest: { color: "#99a1af" },
-                    hover: { color: "#fff" },
+                        rest: { color: "#99a1af" },
+                        hover: { color: "#fff" },
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                    Button
-                </motion.span>
+                    >
+                        Button
+                    </motion.span>
                 </motion.div>
             </motion.button>
         ),
 
         PileUp: (
             <motion.button
-                className={`relative px-8 py-4 cursor-pointer  ${className}`}
+                className={`relative px-8 py-4 ${className}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -497,16 +494,18 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
                 />
 
                 {/* テキスト */}
-                <motion.div className="relative w-full h-full z-10 flex justify-center items-center">
+                <motion.div className={`relative w-full h-full z-10 ${flexCenter}`}>
                     <span
-                    className="text-black-500"
-                >Button</span>
+                    className="text-black"
+                    >
+                        Button
+                    </span>
                 </motion.div>
             </motion.button>
         ),
         Parallelogram: (
             <motion.button
-                className={`relative font-semibold px-8 py-4 cursor-pointer overflow-hidden ${className}`}
+                className={`relative font-semibold px-8 py-4 overflow-hidden ${className}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -525,69 +524,69 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
                 >
                     {/* bottom-right horizontal */}
                     <motion.span
-                    className="absolute bottom-0 right-0 h-0.5 bg-orange-400"
-                    variants={{
-                        rest: { width: 30 },
-                        hover: { width: "100%" },
-                    }}
-                    transition={{
-                        duration: 0.5,
-                        ease: "easeInOut",
-                        delay: 0.35, // ← skew が戻った後に伸び始める
-                    }}
+                        className="absolute bottom-0 right-0 h-0.5 bg-orange-400"
+                        variants={{
+                            rest: { width: 30 },
+                            hover: { width: "100%" },
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeInOut",
+                            delay: 0.35, // ← skew が戻った後に伸び始める
+                        }}
                     />
 
                     {/* bottom-right vertical */}
                     <motion.span
-                    className="absolute bottom-0 right-0 w-0.5 bg-orange-400"
-                    variants={{
-                        rest: { height: 30 },
-                        hover: { height: "100%" },
-                    }}
-                    transition={{
-                        duration: 0.3,
-                        ease: "easeInOut",
-                        delay: 0.45, // ← 横より少し遅れて伸びる
-                    }}
+                        className="absolute bottom-0 right-0 w-0.5 bg-orange-400"
+                        variants={{
+                            rest: { height: 30 },
+                            hover: { height: "100%" },
+                        }}
+                        transition={{
+                            duration: 0.3,
+                            ease: "easeInOut",
+                            delay: 0.45, // ← 横より少し遅れて伸びる
+                        }}
                     />
 
                     {/* top-left horizontal */}
                     <motion.span
-                    className="absolute top-0 left-0 h-0.5 bg-orange-400"
-                    variants={{
-                        rest: { width: 30 },
-                        hover: { width: "100%" },
-                    }}
-                    transition={{
-                        duration: 0.5,
-                        ease: "easeInOut",
-                        delay: 0.35,
-                    }}
+                        className="absolute top-0 left-0 h-0.5 bg-orange-400"
+                        variants={{
+                            rest: { width: 30 },
+                            hover: { width: "100%" },
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeInOut",
+                            delay: 0.35,
+                        }}
                     />
 
                     {/* top-left vertical */}
                     <motion.span
-                    className="absolute top-0 left-0 w-0.5 bg-orange-400"
-                    variants={{
-                        rest: { height: 30 },
-                        hover: { height: "100%" },
-                    }}
-                    transition={{
-                        duration: 0.6,
-                        ease: "easeInOut",
-                        delay: 0.45,
-                    }}
+                        className="absolute top-0 left-0 w-0.5 bg-orange-400"
+                        variants={{
+                            rest: { height: 30 },
+                            hover: { height: "100%" },
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeInOut",
+                            delay: 0.45,
+                        }}
                     />
                 </motion.div>
 
                 {/* --- 背景・文字 --- */}
                 <div
-                    className="absolute inset-1 z-0 flex justify-center items-center"
+                    className={`absolute inset-1 z-0 ${flexCenter}`}
                 >
                     <span
-                    className="relative z-10 text-orange-600"
+                        className="z-10 text-orange-600"
                     >
-                    Button
+                        Button
                     </span>
                 </div>
             </motion.button>
@@ -595,7 +594,7 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
         Parallelogram2: (
             <motion.button
-                className={`relative font-semibold px-8 py-4 cursor-pointer overflow-hidden ${className}`}
+                className={`relative font-semibold px-8 py-4 overflow-hidden ${className}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -614,69 +613,69 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
                 >
                     {/* bottom-right horizontal */}
                     <motion.span
-                    className="absolute bottom-0 right-0 h-0.5 bg-blue-500"
-                    variants={{
-                        rest: { width: 30, x:0,},
-                        hover: { width: "50%", x:-38, },
-                    }}
-                    transition={{
-                        duration: 0.3,
-                        ease: "easeInOut",
-                        delay: 0.35, // ← skew が戻った後に伸び始める
-                    }}
+                        className="absolute bottom-0 right-0 h-0.5 bg-blue-500"
+                        variants={{
+                            rest: { width: 30, x:0,},
+                            hover: { width: "50%", x:-38, },
+                        }}
+                        transition={{
+                            duration: 0.3,
+                            ease: "easeInOut",
+                            delay: 0.35, // ← skew が戻った後に伸び始める
+                        }}
                     />
 
                     {/* bottom-right vertical */}
                     <motion.span
-                    className="absolute bottom-0 right-0 w-0.5 bg-blue-500"
-                    variants={{
-                        rest: { height: 30 },
-                        hover: { height: "0%" },
-                    }}
-                    transition={{
-                        duration: 0.2,
-                        ease: "easeInOut",
-                        delay: 0.45, // ← 横より少し遅れて伸びる
-                    }}
+                        className="absolute bottom-0 right-0 w-0.5 bg-blue-500"
+                        variants={{
+                            rest: { height: 30 },
+                            hover: { height: "0%" },
+                        }}
+                        transition={{
+                            duration: 0.2,
+                            ease: "easeInOut",
+                            delay: 0.45, // ← 横より少し遅れて伸びる
+                        }}
                     />
 
                     {/* top-left horizontal */}
                     <motion.span
-                    className="absolute top-0 left-0 h-0.5 bg-blue-500"
-                    variants={{
-                        rest: { width: 30 },
-                        hover: { width: "0%" },
-                    }}
-                    transition={{
-                        duration: 0.3,
-                        ease: "easeInOut",
-                        delay: 0.35,
-                    }}
+                        className="absolute top-0 left-0 h-0.5 bg-blue-500"
+                        variants={{
+                            rest: { width: 30 },
+                            hover: { width: "0%" },
+                        }}
+                        transition={{
+                            duration: 0.3,
+                            ease: "easeInOut",
+                            delay: 0.35,
+                        }}
                     />
 
                     {/* top-left vertical */}
                     <motion.span
-                    className="absolute top-0 left-0 w-0.5 bg-blue-500"
-                    variants={{
-                        rest: { height: 30 },
-                        hover: { height: "0%" },
-                    }}
-                    transition={{
-                        duration: 0.2,
-                        ease: "easeInOut",
-                        delay: 0.45,
-                    }}
+                        className="absolute top-0 left-0 w-0.5 bg-blue-500"
+                        variants={{
+                            rest: { height: 30 },
+                            hover: { height: "0%" },
+                        }}
+                        transition={{
+                            duration: 0.2,
+                            ease: "easeInOut",
+                            delay: 0.45,
+                        }}
                     />
                 </motion.div>
 
                 {/* --- 背景・文字 --- */}
                 <div
-                    className="absolute inset-1 z-0 flex justify-center items-center"
+                    className={`absolute inset-1 z-0 ${flexCenter}`}
                 >
                     <span
-                    className="relative z-10 text-blue-600"
+                    className="z-10 text-blue-600"
                     >
-                    Button
+                        Button
                     </span>
                 </div>
             </motion.button>
@@ -684,48 +683,48 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
         OutlineHover: (
             <motion.div
-            className={`relative inline-flex items-center justify-center cursor-pointer ${className}`}
+            className={`relative ${className} ${flexCenter}`}
             whileHover="hover"
             >
                 {/* ボタン本体 */}
                 <div className="px-6 py-3 w-full h-full z-10 text-center">
-                Button
+                    Button
                 </div>
 
                 {/* 回転するアウトライン（SVG） */}
                 <motion.svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 200 60"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 200 60"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                 >
                     <motion.rect
-                    className= "w-full h-full"
-                    x="0"
-                    y="0"
-                    rx="0"
-                    stroke="purple"
-                    strokeWidth="2"
-                    strokeDasharray="90 174"
-                    strokeDashoffset={80}
-                    variants={{
-                        hover: {
-                            strokeDashoffset: [80, -260],
-                            transition: {
-                            duration: 0.8,
-                            ease: [0.1, 0.8, 0.3, 1], //徐々に減速
-                            repeat: 0,
+                        className= "w-full h-full"
+                        x="0"
+                        y="0"
+                        rx="0"
+                        stroke="purple"
+                        strokeWidth="2"
+                        strokeDasharray="90 174"
+                        strokeDashoffset={80}
+                        variants={{
+                            hover: {
+                                strokeDashoffset: [80, -260],
+                                transition: {
+                                duration: 0.8,
+                                ease: [0.1, 0.8, 0.3, 1], //徐々に減速
+                                repeat: 0,
+                                },
                             },
-                        },
-                    }}
-                />
+                        }}
+                    />
                 </motion.svg>
             </motion.div>
         ),
 
         MoveAndSurround: (
             <motion.div
-            className={`relative inline-flex items-center justify-center cursor-pointer ${className}`}
+            className={`relative ${className} ${flexCenter}`}
             whileHover="hover"
             >
                 {/* ボタン本体 */}
@@ -735,41 +734,41 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
 
                 {/* 回転するアウトライン（SVG） */}
                 <motion.svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 200 60"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 200 60"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                 >
                     <motion.rect
-                    className= "w-full h-full"
-                    x="0"
-                    y="0"
-                    rx="0"
-                    stroke="purple"
-                    strokeWidth="2"
-                    strokeDasharray="60 460"
-                    strokeDashoffset={60}
-                    variants={{
-                        hover: {
-                            strokeDashoffset: [60, -201],
-                            strokeDasharray: ["60 460", "520 0"], //ここで枠線を伸ばす
-                            transition: {
-                                duration: 0.8,
-                                ease: [0.1, 0.8, 0.3, 1], //徐々に減速
-                                strokeDasharray: {
-                                    delay: 0.5, // ← offsetが終わった後に開始
-                                }
+                        className= "w-full h-full"
+                        x="0"
+                        y="0"
+                        rx="0"
+                        stroke="purple"
+                        strokeWidth="2"
+                        strokeDasharray="60 460"
+                        strokeDashoffset={60}
+                        variants={{
+                            hover: {
+                                strokeDashoffset: [60, -201],
+                                strokeDasharray: ["60 460", "520 0"], //ここで枠線を伸ばす
+                                transition: {
+                                    duration: 0.8,
+                                    ease: [0.1, 0.8, 0.3, 1], //徐々に減速
+                                    strokeDasharray: {
+                                        delay: 0.5, // ← offsetが終わった後に開始
+                                    }
+                                },
                             },
-                        },
-                    }}
-                />
+                        }}
+                    />
                 </motion.svg>
             </motion.div>
         ),
 
         LineSurround: (
             <motion.div
-                className={`relative inline-flex justify-center cursor-pointer ${className}`}
+                className={`relative flex justify-center ${className}`}
                 initial="rest"
                 animate="rest"
                 whileHover="hover"
@@ -791,15 +790,15 @@ export function ButtonHoverLine({ className = "w-40 h-12", type }: ButtonHoverLi
                         },
                     }}
                 >
-                Button
+                    Button
                 </motion.div>
 
                 {/* 回転するアウトライン（SVG） */}
                 <motion.svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 200 60"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                    className="absolute inset-0 w-full h-full"
+                    viewBox="0 0 200 60"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                 >
                     {/* 右側（左右対称） */}
                     <motion.path
