@@ -5,13 +5,13 @@ interface ButtonAnimationProps {
     type: "Floating" | "Bulbul" | "Thump" | "Swaying" | "Shaky" | "Sparkling" | "Ripples" | "Skew" | "Spin" | "Jiggly" | "ClickMove" | "GradientMove";
 }
 
-export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimationProps) {
+export function ButtonAnimation({ className = "w-40 h-12 cursor-pointer px-8 py-4", type }: ButtonAnimationProps) {
     const baseClass = `rounded-full ${className}`;
     const animations = {
 
         Floating: (
             <motion.div
-                className={`px-8 py-4 rounded-full cursor-pointer bg-rose-400 ${className}`}
+                className={`rounded-full bg-rose-400 ${className}`}
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 >
@@ -20,7 +20,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         Bulbul: (
             <motion.div
-                className={`text-white rounded-full cursor-pointer bg-lime-500 ${className}`}
+                className={`text-white rounded-full bg-lime-500 ${className}`}
                 animate={{
                 x: [0, 0, -8, 10, -4, 12, 0], // CSS の keyframes の translateX を配列で表現
                 }}
@@ -35,7 +35,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         Thump: (
             <motion.div
-                className={`px-8 py-4 rounded-full cursor-pointer bg-fuchsia-400 ${className}`}
+                className={`rounded-full bg-fuchsia-400 ${className}`}
                 animate={{ scale: [1, 1.1, 1, 1, 1.1, 1] }} // dokundokun の keyframes
                 transition={{ duration: 1.3, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -44,7 +44,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         Swaying: (
             <motion.div
-                className={`px-8 py-4 rounded-full cursor-pointer bg-indigo-400 ${className}`}
+                className={`rounded-full bg-indigo-400 ${className}`}
                 animate={{ rotate: [0, -2, 0, 2, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
             />
@@ -52,7 +52,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         Shaky: (
             <motion.div
-                className={`px-8 py-4 rounded-full cursor-pointer bg-sky-400 ${className}`}
+                className={`rounded-full bg-sky-400 ${className}`}
                 animate={{
                 y: [0, 2, 2, 2, 0],
                 rotate: [0, 1, 0, -1, 0]
@@ -68,7 +68,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         Sparkling: (
             <motion.div
-                className={`${baseClass} overflow-hidden bg-amber-400 relative`}
+                className={`${className} overflow-hidden bg-amber-400 relative rounded-full`}
             >
                 <motion.div
                 className="absolute top-0 left-18 w-[200px] h-full bg-white rounded-full"
@@ -83,7 +83,11 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
         ),
 
         Ripples: (
-            <div className="relative flex justify-center items-center">
+            <motion.div
+                className={`relative flex justify-center items-center rounded-full bg-purple-400 ${className}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+            >
                 <motion.div
                     className="absolute rounded-full border  bg-purple-300"
                     style={{
@@ -100,19 +104,12 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
                     ease: "easeOut",
                     }}
                 />
-                {/* ボタン本体 */}
-                <motion.button
-                    className={`relative px-8 py-4 rounded-full bg-purple-400 ${className}`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                >
-                </motion.button>
-            </div>
+            </motion.div>
         ),
 
         Skew: (
             <motion.div
-                className={`px-8 py-4 rounded-full cursor-pointer bg-pink-300 ${baseClass}`}
+                className={`rounded-full bg-pink-300 ${className}`}
                 animate={{ skewX: [-20, 20, -20] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
             />
@@ -120,22 +117,22 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         Spin: (
             <motion.div
-                className={`cursor-pointer bg-zinc-500 ${className}`}
+                className={`bg-zinc-500 ${className}`}
                 animate={{
-                rotateX: [0, 0, 180,],
-                scale: [1, 1, 1],
+                    rotateX: [0, 0, 180,],
+                    scale: [1, 1, 1],
                 }}
                 transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "linear",
+                    duration: 1,
+                    repeat: Infinity,
+                    ease: "linear",
                 }}
             />
         ),
 
         Jiggly: (
             <motion.div
-                className={`px-8 py-4 rounded-full cursor-pointer bg-linear-to-r from-yellow-500 via-red-500 to-pink-500 ${baseClass}`}
+                className={`rounded-full bg-linear-to-r from-yellow-500 via-red-500 to-pink-500 ${className}`}
                 animate={{
                 scaleX: [0.8, 1, 1],
                 scaleY: [1, 1, 1.2, 1],
@@ -147,7 +144,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         ClickMove: (
             <motion.div
-                className={`px-8 py-4 cursor-pointer bg-teal-400 text-white ${className}`}
+                className={`bg-teal-400 text-white ${className}`}
                 animate={{
                     y: [0, 0, 0, 0, 3, 0, 3, 0],
                     boxShadow: [
@@ -161,7 +158,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
                         "0 3px 0 rgba(0,0,0,0.3)",
                     ],
                 }}
-                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 0.6, repeat: Infinity, ease: "linear" }}
                 whileTap={{
                     boxShadow: "0 0 0 rgba(0,0,0,0)", // クリック中は影なし
                 }}
@@ -170,7 +167,7 @@ export function ButtonAnimation({ className = "w-40 h-12", type }: ButtonAnimati
 
         GradientMove: (
             <motion.div
-                className={`px-8 py-4 rounded-full cursor-pointer ${className}`}
+                className={`rounded-full ${className}`}
                 style={{
                     background: "linear-gradient(90deg,#fe447c, #364f6b)",
                     backgroundSize: "500% 500%",

@@ -7,7 +7,8 @@ interface ButtonHoverProps {
     type: "ExtendLeft" | "DiagonalSwipe" | "DoubleSwipe" | "StopSwipe" | "Passing" | "CircleOut" | "Click" | "Flip" | "ColorCycle" | "ColorIntoCenter" | "ChangeShape" | "HiddenText" | "ColorFlow" | "Mochi" | "Wave" | "BackgroundMoves" | "GradientSlide" | "Toggle" | "PixelHover" | "Bubble";
 }
 
-export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps) {
+export function ButtonHover({ className = "w-40 h-12 cursor-pointer", type }: ButtonHoverProps) {
+    const flexCenter ="flex justify-center items-center"
     const [isChecked, setIsChecked] = useState(false);
     const bubbles = useMemo(() => {
         return [...Array(4)].map(() => ({
@@ -17,18 +18,18 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
             duration: 1.5 + Math.random() * 1.5,
         }));
     }, []);
-    const animations = {
 
+    const animations = {
         ExtendLeft: (
             <motion.div
-                className={`relative px-8 py-4 rounded-sm border border-gray-300 cursor-pointer overflow-hidden ${className}`}
+                className={`relative rounded-sm border border-gray-300 overflow-hidden ${className}`}
                 whileHover="hovered"
                 initial="initial"
                 animate="initial"
             >
                 {/* 背景 */}
                 <motion.div
-                    className="absolute top-0 -left-full w-full h-full bg-gray-400"
+                    className="absolute top-0 w-full h-full bg-gray-400"
                     variants={{
                         initial: { left: "-100%" },
                         hovered: { left: 0 }
@@ -37,7 +38,7 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                 />
                 {/* テキスト */}
                 <motion.span
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-gray-500"
+                    className={`absolute z-10 inset-0 ${flexCenter}`}
                     variants={{
                         initial: { color: "#6a7282" },
                         hovered: { color: "#fff" },
@@ -51,14 +52,14 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
         DiagonalSwipe: (
             <motion.div
-                className={`relative px-8 py-4 rounded-sm border border-rose-300 cursor-pointer overflow-hidden ${className}`}
+                className={`relative px-8 py-4 rounded-sm border border-rose-300  overflow-hidden ${className}`}
                 whileHover="hovered"
                 initial="initial"
                 animate="initial"
             >
                 {/* 斜め背景 */}
                 <motion.div
-                    className="absolute -top-40 right-0 h-full bg-rose-400"
+                    className="absolute -top-40 h-full bg-rose-400"
                     style={{
                         width: "200%",
                         height: "350%",
@@ -73,9 +74,9 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                 />
                 {/* テキスト */}
                 <motion.span
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-rose-500"
+                    className={`absolute inset-0 z-10 ${flexCenter}`}
                     variants={{
-                        initial: { color: "oklch(64.5% 0.246 16.439)" },
+                        initial: { color: "#f43f5e" },
                         hovered: { color: "#fff" },
                     }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -87,14 +88,14 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
         DoubleSwipe: (
             <motion.div
-                className={`relative px-8 py-4 rounded-sm border border-green-400 cursor-pointer overflow-hidden ${className}`}
+                className={`relative px-8 py-4 rounded-sm border border-green-400  overflow-hidden ${className}`}
                 whileHover="hovered"
                 initial="initial"
                 animate="initial"
             >
                 {/* 斜め背景1 */}
                 <motion.div
-                    className="absolute -top-40 right-0 h-full bg-green-400"
+                    className="absolute -top-40 h-full bg-green-400"
                     style={{
                         width: "200%",
                         height: "350%",
@@ -110,7 +111,7 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
                 {/* 斜め背景2 */}
                 <motion.div
-                    className="absolute top-14 left-0 h-full bg-green-400"
+                    className="absolute top-14 h-full bg-green-400"
                     style={{
                         width: "200%",
                         height: "350%",
@@ -126,12 +127,12 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
                 {/* テキスト */}
                 <motion.span
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-green-500"
+                    className={`absolute inset-0 z-10 text-green-500 ${flexCenter}`}
                     variants={{
-                        initial: { color: "oklch(72.3% 0.219 149.579)" },
+                        initial: { color: "#22c55e" },
                         hovered: { color: "#fff" },
                     }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                     Button
                 </motion.span>
@@ -140,14 +141,14 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
         StopSwipe: (
             <motion.div
-                className={`relative px-8 py-4 rounded-sm border border-orange-400 cursor-pointer overflow-hidden ${className}`}
+                className={`relative px-8 py-4 rounded-sm border border-orange-400  overflow-hidden ${className}`}
                 whileHover="hovered"
                 initial="initial"
                 animate="initial"
             >
                 {/* 斜め背景1 */}
                 <motion.div
-                    className="absolute -top-40 right-0 h-full bg-orange-400"
+                    className="absolute -top-40 h-full bg-orange-400"
                     style={{
                         width: "200%",
                         height: "200%",
@@ -156,19 +157,19 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                     }}
                     variants={{
                         initial: { left: "-150%" },
-                        hovered: { left: "-40%" }
+                        hovered: { left: "-38%" }
                     }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                 />
 
                 {/* テキスト */}
                 <motion.span
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-orange-500"
+                    className={`absolute inset-0 z-10 text-orange-500 ${flexCenter}`}
                     variants={{
-                        initial: { color: "oklch(70.5% 0.213 47.604)" },
+                        initial: { color: "#f97316" },
                         hovered: { color: "#fff" },
                     }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                     Button
                 </motion.span>
@@ -177,46 +178,43 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
         Passing: (
             <motion.div
-                className={`relative px-8 py-4 rounded-sm border border-indigo-500 overflow-hidden cursor-pointer ${className}`}
-                whileHover="hovered" // ← 親に hover 状態を渡す
+                className={`relative px-8 py-4 rounded-sm border border-indigo-500 overflow-hidden ${className}`}
+                whileHover="hover"
                 initial="initial"
                 animate="initial"
             >
                 {/* 背景 */}
                 <motion.div
-                className="absolute top-0 -left-full w-full h-full  bg-indigo-400 z-0"
+                className="absolute top-0 w-full h-full bg-indigo-400 z-0"
                 variants={{
                     initial: { left: "-100%" },
-                    hovered: { left: "100%" }
+                    hover: { left: "100%" }
                 }}
                 transition={{ duration: 1, ease: "easeInOut" }}
                 />
                 {/* テキスト */}
-                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">Button</span>
+                <span
+                    className={`absolute inset-0 z-10 ${flexCenter}`}
+                >
+                    Button
+                </span>
             </motion.div>
         ),
 
         CircleOut: (
             <motion.div
-                className={`relative px-8 py-4 rounded-sm border border-gray-300 cursor-pointer overflow-hidden ${className}`}
-                whileHover="hovered"
+                className={`relative px-8 py-4 rounded-sm border border-gray-300  overflow-hidden ${className}`}
+                whileHover="hover"
                 initial="initial"
                 animate="initial"
             >
                 {/* 円エフェクト */}
                 <motion.div
-                className="absolute bg-gray-400 rounded-full"
-                style={{
-                    width: 20,
-                    height: 20,
-                    top: "50%",
-                    left: "50%",
-                    translateX: "-50%",
-                    translateY: "-50%",
-                }}
+                className="absolute bg-gray-400 rounded-full w-5 h-5 top-1/2 left-1/2
+                -translate-x-1/2 -translate-y-1/2"
                 variants={{
                     initial: { scale: 0, opacity: 0 },
-                    hovered: { scale: 10, opacity: 1 }, // 広がる量を調整
+                    hover: { scale: 10, opacity: 1 },
                 }}
                 transition={{
                     duration: 0.3,
@@ -226,10 +224,10 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
                 {/* テキスト */}
                 <motion.span
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-gray-500"
+                    className={`absolute inset-0 z-10 ${flexCenter}`}
                     variants={{
-                        initial: { color: "#6a7282" },
-                        hovered: { color: "#fff" },
+                        initial: { color: "#4a5565" },
+                        hover: { color: "#fff" },
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
@@ -239,36 +237,35 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
         ),
 
         Click: (
-            <div className={`relative px-8 py-4 bg-gray-400 cursor-pointer z-5 ${className}`}>
+            <div className={`relative px-8 py-4 bg-gray-400 z-5 ${className}`}>
                 <motion.div
-                    className={`absolute -top-1 -left-1 px-8 py-4 bg-sky-300 cursor-pointer ${className}`}
-                    whileHover={{ x: 2, y: 2 }}
+                    className={`absolute -top-1 -left-1 px-8 py-4 bg-sky-300  ${className}`}
+                    whileHover={{ x: 3, y: 3 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                     {/* テキスト */}
-                    <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">Button</span>
+                    <span className="absolute inset-0 flex justify-center items-center">Button</span>
                 </motion.div>
             </div>
         ),
 
         Flip: (
             <motion.div
-                className={`relative px-8 py-4 w-40 h-12 rounded-lg cursor-pointer ${className}`}
+                className={`relative px-8 py-4 rounded-lg ${className}`}
                 whileHover={{ rotateX: 180 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 style={{ transformStyle: "preserve-3d", perspective: 600 }}
                 >
                 {/* 前面 */}
                 <div
-                    className="absolute inset-0 flex items-center justify-center bg-purple-600 text-white rounded-lg"
-                    style={{ backfaceVisibility: "hidden" }}
+                    className={`absolute inset-0  bg-purple-600 text-white rounded-lg ${flexCenter}`}
                 >
                     Button
                 </div>
 
                 {/* 背面 */}
                 <div
-                    className="absolute inset-0 flex items-center justify-center bg-indigo-500 text-white rounded-lg"
+                    className={`absolute inset-0 bg-indigo-500 text-white rounded-lg ${flexCenter}`}
                     style={{ backfaceVisibility: "hidden", transform: "rotateX(180deg)" }}
                 >
                     Hover
@@ -278,119 +275,124 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
         ColorCycle: (
             <motion.div
-                className={`relative px-8 py-4 rounded-full border-2 border-green-600 overflow-hidden cursor-pointer ${className}`}
-                whileHover="hovered" // ← 親に hover 状態を渡す
+                className={`relative px-8 py-4 rounded-full border-2 border-green-600 overflow-hidden ${className}`}
+                whileHover="hover"
                 initial="initial"
-                animate="initial"
             >
                 {/* 背景1 */}
                 <motion.div
-                className="absolute -top-full left-0 w-full h-full bg-green-200 z-0"
+                className="absolute left-0 w-full h-full bg-green-200 z-0"
                 variants={{
                     initial: { top: "-100%" },
-                    hovered: { top: 0 }
+                    hover: { top: 0 }
                 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeInOut", }}
                 />
 
                 {/* 背景2 */}
                 <motion.div
-                    className="absolute -top-full left-0 w-full h-full bg-green-600 z-0"
+                    className="absolute left-0 w-full h-full bg-green-600 z-1"
                     variants={{
-                    initial: { top: "-100%" },
-                    hovered: { top: 0 },
+                        initial: { top: "-100%" },
+                        hover: { top: 0 },
                     }}
-                    transition={{ duration: 0.4, ease: "easeInOut", delay: 0.3 }}
+                    transition={{ duration: 0.3, ease: "easeInOut", delay: 0.2 }}
                 />
 
                 {/* テキスト */}
-                <motion.span    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-green-800"
+                <motion.span className={`absolute inset-0 z-10 ${flexCenter}`}
                 variants={{
-                    initial: { color: "#16a34a" }, // 元の色
-                    hovered: { color: "#fff" },    // ホバー時の色
+                    initial: { color: "#16a34a" },
+                    hover: { color: "#fff" },
                 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}>Button</motion.span>
-                </motion.div>
-            ),
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                    Button
+                </motion.span>
+            </motion.div>
+        ),
         
         ColorIntoCenter: (
             <motion.div
-                className={`relative px-8 py-4 rounded-sm border-2 border-zinc-400 overflow-hidden cursor-pointer ${className}`}
+                className={`relative px-8 py-4 rounded-sm border-2 overflow-hidden ${className}`}
                 whileHover="hovered" // ← 親に hover 状態を渡す
-                initial="initial"
-                animate="initial"
+                initial="initial" //初期状態を "initial" として表示する
+                animate="initial" //ホバーしていないときは常に "initial" の状態に戻す
                 variants={{
-                    initial: { borderColor: "#9f9fa9" }, // 元の色
-                    hovered: { borderColor: "#52525c" },    // ホバー時の色
+                    initial: { borderColor: "#9f9fa9" },
+                    hovered: { borderColor: "#52525c" },
                 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
             >
                 {/* 背景上 */}
                 <motion.div
-                className="absolute -top-full left-0 w-full h-full bg-zinc-600 z-0"
-                variants={{
-                    initial: { top: "-100%" },
-                    hovered: { top: 0 }
-                }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className="absolute left-0 w-full h-full bg-zinc-600"
+                    variants={{
+                        initial: { top: "-100%" },
+                        hovered: { top: 0 }
+                    }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
                 />
 
                 {/* 背景右 */}
                 <motion.div
-                className="absolute top-0 h-full w-full bg-zinc-600"
-                variants={{
-                    initial: { right: "-100%" },
-                    hovered: { right: 0 },
-                }}
-                transition={{ duration: 0.2, ease: "easeInOut", }}
+                    className="absolute top-0 h-full w-full bg-zinc-600"
+                    variants={{
+                        initial: { right: "-100%" },
+                        hovered: { right: 0 },
+                    }}
+                    transition={{ duration: 0.2, ease: "easeInOut", }}
                 />
 
                 {/* 背景下 */}
                 <motion.div
-                className="absolute left-0 w-full h-full bg-zinc-600"
-                variants={{
-                    initial: { bottom: "-100%" },
-                    hovered: { bottom: 0 },
-                }}
-                transition={{ duration: 0.2, ease: "easeInOut", }}
+                    className="absolute left-0 w-full h-full bg-zinc-600"
+                    variants={{
+                        initial: { bottom: "-100%" },
+                        hovered: { bottom: 0 },
+                    }}
+                    transition={{ duration: 0.2, ease: "easeInOut", }}
                 />
 
                 {/* 背景左 */}
                 <motion.div
-                className="absolute top-0 h-full w-full bg-zinc-600"
-                variants={{
-                    initial: { left: "-100%" },
-                    hovered: { left: 0 },
-                }}
-                transition={{ duration: 0.2, ease: "easeInOut", }}
+                    className="absolute top-0 h-full w-full bg-zinc-600"
+                    variants={{
+                        initial: { left: "-100%" },
+                        hovered: { left: 0 },
+                    }}
+                    transition={{ duration: 0.2, ease: "easeInOut", }}
                 />
 
                 {/* テキスト */}
-                <motion.span    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-zinc-600"
-                variants={{
-                    initial: { color: "#52525c" },
-                    hovered: { color: "#fff" },
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}>Button</motion.span>
-                </motion.div>
-            ),
-            
+                <motion.span
+                    className={`absolute inset-0 z-10 ${flexCenter}`}
+                    variants={{
+                        initial: { color: "#52525c" },
+                        hovered: { color: "#fff" },
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                    Button
+                </motion.span>
+            </motion.div>
+        ),
+
         ChangeShape: (
             <motion.div
-                className={`relative px-8 py-4  cursor-pointer overflow-hidden. bg-transparent ${className}`}
-                whileHover="hovered"
+                className={`relative px-8 py-4  overflow-hidden ${className}`}
+                whileHover="hover"
                 initial="initial"
-                animate="initial"
             >
                 {/* 背景 */}
                 <motion.div
                     className="absolute top-0 left-0 w-full h-full"
                     variants={{
                         initial: {
-                            backgroundColor: "rgba(255, 255, 0, 0)",
+                            backgroundColor: "#FFFF0000",
                             borderRadius: "4px",
                         },
-                        hovered: {
+                        hover: {
                             backgroundColor: "rgba(255, 200, 0, 1)",
                             borderRadius: "999px",
                         },
@@ -408,24 +410,24 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                     }}
                 />
                 {/* テキスト */}
-                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">Button</span>
+                <span className={`absolute inset-0 ${flexCenter}`}>Button</span>
             </motion.div>
         ),
 
 
         HiddenText: (
             <motion.div
-                className={`relative px-8 py-4  cursor-pointer overflow-hidden ${className}`}
+                className={`relative px-8 py-4  overflow-hidden ${className}`}
                 whileHover="hovered"
                 initial="initial"
                 animate="initial"
             >
                 {/* 背景 */}
                 <motion.div
-                    className="absolute left-0 -bottom-full w-full h-full bg-pink-200 z-1 flex items-center justify-center"
+                    className={`absolute left-0 w-full h-full bg-pink-300 ${flexCenter}`}
                     variants={{
-                        initial: { y: "0%" },
-                        hovered: { y: "-100%" }
+                        initial: { bottom: "-100%" },
+                        hovered: { bottom: 0 }
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
@@ -435,10 +437,10 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                 </motion.div>
                 {/* テキスト */}
                 <motion.div
-                    className="absolute inset-0 border border-pink-300 flex items-center justify-center"
+                    className={`absolute w-full h-full left-0 border border-pink-300 ${flexCenter}`}
                     variants={{
-                        initial: { y: "0%" },
-                        hovered: { y: "-100%" }
+                        initial: { top: 0 },
+                        hovered: { top: "-100%" }
                     }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     >
@@ -451,7 +453,7 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
         ColorFlow: (
             <motion.div
-                className={`relative group px-8 py-4 rounded-md cursor-pointer overflow-hidden.  flex items-center justify-center ${className}`}
+                className={`relative group px-8 py-4 rounded-md overflow-hidden ${className} ${flexCenter}`}
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -461,12 +463,12 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                 }}
                 transition={{ duration: 0.3 }}
             >
-                <div className="flex items-center justify-center relative w-full">
+                <div className={`relative w-full ${flexCenter}`}>
                     <motion.span
-                        className="relative z-10"
+                        className="relative"
                         variants={{
                             rest: { x: 0 },
-                            hover: { x: -10 }, // ← ホバーで少し左に動く
+                            hover: { x: -10 },
                         }}
                         transition={{ type: "tween", duration: 0.3 }}
                     >
@@ -492,7 +494,7 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
         Mochi: (
             <div className={`relative w-40 h-12 ${className}`} style={{ filter: "url(#goo)" }}>
                 <motion.div
-                    className="relative w-full h-full inline-block cursor-pointer rounded-xl" initial="rest"
+                    className="relative w-full h-full inline-block rounded-xl" initial="rest"
                     whileHover="hover"
                     animate="rest"
                 >
@@ -500,10 +502,10 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                     <motion.div
                     className="absolute bg-gray-400 rounded-full z-0"
                     style={{
-                        width: "36%",   // 親幅の40%
-                        height: "85%",  // 親高さの80%
+                        width: "36%",   // 親幅の36%
+                        height: "85%",  // 親高さの85%
                         top: "-20%",    // 親上端より少し上
-                        left: "22%",    // 親幅の10%左から
+                        left: "22%",    // 親幅の22%左から
                     }}
                     variants={{
                         rest: { scale: 0 },
@@ -529,18 +531,18 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                     />
 
                     {/* ボタン本体 */}
-                    <motion.button
-                    className="relative z-10 w-full h-full rounded-xl font-bold text-white bg-gray-400"
+                    <button
+                    className="relative w-full h-full rounded-xl font-bold text-white bg-gray-400"
                     >
                     Button
-                    </motion.button>
+                    </button>
                 </motion.div>
             </div>
         ),
 
         Wave: (
             <motion.button
-                className={`flex items-center justify-center relative px-8 py-4 font-bold uppercase text-indigo-400 border-2 border-blue-500  ${className}`}
+                className={`relative px-8 py-4 font-bold uppercase text-indigo-400 border-2 border-blue-500 ${className} ${flexCenter}`}
                 style={{ filter: "url(#goo)" }}
                 initial="rest"
                 whileHover="hover"
@@ -580,7 +582,7 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
                 {/* ボタンテキスト */}
                 <motion.span
-                    className="z-2 flex justify-center items-center"
+                    className={`z-2 ${flexCenter}`}
                     variants={{
                         rest: { color: "#3B82F6" },
                         hover: { color: "#fff" },
@@ -606,27 +608,27 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                 px-8 py-4 rounded-sm border-3 font-bold
                 bg-transparent 
                 border-neutral-200 text-neutral-400
-                transition-all duration-300 flex justify-center items-center
-                ${className}
+                transition-all duration-300 
+                ${className} ${flexCenter}
                 `}
                 initial={{
-                backgroundPosition: "0 0",
+                    backgroundPosition: "0 0",
                 }}
                 whileHover={{
-                borderColor: "#50514f",
-                color: "#50514f",
-                backgroundImage:
-                    "repeating-linear-gradient(-25deg, #e5e5e5, #e5e5e5 3px, transparent 4px, transparent 7px)", //グレーの帯を 3px の幅で描く→直後に 1px だけ透明→透明部分をさらに 7px まで拡大
-                backgroundSize: "12px 16px", //背景画像を 12px × 16px のタイルとして配置する
-                backgroundPosition: ["0px 0px", "300px 0px"], //背景を 右へ300px スライドさせる指定
+                    borderColor: "#50514f",
+                    color: "#50514f",
+                    backgroundImage:
+                        "repeating-linear-gradient(-25deg, #e5e5e5, #e5e5e5 3px, transparent 4px, transparent 7px)", //グレーの帯を 3px の幅で描く→直後に 1px だけ透明→透明部分をさらに 7px まで拡大
+                    backgroundSize: "12px 16px", //背景画像を 12px × 16px のタイルとして配置する
+                    backgroundPosition: ["0px 0px", "300px 0px"], //背景を 右へ300px スライドさせる指定
                 }}
                 transition={{
-                backgroundPosition: {
-                    repeat: Infinity,
-                    duration: 5,
-                    ease: "linear",
-                },
-                duration: 0.8,
+                    backgroundPosition: {
+                        repeat: Infinity,
+                        duration: 5,
+                        ease: "linear",
+                    },
+                    duration: 0.8,
                 }}
             >
                 BUTTON
@@ -636,10 +638,10 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
         GradientSlide: (
             <motion.div
                 className={`
-                    ${className}
-                    px-8 py-4 rounded-lg cursor-pointer text-white font-semibold
+                    ${className} ${flexCenter}
+                    px-8 py-4 rounded-lg text-white font-semibold
                     bg-size-[200%_auto]
-                    bg-linear-to-r from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb] flex justify-center items-center
+                    bg-linear-to-r from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb]
                 `}
                 initial={{ backgroundPosition: "0% center" }}
                 whileHover={{ backgroundPosition: "100% center" }}
@@ -692,10 +694,10 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
         PixelHover: (
             <motion.div
-                className={`relative border border-red-500 flex justify-center items-center text-black uppercase bg-position-[180px] ${className}`
+                className={`relative border border-red-500 text-black uppercase bg-position-[180px] ${className} ${flexCenter}`
                 }
                 style={{
-                backgroundSize: "180px",
+                    backgroundSize: "180px",
                 }}
                 whileHover="hover"
                 variants={{
@@ -704,20 +706,20 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
                         backgroundImage:
                         "url(https://i.postimg.cc/wBXGXbWN/pixel.png)",
                         backgroundPositionY: [
-                        "0px",
-                        "-60px",
-                        "-120px",
-                        "-180px",
-                        "-240px",
-                        "-300px",
-                        "-360px",
-                        "-420px",
-                        "-480px",
+                            "0px",
+                            "-60px",
+                            "-120px",
+                            "-180px",
+                            "-240px",
+                            "-300px",
+                            "-360px",
+                            "-420px",
+                            "-480px",
                         ], //コマ送りで背景画像をずらす
                         transition: {
-                        duration: 0.8,
-                        ease: "linear",
-                        times: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
+                            duration: 0.8,
+                            ease: "linear",
+                            times: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
                         },
                     },
                 }}
@@ -794,5 +796,5 @@ export function ButtonHover({ className = "w-40 h-12", type }: ButtonHoverProps)
 
             {animations[type]}
         </>
-  );
+    );
 }
