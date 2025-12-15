@@ -19,7 +19,7 @@ export const accordionData: AccordionCategory[] = [
         { title: "Loading", key: "Loading", content: "Spinner / Pulse / Bounce" },
         { title: "Appearance", key: "Appearance", content: "Fade-in / Slide-in / Zoom-in" },
         { title: "Text", key: "Text", content: "Typing / Gradient text / Letter spacing" },
-        { title: "Logo & SVG", key: "Logo-Svg", content: "Stroke / Fill / Morph" },
+        { title: "Image", key: "Image", content: "Image hover" },
         { title: "Background Effects", key: "Background", content: "Gradient / Blur / Particles" },
         { title: "Micro Interactions",  key: "Micro",content: "Button hover / Card hover" },
         { title: "UI Components", key: "UI-components",content: "Accordion / Modal / Drawer" },

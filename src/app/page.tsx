@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
 import LoadingList from "@/components/animations/loading/LoadingList";
 import ButtonHoverList from "@/components/animations/micro-interactions/LoadingList";
+import ImageHoverList from "@/components/animations/images/LoadingList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -102,6 +103,7 @@ export default function HomePage() {
                                   <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
                                       {selectedItem === "Loading" && <LoadingList />}
                                       {selectedItem === "Micro" && <ButtonHoverList />}
+                                      {selectedItem === "Image" && <ImageHoverList />}
                                 </div>
                             )}
                         </main>
