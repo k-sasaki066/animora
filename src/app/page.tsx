@@ -7,6 +7,7 @@ import NavMenu from "@/components/NavMenu";
 import LoadingList from "@/components/animations/loading/LoadingList";
 import ButtonHoverList from "@/components/animations/micro-interactions/LoadingList";
 import ImageHoverList from "@/components/animations/images/LoadingList";
+import { SliderList } from "@/components/animations/sliders/SliderList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -104,6 +105,7 @@ export default function HomePage() {
                                       {selectedItem === "Loading" && <LoadingList />}
                                       {selectedItem === "Micro" && <ButtonHoverList />}
                                       {selectedItem === "Image" && <ImageHoverList />}
+                                      {selectedItem === "UI-components" && <SliderList />}
                                 </div>
                             )}
                         </main>

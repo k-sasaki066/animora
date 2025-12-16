@@ -1,0 +1,32 @@
+"use client";
+
+import { useState } from "react";
+import { SliderCard } from "./SliderCard";
+import { SliderModal } from "./SliderModal";
+import { sliderData } from "./sliderData";
+
+export function SliderList() {
+    const [activeKey, setActiveKey] = useState<string | null>(null);
+
+    return (
+        <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                {sliderData.map((slider) => (
+                <SliderCard
+                    key={slider.key}
+                    title={slider.title}
+                    thumbnail={slider.thumbnail}
+                    description={slider.description}
+                    onClick={() => setActiveKey(slider.key)}
+                />
+                ))}
+            </div>
+
+            {/* Modal */}
+            <SliderModal
+                sliderKey={activeKey}
+                onClose={() => setActiveKey(null)}
+            />
+        </>
+    );
+}
