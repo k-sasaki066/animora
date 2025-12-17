@@ -42,4 +42,22 @@ export const sliderData: SliderItem[] = [
         thumbnail: "/lavender.jpg",
         description: "",
     },
+    {
+        key: "Carousel3D",
+        title: "3D Carousel Slider",
+        thumbnail: "/leading.jpg",
+        description: "",
+    },
+    {
+        key: "Split",
+        title: "Split Slider",
+        thumbnail: "/river.jpg",
+        description: "",
+    },
+    {
+        key: "SkewedScroll",
+        title: "Skewed Scroll Slider",
+        thumbnail: "/fruits.jpg",
+        description: "",
+    },
 ];
