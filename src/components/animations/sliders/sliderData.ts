@@ -60,4 +60,22 @@ export const sliderData: SliderItem[] = [
         thumbnail: "/fruits.jpg",
         description: "",
     },
+    {
+        key: "ForestSlider",
+        title: "Forest Slider",
+        thumbnail: "/lavender.jpg",
+        description: "",
+    },
+    {
+        key: "AnimeSlider",
+        title: "Anime Slider",
+        thumbnail: "/leading.jpg",
+        description: "",
+    },
+    {
+        key: "Fancy",
+        title: "Fancy Slider",
+        thumbnail: "/sea.jpg",
+        description: "",
+    },
 ];
