@@ -17,8 +17,9 @@ export default function HeroCarousel() {
     };
 
     return (
-        <div className="relative w-full max-w-4xl h-[550px] overflow-hidden">
+        <div className="relative w-full max-w-4xl">
             {/* スライド */}
+            <div className="relative h-[500px] overflow-hidden">
             {heroSlides.map((slide, index) => (
                 <HeroSlide
                 key={index}
@@ -26,14 +27,30 @@ export default function HeroCarousel() {
                 active={index === current}
                 />
             ))}
+            </div>
 
             {/* ナビ */}
-            <div className="absolute bottom-0 right-0 flex bg-white z-20">
-                <button onClick={prev} className="p-3 border-r">
+            <div className="mt-6 flex items-center gap-6">
+                <div className="flex-1 h-1 bg-blue-100 rounded-full overflow-hidden">
+                    <div
+                    className="h-full bg-blue-500 transition-all duration-500"
+                    style={{
+                        width: `${((current + 1) / heroSlides.length) * 100}%`,
+                    }}
+                    />
+                </div>
+
+                <button
+                    onClick={prev}
+                    className="w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition bg-white"
+                >
                     <ChevronLeft size={18} />
                 </button>
 
-                <button onClick={next} className="p-3">
+                <button
+                    onClick={next}
+                    className="w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition bg-white"
+                >
                     <ChevronRight size={18} />
                 </button>
             </div>
