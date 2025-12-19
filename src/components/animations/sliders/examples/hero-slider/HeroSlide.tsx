@@ -18,7 +18,8 @@ export function HeroSlide({ slide, active }: Props) {
         `}
         >
             {/* テキスト */}
-            <div className="w-2/5 px-10 flex flex-col justify-center">
+            <div className="md:w-2/5 px-4 sm:px-6
+                md:px-10 flex flex-col justify-center">
                 <p
                 className={`
                     text-xs tracking-widest uppercase text-gray-500
@@ -31,8 +32,7 @@ export function HeroSlide({ slide, active }: Props) {
 
                 <h2
                 className={`
-                    mt-4 text-4xl font-bold tracking-widest
-                    transition-all duration-700
+                    mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide sm:tracking-widest transition-all duration-700
                     ${active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}
                 `}
                 >
@@ -41,7 +41,7 @@ export function HeroSlide({ slide, active }: Props) {
 
                 <p
                 className={`
-                    mt-6 text-sm text-gray-500 leading-6
+                    mt-6 sm:mt-6 md:mx-0 not-[]:text-sm sm:text-base text-gray-500 leading-6 max-w-xl mx-auto
                     transition-all duration-700
                     ${active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}
                 `}

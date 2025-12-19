@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { getCarouselConfig } from "@/lib/responsive/centerFocusConfig";
 
 const testimonials = [
     {
@@ -47,10 +49,12 @@ const getOffset = (index: number, current: number, length: number) => {
 
 export default function TestimonialsCarousel() {
     const [current, setCurrent] = useState(2);
+    const width = useWindowSize();
+    const config = getCarouselConfig(width);
 
     return (
         <div className="relative w-full max-w-5xl mx-auto overflow-hidden py-8">
-            <div className="relative flex items-center justify-center h-[420px]">
+            <div className="relative flex items-center justify-center h-[300px]">
                 {testimonials.map((item, index) => {
                     const offset = getOffset(
                         index,
@@ -58,30 +62,35 @@ export default function TestimonialsCarousel() {
                         testimonials.length
                     );
 
-                    if (Math.abs(offset) > 2) return null;
-
-                    const scale = offset === 0 ? 1 : 0.8;
-                    const opacity = offset === 0 ? 1 : 0.2;
+                    if (Math.abs(offset) > config.visibleRange) return null;
+                    const isActive = offset === 0;
 
                     return (
                         <motion.div
                             key={item.name}
                             className="absolute px-6"
                             animate={{
-                                x: offset * 360,
-                                scale,
-                                opacity,
+                                x: offset * config.gap,
+                                scale: isActive ? 1 : config.inactiveScale,
+                                opacity: isActive ? 1 : config.inactiveOpacity,
                             }}
                             transition={{
                                 duration: 0.4,
                                 ease: "easeInOut",
                             }}
                         >
-                            <div className="bg-white border rounded-md p-6 text-center shadow-lg w-[320px]">
+                            <div
+                                className="bg-white border rounded-md p-6 text-center shadow-lg"
+                                style={{ width: config.cardWidth }}
+                            >
                                 <img
                                     src={item.image}
                                     alt=""
                                     className="w-[90px] h-[90px] object-cover rounded-full mx-auto mb-4"
+                                    style={{
+                                        width: config.imageSize,
+                                        height: config.imageSize,
+                                    }}
                                 />
                                 <p          className="text-gray-600 text-sm mb-4">{item.text}</p>
                             </div>

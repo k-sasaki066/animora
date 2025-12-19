@@ -2,20 +2,22 @@
 
 import { motion } from "framer-motion";
 import clsx from "clsx";
+import { getCarousel3dConfig } from "@/lib/responsive/carousel3dConfig";
 
 interface Carousel3dSlideProps {
     title: string;
     text: string;
     offset: number;
-    isActive: boolean;
+    config: getCarousel3dConfig;
 }
 
 export default function Carousel3dSlide({
     title,
     text,
     offset,
-    isActive,
+    config,
 }: Carousel3dSlideProps) {
+    const isActive = offset === 0;
     return (
         <motion.div
             className={clsx(
@@ -23,19 +25,21 @@ export default function Carousel3dSlide({
                 "flex flex-col justify-center text-center",
                 "transition-colors duration-300",
                 isActive
-                  ? "bg-gray-800 text-white"
-                  : "bg-white text-gray-700"
+                    ? "bg-gray-800 text-white"
+                    : "bg-white text-gray-700"
             )}
             style={{
-                width: isActive ? 360 : 300,
-                height: isActive ? 220 : 180,
+                width: config.cardWidth,
+                height: config.cardHeight,
             }}
             animate={{
-                x: offset * 180,
+                x: offset * config.gap,
                 rotateY: offset * 0,
-                scale: isActive ? 1 : 0.85,
+                scale: isActive
+                    ? config.activeScale
+                    : config.inactiveScale,
                 z: isActive ? 120 : 0,
-                opacity: Math.abs(offset) > 2 ? 0 : 1,
+                opacity: Math.abs(offset) > config.maxVisibleOffset ? 0 : 1,
                 zIndex: 100 - Math.abs(offset),
             }}
             transition={{
