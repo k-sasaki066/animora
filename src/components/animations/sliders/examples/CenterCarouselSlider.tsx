@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { getCarouselConfig } from "@/lib/responsive/centerCarouselConfig";
 
 const slides = [
     "/lavender.jpg",
@@ -12,9 +14,6 @@ const slides = [
     "/leading.jpg",
     "/sea.jpg"
 ];
-
-const CARD_WIDTH = 180;
-const VISIBLE_RANGE = 2;
 
 const getOffset = (index: number, current: number, length: number) => {
     let offset = index - current;
@@ -27,6 +26,10 @@ const getOffset = (index: number, current: number, length: number) => {
 
 export default function CenterCarouselSlider() {
     const [current, setCurrent] = useState(2); // 最初は「3」を中央に
+
+    const width = useWindowSize();
+    const { cardWidth, cardHeight, visibleRange, centerScale } =
+    getCarouselConfig(width);
 
     const prev = () => {
         setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -48,27 +51,31 @@ export default function CenterCarouselSlider() {
                 {slides.map((item, index) => {
                     const offset = getOffset(index, current, slides.length);
 
-                    if (Math.abs(offset) > VISIBLE_RANGE) return null;
+                    if (Math.abs(offset) > visibleRange) return null;
 
                     const scale =
-                      offset === 0 ? 1.2 : Math.abs(offset) === 1 ? 1 : 0.85;
+                        offset === 0
+                            ? centerScale
+                            : Math.abs(offset) === 1
+                                ? 1
+                                : 0.85;
 
-                    const targetX = offset * CARD_WIDTH;
-                  
+                    const targetX = offset * cardWidth;
+
                     const enterX =
                         offset > 0
-                            ? (VISIBLE_RANGE + 1) * CARD_WIDTH
-                              : -(VISIBLE_RANGE + 1) * CARD_WIDTH;
+                            ? (visibleRange + 1) * cardWidth
+                              : -(visibleRange + 1) * cardWidth;
 
-                      const zIndex = 10 - Math.abs(offset);
+                    const zIndex = 10 - Math.abs(offset);
 
                     return (
                         <motion.div
                             key={item}
-                            className="absolute rounded-xl overflow-hidden"
+                            className="absolute  overflow-hidden"
                             style={{
-                                width: 140,
-                                height: 200,
+                                width: cardWidth,
+                                height: cardHeight,
                                 zIndex,
                             }}
                             initial={{ x: enterX, scale }}
