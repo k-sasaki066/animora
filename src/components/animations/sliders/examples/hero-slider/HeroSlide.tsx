@@ -1,3 +1,5 @@
+import { HeroConfig } from "@/lib/responsive/heroConfig"
+
 type Props = {
     slide: {
         subtitle: string;
@@ -7,19 +9,19 @@ type Props = {
         button: string;
     };
     active: boolean;
+    config: HeroConfig
 };
 
-export function HeroSlide({ slide, active }: Props) {
+export function HeroSlide({ slide, active, config }: Props) {
     return (
         <div
         className={`
-            absolute inset-0 flex bg-white transition-opacity duration-500
+            absolute inset-0 flex flex-col md:flex-row bg-white transition-opacity duration-500
             ${active ? "opacity-100 z-10" : "opacity-0 z-0"}
         `}
         >
             {/* テキスト */}
-            <div className="md:w-2/5 px-4 sm:px-6
-                md:px-10 flex flex-col justify-center">
+            <div className={`w-full md:w-2/5 flex flex-col justify-center ${config.textPadding}`}>
                 <p
                 className={`
                     text-xs tracking-widest uppercase text-gray-500
@@ -32,8 +34,9 @@ export function HeroSlide({ slide, active }: Props) {
 
                 <h2
                 className={`
-                    mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide sm:tracking-widest transition-all duration-700
-                    ${active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}
+                    mt-3 font-bold transition-all duration-700
+                    ${config.titleClass}
+                    ${active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
                 `}
                 >
                 {slide.title}
@@ -41,9 +44,9 @@ export function HeroSlide({ slide, active }: Props) {
 
                 <p
                 className={`
-                    mt-6 sm:mt-6 md:mx-0 not-[]:text-sm sm:text-base text-gray-500 leading-6 max-w-xl mx-auto
-                    transition-all duration-700
-                    ${active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}
+                    text-gray-500 transition-all duration-700
+                    ${config.descriptionClass}
+                    ${active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
                 `}
                 >
                 {slide.description}
@@ -51,9 +54,10 @@ export function HeroSlide({ slide, active }: Props) {
 
                 <button
                 className={`
-                    mt-8 text-xs tracking-widest font-bold uppercase w-fit
+                    uppercase text-xs font-bold tracking-widest w-fit
                     transition-all duration-700
-                    ${active ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}
+                    ${config.buttonMargin}
+                    ${active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
                 `}
                 >
                 {slide.button}
@@ -63,7 +67,7 @@ export function HeroSlide({ slide, active }: Props) {
             {/* 画像 */}
             <div
                 className={`
-                w-3/5 bg-cover bg-center transition-transform duration-700
+                w-full md:w-3/5 h-full bg-cover bg-center transition-transform duration-700
                 ${active ? "translate-x-0" : "translate-x-full"}
                 `}
                 style={{ backgroundImage: `url(${slide.image})` }}

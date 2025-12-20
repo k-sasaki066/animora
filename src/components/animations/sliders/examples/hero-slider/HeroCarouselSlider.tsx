@@ -4,9 +4,13 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { heroSlides } from "./heroSlides";
 import { HeroSlide } from "./HeroSlide";
+import { useWindowSize } from "@/lib/responsive/useWindowSize"
+import { getHeroConfig } from "@/lib/responsive/heroConfig"
 
 export default function HeroCarousel() {
     const [current, setCurrent] = useState(0);
+    const width = useWindowSize()
+    const heroConfig = getHeroConfig(width)
 
     const prev = () => {
         setCurrent((c) => (c === 0 ? heroSlides.length - 1 : c - 1));
@@ -19,18 +23,19 @@ export default function HeroCarousel() {
     return (
         <div className="relative w-full max-w-3xl">
             {/* スライド */}
-            <div className="relative h-80 sm:h-[380px] md:h-[460px] lg:h-[520px] overflow-hidden">
+            <div className={`relative ${heroConfig.containerHeight} overflow-hidden`}>
             {heroSlides.map((slide, index) => (
                 <HeroSlide
                 key={index}
                 slide={slide}
                 active={index === current}
+                config={heroConfig}
                 />
             ))}
             </div>
 
             {/* ナビ */}
-            <div className="mt-4 sm:mt-6 flex items-center gap-4 sm:gap-6">
+            <div className={`flex items-center ${heroConfig.navClass}`}>
                 <div className="flex-1 h-1 bg-blue-100 rounded-full overflow-hidden">
                     <div
                     className="h-full bg-blue-500 transition-all duration-500"
@@ -42,14 +47,14 @@ export default function HeroCarousel() {
 
                 <button
                     onClick={prev}
-                    className="w-10 h-10 **:sm:w-12 sm:h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition bg-white"
+                    className={`rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition bg-white ${heroConfig.buttonSize}`}
                 >
                     <ChevronLeft size={18} />
                 </button>
 
                 <button
                     onClick={next}
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition bg-white"
+                    className={`rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition bg-white ${heroConfig.buttonSize}`}
                 >
                     <ChevronRight size={18} />
                 </button>

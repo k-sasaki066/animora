@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { slides } from "./data"
 import { SlideIndicator } from "./SlideIndicator"
+import { useWindowSize } from "@/lib/responsive/useWindowSize"
+import { getAnimeConfig } from "@/lib/responsive/animeConfig"
 
 const containerVariants: Variants = {
     hidden: {},
@@ -85,6 +87,8 @@ const imageVariants = {
 
 export default function MotionSlider() {
     const [index, setIndex] = useState(0);
+    const width = useWindowSize()
+    const config = getAnimeConfig(width)
 
     const next = () => setIndex((i) => (i + 1) % slides.length);
     const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
@@ -96,7 +100,7 @@ export default function MotionSlider() {
             >
                 <AnimatePresence mode="wait">
                     <motion.div
-                        className="flex justify-center items-center gap-20 max-w-5xl w-full px-10 z-20"
+                        className={`flex justify-center items-center max-w-5xl w-full px-10 z-20 ${config.containerClass}`}
                         key={slides[index].id}
                         variants={containerVariants}
                         initial="hidden"
@@ -106,7 +110,7 @@ export default function MotionSlider() {
                         {/* Text */}
                         <div className="space-y-2">
                             <motion.h1
-                                className="text-5xl font-bold"
+                                className={`${config.mainTextClass}`}
                                 key={`${slides[index].id}-title1`}
                                 variants={textVariants}
                             >
@@ -114,7 +118,7 @@ export default function MotionSlider() {
                             </motion.h1>
 
                             <motion.h1
-                                className="text-5xl font-bold"
+                                className={`${config.mainTextClass}`}
                                 key={`${slides[index].id}-title2`}
                                 variants={textVariants}
                             >
@@ -128,7 +132,7 @@ export default function MotionSlider() {
                             variants={imageVariants}
                             src={slides[index].image}
                             alt=""
-                            className="w-50"
+                            className={`${config.imageClass}`}
                         />
                     </motion.div>
                 </AnimatePresence>
