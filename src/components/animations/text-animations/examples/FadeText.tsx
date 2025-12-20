@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const text = "Typing Animation Example";
+const text = "Fade Animation Example";
 
 const containerVariants = {
     hidden: {},
