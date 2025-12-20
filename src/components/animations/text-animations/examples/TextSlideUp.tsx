@@ -3,7 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const text = "Text Animation01";
+const text = "Slide Up Animation";
 
 const containerVariants = {
     hidden: {},
@@ -38,9 +38,9 @@ export default function TextSlideUp() {
     }, []);
 
     return (
-        <div className="w-full h-[200px] flex items-center justify-center bg-neutral-700 overflow-hidden">
+        <div className="w-full flex items-center justify-center bg-neutral-700 overflow-hidden p-4">
             <motion.div
-                className="flex text-white font-mono font-bold uppercase text-[5vw]"
+                className="flex flex-wrap justify-center text-center text-white font-mono font-bold uppercase text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight"
                 variants={containerVariants}
                 initial="hidden"
                 animate={active ? "visible" : "hidden"}
@@ -52,7 +52,7 @@ export default function TextSlideUp() {
                     ) : (
                         <motion.span
                             key={i}
-                            className="inline-block"
+                            className="inline-block whitespace-pre"
                             variants={charVariants}
                             custom={i}
                         >

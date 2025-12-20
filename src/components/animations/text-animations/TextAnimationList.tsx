@@ -10,12 +10,12 @@ export function TextAnimationList() {
 
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {textAnimationData.map((item) => (
                     <TextAnimationCard
                         key={item.key}
                         title={item.title}
-                        previewText={item.previewText}
+                        animationKey={item.key}
                         onClick={() => setActiveKey(item.key)}
                     />
                 ))}
