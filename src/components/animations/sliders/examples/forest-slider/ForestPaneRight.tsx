@@ -11,9 +11,9 @@ export function ForestPaneRight({ forest }: { forest: Forest }) {
             transition={{ duration: 0.5 }}
         >
             <div className="p-12 space-y-4">
-                <h2 className="text-2xl font-bold">{forest.name}</h2>
-                <p className="text-gray-700">{forest.desc}</p>
-                <p className="text-sm text-gray-500">{forest.location}</p>
+                <h2 className="text-xl md:text-3xl sm:text-2xl font-bold">{forest.name}</h2>
+                <p className="text-xs md:text-sm sm:text-base text-gray-700">{forest.desc}</p>
+                <p className="text-xs md:text-base sm:text-sm text-gray-500">{forest.location}</p>
             </div>
         </motion.div>
     )

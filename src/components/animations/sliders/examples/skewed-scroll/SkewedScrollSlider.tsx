@@ -3,10 +3,15 @@
 import { useState, useEffect } from "react"
 import { SkewedPage } from "./SkewedPage"
 import { skewedPages } from "./data"
+import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig"
 
-export function SkewedScrollSlider({ width = 448, height = 300 }: { width?: number; height?: number }) {
+export function SkewedScrollSlider() {
     const [page, setPage] = useState(0)
     const [locked, setLocked] = useState(false)
+
+    const windowWidth = useWindowSize()
+    const { width, height } = getSkewedSliderConfig(windowWidth)
 
     useEffect(() => {
         const onWheel = (e: WheelEvent) => {
@@ -28,7 +33,8 @@ export function SkewedScrollSlider({ width = 448, height = 300 }: { width?: numb
     return (
         <div
             className="relative mx-auto overflow-hidden"
-            style={{ width, height }}>
+            style={{ width, height }}
+            >
             {skewedPages.map((data, i) => (
                 <SkewedPage key={i} data={data} isActive={i === page} />
             ))}

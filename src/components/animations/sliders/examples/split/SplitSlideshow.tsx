@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWheelNavigation } from "./useWheelNavigation";
 import SlideImages from "./SlideImages";
+import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { getSplitConfig } from "@/lib/responsive/splitConfig"
 
 const images = [
     "/river.jpg",
@@ -13,8 +15,10 @@ const images = [
 
 const texts = ["Desert", "Erosion", "Shape"];
 
-export default function SplitSlideshow({ width = 448, height = 300 }: { width?: number; height?: number }) {
+export default function SplitSlideshow() {
     const [index, setIndex] = useState(0);
+    const width = useWindowSize()
+    const config = getSplitConfig(width)
 
     const next = () =>
         setIndex((prev) => (prev + 1) % images.length);
@@ -26,13 +30,12 @@ export default function SplitSlideshow({ width = 448, height = 300 }: { width?: 
     useWheelNavigation({
         onNext: next,
         onPrev: prev,
-        delay: 1100, // motion.duration + 少し余裕
+        delay: 1100,
     });
 
     return (
         <div
-            className="relative overflow-hidden mx-auto"
-            style={{ width, height }}
+            className={`relative overflow-hidden mx-auto ${config.containerClass}`}
         >
             <SlideImages images={images} index={index} />
 
@@ -41,7 +44,7 @@ export default function SplitSlideshow({ width = 448, height = 300 }: { width?: 
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={index}
-                        className="text-white text-5xl font-light tracking-[0.3em] flex items-center justify-center h-full"
+                        className={`text-white  font-light tracking-[0.3em] flex items-center justify-center h-full ${config.mainTextClass}`}
                         initial={{ y: "100%", opacity: 0 }}
                         animate={{ y: "0%", opacity: 1 }}
                         exit={{ y: "-100%", opacity: 0 }}
@@ -66,5 +69,5 @@ export default function SplitSlideshow({ width = 448, height = 300 }: { width?: 
                 ))}
             </div>
         </div>
-  );
+    );
 }

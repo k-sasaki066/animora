@@ -1,4 +1,5 @@
-import { motion, Variants, AnimatePresence } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import { FancyConfig } from "@/lib/responsive/fancyConfig"
 
 interface FancySlideProps {
     active: boolean;
@@ -6,6 +7,7 @@ interface FancySlideProps {
     image: string;
     onNext: () => void;
     direction: number;
+    config: FancyConfig
 }
 
 const bgVariants: Variants = {
@@ -17,7 +19,7 @@ const bgVariants: Variants = {
     center: {
         x: "0%",
         opacity: 1,
-        filter: "blur(8px)",
+        filter: "blur(6px)",
         transition: {
             x: {
                 duration: 0.8,
@@ -35,40 +37,40 @@ const bgVariants: Variants = {
         opacity: 1,
         filter: "blur(0px)",
         transition: {
-      filter: {
-        duration: 0.6,
-      },
-      x: {
-        delay: 0.6,
-        duration: 0.8,
-        ease: "easeInOut",
-      },
-    },
+            filter: {
+                duration: 0.6,
+            },
+            x: {
+                delay: 0.6,
+                duration: 0.8,
+                ease: "easeInOut",
+            },
+        },
     }),
 };
 
 const cardVariants: Variants = {
-  enter: {
-    opacity: 0,
-    scale: 1,
-  },
-  center: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delay: 1, // 背景が落ち着いてから表示
-      duration: 0.3,
-      ease: "easeOut",
+    enter: {
+        opacity: 0,
+        scale: 1,
     },
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.95,
-    transition: {
-      duration: 0.3, // ← ゆっくり消える
-      ease: "easeInOut",
+    center: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delay: 1, // 背景が落ち着いてから表示
+            duration: 0.3,
+            ease: "easeOut",
+        },
     },
-  },
+    exit: {
+        opacity: 0,
+        scale: 0.95,
+        transition: {
+            duration: 0.3, // ← ゆっくり消える
+            ease: "easeInOut",
+        },
+    },
 };
 
 export function FancySlide({
@@ -76,6 +78,7 @@ export function FancySlide({
     image,
     onNext,
     direction,
+    config,
 }: FancySlideProps & { direction: number }) {
 
     return (
@@ -95,14 +98,14 @@ export function FancySlide({
             {/* 中央カード */}
             <motion.div
                 key={title}
-                className="relative z-10 mx-auto w-[70%] h-[70%] bg-cover bg-center text-white p-10 shadow-2xl"
+                className={`relative z-10 mx-auto w-[70%] h-[70%] bg-cover bg-center text-white shadow-2xl ${config.cardPaddingClass}`}
                 style={{ backgroundImage: `url(${image})` }}
                 variants={cardVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
             >
-                <h1 className="text-3xl font-black mb-6 leading-tight">
+                <h1 className={`font-black leading-tight ${config.mainTextClass}`}>
                     {title.split(" ").map((t, i) => (
                         <span key={i} className="block">
                         {t}
@@ -112,7 +115,7 @@ export function FancySlide({
 
                 <button
                     onClick={onNext}
-                    className="group flex items-center gap-4 text-sm tracking-widest cursor-pointer"
+                    className={`group flex items-center gap-3 tracking-widest cursor-pointer ${config.buttonTextClass}`}
                 >
                     NEXT
                     <span className="w-12 h-px bg-white transition-all group-hover:w-20" />
