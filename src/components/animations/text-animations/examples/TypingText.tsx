@@ -1,48 +1,3 @@
-// "use client";
-
-// import { motion } from "framer-motion";
-// import { useEffect, useState } from "react";
-
-// interface TypingTextProps {
-//   speed?: number; // 基本速度
-// }
-
-// const text = "Typing Animation Example";
-
-// export default function TypingText({
-//   speed = 80,
-// }: TypingTextProps) {
-//   const [displayedText, setDisplayedText] = useState("");
-//     const [index, setIndex] = useState(0);
-    
-//     useEffect(() => {
-//     if (index >= text.length) return;
-
-//     // 人間っぽいランダムディレイ
-//     const randomDelay = speed + Math.random() * 100;
-
-//     const timeout = setTimeout(() => {
-//       setDisplayedText((prev) => prev + text[index]);
-//       setIndex((prev) => prev + 1);
-//     }, randomDelay);
-
-//     return () => clearTimeout(timeout);
-//   }, [index, text, speed]);
-
-//   return (
-//     <div className="flex items-center text-xl font-mono font-bold lg:text-4xl md:text-3xl sm:text-2xl">
-//       <span>{displayedText}</span>
-
-//       {/* カーソル */}
-//       <motion.span
-//         className="ml-1 inline-block w-[2px] h-[1em] bg-current"
-//         animate={{ opacity: [0, 1, 0] }}
-//         transition={{ repeat: Infinity, duration: 1 }}
-//       />
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -58,7 +13,7 @@ const containerVariants = {
     clearing: {},
 };
 
-const text = "Typing Animation Example";
+const text = "Typing Animation";
 
 export default function TypingText({
     speed = 80,
@@ -102,7 +57,7 @@ export default function TypingText({
 
     return (
         <motion.div
-            className="flex items-center justify-center font-mono font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+            className="flex items-center justify-center font-mono font-bold text-[3vw]"
             variants={containerVariants}
             animate={mode}
         >
