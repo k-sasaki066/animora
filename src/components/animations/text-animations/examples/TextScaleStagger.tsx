@@ -3,58 +3,60 @@
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const text = "Slide Up Animation";
+const text = "Text Animation";
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: {},
-    visible: {},
+    visible: {
+        transition: {
+        staggerChildren: 0.02,
+        },
+    },
 };
 
 const charVariants: Variants = {
     hidden: {
-        y: "100%",
         opacity: 0,
+        scale: 0,
     },
-    visible: (i: number) => ({
-        y: "0%",
+    visible: {
         opacity: 1,
+        scale: 1,
         transition: {
-            duration: 0.4,
-            ease: [0.77, 0, 0.175, 1],
-            delay: i * 0.04,
+        duration: 0.4,
+        ease: [0.39, 0.575, 0.565, 1],
         },
-    }),
+    },
 };
 
-export default function TextSlideUp() {
-    const [active, setActive] = useState(true);
+export default function TextScaleStagger() {
+    const [active, setActive] = useState(false);
 
     useEffect(() => {
+        setActive(true);
         const interval = setInterval(() => {
             setActive((prev) => !prev);
-        }, 2500);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="w-full flex items-center justify-center bg-neutral-700 overflow-hidden p-4">
+        <div className="w-full flex items-center justify-center px-4 overflow-hidden">
             <motion.div
-                className="flex flex-wrap justify-center text-center text-white font-mono font-bold uppercase text-[3vw] leading-tight"
+                className="flex font-mono font-bold text-[3vw]"
                 variants={containerVariants}
                 initial="hidden"
                 animate={active ? "visible" : "hidden"}
-                aria-hidden="true"
             >
-                {text.split("").map((char, i) =>
+                {text.split("").map((char, index) =>
                     char === " " ? (
-                        <span key={i} className="w-[0.5em]" />
+                        <span key={index} className="w-4" />
                     ) : (
                         <motion.span
-                            key={i}
-                            className="inline-block whitespace-pre"
+                            key={index}
+                            className="inline-block"
                             variants={charVariants}
-                            custom={i}
                         >
                         {char}
                         </motion.span>

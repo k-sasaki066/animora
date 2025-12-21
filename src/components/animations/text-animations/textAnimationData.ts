@@ -21,4 +21,29 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Fade Text",
         previewText: "Typing Animation Example",
     },
+    {
+        key: "twist",
+        title: "Twist in Text",
+        previewText: "Twist Animation Example",
+    },
+    {
+        key: "scaleStagger",
+        title: "Scale Stagger Text",
+        previewText: "Scale Stagger Animation Example",
+    },
+    {
+        key: "slice",
+        title: "Slice Text",
+        previewText: "Slice Animation Example",
+    },
+    {
+        key: "wipe",
+        title: "Wipe Text",
+        previewText: "Wipe Animation Example",
+    },
+    {
+        key: "reduction",
+        title: "Reduction Text",
+        previewText: "Reduction Animation Example",
+    },
 ];

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const text = "Fade Animation Example";
+const text = "Fade Animation";
 
 const containerVariants = {
     hidden: {},
@@ -36,7 +36,7 @@ export default function TypingText() {
 
     return (
         <motion.div
-            className="text-xl font-bold lg:text-4xl md:text-3xl sm:text-2xl font-mono"
+            className="text-xl font-bold text-[3vw] font-mono"
             variants={containerVariants}
             initial="hidden"
             animate={active ? "visible" : "hidden"}
