@@ -46,4 +46,24 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Reduction Text",
         previewText: "Reduction Animation Example",
     },
+    {
+        key: "blur",
+        title: "Blur Text",
+        previewText: "Blur Animation Example",
+    },
+    {
+        key: "popRise",
+        title: "Pop Rise Text",
+        previewText: "Pop Rise Animation Example",
+    },
+    {
+        key: "classic",
+        title: "Classic Text",
+        previewText: "Classic Animation Example",
+    },
+    {
+        key: "logo",
+        title: "Logo Text",
+        previewText: "Logo Animation Example",
+    },
 ];
