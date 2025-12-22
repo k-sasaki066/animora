@@ -66,4 +66,9 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Logo Text",
         previewText: "Logo Animation Example",
     },
+    {
+        key: "explode",
+        title: "Explode Text",
+        previewText: "Explode Animation Example",
+    },
 ];

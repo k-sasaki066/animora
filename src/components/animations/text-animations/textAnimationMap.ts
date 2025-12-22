@@ -11,6 +11,7 @@ import TextBlur from "./examples/TextBlur";
 import PopRiseText from "./examples/PopRiseText";
 import ClassicText from "./examples/ClassicText";
 import LogoText from "./examples/LogoText";
+import ExplodeText from "./examples/explode/ExplodeText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -25,4 +26,5 @@ export const textAnimationMap: Record<string, ComponentType> = {
     popRise: PopRiseText,
     classic: ClassicText,
     logo: LogoText,
+    explode: ExplodeText,
 };
