@@ -7,6 +7,10 @@ import TextScaleStagger from "./examples/TextScaleStagger";
 import TextSlice from "./examples/TextSlice";
 import WipeText from "./examples/WipeText";
 import ReductionText from "./examples/ReductionText";
+import TextBlur from "./examples/TextBlur";
+import PopRiseText from "./examples/PopRiseText";
+import ClassicText from "./examples/ClassicText";
+import LogoText from "./examples/LogoText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -17,4 +21,8 @@ export const textAnimationMap: Record<string, ComponentType> = {
     slice: TextSlice,
     wipe: WipeText,
     reduction: ReductionText,
+    blur: TextBlur,
+    popRise: PopRiseText,
+    classic: ClassicText,
+    logo: LogoText,
 };

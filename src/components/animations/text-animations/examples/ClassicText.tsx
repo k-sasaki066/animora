@@ -1,0 +1,90 @@
+"use client";
+
+import { motion, Variants } from "framer-motion";
+import { useEffect, useState } from "react";
+
+
+const titles = ["This is", "classic", "example"];
+
+const titleContainerVariants: Variants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.4, // 行の順番
+        },
+    },
+};
+
+const lineVariants: Variants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.05, // 文字の順番
+        },
+    },
+};
+
+
+const letterVariants: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 80,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            ease: "backOut",
+        },
+    },
+};
+
+export default function ClassicText() {
+    const [key, setKey] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setKey((prev) => prev + 1);
+        }, 4000); // ← 全体の再生時間に合わせる
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <section className="w-full p-8 flex flex-col items-center justify-center bg-linear-to-b from-slate-700 to-slate-500">
+              <motion.h1
+                key={key}
+                className="uppercase text-[3vw] leading-9 font-bold text-center flex flex-col items-center"
+                variants={titleContainerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                  {titles.map((line, index) => (
+                      <motion.div
+                          key={index}
+                          variants={lineVariants}
+                          className={`flex justify-center -rotate-10 w-full ${
+                            index === 0
+                                ? "text-red-500"
+                                : index === 1
+                                ? "text-green-500"
+                                : "text-yellow-400"
+                          }`}
+                      >
+
+                          {line.split("").map((char, i) => (
+                                <motion.span
+                                  key={i}
+                                  variants={letterVariants}
+                                  className="inline-block skew-x-[-10deg] drop-shadow-[4px_4px_0_#533d4a]"
+                                >
+                                    {char === " " ? "\u00A0" : char}
+                                </motion.span>
+                          ))}
+                      </motion.div>
+                  ))}
+              </motion.h1>
+        </section>
+    );
+}
