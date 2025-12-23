@@ -2,6 +2,12 @@
 
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Fjalla_One } from "next/font/google";
+
+export const fjallaOne = Fjalla_One({
+    weight: "400",
+    subsets: ["latin"],
+});
 
 
 const titles = ["This is", "classic", "example"];
@@ -52,39 +58,39 @@ export default function ClassicText() {
     }, []);
 
     return (
-        <section className="w-full p-8 flex flex-col items-center justify-center bg-linear-to-b from-slate-700 to-slate-500">
-              <motion.h1
+        <section className={`w-full p-8 flex flex-col items-center justify-center bg-linear-to-b from-slate-700 to-slate-500 ${fjallaOne.className}`}>
+            <motion.h1
                 key={key}
                 className="uppercase text-[3vw] leading-9 font-bold text-center flex flex-col items-center"
                 variants={titleContainerVariants}
                 initial="hidden"
                 animate="visible"
-              >
-                  {titles.map((line, index) => (
-                      <motion.div
-                          key={index}
-                          variants={lineVariants}
-                          className={`flex justify-center -rotate-10 w-full ${
-                            index === 0
-                                ? "text-red-500"
-                                : index === 1
-                                ? "text-green-500"
-                                : "text-yellow-400"
-                          }`}
-                      >
+            >
+                {titles.map((line, index) => (
+                    <motion.div
+                        key={index}
+                        variants={lineVariants}
+                        className={`flex justify-center -rotate-10 w-full ${
+                        index === 0
+                            ? "text-red-500"
+                            : index === 1
+                            ? "text-green-500"
+                            : "text-yellow-400"
+                        }`}
+                    >
 
-                          {line.split("").map((char, i) => (
-                                <motion.span
-                                  key={i}
-                                  variants={letterVariants}
-                                  className="inline-block skew-x-[-10deg] drop-shadow-[4px_4px_0_#533d4a]"
-                                >
-                                    {char === " " ? "\u00A0" : char}
-                                </motion.span>
-                          ))}
-                      </motion.div>
-                  ))}
-              </motion.h1>
+                        {line.split("").map((char, i) => (
+                            <motion.span
+                                key={i}
+                                variants={letterVariants}
+                                className="inline-block skew-x-[-10deg] drop-shadow-[4px_4px_0_#533d4a]"
+                            >
+                                {char === " " ? "\u00A0" : char}
+                            </motion.span>
+                        ))}
+                    </motion.div>
+                ))}
+            </motion.h1>
         </section>
     );
 }
