@@ -86,4 +86,14 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Squiggly Text",
         previewText: "Squiggly Animation Example",
     },
+    {
+        key: "verticalRotation",
+        title: "Vertical Rotation Text",
+        previewText: "Vertical Rotation Animation Example",
+    },
+    {
+        key: "motion",
+        title: "Motion Text",
+        previewText: "Motion Animation Example",
+    },
 ];
