@@ -12,6 +12,9 @@ import PopRiseText from "./examples/PopRiseText";
 import ClassicText from "./examples/ClassicText";
 import LogoText from "./examples/LogoText";
 import ExplodeText from "./examples/explode/ExplodeText";
+import PressedText from "./examples/PressedText";
+import SparkText from "./examples/SparkText";
+import SquigglyText from "./examples/SquigglyText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -27,4 +30,7 @@ export const textAnimationMap: Record<string, ComponentType> = {
     classic: ClassicText,
     logo: LogoText,
     explode: ExplodeText,
+    pressed: PressedText,
+    spark: SparkText,
+    squiggly: SquigglyText,
 };

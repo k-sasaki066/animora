@@ -71,4 +71,19 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Explode Text",
         previewText: "Explode Animation Example",
     },
+    {
+        key: "pressed",
+        title: "Pressed Text",
+        previewText: "Pressed Animation Example",
+    },
+    {
+        key: "spark",
+        title: "Spark Text",
+        previewText: "Spark Animation Example",
+    },
+    {
+        key: "squiggly",
+        title: "Squiggly Text",
+        previewText: "Squiggly Animation Example",
+    },
 ];
