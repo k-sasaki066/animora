@@ -17,6 +17,10 @@ import SparkText from "./examples/SparkText";
 import SquigglyText from "./examples/SquigglyText";
 import VerticalRotationText from "./examples/VerticalRotationText";
 import MotionText from "./examples/MotionText";
+import SwayText from "./examples/SwayText";
+import GlitchText from "./examples/GlitchText";
+import GifClipText from "./examples/GifClipText";
+import MovingClippedText from "./examples/MovingClippedText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -37,4 +41,8 @@ export const textAnimationMap: Record<string, ComponentType> = {
     squiggly: SquigglyText,
     verticalRotation: VerticalRotationText,
     motion: MotionText,
+    sway: SwayText,
+    glitch: GlitchText,
+    gifClip: GifClipText,
+    movingClipped: MovingClippedText,
 };
