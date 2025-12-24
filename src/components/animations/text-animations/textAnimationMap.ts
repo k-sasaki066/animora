@@ -21,6 +21,9 @@ import SwayText from "./examples/SwayText";
 import GlitchText from "./examples/GlitchText";
 import GifClipText from "./examples/GifClipText";
 import MovingClippedText from "./examples/MovingClippedText";
+import CursorBlobText from "./examples/CursorBlobText";
+import RotatingWordsText from "./examples/RotatingWordsText";
+import SvgText from "./examples/SvgText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -45,4 +48,7 @@ export const textAnimationMap: Record<string, ComponentType> = {
     glitch: GlitchText,
     gifClip: GifClipText,
     movingClipped: MovingClippedText,
+    cursorBlob: CursorBlobText,
+    rotatingWords: RotatingWordsText,
+    svgText: SvgText,
 };
