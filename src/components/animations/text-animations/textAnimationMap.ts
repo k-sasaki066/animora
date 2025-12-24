@@ -24,6 +24,8 @@ import MovingClippedText from "./examples/MovingClippedText";
 import CursorBlobText from "./examples/CursorBlobText";
 import RotatingWordsText from "./examples/RotatingWordsText";
 import SvgText from "./examples/SvgText";
+import CircularText from "./examples/CircularText";
+import PopOutText from "./examples/PopOutText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -51,4 +53,6 @@ export const textAnimationMap: Record<string, ComponentType> = {
     cursorBlob: CursorBlobText,
     rotatingWords: RotatingWordsText,
     svgText: SvgText,
+    circularText: CircularText,
+    popOut: PopOutText,
 };
