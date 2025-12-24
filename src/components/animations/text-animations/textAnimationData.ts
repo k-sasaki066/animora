@@ -96,4 +96,24 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Motion Text",
         previewText: "Motion Animation Example",
     },
+    {
+        key: "sway",
+        title: "Sway Text",
+        previewText: "Sway Animation Example",
+    },
+    {
+        key: "glitch",
+        title: "Glitch Text",
+        previewText: "Glitch Animation Example",
+    },
+    {
+        key: "gifClip",
+        title: "Gif Clip Text",
+        previewText: "Gif Animation Example",
+    },
+    {
+        key: "movingClipped",
+        title: "Moving Clipped Text",
+        previewText: "Moving Clipped Animation Example",
+    },
 ];

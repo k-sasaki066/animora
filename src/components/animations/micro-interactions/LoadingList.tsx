@@ -17,7 +17,7 @@ const buttonAnimationTypes = [
     "Spin",
     "Jiggly",
     "ClickMove",
-    "GradientMove"
+    "GradientMove",
 ];
 
 const buttonHoverTypes = [
@@ -40,7 +40,8 @@ const buttonHoverTypes = [
     "GradientSlide",
     "Toggle",
     "PixelHover",
-    "Bubble"
+    "Bubble",
+    "LetterFill"
 ];
 
 const buttonHoverLineTypes = [

@@ -9,12 +9,12 @@ export function TextAnimationPreview({ animationKey, showTitle = false, }: Props
     const AnimationComponent = textAnimationMap[animationKey];
 
     return (
-        <div className="space-y-6 text-center">
+        <div className="w-full space-y-6 text-center">
             {showTitle && (
                 <h2 className="text-2xl font-bold mb-4">{animationKey}</h2>
             )}
 
-            <div className="border rounded-lg p-8">
+            <div className="w-full border rounded-lg p-8 overflow-hidden">
                 <AnimationComponent />
             </div>
         </div>
