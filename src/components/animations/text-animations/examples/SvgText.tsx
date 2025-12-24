@@ -1,21 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export default function SvgText() {
-    const [active, setActive] = useState(true);
-
-    useEffect(() => {
-    const interval = setInterval(() => {
-      setActive((prev) => !prev);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
     return (
-        <div className="relative w-full h-64 overflow-hidden rounded-lg">
+        <div className="relative w-[60%] h-64 overflow-hidden rounded-lg mx-auto">
             {/* 背景画像 */}
             <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -26,27 +15,21 @@ export default function SvgText() {
             <div className="absolute inset-0 bg-black/40" />
 
             {/* SVGマスクで文字だけ明るく見せる */}
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 150">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 150" preserveAspectRatio="xMidYMid slice">
                 <defs>
                     <mask id="text-mask" x="0" y="0" width="100%" height="100%">
-                        <rect x="0" y="0" width="100%" height="100%" fill="black" />
+                        <rect x="0" y="0" width="100%" height="100%" fill="white" />
                         <>
                             <motion.text
                                 x="50%"
                                 y="50%"
                                 textAnchor="middle"
                                 dominantBaseline="middle"
-                                fontSize="48"
+                                fontSize="4vw"
                                 fontWeight="800"
-                                fill="white"
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{
-                                    opacity: active ? 1 : 0,
-                                    y: active ? 0 : -20,
-                                }}
-                                transition={{ duration: 2, ease: "easeInOut" }}
+                                fill="black"
                             >
-                                SVG + CSS
+                                TEXT
                             </motion.text>
 
                             <motion.text
@@ -54,16 +37,10 @@ export default function SvgText() {
                                 y="70%"
                                 textAnchor="middle"
                                 dominantBaseline="middle"
-                                fontSize="20"
+                                fontSize="1.5vw"
                                 fontWeight="300"
-                                fill="white"
+                                fill="black"
                                 style={{ textTransform: "uppercase" }}
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{
-                                    opacity: active ? 1 : 0,
-                                    y: active ? 0 : -10,
-                                }}
-                                transition={{ delay: 1, duration: 2 }}
                             >
                                 Use it please!
                             </motion.text>
@@ -72,8 +49,6 @@ export default function SvgText() {
                 </defs>
 
                 <rect
-                    x="0"
-                    y="0"
                     width="100%"
                     height="100%"
                     fill="rgba(0,0,0,0.4)"

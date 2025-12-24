@@ -131,4 +131,14 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Svg Text",
         previewText: "Svg Text Animation Example",
     },
+    {
+        key: "circularText",
+        title: "Circular Text",
+        previewText: "Circular Text Animation Example",
+    },
+    {
+        key: "popOut",
+        title: "Pop Out Text",
+        previewText: "Pop Out Text Animation Example",
+    },
 ];
