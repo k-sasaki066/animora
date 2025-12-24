@@ -116,4 +116,19 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Moving Clipped Text",
         previewText: "Moving Clipped Animation Example",
     },
+    {
+        key: "cursorBlob",
+        title: "Cursor Blob Text",
+        previewText: "Cursor Blob Animation Example",
+    },
+    {
+        key: "rotatingWords",
+        title: "Rotating Words Text",
+        previewText: "Rotating Words Animation Example",
+    },
+    {
+        key: "svgText",
+        title: "Svg Text",
+        previewText: "Svg Text Animation Example",
+    },
 ];
