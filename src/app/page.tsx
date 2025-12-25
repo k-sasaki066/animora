@@ -9,6 +9,7 @@ import ButtonHoverList from "@/components/animations/micro-interactions/LoadingL
 import ImageHoverList from "@/components/animations/images/LoadingList";
 import { SliderList } from "@/components/animations/sliders/SliderList";
 import { TextAnimationList } from "@/components/animations/text-animations/TextAnimationList";
+import { BackgroundList } from "@/components/animations/backgrounds/BackgroundList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -102,12 +103,13 @@ export default function HomePage() {
 
                             {selectedItem && (
                                 <div>
-                                  <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
-                                      {selectedItem === "Loading" && <LoadingList />}
-                                      {selectedItem === "Micro" && <ButtonHoverList />}
-                                      {selectedItem === "Image" && <ImageHoverList />}
-                                      {selectedItem === "UI-components" && <SliderList />}
-                                      {selectedItem === "Text" && <TextAnimationList />}
+                                    <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
+                                    {selectedItem === "Loading" && <LoadingList />}
+                                    {selectedItem === "Micro" && <ButtonHoverList />}
+                                    {selectedItem === "Image" && <ImageHoverList />}
+                                    {selectedItem === "UI-components" && <SliderList />}
+                                    {selectedItem === "Text" && <TextAnimationList />}
+                                    {selectedItem === "Background" && <BackgroundList />}
                                 </div>
                             )}
                         </main>
