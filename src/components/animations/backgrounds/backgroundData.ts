@@ -36,4 +36,14 @@ export const backgroundData: BackgroundItem[] = [
         title: "Plane Path Background",
         previewText: "Plane Path Background Example",
     },
+    {
+        key: "particles",
+        title: "Particles Background",
+        previewText: "Particles Background Example",
+    },
+    {
+        key: "magic",
+        title: "Magic Background",
+        previewText: "Magic Background Example",
+    },
 ];

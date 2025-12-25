@@ -61,8 +61,7 @@ export default function PlanePathBackground() {
 
             {/* Plane */}
             <motion.g
-                style={{ x, y, rotate }}
-                transform-origin="center"
+                style={{ x, y, rotate, transformOrigin: "center", }}
             >
                 <polygon className="fill-gray-300" points="-141,-10 199,0 -198,-72" />
                 <polygon className="fill-gray-400" points="199,0 -141,-10 -163,63" />

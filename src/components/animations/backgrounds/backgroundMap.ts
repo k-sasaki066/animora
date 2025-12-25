@@ -5,6 +5,8 @@ import FloatingBubblesBackground from "./examples/floating-bubbles/FloatingBubbl
 import HexBackground from "./examples/HexBackground";
 import PaperPlaneBackground from "./examples/paper-plane/PaperPlaneBackground";
 import PlanePathBackground from "./examples/PlanePathBackground";
+import ParticlesBackground from "./examples/particles/ParticlesBackground";
+import MagicBackground from "./examples/MagicBackground";
 
 export const backgroundMap: Record<string, ComponentType> = {
     wave: WaveBackground,
@@ -13,4 +15,6 @@ export const backgroundMap: Record<string, ComponentType> = {
     hex: HexBackground,
     plane: PaperPlaneBackground,
     path: PlanePathBackground,
+    particles: ParticlesBackground,
+    magic: MagicBackground,
 };
