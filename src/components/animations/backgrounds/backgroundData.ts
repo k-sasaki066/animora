@@ -26,4 +26,14 @@ export const backgroundData: BackgroundItem[] = [
         title: "Hex Background",
         previewText: "Hex Background Example",
     },
+    {
+        key: "plane",
+        title: "Paper Plane Background",
+        previewText: "Paper Plane Background Example",
+    },
+    {
+        key: "path",
+        title: "Plane Path Background",
+        previewText: "Plane Path Background Example",
+    },
 ];
