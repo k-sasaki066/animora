@@ -101,4 +101,9 @@ export const backgroundData: BackgroundItem[] = [
         title: "Floating Circles Background",
         previewText: "Floating Circles Background Example",
     },
+    {
+        key: "starfield",
+        title: "Starfields Background",
+        previewText: "Starfield Background Example",
+    },
 ];
