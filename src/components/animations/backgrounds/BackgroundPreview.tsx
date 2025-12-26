@@ -14,7 +14,7 @@ export function BackgroundPreview({ animationKey, showTitle = false, }: Props) {
                 <h2 className="text-2xl font-bold mb-4">{animationKey}</h2>
             )}
 
-            <div className="w-full border rounded-lg p-8 overflow-hidden">
+            <div className="w-full border rounded-lg overflow-hidden">
                 <AnimationComponent />
             </div>
         </div>
