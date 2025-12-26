@@ -7,9 +7,13 @@ import PaperPlaneBackground from "./examples/paper-plane/PaperPlaneBackground";
 import PlanePathBackground from "./examples/PlanePathBackground";
 import ParticlesBackground from "./examples/particles/ParticlesBackground";
 import MagicBackground from "./examples/MagicBackground";
-import FireflyBackground from "./examples/FireflyBackground";
+import SnowBackground from "./examples/SnowBackground";
 import DiagonalBackground from "./examples/DiagonalBackground";
 import CloudBackground from "./examples/CloudBackground";
+import GridBackground from "./examples/GridBackground";
+import FirefliesBackground from "./examples/fireflies/FirefliesBackground";
+import ColorDiagonalBackground from "./examples/ColorDiagonalBackground";
+import LinesBackground from "./examples/lines/LinesBackground";
 
 export const backgroundMap: Record<string, ComponentType> = {
     wave: WaveBackground,
@@ -20,7 +24,11 @@ export const backgroundMap: Record<string, ComponentType> = {
     path: PlanePathBackground,
     particles: ParticlesBackground,
     magic: MagicBackground,
-    firefly: FireflyBackground,
+    snow: SnowBackground,
     diagonal: DiagonalBackground,
     cloud: CloudBackground,
+    grid: GridBackground,
+    fireflies: FirefliesBackground,
+    color: ColorDiagonalBackground,
+    lines: LinesBackground,
 };

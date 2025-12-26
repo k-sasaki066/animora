@@ -47,9 +47,9 @@ export const backgroundData: BackgroundItem[] = [
         previewText: "Magic Background Example",
     },
     {
-        key: "firefly",
-        title: "Firefly Background",
-        previewText: "Firefly Background Example",
+        key: "snow",
+        title: "Snow Background",
+        previewText: "Snow Background Example",
     },
     {
         key: "diagonal",
@@ -60,5 +60,25 @@ export const backgroundData: BackgroundItem[] = [
         key: "cloud",
         title: "Cloud Background",
         previewText: "Cloud Background Example",
+    },
+    {
+        key: "grid",
+        title: "Grid Background",
+        previewText: "Grid Background Example",
+    },
+    {
+        key: "fireflies",
+        title: "Fireflies Background",
+        previewText: "Fireflies Background Example",
+    },
+    {
+        key: "color",
+        title: "Color Diagonal Background",
+        previewText: "Color Diagonal Background Example",
+    },
+    {
+        key: "lines",
+        title: "Lines Background",
+        previewText: "Lines Background Example",
     },
 ];
