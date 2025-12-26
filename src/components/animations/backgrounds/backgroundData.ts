@@ -81,4 +81,24 @@ export const backgroundData: BackgroundItem[] = [
         title: "Lines Background",
         previewText: "Lines Background Example",
     },
+    {
+        key: "ripple",
+        title: "Ripple Background",
+        previewText: "Ripple Background Example",
+    },
+    {
+        key: "streamlines",
+        title: "Streamlines Background",
+        previewText: "Streamlines Background Example",
+    },
+    {
+        key: "rain",
+        title: "Rain Background",
+        previewText: "Rain Background Example",
+    },
+    {
+        key: "circles",
+        title: "Floating Circles Background",
+        previewText: "Floating Circles Background Example",
+    },
 ];

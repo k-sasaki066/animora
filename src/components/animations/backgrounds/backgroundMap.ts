@@ -14,6 +14,10 @@ import GridBackground from "./examples/GridBackground";
 import FirefliesBackground from "./examples/fireflies/FirefliesBackground";
 import ColorDiagonalBackground from "./examples/ColorDiagonalBackground";
 import LinesBackground from "./examples/lines/LinesBackground";
+import RippleBackground from "./examples/RippleBackground";
+import StreamlinesBackground from "./examples/StreamlinesBackground";
+import RainBackground from "./examples/rain/RainBackground";
+import FloatingCirclesBackground from "./examples/FloatingCirclesBackground";
 
 export const backgroundMap: Record<string, ComponentType> = {
     wave: WaveBackground,
@@ -31,4 +35,8 @@ export const backgroundMap: Record<string, ComponentType> = {
     fireflies: FirefliesBackground,
     color: ColorDiagonalBackground,
     lines: LinesBackground,
+    ripple: RippleBackground,
+    streamlines: StreamlinesBackground,
+    rain: RainBackground,
+    circles: FloatingCirclesBackground,
 };
