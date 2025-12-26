@@ -18,6 +18,7 @@ import RippleBackground from "./examples/RippleBackground";
 import StreamlinesBackground from "./examples/StreamlinesBackground";
 import RainBackground from "./examples/rain/RainBackground";
 import FloatingCirclesBackground from "./examples/FloatingCirclesBackground";
+import StarfieldBackground from "./examples/StarfieldBackground";
 
 export const backgroundMap: Record<string, ComponentType> = {
     wave: WaveBackground,
@@ -39,4 +40,5 @@ export const backgroundMap: Record<string, ComponentType> = {
     streamlines: StreamlinesBackground,
     rain: RainBackground,
     circles: FloatingCirclesBackground,
+    starfield: StarfieldBackground,
 };
