@@ -26,6 +26,9 @@ import RotatingWordsText from "./examples/RotatingWordsText";
 import SvgText from "./examples/SvgText";
 import CircularText from "./examples/CircularText";
 import PopOutText from "./examples/PopOutText";
+import DivisionText from "./examples/DivisionText";
+import StroboText from "./examples/StroboText";
+import NeonText from "./examples/NeonText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -55,4 +58,7 @@ export const textAnimationMap: Record<string, ComponentType> = {
     svgText: SvgText,
     circularText: CircularText,
     popOut: PopOutText,
+    division: DivisionText,
+    strobo: StroboText,
+    neon: NeonText,
 };

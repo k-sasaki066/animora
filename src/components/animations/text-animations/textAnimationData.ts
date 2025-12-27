@@ -141,4 +141,19 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Pop Out Text",
         previewText: "Pop Out Text Animation Example",
     },
+    {
+        key: "division",
+        title: "Division Text",
+        previewText: "Division Text Animation Example",
+    },
+    {
+        key: "strobo",
+        title: "Strobo Text",
+        previewText: "Strobo Text Animation Example",
+    },
+    {
+        key: "neon",
+        title: "Neon Text",
+        previewText: "Neon Text Animation Example",
+    },
 ];
