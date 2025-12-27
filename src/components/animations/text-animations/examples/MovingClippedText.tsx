@@ -11,7 +11,6 @@ export default function MovingClippedText() {
     const containerRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLHeadingElement>(null);
     const x = useMotionValue(0);
-    console.log(textRef)
 
     useEffect(() => {
         if (!containerRef.current || !textRef.current) return;
