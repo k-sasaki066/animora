@@ -106,4 +106,14 @@ export const backgroundData: BackgroundItem[] = [
         title: "Starfields Background",
         previewText: "Starfield Background Example",
     },
+    {
+        key: "static",
+        title: "Static Noise Background",
+        previewText: "Static Noise Background Example",
+    },
+    {
+        key: "shapes",
+        title: "Drifting Shapes Background",
+        previewText: "Drifting Shapes Background Example",
+    },
 ];

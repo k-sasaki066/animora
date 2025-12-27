@@ -19,6 +19,8 @@ import StreamlinesBackground from "./examples/StreamlinesBackground";
 import RainBackground from "./examples/rain/RainBackground";
 import FloatingCirclesBackground from "./examples/FloatingCirclesBackground";
 import StarfieldBackground from "./examples/StarfieldBackground";
+import StaticNoiseBackground from "./examples/StaticNoiseBackground";
+import DriftingShapesBackground from "./examples/drifting-shapes/DriftingShapesBackground";
 
 export const backgroundMap: Record<string, ComponentType> = {
     wave: WaveBackground,
@@ -41,4 +43,6 @@ export const backgroundMap: Record<string, ComponentType> = {
     rain: RainBackground,
     circles: FloatingCirclesBackground,
     starfield: StarfieldBackground,
+    static: StaticNoiseBackground,
+    shapes: DriftingShapesBackground,
 };

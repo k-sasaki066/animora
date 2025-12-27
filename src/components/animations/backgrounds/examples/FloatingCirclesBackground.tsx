@@ -47,7 +47,7 @@ export default function FloatingCirclesBackground() {
             {circles.map((circle) => (
                 <motion.div
                     key={circle.id}
-                    className="absolute rounded-full border border-white/30"
+                    className="absolute rounded-full border border-white"
                     style={{
                         top: circle.top,
                         left: circle.left,
