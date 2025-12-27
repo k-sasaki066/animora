@@ -44,7 +44,8 @@ next-env.d.ts
 docker-data/
 
 # VSCode
-.vscode/
+.vscode/*
+!.vscode/settings.json
 
 # Logs
 *.log
