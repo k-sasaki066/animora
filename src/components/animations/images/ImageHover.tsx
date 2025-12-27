@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 interface ImageHoverProps {
     className?: string;
-    type: "DashedBorder" | "Float" | "Grayscale" | "Blur" | "Flip" | "Overlay" | "Blink" | "HoverText" | "ChangeImage" | "ChangeText" | "HoverLine" | "Spin" | "SlideImage" | "Tilt3d" | "HoverVideo" | "Follow";
+    type: "DashedBorder" | "ChangeImage" | "ChangeText" | "HoverLine" | "Spin" | "SlideImage" | "Tilt3d" | "HoverVideo" | "Follow";
 }
 
 export function ImageHover({ className = "w-70 h-40 cursor-pointer", type }: ImageHoverProps) {
@@ -93,120 +93,120 @@ export function ImageHover({ className = "w-70 h-40 cursor-pointer", type }: Ima
         //     </motion.div>
         // ),
 
-        Float: (
-            <motion.div
-                className={`${base} ${className}`} initial={{ y: 0, boxShadow: "0 5px 5px rgba(0,0,0,0.1)" }}
-                whileHover={{
-                y: -5,
-                boxShadow: "0 10px 10px rgba(0,0,0,0.2)",
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-                <img
-                    src="./lavender.jpg"
-                    className={`${objectCover}`}
-                />
-            </motion.div>
-        ),
+        // Float: (
+        //     <motion.div
+        //         className={`${base} ${className}`} initial={{ y: 0, boxShadow: "0 5px 5px rgba(0,0,0,0.1)" }}
+        //         whileHover={{
+        //         y: -5,
+        //         boxShadow: "0 10px 10px rgba(0,0,0,0.2)",
+        //         }}
+        //         transition={{ duration: 0.3, ease: "easeInOut" }}
+        //     >
+        //         <img
+        //             src="./lavender.jpg"
+        //             className={`${objectCover}`}
+        //         />
+        //     </motion.div>
+        // ),
 
-        Grayscale: (
-            <div className={`${base} ${className}`}>
-                <img
-                    src="/leading.jpg"
-                    className={`${objectCover} hover:grayscale transition-all duration-300 ease-in-out`} //グレースケールからホバー時にカラーにする場合はgrayscale hover:grayscale-0
-                />
-            </div>
-        ),
+        // Grayscale: (
+        //     <div className={`${base} ${className}`}>
+        //         <img
+        //             src="/leading.jpg"
+        //             className={`${objectCover} hover:grayscale transition-all duration-300 ease-in-out`} //グレースケールからホバー時にカラーにする場合はgrayscale hover:grayscale-0
+        //         />
+        //     </div>
+        // ),
 
-        Blur: (
-            <div className={`${base} ${className}`}>
-                <motion.img
-                    src="/river.jpg"
-                    className={`${objectCover}`}
-                    initial={{ filter: "blur(0px)" }}
-                    whileHover={{ filter: ["blur(0px)", "blur(2px)"] }}  // ← ぼかしを段階的に
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                />
-            </div>
-        ),
+        // Blur: (
+        //     <div className={`${base} ${className}`}>
+        //         <motion.img
+        //             src="/river.jpg"
+        //             className={`${objectCover}`}
+        //             initial={{ filter: "blur(0px)" }}
+        //             whileHover={{ filter: ["blur(0px)", "blur(2px)"] }}  // ← ぼかしを段階的に
+        //             transition={{ duration: 0.25, ease: "easeInOut" }}
+        //         />
+        //     </div>
+        // ),
 
-        Flip: (
-            <motion.div
-                className={`${base} ${className}`}
-            >
-                <motion.img
-                src="/sea.jpg"
-                className={`${objectCover}`}
-                initial={{ rotateY: 0 }}
-                whileHover={{ rotateY: -180 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
-            </motion.div>
-        ),
+        // Flip: (
+        //     <motion.div
+        //         className={`${base} ${className}`}
+        //     >
+        //         <motion.img
+        //         src="/sea.jpg"
+        //         className={`${objectCover}`}
+        //         initial={{ rotateY: 0 }}
+        //         whileHover={{ rotateY: -180 }}
+        //         transition={{ duration: 0.3, ease: "easeInOut" }}
+        //         />
+        //     </motion.div>
+        // ),
 
-        Overlay: (
-            <div className={`${base} ${className}`}>
-                <img
-                    src="/flower.jpg"
-                    className={`${objectCover}`}
-                />
+        // Overlay: (
+        //     <div className={`${base} ${className}`}>
+        //         <img
+        //             src="/flower.jpg"
+        //             className={`${objectCover}`}
+        //         />
 
-                <motion.div
-                    className="absolute inset-0 bg-gray-400"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 0.6 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
-            </div>
-        ),
+        //         <motion.div
+        //             className="absolute inset-0 bg-gray-400"
+        //             initial={{ opacity: 0 }}
+        //             whileHover={{ opacity: 0.6 }}
+        //             transition={{ duration: 0.3, ease: "easeInOut" }}
+        //         />
+        //     </div>
+        // ),
 
-        Blink: (
-            <div className={`${base} ${className}`}>
-                <img
-                    src="/fruits.jpg"
-                    className={`${objectCover}`}
-                />
+        // Blink: (
+        //     <div className={`${base} ${className}`}>
+        //         <img
+        //             src="/fruits.jpg"
+        //             className={`${objectCover}`}
+        //         />
 
-                <motion.div
-                    className="absolute inset-0 bg-gray-200 opacity-0"
-                    whileHover={{
-                        opacity: [0, 0.6, 0],
-                        transition: { duration: 1, repeat: Infinity },
-                    }}
-                />
-            </div>
-        ),
+        //         <motion.div
+        //             className="absolute inset-0 bg-gray-200 opacity-0"
+        //             whileHover={{
+        //                 opacity: [0, 0.6, 0],
+        //                 transition: { duration: 1, repeat: Infinity },
+        //             }}
+        //         />
+        //     </div>
+        // ),
 
-        HoverText: (
-            <motion.div
-                className={`${base} ${className}`}
-                initial="initial"
-                whileHover="hover"
-                animate="initial"
-                variants={{
-                    initial: {},
-                    hover: {},
-                }}
-            >
-                <img
-                    src="/hydrangea.jpg"
-                    className={`${objectCover}`}
-                />
+        // HoverText: (
+        //     <motion.div
+        //         className={`${base} ${className}`}
+        //         initial="initial"
+        //         whileHover="hover"
+        //         animate="initial"
+        //         variants={{
+        //             initial: {},
+        //             hover: {},
+        //         }}
+        //     >
+        //         <img
+        //             src="/hydrangea.jpg"
+        //             className={`${objectCover}`}
+        //         />
 
-                <motion.div
-                    className={`
-                    absolute w-20 h-20 left-1/2 top-1/2
-                    bg-black/60 text-white text-sm rounded-full ${flexCenter}`}
-                    variants={{
-                        initial: { opacity: 0, scale: 0.5, x: "-50%", y: "-50%" },
-                        hover:   { opacity: 1, scale: 1,   x: "-50%", y: "-50%" },
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                >
-                    VIEW →
-                </motion.div>
-            </motion.div>
-        ),
+        //         <motion.div
+        //             className={`
+        //             absolute w-20 h-20 left-1/2 top-1/2
+        //             bg-black/60 text-white text-sm rounded-full ${flexCenter}`}
+        //             variants={{
+        //                 initial: { opacity: 0, scale: 0.5, x: "-50%", y: "-50%" },
+        //                 hover:   { opacity: 1, scale: 1,   x: "-50%", y: "-50%" },
+        //             }}
+        //             transition={{ duration: 0.3, ease: "easeInOut" }}
+        //         >
+        //             VIEW →
+        //         </motion.div>
+        //     </motion.div>
+        // ),
 
         ChangeImage: (
             <motion.div

@@ -28,13 +28,19 @@ export default function BorderImage() {
                         boxShadow:
                             "inset 0 0 #dc5a45, inset 0 0 #dc5a45, inset 0 0 #dc5a45, inset 0 0 #dc5a45", //box-shadow: <offset-x> <offset-y> <blur(ぼかし)> <spread(広がり)> <color>;
                         opacity: 0,
-                        transition: { duration: 0.4, ease: "easeInOut" },
+                        transition: {
+                            duration: 0.3,
+                            ease: "easeInOut"
+                        },
                     },
                     hover: {
                         boxShadow:
                             "inset 5px 0 #dc5a45, inset 0 5px #dc5a45, inset -5px 0 #dc5a45, inset 0 -5px #dc5a45", //左、上、右、下の順にそれぞれ5pxの線
                         opacity: 0.8,
-                        transition: { duration: 0.4, ease: "easeInOut" },
+                        transition: {
+                            duration: 0.3,
+                            ease: "easeInOut"
+                        },
                     },
                 }}
                 transition={{
