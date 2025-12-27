@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
 import LoadingList from "@/components/animations/loading/LoadingList";
 import ButtonHoverList from "@/components/animations/micro-interactions/LoadingList";
-import ImageHoverList from "@/components/animations/images/LoadingList";
+import { ImageList } from "@/components/animations/images/ImageList";
 import { SliderList } from "@/components/animations/sliders/SliderList";
 import { TextAnimationList } from "@/components/animations/text-animations/TextAnimationList";
 import { BackgroundList } from "@/components/animations/backgrounds/BackgroundList";
@@ -106,7 +106,7 @@ export default function HomePage() {
                                     <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
                                     {selectedItem === "Loading" && <LoadingList />}
                                     {selectedItem === "Micro" && <ButtonHoverList />}
-                                    {selectedItem === "Image" && <ImageHoverList />}
+                                    {selectedItem === "Image" && <ImageList />}
                                     {selectedItem === "UI-components" && <SliderList />}
                                     {selectedItem === "Text" && <TextAnimationList />}
                                     {selectedItem === "Background" && <BackgroundList />}
