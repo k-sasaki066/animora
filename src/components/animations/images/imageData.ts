@@ -110,4 +110,24 @@ export const imageData: ImageItem[] = [
         title: "Stretch Image",
         previewText: "Stretch Image Example",
     },
+    {
+        key: "hiddenText",
+        title: "Hidden Text Image",
+        previewText: "Hidden Text Image Example",
+    },
+    {
+        key: "skew",
+        title: "Skew Image",
+        previewText: "Skew Image Example",
+    },
+    {
+        key: "spreads",
+        title: "Spreads Out Image",
+        previewText: "Spreads Out Image Example",
+    },
+    {
+        key: "subMenu",
+        title: "Sub Menu Image",
+        previewText: "Sub Menu Image Example",
+    },
 ];

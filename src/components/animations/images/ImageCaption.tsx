@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 interface ImageCaptionProps {
     className?: string;
-    type: "HiddenText" | "Skew" | "SpreadsOut" | "SubMenu" | "Reduction" | "Tile" | "Caption";
+    type: "Reduction" | "Tile" | "Caption";
 }
 
 export function ImageCaption({ className = "w-70 h-40 cursor-pointer", type }: ImageCaptionProps) {
@@ -193,216 +193,216 @@ export function ImageCaption({ className = "w-70 h-40 cursor-pointer", type }: I
         //     </motion.figure>
         // ),
 
-        HiddenText: (
-            <motion.div
-                className={`${base} ${className} rounded-sm bg-gray-300`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-                variants={{
-                rest: {},
-                hover: {},
-                }}
-            >
-                <motion.img
-                src="/hydrangea.jpg"
-                className={`${objectCover}`}
-                variants={{
-                    rest: { opacity: 1 },
-                    hover: { opacity: 0.6 },
-                }}
-                transition={{ duration: 0.35 }}
-                />
+        // HiddenText: (
+        //     <motion.div
+        //         className={`${base} ${className} rounded-sm bg-gray-300`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //         variants={{
+        //         rest: {},
+        //         hover: {},
+        //         }}
+        //     >
+        //         <motion.img
+        //         src="/hydrangea.jpg"
+        //         className={`${objectCover}`}
+        //         variants={{
+        //             rest: { opacity: 1 },
+        //             hover: { opacity: 0.6 },
+        //         }}
+        //         transition={{ duration: 0.35 }}
+        //         />
 
-                <motion.div
-                    className="absolute bottom-0 left-0 w-full z-10"
-                    variants={{
-                        rest: { y: "45%" },
-                        hover: { y: "0%" },
-                    }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    >
-                    <h2 className="text-white text-2xl font-semibold px-2">Hello!</h2>
-                    <p className="w-full text-sm font-medium bg-white/90 text-gray-800 mt-1 p-2">Displays on a layer when hovered.</p>
-                </motion.div>
-            </motion.div>
-        ),
+        //         <motion.div
+        //             className="absolute bottom-0 left-0 w-full z-10"
+        //             variants={{
+        //                 rest: { y: "45%" },
+        //                 hover: { y: "0%" },
+        //             }}
+        //             transition={{ duration: 0.35, ease: "easeInOut" }}
+        //             >
+        //             <h2 className="text-white text-2xl font-semibold px-2">Hello!</h2>
+        //             <p className="w-full text-sm font-medium bg-white/90 text-gray-800 mt-1 p-2">Displays on a layer when hovered.</p>
+        //         </motion.div>
+        //     </motion.div>
+        // ),
 
-        Skew: (
-            <motion.div
-                className={`${base} ${className}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                {/* 背景レイヤー */}
-                <motion.div
-                    className="absolute -top-50 left-80 w-[200%] h-[200%] bg-white opacity-20 z-1"
-                    variants={{
-                        rest: {
-                            transform: "skew(-45deg) translateX(-150%) translateY(0%)"
-                        },
-                        hover: {
-                            transform: "skew(-45deg) translateX(-50%) translateY(50%)", transition: { duration: 0.6 }
-                        },
-                    }}
-                />
-                <motion.div
-                    className="absolute -bottom-50 right-80 w-[200%] h-[200%] bg-white opacity-20 z-1"
-                    variants={{
-                        rest: {
-                            transform: "skew(-45deg) translateX(150%) translateY(0%)"
-                        },
-                        hover: {
-                            transform: "skew(-45deg) translateX(50%) translateY(-50%)", transition: { duration: 0.6 }
-                        },
-                    }}
-                />
+        // Skew: (
+        //     <motion.div
+        //         className={`${base} ${className}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         {/* 背景レイヤー */}
+        //         <motion.div
+        //             className="absolute -top-50 left-80 w-[200%] h-[200%] bg-white opacity-20 z-1"
+        //             variants={{
+        //                 rest: {
+        //                     transform: "skew(-45deg) translateX(-150%) translateY(0%)"
+        //                 },
+        //                 hover: {
+        //                     transform: "skew(-45deg) translateX(-50%) translateY(50%)", transition: { duration: 0.6 }
+        //                 },
+        //             }}
+        //         />
+        //         <motion.div
+        //             className="absolute -bottom-50 right-80 w-[200%] h-[200%] bg-white opacity-20 z-1"
+        //             variants={{
+        //                 rest: {
+        //                     transform: "skew(-45deg) translateX(150%) translateY(0%)"
+        //                 },
+        //                 hover: {
+        //                     transform: "skew(-45deg) translateX(50%) translateY(-50%)", transition: { duration: 0.6 }
+        //                 },
+        //             }}
+        //         />
 
-                <motion.img
-                    src="/leading.jpg"
-                    className={`${objectCover}`}
-                    variants={{
-                        rest: { filter: "grayscale(0%)" },
-                        hover: { filter: "grayscale(100%)", transition: { duration: 0.6 } },
-                    }}
-                />
+        //         <motion.img
+        //             src="/leading.jpg"
+        //             className={`${objectCover}`}
+        //             variants={{
+        //                 rest: { filter: "grayscale(0%)" },
+        //                 hover: { filter: "grayscale(100%)", transition: { duration: 0.6 } },
+        //             }}
+        //         />
 
-                <motion.div
-                    className={`absolute inset-0 flex-col z-10 text-center ${flexCenter}`}
-                    variants={{
-                        rest: {},
-                        hover: { transition: { delayChildren: 0.2 } },
-                    }}
-                >
-                    <motion.h2
-                        className="text-2xl"
-                        variants={{ rest: { opacity: 0 }, hover: { opacity: 1 } }}
-                    >
-                        Title
-                    </motion.h2>
-                    <motion.p
-                        className="text-sm"
-                        variants={{ rest: { opacity: 0 }, hover: { opacity: 0.7 } }}
-                    >
-                        Description
-                    </motion.p>
-                </motion.div>
-            </motion.div>
-        ),
+        //         <motion.div
+        //             className={`absolute inset-0 flex-col z-10 text-center ${flexCenter}`}
+        //             variants={{
+        //                 rest: {},
+        //                 hover: { transition: { delayChildren: 0.2 } },
+        //             }}
+        //         >
+        //             <motion.h2
+        //                 className="text-2xl"
+        //                 variants={{ rest: { opacity: 0 }, hover: { opacity: 1 } }}
+        //             >
+        //                 Title
+        //             </motion.h2>
+        //             <motion.p
+        //                 className="text-sm"
+        //                 variants={{ rest: { opacity: 0 }, hover: { opacity: 0.7 } }}
+        //             >
+        //                 Description
+        //             </motion.p>
+        //         </motion.div>
+        //     </motion.div>
+        // ),
 
-        SpreadsOut: (
-            <motion.figure
-                className={`bg-black ${className} ${base}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-                >
-                <motion.img
-                    src="/sea.jpg"
-                    className={`${objectCover}`}
-                    variants={{
-                    rest: { filter: "grayscale(0%)", opacity: 1 },
-                    hover: { filter: "grayscale(100%)", opacity: 1 },
-                    }}
-                    transition={{ duration: 0.35 }}
-                />
+        // SpreadsOut: (
+        //     <motion.figure
+        //         className={`bg-black ${className} ${base}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //         >
+        //         <motion.img
+        //             src="/sea.jpg"
+        //             className={`${objectCover}`}
+        //             variants={{
+        //             rest: { filter: "grayscale(0%)", opacity: 1 },
+        //             hover: { filter: "grayscale(100%)", opacity: 1 },
+        //             }}
+        //             transition={{ duration: 0.35 }}
+        //         />
 
-                {/* overlay */}
-                <motion.div
-                    className="absolute inset-0 bg-white/75 origin-center"
-                    variants={{
-                    rest: { scaleX: 0 },
-                    hover: { scaleX: 1 },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                />
+        //         {/* overlay */}
+        //         <motion.div
+        //             className="absolute inset-0 bg-white/75 origin-center"
+        //             variants={{
+        //             rest: { scaleX: 0 },
+        //             hover: { scaleX: 1 },
+        //             }}
+        //             transition={{ duration: 0.4, ease: "easeInOut" }}
+        //         />
 
-                <motion.figcaption
-                    className={`absolute inset-0 flex-col text-center z-10 ${flexCenter}`}
-                >
-                    <motion.h2
-                        className="uppercase tracking-wider text-2xl font-medium px-4"
-                        variants={{
-                            rest: { opacity: 0, y: 10 },
-                            hover: { opacity: 1, y: 0 },
-                        }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        title
-                    </motion.h2>
+        //         <motion.figcaption
+        //             className={`absolute inset-0 flex-col text-center z-10 ${flexCenter}`}
+        //         >
+        //             <motion.h2
+        //                 className="uppercase tracking-wider text-2xl font-medium px-4"
+        //                 variants={{
+        //                     rest: { opacity: 0, y: 10 },
+        //                     hover: { opacity: 1, y: 0 },
+        //                 }}
+        //                 transition={{ delay: 0.2 }}
+        //             >
+        //                 title
+        //             </motion.h2>
 
-                    <motion.p
-                        className="text-sm px-8 mt-1 text-gray-700"
-                        variants={{
-                        rest: { opacity: 0 },
-                        hover: { opacity: 0.7 },
-                        }}
-                        transition={{ delay: 0.25 }}
-                    >
-                        description
-                    </motion.p>
-                </motion.figcaption>
-            </motion.figure>
-        ),
+        //             <motion.p
+        //                 className="text-sm px-8 mt-1 text-gray-700"
+        //                 variants={{
+        //                 rest: { opacity: 0 },
+        //                 hover: { opacity: 0.7 },
+        //                 }}
+        //                 transition={{ delay: 0.25 }}
+        //             >
+        //                 description
+        //             </motion.p>
+        //         </motion.figcaption>
+        //     </motion.figure>
+        // ),
 
-        SubMenu: (
-            <motion.div
-                className={`bg-black ${className} ${base}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                <motion.img
-                    src="/river.jpg"
-                    className={`${objectCover}`}
-                    variants={{
-                        rest: { opacity: 1 },
-                        hover: { opacity: 0.5 },
-                    }}
-                    transition={{ duration: 0.35 }}
-                />
+        // SubMenu: (
+        //     <motion.div
+        //         className={`bg-black ${className} ${base}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         <motion.img
+        //             src="/river.jpg"
+        //             className={`${objectCover}`}
+        //             variants={{
+        //                 rest: { opacity: 1 },
+        //                 hover: { opacity: 0.5 },
+        //             }}
+        //             transition={{ duration: 0.35 }}
+        //         />
 
-                <motion.div
-                    className="absolute inset-y-0 left-[-30%] right-[70%] bg-black/70"
-                    variants={{
-                        rest: {
-                            x: "-75%",
-                            skewX: 20,
-                        },
-                        hover: {
-                            x: "0%",
-                            skewX: 20,
-                        },
-                    }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                />
+        //         <motion.div
+        //             className="absolute inset-y-0 left-[-30%] right-[70%] bg-black/70"
+        //             variants={{
+        //                 rest: {
+        //                     x: "-75%",
+        //                     skewX: 20,
+        //                 },
+        //                 hover: {
+        //                     x: "0%",
+        //                     skewX: 20,
+        //                 },
+        //             }}
+        //             transition={{ duration: 0.35, ease: "easeInOut" }}
+        //         />
 
-                <div className="absolute top-0 right-0 z-10 p-4 text-white">
-                    <h3 className="font-black text-lg mb-2">Hover Title</h3>
+        //         <div className="absolute top-0 right-0 z-10 p-4 text-white">
+        //             <h3 className="font-black text-lg mb-2">Hover Title</h3>
 
-                    <ul className="space-y-1 text-xs text-right tracking-widest">
-                        {["DETAIL", "VIEW", "MORE"].map((text, i) => (
-                            <motion.li
-                                key={text}
-                                variants={{
-                                rest: { opacity: 0, x: 20 },
-                                hover: { opacity: 1, x: -4 },
-                                }}
-                                transition={{
-                                duration: 0.35,
-                                delay: 0.1 * (i + 1),
-                                }}
-                            >
-                                <a href="#" className="hover:text-amber-400">
-                                {text}
-                                </a>
-                            </motion.li>
-                        ))}
-                    </ul>
-                </div>
-            </motion.div>
-        ),
+        //             <ul className="space-y-1 text-xs text-right tracking-widest">
+        //                 {["DETAIL", "VIEW", "MORE"].map((text, i) => (
+        //                     <motion.li
+        //                         key={text}
+        //                         variants={{
+        //                         rest: { opacity: 0, x: 20 },
+        //                         hover: { opacity: 1, x: -4 },
+        //                         }}
+        //                         transition={{
+        //                         duration: 0.35,
+        //                         delay: 0.1 * (i + 1),
+        //                         }}
+        //                     >
+        //                         <a href="#" className="hover:text-amber-400">
+        //                         {text}
+        //                         </a>
+        //                     </motion.li>
+        //                 ))}
+        //             </ul>
+        //         </div>
+        //     </motion.div>
+        // ),
 
         Reduction: (
             <motion.figure
