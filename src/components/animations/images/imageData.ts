@@ -95,4 +95,19 @@ export const imageData: ImageItem[] = [
         title: "Follow Image",
         previewText: "Follow Image Example",
     },
+    {
+        key: "mosaic",
+        title: "Mosaic Image",
+        previewText: "Mosaic Image Example",
+    },
+    {
+        key: "layer",
+        title: "Layer Image",
+        previewText: "Layer Image Example",
+    },
+    {
+        key: "stretch",
+        title: "Stretch Image",
+        previewText: "Stretch Image Example",
+    },
 ];
