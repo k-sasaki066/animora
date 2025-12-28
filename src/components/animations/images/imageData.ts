@@ -50,4 +50,24 @@ export const imageData: ImageItem[] = [
         title: "Hover Text Image",
         previewText: "Hover Text Image Example",
     },
+    {
+        key: "change",
+        title: "Change Image",
+        previewText: "Change Image Example",
+    },
+    {
+        key: "changeText",
+        title: "Change Text Image",
+        previewText: "Change Text Image Example",
+    },
+    {
+        key: "hoverLine",
+        title: "Hover Line Image",
+        previewText: "Hover Line Image Example",
+    },
+    {
+        key: "spin",
+        title: "Spin Image",
+        previewText: "Spin Image Example",
+    },
 ];

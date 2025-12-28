@@ -9,6 +9,10 @@ import FlipImage from "./examples/FlipImage";
 import OverlayImage from "./examples/OverlayImage";
 import BlinkImage from "./examples/BlinkImage";
 import HoverTextImage from "./examples/HoverTextImage";
+import ChangeImage from "./examples/ChangeImage";
+import ChangeTextImage from "./examples/ChangeTextImage";
+import HoverLineImage from "./examples/HoverLineImage";
+import SpinImage from "./examples/SpinImage";
 
 export const imageMap: Record<string, ComponentType> = {
     opacity: OpacityImage,
@@ -21,4 +25,8 @@ export const imageMap: Record<string, ComponentType> = {
     overlay: OverlayImage,
     blink: BlinkImage,
     hoverText: HoverTextImage,
+    change: ChangeImage,
+    changeText: ChangeTextImage,
+    hoverLine: HoverLineImage,
+    spin: SpinImage,
 };
