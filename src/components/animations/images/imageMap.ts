@@ -21,6 +21,10 @@ import FollowImage from "./examples/FollowImage";
 import MosaicImage from "./examples/MosaicImage";
 import LayerImage from "./examples/LayerImage";
 import StretchImage from "./examples/StretchImage";
+import HiddenTextImage from "./examples/HiddenTextImage";
+import SkewImage from "./examples/SkewImage";
+import SpreadsOutImage from "./examples/SpreadsOutImage";
+import SubMenuImage from "./examples/SubMenuImage";
 
 export const imageMap: Record<string, ComponentType> = {
     opacity: OpacityImage,
@@ -45,4 +49,8 @@ export const imageMap: Record<string, ComponentType> = {
     mosaic: MosaicImage,
     layer: LayerImage,
     stretch: StretchImage,
+    hiddenText: HiddenTextImage,
+    skew: SkewImage,
+    spreads: SpreadsOutImage,
+    subMenu: SubMenuImage,
 };
