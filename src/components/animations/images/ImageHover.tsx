@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 interface ImageHoverProps {
     className?: string;
-    type: "DashedBorder" | "ChangeImage" | "ChangeText" | "HoverLine" | "Spin" | "SlideImage" | "Tilt3d" | "HoverVideo" | "Follow";
+    type: "DashedBorder" | "SlideImage" | "Tilt3d" | "HoverVideo" | "Follow";
 }
 
 export function ImageHover({ className = "w-70 h-40 cursor-pointer", type }: ImageHoverProps) {
@@ -208,209 +208,209 @@ export function ImageHover({ className = "w-70 h-40 cursor-pointer", type }: Ima
         //     </motion.div>
         // ),
 
-        ChangeImage: (
-            <motion.div
-                className={`rounded-sm ${base} ${className}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                {/* 通常画像 */}
-                <motion.img
-                    src="/lavender.jpg"
-                        className={`absolute inset-0 ${objectCover}`}
-                    variants={{
-                        rest: { opacity: 1 },
-                        hover: { opacity: 0 },
-                    }}
-                    transition={{ duration: 0.4 }}
-                />
+        // ChangeImage: (
+        //     <motion.div
+        //         className={`rounded-sm ${base} ${className}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         {/* 通常画像 */}
+        //         <motion.img
+        //             src="/lavender.jpg"
+        //                 className={`absolute inset-0 ${objectCover}`}
+        //             variants={{
+        //                 rest: { opacity: 1 },
+        //                 hover: { opacity: 0 },
+        //             }}
+        //             transition={{ duration: 0.4 }}
+        //         />
 
-                {/* ホバー時像 */}
-                <motion.img
-                    src="/leading.jpg"
-                    className={`absolute inset-0 ${objectCover}`}
-                    variants={{
-                        rest: { opacity: 0 },
-                        hover: { opacity: 1 },
-                    }}
-                    transition={{ duration: 0.4 }}
-                />
-            </motion.div>
-        ),
+        //         {/* ホバー時像 */}
+        //         <motion.img
+        //             src="/leading.jpg"
+        //             className={`absolute inset-0 ${objectCover}`}
+        //             variants={{
+        //                 rest: { opacity: 0 },
+        //                 hover: { opacity: 1 },
+        //             }}
+        //             transition={{ duration: 0.4 }}
+        //         />
+        //     </motion.div>
+        // ),
 
-        ChangeText: (
-            <motion.figure
-                className={`bg-black text-white ${className} ${base}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                <motion.img
-                    src="/flower.jpg"
-                    className={`${objectCover} absolute inset-0`}
-                    variants={{
-                        hover: { opacity: 0.3, filter: "grayscale(80%)" },
-                        rest: { opacity: 0.8, filter: "grayscale(0%)" }
-                    }}
-                />
+        // ChangeText: (
+        //     <motion.figure
+        //         className={`bg-black text-white ${className} ${base}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         <motion.img
+        //             src="/flower.jpg"
+        //             className={`${objectCover} absolute inset-0`}
+        //             variants={{
+        //                 hover: { opacity: 0.3, filter: "grayscale(80%)" },
+        //                 rest: { opacity: 0.8, filter: "grayscale(0%)" }
+        //             }}
+        //         />
 
-                <figcaption className="absolute inset-0 flex flex-col">
-                    {/* 上段 */}
-                    <div className={`h-1/2 ${base}`}>
-                        <motion.p
-                            className="absolute bottom-0 left-0 px-6 text-lg"
-                            variants={{
-                                rest: { opacity: 1, y: 0 },
-                                hover: { opacity: 0, y: 50 }
-                            }}
-                            transition={{ duration: 0.4 }}
-                        >
-                        Hello!
-                        </motion.p>
+        //         <figcaption className="absolute inset-0 flex flex-col">
+        //             {/* 上段 */}
+        //             <div className={`h-1/2 ${base}`}>
+        //                 <motion.p
+        //                     className="absolute bottom-0 left-0 px-6 text-lg"
+        //                     variants={{
+        //                         rest: { opacity: 1, y: 0 },
+        //                         hover: { opacity: 0, y: 50 }
+        //                     }}
+        //                     transition={{ duration: 0.4 }}
+        //                 >
+        //                 Hello!
+        //                 </motion.p>
 
-                        <motion.p
-                            className="absolute bottom-0 left-0 px-6 text-lg"
-                            variants={{
-                                rest: { opacity: 0, y: 50 },
-                                hover: { opacity: 1, y: 0 }
-                            }}
-                            transition={{ duration: 0.4 }}
-                        >
-                        Change
-                        </motion.p>
-                    </div>
+        //                 <motion.p
+        //                     className="absolute bottom-0 left-0 px-6 text-lg"
+        //                     variants={{
+        //                         rest: { opacity: 0, y: 50 },
+        //                         hover: { opacity: 1, y: 0 }
+        //                     }}
+        //                     transition={{ duration: 0.4 }}
+        //                 >
+        //                 Change
+        //                 </motion.p>
+        //             </div>
 
-                    {/* 下段 */}
-                    <div className={`h-1/2 ${base}`}>
-                        <motion.h2
-                            className="absolute top-0 left-0 px-6 font-bold text-2xl"
-                            variants={{
-                                rest: { opacity: 1, y: 0 },
-                                hover: { opacity: 1 }
-                            }}
-                        >
-                        Sample
-                        </motion.h2>
-                    </div>
-                </figcaption>
+        //             {/* 下段 */}
+        //             <div className={`h-1/2 ${base}`}>
+        //                 <motion.h2
+        //                     className="absolute top-0 left-0 px-6 font-bold text-2xl"
+        //                     variants={{
+        //                         rest: { opacity: 1, y: 0 },
+        //                         hover: { opacity: 1 }
+        //                     }}
+        //                 >
+        //                 Sample
+        //                 </motion.h2>
+        //             </div>
+        //         </figcaption>
 
-                <a className="absolute inset-0" />
-            </motion.figure>
-        ),
+        //         <a className="absolute inset-0" />
+        //     </motion.figure>
+        // ),
 
-        HoverLine: (
-            <motion.figure
-                className={`${base} bg-black text-white ${className}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                <motion.img
-                    src="/river.jpg"
-                    className={`${objectCover}`}
-                    variants={{
-                        hover: { opacity: 0.5 },
-                    }}
-                    transition={{ duration: 0.5 }}
-                />
+        // HoverLine: (
+        //     <motion.figure
+        //         className={`${base} bg-black text-white ${className}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         <motion.img
+        //             src="/river.jpg"
+        //             className={`${objectCover}`}
+        //             variants={{
+        //                 hover: { opacity: 0.5 },
+        //             }}
+        //             transition={{ duration: 0.5 }}
+        //         />
 
-                <figcaption className="absolute bottom-6 right-6 p-2 text-center
-                    ">
+        //         <figcaption className="absolute bottom-6 right-6 p-2 text-center
+        //             ">
 
-                    {/* 横ライン：上 */}
-                    <motion.span
-                        className="absolute top-0 left-0 h-px w-[400px] bg-white"
-                        variants={{
-                        rest: { x: "100%" },
-                        hover: { x: "0%" },
-                        }}
-                        transition={{ duration: 0.8 }}
-                    />
+        //             {/* 横ライン：上 */}
+        //             <motion.span
+        //                 className="absolute top-0 left-0 h-px w-[400px] bg-white"
+        //                 variants={{
+        //                 rest: { x: "100%" },
+        //                 hover: { x: "0%" },
+        //                 }}
+        //                 transition={{ duration: 0.8 }}
+        //             />
 
-                    {/* 横ライン：下 */}
-                    <motion.span
-                        className="absolute bottom-0 right-0 h-px w-[400px] bg-white"
-                        variants={{
-                        rest: { x: "-100%" },
-                        hover: { x: "0%" },
-                        }}
-                        transition={{ duration: 0.6, delay: 0.15 }}
-                    />
+        //             {/* 横ライン：下 */}
+        //             <motion.span
+        //                 className="absolute bottom-0 right-0 h-px w-[400px] bg-white"
+        //                 variants={{
+        //                 rest: { x: "-100%" },
+        //                 hover: { x: "0%" },
+        //                 }}
+        //                 transition={{ duration: 0.6, delay: 0.15 }}
+        //             />
 
-                    {/* 縦ライン：左 */}
-                    <motion.span
-                        className="absolute top-0 left-0 w-px h-[300px] bg-white"
-                        variants={{
-                            rest: { y: "100%" },
-                            hover: { y: "0%" },
-                        }}
-                        transition={{ duration: 0.8 }}
-                    />
+        //             {/* 縦ライン：左 */}
+        //             <motion.span
+        //                 className="absolute top-0 left-0 w-px h-[300px] bg-white"
+        //                 variants={{
+        //                     rest: { y: "100%" },
+        //                     hover: { y: "0%" },
+        //                 }}
+        //                 transition={{ duration: 0.8 }}
+        //             />
 
-                    {/* 縦ライン：右 */}
-                    <motion.span
-                        className="absolute bottom-0 right-0 w-px h-[300px] bg-white"
-                        variants={{
-                            rest: { y: "-100%" },
-                            hover: { y: "0%" },
-                        }}
-                        transition={{ duration: 0.55, delay: 0.15 }}
-                    />
+        //             {/* 縦ライン：右 */}
+        //             <motion.span
+        //                 className="absolute bottom-0 right-0 w-px h-[300px] bg-white"
+        //                 variants={{
+        //                     rest: { y: "-100%" },
+        //                     hover: { y: "0%" },
+        //                 }}
+        //                 transition={{ duration: 0.55, delay: 0.15 }}
+        //             />
 
-                    <h3 className="uppercase font-light m-0">Sample Title</h3>
-                    <p className="uppercase text-xs font-bold bg-white text-black px-2 py-1 inline-block mt-1">
-                        Category
-                    </p>
-                </figcaption>
+        //             <h3 className="uppercase font-light m-0">Sample Title</h3>
+        //             <p className="uppercase text-xs font-bold bg-white text-black px-2 py-1 inline-block mt-1">
+        //                 Category
+        //             </p>
+        //         </figcaption>
 
-                <a className="absolute inset-0" />
-            </motion.figure>
-        ),
+        //         <a className="absolute inset-0" />
+        //     </motion.figure>
+        // ),
 
-        Spin: (
-            <motion.div
-                className={`bg-black text-white ${className} ${base}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-                variants={{ rest: {}, hover: {} }}
-            >
-                <motion.img
-                    src="/sea.jpg"
-                    className={`${objectCover}`}
-                    variants={{
-                        rest: { opacity: 1 },
-                        hover: { opacity: 0.25, transition: { duration: 0.4 } }
-                    }} />
+        // Spin: (
+        //     <motion.div
+        //         className={`bg-black text-white ${className} ${base}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //         variants={{ rest: {}, hover: {} }}
+        //     >
+        //         <motion.img
+        //             src="/sea.jpg"
+        //             className={`${objectCover}`}
+        //             variants={{
+        //                 rest: { opacity: 1 },
+        //                 hover: { opacity: 0.25, transition: { duration: 0.4 } }
+        //             }} />
 
-                <motion.div
-                    className={`absolute w-8 h-8 bottom-4 right-4 ${flexCenter}`}
-                    variants={{
-                        rest: {},
-                        hover: {},
-                    }}
-                    >
-                    {/* 縦線 */}
-                    <motion.div
-                        className="absolute bg-white w-0.5 h-full"
-                        variants={{
-                        rest: { opacity: 0, rotate: -45, originX: "50%", originY: "50%" },
-                        hover: { opacity: 1, rotate: 0, transition: { duration: 0.3 } },
-                        }}
-                    />
+        //         <motion.div
+        //             className={`absolute w-8 h-8 bottom-4 right-4 ${flexCenter}`}
+        //             variants={{
+        //                 rest: {},
+        //                 hover: {},
+        //             }}
+        //             >
+        //             {/* 縦線 */}
+        //             <motion.div
+        //                 className="absolute bg-white w-0.5 h-full"
+        //                 variants={{
+        //                 rest: { opacity: 0, rotate: -45, originX: "50%", originY: "50%" },
+        //                 hover: { opacity: 1, rotate: 0, transition: { duration: 0.3 } },
+        //                 }}
+        //             />
 
-                    {/* 横線 */}
-                    <motion.div
-                        className="absolute bg-white h-0.5 w-full"
-                        variants={{
-                        rest: { opacity: 0,rotate: -45, originX: "50%", originY: "50%" },
-                        hover: { opacity: 1, rotate: 0, transition: { duration: 0.3 } },
-                        }}
-                    />
-                </motion.div>
-            </motion.div>
-        ),
+        //             {/* 横線 */}
+        //             <motion.div
+        //                 className="absolute bg-white h-0.5 w-full"
+        //                 variants={{
+        //                 rest: { opacity: 0,rotate: -45, originX: "50%", originY: "50%" },
+        //                 hover: { opacity: 1, rotate: 0, transition: { duration: 0.3 } },
+        //                 }}
+        //             />
+        //         </motion.div>
+        //     </motion.div>
+        // ),
 
         SlideImage: (
             <motion.div
