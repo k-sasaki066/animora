@@ -18,6 +18,9 @@ import Tilt3dImage from "./examples/Tilt3dImage";
 import HoverVideoImage from "./examples/HoverVideoImage";
 import DashedBorderImage from "./examples/DashedBorderImage";
 import FollowImage from "./examples/FollowImage";
+import MosaicImage from "./examples/MosaicImage";
+import LayerImage from "./examples/LayerImage";
+import StretchImage from "./examples/StretchImage";
 
 export const imageMap: Record<string, ComponentType> = {
     opacity: OpacityImage,
@@ -39,4 +42,7 @@ export const imageMap: Record<string, ComponentType> = {
     video: HoverVideoImage,
     dashedBorder: DashedBorderImage,
     follow: FollowImage,
+    mosaic: MosaicImage,
+    layer: LayerImage,
+    stretch: StretchImage,
 };

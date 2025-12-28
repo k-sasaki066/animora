@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 interface ImageCaptionProps {
     className?: string;
-    type: "Mosaic" | "Layer" | "Stretch" | "HiddenText" | "Skew" | "SpreadsOut" | "SubMenu" | "Reduction" | "Tile" | "Caption";
+    type: "HiddenText" | "Skew" | "SpreadsOut" | "SubMenu" | "Reduction" | "Tile" | "Caption";
 }
 
 export function ImageCaption({ className = "w-70 h-40 cursor-pointer", type }: ImageCaptionProps) {
@@ -10,188 +10,188 @@ export function ImageCaption({ className = "w-70 h-40 cursor-pointer", type }: I
     const flexCenter = "flex justify-center items-center";
     const base = "overflow-hidden relative";
     const animations = {
-        Mosaic: (
-            <motion.figure
-                className={`${base} ${className} rounded-none text-white font-sans`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                <img src="/river.jpg" className={`${objectCover}`} />
+        // Mosaic: (
+        //     <motion.figure
+        //         className={`${base} ${className} rounded-none text-white font-sans`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         <img src="/river.jpg" className={`${objectCover}`} />
 
-                {/* 上下の黒帯アニメーション */}
-                <motion.div
-                    className="absolute top-0 left-0 right-0 h-1/4 bg-black"
-                    initial={{ scaleX: 0, opacity: 0 }} //中央に圧縮
-                    variants={{
-                        hover: { scaleX: 1, opacity: 0.8 },
-                        rest: { scaleX: 0, opacity: 0 },
-                    }}
-                    transition={{ duration: 0.4 }}
-                    style={{ originX: 0.5 }}
-                />
+        //         {/* 上下の黒帯アニメーション */}
+        //         <motion.div
+        //             className="absolute top-0 left-0 right-0 h-1/4 bg-black"
+        //             initial={{ scaleX: 0, opacity: 0 }} //中央に圧縮
+        //             variants={{
+        //                 hover: { scaleX: 1, opacity: 0.8 },
+        //                 rest: { scaleX: 0, opacity: 0 },
+        //             }}
+        //             transition={{ duration: 0.4 }}
+        //             style={{ originX: 0.5 }}
+        //         />
 
-                <motion.div
-                    className="absolute top-1/4 left-0 right-0 h-1/4 bg-black opacity-0"
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    variants={{
-                        hover: { scaleX: 1, opacity: 0.8 },
-                        rest: { scaleX: 0, opacity: 0 },
-                    }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    style={{ originX: 0.5 }}
-                />
+        //         <motion.div
+        //             className="absolute top-1/4 left-0 right-0 h-1/4 bg-black opacity-0"
+        //             initial={{ scaleX: 0, opacity: 0 }}
+        //             variants={{
+        //                 hover: { scaleX: 1, opacity: 0.8 },
+        //                 rest: { scaleX: 0, opacity: 0 },
+        //             }}
+        //             transition={{ duration: 0.4, delay: 0.1 }}
+        //             style={{ originX: 0.5 }}
+        //         />
 
-                <motion.div
-                    className="absolute top-1/2 left-0 right-0 h-1/4 bg-black opacity-0"
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    variants={{
-                        hover: { scaleX: 1, opacity: 0.8 },
-                        rest: { scaleX: 0, opacity: 0 },
-                    }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                    style={{ originX: 0.5 }}
-                />
+        //         <motion.div
+        //             className="absolute top-1/2 left-0 right-0 h-1/4 bg-black opacity-0"
+        //             initial={{ scaleX: 0, opacity: 0 }}
+        //             variants={{
+        //                 hover: { scaleX: 1, opacity: 0.8 },
+        //                 rest: { scaleX: 0, opacity: 0 },
+        //             }}
+        //             transition={{ duration: 0.4, delay: 0.2 }}
+        //             style={{ originX: 0.5 }}
+        //         />
 
-                <motion.div
-                    className="absolute top-3/4 left-0 right-0 h-1/4 bg-black opacity-0"
-                    initial={{ scaleX: 0, opacity: 0 }}
-                    variants={{
-                        hover: { scaleX: 1, opacity: 0.8 },
-                        rest: { scaleX: 0, opacity: 0 },
-                    }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                    style={{ originX: 0.5 }}
-                />
+        //         <motion.div
+        //             className="absolute top-3/4 left-0 right-0 h-1/4 bg-black opacity-0"
+        //             initial={{ scaleX: 0, opacity: 0 }}
+        //             variants={{
+        //                 hover: { scaleX: 1, opacity: 0.8 },
+        //                 rest: { scaleX: 0, opacity: 0 },
+        //             }}
+        //             transition={{ duration: 0.4, delay: 0.2 }}
+        //             style={{ originX: 0.5 }}
+        //         />
 
-                <motion.figcaption
-                    className={`absolute inset-0 p-4 z-10 flex-col text-center ${flexCenter}`}
-                >
-                    <motion.h2
-                        className="text-xl font-bold"
-                        variants={{ hover: { opacity: 1 }, rest: { opacity: 0 } }}
-                        transition={{ delay: 0.25 }}
-                    >
-                        Thanks!
-                    </motion.h2>
+        //         <motion.figcaption
+        //             className={`absolute inset-0 p-4 z-10 flex-col text-center ${flexCenter}`}
+        //         >
+        //             <motion.h2
+        //                 className="text-xl font-bold"
+        //                 variants={{ hover: { opacity: 1 }, rest: { opacity: 0 } }}
+        //                 transition={{ delay: 0.25 }}
+        //             >
+        //                 Thanks!
+        //             </motion.h2>
 
-                    <motion.p
-                        className="text-sm mt-2 opacity-0"
-                        variants={{ hover: { opacity: 0.7 }, rest: { opacity: 0 } }}
-                        transition={{ delay: 0.25 }}
-                    >
-                        ホバー時に表示されます
-                    </motion.p>
-                </motion.figcaption>
-            </motion.figure>
-        ),
+        //             <motion.p
+        //                 className="text-sm mt-2 opacity-0"
+        //                 variants={{ hover: { opacity: 0.7 }, rest: { opacity: 0 } }}
+        //                 transition={{ delay: 0.25 }}
+        //             >
+        //                 ホバー時に表示されます
+        //             </motion.p>
+        //         </motion.figcaption>
+        //     </motion.figure>
+        // ),
 
-        Layer: (
-            <motion.figure
-                className={`bg-black ${className} ${base}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                <motion.img
-                src="/sea.jpg"
-                className={`${objectCover}`}
-                variants={{
-                    hover: { opacity: 0.5, scale: 1.05 },
-                }}
-                transition={{ duration: 0.4 }}
-                />
+        // Layer: (
+        //     <motion.figure
+        //         className={`bg-black ${className} ${base}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         <motion.img
+        //         src="/sea.jpg"
+        //         className={`${objectCover}`}
+        //         variants={{
+        //             hover: { opacity: 0.5, scale: 1.05 },
+        //         }}
+        //         transition={{ duration: 0.4 }}
+        //         />
 
-                {/* 黒いオーバーレイ */}
-                <motion.div
-                className="absolute inset-0 bg-black/60 opacity-0"
-                variants={{
-                    hover: { opacity: 1, inset: "10px" },
-                }}
-                transition={{ duration: 0.4 }}
-                ></motion.div>
+        //         {/* 黒いオーバーレイ */}
+        //         <motion.div
+        //         className="absolute inset-0 bg-black/60 opacity-0"
+        //         variants={{
+        //             hover: { opacity: 1, inset: "10px" },
+        //         }}
+        //         transition={{ duration: 0.4 }}
+        //         ></motion.div>
 
-                {/* テキスト */}
-                <motion.figcaption
-                className="absolute inset-0 p-8 flex flex-col gap-2 text-white"
-                >
-                    <motion.h3
-                        className="text-xl font-bold opacity-0"
-                        variants={{
-                        hover: { opacity: 1, y: 0 },
-                        }}
-                        transition={{ duration: 0.4 }}
-                    >
-                        Hello!
-                    </motion.h3>
+        //         {/* テキスト */}
+        //         <motion.figcaption
+        //         className="absolute inset-0 p-8 flex flex-col gap-2 text-white"
+        //         >
+        //             <motion.h3
+        //                 className="text-xl font-bold opacity-0"
+        //                 variants={{
+        //                 hover: { opacity: 1, y: 0 },
+        //                 }}
+        //                 transition={{ duration: 0.4 }}
+        //             >
+        //                 Hello!
+        //             </motion.h3>
 
-                    <motion.p
-                        className="text-sm opacity-0 mt-2"
-                        variants={{
-                            hover: { opacity: 1, y: -12 },
-                        }}
-                        transition={{ duration: 0.4, delay: 0.1 }}
-                    >
-                        Displays on a layer when hovered.
-                    </motion.p>
-                </motion.figcaption>
-            </motion.figure>
-        ),
+        //             <motion.p
+        //                 className="text-sm opacity-0 mt-2"
+        //                 variants={{
+        //                     hover: { opacity: 1, y: -12 },
+        //                 }}
+        //                 transition={{ duration: 0.4, delay: 0.1 }}
+        //             >
+        //                 Displays on a layer when hovered.
+        //             </motion.p>
+        //         </motion.figcaption>
+        //     </motion.figure>
+        // ),
 
-        Stretch: (
-            <motion.figure
-                className={`bg-black text-white shadow-md ${className} ${base}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-            >
-                <motion.div
-                className="absolute inset-0"
-                variants={{
-                    rest: { opacity: 0.9, scale: 1 },
-                    hover: { opacity: 0.15, scale: 1.1 },
-                }}
-                transition={{ duration: 0.4 }}
-                >
-                    <img src="/lavender.jpg"
-                        className={`${objectCover}`} />
-                </motion.div>
+        // Stretch: (
+        //     <motion.figure
+        //         className={`bg-black text-white shadow-md ${className} ${base}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //     >
+        //         <motion.div
+        //         className="absolute inset-0"
+        //         variants={{
+        //             rest: { opacity: 0.9, scale: 1 },
+        //             hover: { opacity: 0.15, scale: 1.1 },
+        //         }}
+        //         transition={{ duration: 0.4 }}
+        //         >
+        //             <img src="/lavender.jpg"
+        //                 className={`${objectCover}`} />
+        //         </motion.div>
 
-                <motion.figcaption
-                    className="absolute left-[7%] right-[7%] border-white"
-                    style={{
-                        borderLeftWidth: "1px",
-                        borderRightWidth: "1px",
-                        borderBottomWidth: "1px",
-                    }}
-                    variants={{
-                        rest: { top: "10%", bottom: "80%" },
-                        hover: { top: "10%", bottom: "10%" },
-                    }}
-                    transition={{ duration: 0.4 }}
-                >
+        //         <motion.figcaption
+        //             className="absolute left-[7%] right-[7%] border-white"
+        //             style={{
+        //                 borderLeftWidth: "1px",
+        //                 borderRightWidth: "1px",
+        //                 borderBottomWidth: "1px",
+        //             }}
+        //             variants={{
+        //                 rest: { top: "10%", bottom: "80%" },
+        //                 hover: { top: "10%", bottom: "10%" },
+        //             }}
+        //             transition={{ duration: 0.4 }}
+        //         >
 
-                    <div className="w-full flex flex-col items-center relative -translate-y-2">
-                        <span className="absolute border-t border-white top-2 right-0 w-20"></span>
-                        <h3 className="absolute -top-1 text-xl font-light uppercase z-20 ">
-                        Hello!
-                        </h3>
-                        <span className="absolute border-t border-white top-2 left-0 w-20"></span>
-                    </div>
+        //             <div className="w-full flex flex-col items-center relative -translate-y-2">
+        //                 <span className="absolute border-t border-white top-2 right-0 w-20"></span>
+        //                 <h3 className="absolute -top-1 text-xl font-light uppercase z-20 ">
+        //                 Hello!
+        //                 </h3>
+        //                 <span className="absolute border-t border-white top-2 left-0 w-20"></span>
+        //             </div>
 
-                    <motion.p
-                        className={`opacity-0 text-sm px-4 inset-0 w-full h-full ${flexCenter}`}
-                        variants={{
-                        rest: { opacity: 0 },
-                        hover: { opacity: 1 },
-                        }}
-                        transition={{ duration: 0.45 }}
-                    >
-                        Displays on a layer when hovered.
-                    </motion.p>
-                </motion.figcaption>
-            </motion.figure>
-        ),
+        //             <motion.p
+        //                 className={`opacity-0 text-sm px-4 inset-0 w-full h-full ${flexCenter}`}
+        //                 variants={{
+        //                 rest: { opacity: 0 },
+        //                 hover: { opacity: 1 },
+        //                 }}
+        //                 transition={{ duration: 0.45 }}
+        //             >
+        //                 Displays on a layer when hovered.
+        //             </motion.p>
+        //         </motion.figcaption>
+        //     </motion.figure>
+        // ),
 
         HiddenText: (
             <motion.div
