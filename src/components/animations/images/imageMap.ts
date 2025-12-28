@@ -13,6 +13,11 @@ import ChangeImage from "./examples/ChangeImage";
 import ChangeTextImage from "./examples/ChangeTextImage";
 import HoverLineImage from "./examples/HoverLineImage";
 import SpinImage from "./examples/SpinImage";
+import SlideImage from "./examples/SlideImage";
+import Tilt3dImage from "./examples/Tilt3dImage";
+import HoverVideoImage from "./examples/HoverVideoImage";
+import DashedBorderImage from "./examples/DashedBorderImage";
+import FollowImage from "./examples/FollowImage";
 
 export const imageMap: Record<string, ComponentType> = {
     opacity: OpacityImage,
@@ -29,4 +34,9 @@ export const imageMap: Record<string, ComponentType> = {
     changeText: ChangeTextImage,
     hoverLine: HoverLineImage,
     spin: SpinImage,
+    slide: SlideImage,
+    tilt3d: Tilt3dImage,
+    video: HoverVideoImage,
+    dashedBorder: DashedBorderImage,
+    follow: FollowImage,
 };
