@@ -70,4 +70,29 @@ export const imageData: ImageItem[] = [
         title: "Spin Image",
         previewText: "Spin Image Example",
     },
+    {
+        key: "slide",
+        title: "Slide Image",
+        previewText: "Slide Image Example",
+    },
+    {
+        key: "tilt3d",
+        title: "Tilt3d Image",
+        previewText: "Tilt3d Image Example",
+    },
+    {
+        key: "video",
+        title: "Hover Video Image",
+        previewText: "Hover Video Image Example",
+    },
+    {
+        key: "dashedBorder",
+        title: "Dashed Border Image",
+        previewText: "Dashed Border Image Example",
+    },
+    {
+        key: "follow",
+        title: "Follow Image",
+        previewText: "Follow Image Example",
+    },
 ];
