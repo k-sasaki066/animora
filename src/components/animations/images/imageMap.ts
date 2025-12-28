@@ -25,6 +25,9 @@ import HiddenTextImage from "./examples/HiddenTextImage";
 import SkewImage from "./examples/SkewImage";
 import SpreadsOutImage from "./examples/SpreadsOutImage";
 import SubMenuImage from "./examples/SubMenuImage";
+import ReductionImage from "./examples/ReductionImage";
+import TileImage from "./examples/TileImage";
+import CaptionImage from "./examples/CaptionImage";
 
 export const imageMap: Record<string, ComponentType> = {
     opacity: OpacityImage,
@@ -53,4 +56,7 @@ export const imageMap: Record<string, ComponentType> = {
     skew: SkewImage,
     spreads: SpreadsOutImage,
     subMenu: SubMenuImage,
+    reduction: ReductionImage,
+    tile: TileImage,
+    caption: CaptionImage,
 };

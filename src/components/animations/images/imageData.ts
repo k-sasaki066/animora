@@ -130,4 +130,19 @@ export const imageData: ImageItem[] = [
         title: "Sub Menu Image",
         previewText: "Sub Menu Image Example",
     },
+    {
+        key: "reduction",
+        title: "Reduction Image",
+        previewText: "Reduction Image Example",
+    },
+    {
+        key: "tile",
+        title: "Tile Image",
+        previewText: "Tile Image Example",
+    },
+    {
+        key: "caption",
+        title: "Caption Image",
+        previewText: "Caption Image Example",
+    },
 ];
