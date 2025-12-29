@@ -145,4 +145,9 @@ export const imageData: ImageItem[] = [
         title: "Caption Image",
         previewText: "Caption Image Example",
     },
+    {
+        key: "glitch",
+        title: "Glitch Image",
+        previewText: "Glitch Image Example",
+    },
 ];
