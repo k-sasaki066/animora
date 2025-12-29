@@ -156,4 +156,9 @@ export const textAnimationData: TextAnimationItem[] = [
         title: "Neon Text",
         previewText: "Neon Text Animation Example",
     },
+    {
+        key: "svgGlitch",
+        title: "Svg Glitch Text",
+        previewText: "Svg Glitch Text Animation Example",
+    },
 ];
