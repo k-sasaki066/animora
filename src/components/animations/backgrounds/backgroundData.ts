@@ -116,4 +116,9 @@ export const backgroundData: BackgroundItem[] = [
         title: "Drifting Shapes Background",
         previewText: "Drifting Shapes Background Example",
     },
+    {
+        key: "sunsetSky",
+        title: "Sunset Sky Background",
+        previewText: "Sunset Sky Background Example",
+    },
 ];
