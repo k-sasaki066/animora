@@ -28,6 +28,7 @@ import SubMenuImage from "./examples/SubMenuImage";
 import ReductionImage from "./examples/ReductionImage";
 import TileImage from "./examples/TileImage";
 import CaptionImage from "./examples/CaptionImage";
+import GlitchImage from "./examples/glitch/GlitchImage";
 
 export const imageMap: Record<string, ComponentType> = {
     opacity: OpacityImage,
@@ -59,4 +60,5 @@ export const imageMap: Record<string, ComponentType> = {
     reduction: ReductionImage,
     tile: TileImage,
     caption: CaptionImage,
+    glitch: GlitchImage,
 };

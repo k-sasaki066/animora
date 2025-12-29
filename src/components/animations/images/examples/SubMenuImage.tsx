@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
-import { useContainerWidth } from "@/hooks/useContainerWidth";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 export default function SubMenuImage() {
-    const { ref, width } = useContainerWidth<HTMLDivElement>();
+    const { ref, width } = useContainerSize<HTMLDivElement>();
 
     const titleSize = scaleText(width, {
         min: 16,

@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { scaleByBase } from "@/utils/scaleByBase";
-import { useContainerWidth } from "@/hooks/useContainerWidth";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 export default function TileImage() {
-    const { ref, width } = useContainerWidth<HTMLDivElement>();
+    const { ref, width } = useContainerSize<HTMLDivElement>();
 
     const figWidth = scaleByBase(width, { base: 98 });
     const slideTriTop = scaleByBase(width, { base: 96 });
