@@ -1,31 +1,14 @@
 "use client";
 
-import { useRef, useLayoutEffect, useState, Fragment } from "react";
+import { Fragment } from "react";
 import RainDrop from "./RainDrop";
 import RainSplat from "./RainSplat";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 export default function RainBackground() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [height, setHeight] = useState(0);
+    const { ref, height } = useContainerSize<HTMLDivElement>();
 
-    // カードの高さを取得
-    useLayoutEffect(() => {
-        if (!containerRef.current) return;
-
-        const updateHeight = () => {
-            setHeight(containerRef.current!.offsetHeight);
-        };
-
-        updateHeight();
-
-        // リサイズ対応
-        const observer = new ResizeObserver(updateHeight);
-        observer.observe(containerRef.current);
-
-        return () => observer.disconnect();
-    }, []);
-
-    const drops = Array.from({ length: Math.floor(height / 8) }).map((_, i) => ({
+    const drops = Array.from({ length: Math.floor(height / 8) }).map(() => ({
         left: Math.random() * 100,
         delay: Math.random() * 2,
         duration: 0.5 + Math.random(),
@@ -33,7 +16,7 @@ export default function RainBackground() {
 
     return (
         <div
-            ref={containerRef}
+            ref={ref}
             className="relative w-full aspect-video bg-black overflow-hidden"
         >
             {height > 0 &&

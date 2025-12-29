@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 export default function MagicBackground() {
-    const containerRef = useRef<HTMLDivElement>(null);
+    const { ref, width } =
+        useContainerSize<HTMLDivElement>();
     const [pos, setPos] = useState({ x: 0, y: 0 });
-    const [radius, setRadius] = useState(100);
+    const radius = width ? width / 6 : 100;
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            if (!containerRef.current) return;
-            const rect = containerRef.current.getBoundingClientRect();
+            if (!ref.current) return;
+            const rect = ref.current.getBoundingClientRect();
 
             setPos({
                 x: e.clientX - rect.left,
@@ -23,20 +25,9 @@ export default function MagicBackground() {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
-    // カード幅に応じて半径を設定
-    useEffect(() => {
-        if (!containerRef.current) return;
-        const resizeObserver = new ResizeObserver(() => {
-            const width = containerRef.current?.offsetWidth || 200;
-            setRadius(width / 6);
-        });
-        resizeObserver.observe(containerRef.current);
-        return () => resizeObserver.disconnect();
-    }, []);
-
     return (
         <div
-            ref={containerRef}
+            ref={ref}
             className="relative w-full aspect-video overflow-hidden"
             style={{
                 backgroundImage: "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/hover-reveal.jpg')",

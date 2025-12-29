@@ -97,7 +97,7 @@ export default function StaticNoiseBackground({
                         duration: 0.25, // グリッチは高速
                         ease: "linear"
                     }}
-    
+
                 >
                     CLICK ME
                 </motion.h2>
