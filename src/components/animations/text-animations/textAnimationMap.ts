@@ -29,6 +29,7 @@ import PopOutText from "./examples/PopOutText";
 import DivisionText from "./examples/DivisionText";
 import StroboText from "./examples/StroboText";
 import NeonText from "./examples/NeonText";
+import SvgGlitchText from "./examples/SvgGlitchText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
@@ -61,4 +62,5 @@ export const textAnimationMap: Record<string, ComponentType> = {
     division: DivisionText,
     strobo: StroboText,
     neon: NeonText,
+    svgGlitch: SvgGlitchText,
 };
