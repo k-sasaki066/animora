@@ -11,7 +11,7 @@ export default function FloatingBubblesBackground() {
             {bubbles.map((bubble, index) => (
                 <motion.span
                     key={index}
-                    className="absolute bottom-[-150px] bg-white/20"
+                    className="absolute -bottom-37.5 bg-white/20"
                     style={{
                         width: bubble.size,
                         height: bubble.size,

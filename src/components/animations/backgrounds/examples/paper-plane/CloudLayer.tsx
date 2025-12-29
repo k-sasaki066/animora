@@ -10,6 +10,6 @@ export default function CloudLayer() {
             <Cloud size="clamp(100px, 25vw, 300px)" top="40%" duration={8} />
             <Cloud size="clamp(150px, 35vw, 400px)" top="5%" duration={20.5} opacity={0.5} />
             <Cloud size="clamp(120px, 28vw, 280px)" top="55%" duration={11.2} />
-    </div>
+        </div>
     );
 }

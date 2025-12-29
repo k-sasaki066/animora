@@ -16,7 +16,7 @@ export default function RainDrop({
     containerHeight,
 }: Props) {
     const splatY = containerHeight * 0.6;
-    const rainHeight = containerHeight * 0.2;
+    const rainHeight = containerHeight * 0.1;
 
     return (
         <motion.div
@@ -37,7 +37,7 @@ export default function RainDrop({
                 times: [0, 0.85, 1],
             }}
         >
-            <div className="ml-[7px] w-px h-full bg-linear-to-b from-transparent to-white/30" />
+            <div className="ml-1.75 w-px h-full bg-linear-to-b from-transparent to-white/30" />
         </motion.div>
     );
 }

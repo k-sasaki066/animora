@@ -43,8 +43,8 @@ export default function ColorDiagonalBackground() {
 
             {/* optional center content */}
             <div className="relative z-10 flex items-center justify-center h-full">
-                <div className="bg-white/80 backdrop-blur rounded-md px-6 py-4 shadow">
-                    <h2 className="font-mono text-[4vw]">
+                <div className="bg-white/80 backdrop-blur rounded-md px-4 py-2 shadow">
+                    <h2 className="font-mono text-[3vw]">
                         Color Diagonals
                     </h2>
                 </div>

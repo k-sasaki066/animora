@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 type Circle = {
     id: number;
@@ -12,15 +13,12 @@ type Circle = {
 
 export default function FloatingCirclesBackground() {
     const [circles, setCircles] = useState<Circle[]>([]);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const { ref, width, height } = useContainerSize<HTMLDivElement>();
 
     useEffect(() => {
+        if (!width || !height) return;
+
         const interval = setInterval(() => {
-            if (!containerRef.current) return;
-
-            const { width, height } =
-                containerRef.current.getBoundingClientRect();
-
             const base = Math.min(width, height);
             const minSize = base * 0.03;
             const maxSize = base * 0.08;
@@ -40,10 +38,10 @@ export default function FloatingCirclesBackground() {
         }, 800);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [width, height]);
 
     return (
-        <div ref={containerRef} className="relative w-full aspect-video overflow-hidden bg-[#e0ddac]">
+        <div ref={ref} className="relative w-full aspect-video overflow-hidden bg-[#e0ddac]">
             {circles.map((circle) => (
                 <motion.div
                     key={circle.id}

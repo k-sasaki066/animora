@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { shapesComponents } from "./Shapes";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 interface Shapes {
     id: number;
@@ -14,53 +15,37 @@ interface Shapes {
 
 export default function DriftingShapesBackground() {
     const [particles, setParticles] = useState<Shapes[]>([]);
-    const [counter, setCounter] = useState(0);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [size, setSize] = useState({ width: 0, height: 0 });
+    const { ref, width, height } = useContainerSize<HTMLDivElement>();
     const idRef = useRef(0);
 
     useEffect(() => {
-        if (!containerRef.current) return;
-
-        const observer = new ResizeObserver((entries) => {
-            const rect = entries[0].contentRect;
-            setSize({
-                width: rect.width,
-                height: rect.height,
-            });
-        });
-
-        observer.observe(containerRef.current);
-
-        return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-        if (size.height === 0) return;
+        if (!width || !height) return;
 
         let animationFrame: number;
-        let idCounter = counter;
 
         function spawnParticle() {
-            const Component = shapesComponents[Math.floor(Math.random() * shapesComponents.length)];
-            const newParticle: Shapes = {
-                id: idRef.current++,
-                x: Math.random() * size.width,
-                y: size.height,
-                size: 0.5 + Math.random(),
-                Component,
-                speed: 1 + Math.random() * 3,
-                rotation: Math.random() > 0.5 ? 1 : -1,
-            };
-            setParticles((prev) => [...prev, newParticle]);
-            setCounter(idCounter);
+            const Component =
+                shapesComponents[Math.floor(Math.random() * shapesComponents.length)];
+
+            setParticles((prev) => [
+                ...prev,
+                {
+                    id: idRef.current++,
+                    x: Math.random() * width,
+                    y: height,
+                    size: 0.5 + Math.random(),
+                    Component,
+                    speed: 1 + Math.random() * 3,
+                    rotation: Math.random() > 0.5 ? 1 : -1,
+                },
+            ]);
         }
 
         function animate() {
             setParticles((prev) =>
                 prev
-                .map((p) => ({ ...p, y: p.y - p.speed }))
-                .filter((p) => p.y > -50)
+                    .map((p) => ({ ...p, y: p.y - p.speed }))
+                    .filter((p) => p.y > -80)
             );
             animationFrame = requestAnimationFrame(animate);
         }
@@ -72,10 +57,10 @@ export default function DriftingShapesBackground() {
             clearInterval(interval);
             cancelAnimationFrame(animationFrame);
         };
-    }, [size.height, size.width]);
+    }, [width, height]);
 
     return (
-        <div ref={containerRef} className="relative w-full aspect-video overflow-hidden pointer-events-none">
+        <div ref={ref} className="relative w-full aspect-video overflow-hidden pointer-events-none">
             {particles.map((p) => (
                 <motion.div
                     key={p.id}
