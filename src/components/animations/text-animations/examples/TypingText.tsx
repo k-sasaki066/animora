@@ -58,21 +58,22 @@ export default function TypingText({
     }, [displayedText, mode, speed]);
 
     return (
-        <motion.div
-            ref={ref}
-            className="font-bold w-full"
-            style={{ fontSize }}
-            variants={containerVariants}
-            animate={mode}
-        >
-            <span>{displayedText}</span>
+        <div ref={ref} className="w-full">
+            <motion.div
+                className="font-bold"
+                style={{ fontSize }}
+                variants={containerVariants}
+                animate={mode}
+            >
+                <span>{displayedText}</span>
 
-            {/* カーソル */}
-            <motion.span
-                className="ml-1 inline-block w-0.5 h-[1em] bg-current"
-                animate={{ opacity: [0, 1, 0] }}
-                transition={{ repeat: Infinity, duration: 1 }}
-            />
-        </motion.div>
+                {/* カーソル */}
+                <motion.span
+                    className="ml-1 inline-block w-0.5 h-[1em] bg-current"
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ repeat: Infinity, duration: 1 }}
+                />
+            </motion.div>
+        </div>
     );
 }

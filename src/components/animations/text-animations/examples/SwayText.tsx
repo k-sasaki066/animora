@@ -27,23 +27,24 @@ export default function SwayText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     return (
-        <motion.div
-            ref={ref}
-            className="w-full flex gap-1 justify-center font-bold cursor-pointer"
-            style={{ fontSize }}
-            initial="initial"
-            whileHover="hover"
-        >
-            {text.split("").map((char, index) => (
-                <motion.span
-                    key={index}
-                    className={`inline-block`}
-                    variants={letterVariants}
-                    custom={index}
-                >
-                    {char}
-                </motion.span>
-            ))}
-        </motion.div>
+        <div ref={ref} className="w-full">
+            <motion.div
+                className="flex gap-1 justify-center font-bold cursor-pointer"
+                style={{ fontSize }}
+                initial="initial"
+                whileHover="hover"
+            >
+                {text.split("").map((char, index) => (
+                    <motion.span
+                        key={index}
+                        className={`inline-block`}
+                        variants={letterVariants}
+                        custom={index}
+                    >
+                        {char}
+                    </motion.span>
+                ))}
+            </motion.div>
+        </div>
     );
 }

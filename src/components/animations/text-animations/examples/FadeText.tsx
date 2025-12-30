@@ -38,14 +38,15 @@ export default function TypingText() {
     }, []);
 
     return (
-        <motion.div
-            ref={ref}
-            className="w-full font-bold"
-            variants={containerVariants}
-            initial="hidden"
-            animate={active ? "visible" : "hidden"}
-        >
-            {text.split("").map((char, i) => (
+        <div ref={ref} className="w-full">
+            <motion.div
+                className="font-bold"
+                style={{ fontSize }}
+                variants={containerVariants}
+                initial="hidden"
+                animate={active ? "visible" : "hidden"}
+            >
+                {text.split("").map((char, i) => (
                 <motion.span
                     key={i}
                     className="inline-block"
@@ -53,9 +54,10 @@ export default function TypingText() {
                     variants={charVariants}
                     custom={i}
                 >
-                {char === " " ? "\u00A0" : char}
+                    {char === " " ? "\u00A0" : char}
                 </motion.span>
-            ))}
-        </motion.div>
+                ))}
+            </motion.div>
+        </div>
     );
 }
