@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
-const text = "Text Animation";
+const text = "Blur Text";
 
 const containerVariants: Variants = {
     hidden: {},
@@ -31,10 +32,13 @@ const charVariants: Variants = {
 };
 
 export default function TextBlurAnimation() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     return (
-        <div className="w-full px-4 flex items-center justify-center overflow-hidden">
+        <div ref={ref} className="w-full overflow-hidden">
             <motion.div
-                className="flex font-mono font-bold uppercase text-[3vw]"
+                className="font-bold"
+                style={{ fontSize }}
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"

@@ -2,11 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const LOGO_TEXT = "animation";
 const RANDOM_CHARS = "-+*/|}{[]~\\\":;?/.><=+-_)(*&^%$#@!)}";
 
 export default function LogoAnimation() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     const [displayText, setDisplayText] = useState("");
     const [visible, setVisible] = useState(false);
 
@@ -47,13 +50,14 @@ export default function LogoAnimation() {
     }, []);
 
     return (
-        <div className="w-full flex justify-center">
+        <div ref={ref} className="w-full flex justify-center">
             {/* テキスト */}
             <motion.div
-                className="font-bold text-gray-600 text-[3vw] text-center"
+                className="font-bold text-gray-600 text-center"
                 style={{
                     fontFamily: "Dosis, sans-serif",
                     width: `${LOGO_TEXT.length}ch`,
+                    fontSize
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: visible ? 1 : 0 }}

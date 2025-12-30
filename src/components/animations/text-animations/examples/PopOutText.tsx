@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const textLines = [
     "RIDE",
@@ -13,8 +14,18 @@ const DURATION = 1;
 const EASE = [0.86, 0, 0.07, 1] as const;
 
 export default function PopOutText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.06,
+        min: 26,
+        max: 56,
+    });
+
     return (
-        <div className="space-y-2 text-center font-black text-[3vw] leading-none">
+        <div
+            ref={ref}
+            className="w-full space-y-1 text-center font-black leading-none"
+            style={{ fontSize }}
+        >
             {textLines.map((line, lineIndex) => (
                 <div key={lineIndex} className="flex justify-center gap-1">
                     {line.split("").map((char, i) => (

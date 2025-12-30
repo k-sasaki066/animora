@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Neonderthaw } from "next/font/google";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const neonderthaw = Neonderthaw({
     subsets: ["latin"],
@@ -9,8 +10,17 @@ const neonderthaw = Neonderthaw({
 });
 
 export default function NeonText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.06,
+        min: 32,
+        max: 72,
+    });
+
     return (
-        <div className="w-full p-4 bg-black flex justify-center items-center gap-2 text-[3vw]">
+        <div
+            ref={ref}
+            className="w-full p-4 bg-black flex justify-center items-center gap-2"
+            style={{ fontSize }}>
             <motion.div
                 className={`leading-none ${neonderthaw.className}`}
                 animate={{

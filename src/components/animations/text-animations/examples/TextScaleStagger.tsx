@@ -2,8 +2,9 @@
 
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
-const text = "Text Animation";
+const text = "Scale Stagger";
 
 const containerVariants: Variants = {
     hidden: {},
@@ -30,6 +31,8 @@ const charVariants: Variants = {
 };
 
 export default function TextScaleStagger() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -42,16 +45,22 @@ export default function TextScaleStagger() {
     }, []);
 
     return (
-        <div className="w-full flex items-center justify-center px-4 overflow-hidden">
+        <div ref={ref} className="w-full overflow-hidden">
             <motion.div
-                className="flex font-mono font-bold text-[3vw]"
+                className="font-bold"
+                style={{ fontSize }}
                 variants={containerVariants}
                 initial="hidden"
                 animate={active ? "visible" : "hidden"}
             >
                 {text.split("").map((char, index) =>
                     char === " " ? (
-                        <span key={index} className="w-4" />
+                        <motion.span
+                            key={index}
+                            className="inline-block whitespace-pre"
+                        >
+                            {"\u00A0"}
+                        </motion.span>
                     ) : (
                         <motion.span
                             key={index}

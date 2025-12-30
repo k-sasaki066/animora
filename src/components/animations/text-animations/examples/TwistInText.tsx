@@ -2,10 +2,13 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
-const text = "Text Animation";
+const text = "Twist Text";
 
 export default function TwistInText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -18,17 +21,23 @@ export default function TwistInText() {
     }, []);
 
     return (
-        <div className="w-full px-4 flex items-center justify-center overflow-hidden ">
+        <div ref={ref} className="w-full overflow-hidden ">
             {/* アクセシビリティ用 */}
             <span className="sr-only">{text}</span>
 
             <div
                 aria-hidden
-                className="flex font-mono text-[3vw] font-bold"
+                className="font-bold"
+                style={{ fontSize }}
             >
                 {text.split("").map((char, index) =>
                     char === " " ? (
-                        <span key={index} className="w-[0.6em]" />
+                        <motion.span
+                            key={index}
+                            className="inline-block whitespace-pre"
+                        >
+                            {"\u00A0"}
+                        </motion.span>
                     ) : (
                         <motion.span
                             key={index}

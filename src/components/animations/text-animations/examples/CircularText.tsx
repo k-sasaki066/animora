@@ -1,33 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 export default function CircularText() {
     const text = "CIRCULAR*ANIMATION*";
     const duration = 20;
 
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [size, setSize] = useState(120); // 初期値
+    const { ref, width } = useContainerSize<HTMLDivElement>();
 
-    // 親サイズを監視
-    useEffect(() => {
-        if (!containerRef.current) return;
-
-        const observer = new ResizeObserver(([entry]) => {
-            const width = entry.contentRect.width;
-            setSize(width / 3);
-        });
-
-        observer.observe(containerRef.current);
-        return () => observer.disconnect();
-    }, []);
-
+    // 親幅に比例してサイズを決定
+    const size = width ? width / 4 : 120;
     const radius = size / 2;
-    const fontSize = size * 0.12; // ← カードに比例
+    const fontSize = size * 0.12;
 
     return (
-        <div ref={containerRef} className="w-full h-full flex items-center justify-center">
+        <div ref={ref} className="w-full h-full flex items-center justify-center">
             <motion.div
                 className="relative"
                 style={{ width: size, height: size }}

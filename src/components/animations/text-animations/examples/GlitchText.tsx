@@ -2,15 +2,19 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const text = "HOVER ME!";
 
 export default function GlitchText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
     const [hovered, setHovered] = useState(false);
 
     return (
         <div
-            className="flex justify-center gap-2 text-[3vw] font-bold cursor-pointer"
+            ref={ref}
+            className="w-full flex justify-center gap-1 font-bold cursor-pointer"
+            style={{ fontSize }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >

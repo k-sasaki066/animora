@@ -2,8 +2,15 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export default function PopRiseText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.07,
+        min: 24,
+        max: 64,
+    });
+
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -15,15 +22,16 @@ export default function PopRiseText() {
     }, []);
 
     return (
-        <div className="w-full flex items-center justify-center">
+        <div ref={ref} className="w-full">
             <motion.div
-                className="font-mono font-bold uppercase text-[3vw] origin-bottom"
+                className="font-bold uppercase origin-bottom"
+                style={{ fontSize }}
                 animate={
                     active
                         ? {
                             opacity: [0, 1, 1],
-                            scale: [0.3, 1.2, 1],
-                            y: ["140%", "-30%", "0%"],
+                            scale: [0.3, 1.1, 1],
+                            y: ["120%", "-30%", "0%"],
                         }
                         : {}
                 }
@@ -33,7 +41,7 @@ export default function PopRiseText() {
                     times: [0, 0.75, 1],
                 }}
             >
-                Text Animation
+                Pop Rise Text
             </motion.div>
         </div>
     );

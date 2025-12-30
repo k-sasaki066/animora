@@ -4,8 +4,11 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { SvgPiece } from "./SvgPiece";
 import { explodeTextShapes } from "./explodeTextData";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export default function ExplodeText() {
+    const { ref, fontSize } = useResponsiveFontSize<SVGSVGElement>();
+
     const controls = useAnimation();
     const isMounted = useRef(true);
 
@@ -40,8 +43,10 @@ export default function ExplodeText() {
 
     return (
         <motion.svg
-            viewBox="0 0 883 105.2"
-            className="w-[90%] p-8 text-[3vw] fill-black stroke-black text-center mx-auto bg-[#FED75A]"
+            ref={ref}
+            viewBox="0 0 880 105.2"
+            className="w-full p-4 fill-black stroke-black text-center bg-[#FED75A]"
+            style={{ fontSize }}
             initial="hidden"
             animate={controls}
             variants={{

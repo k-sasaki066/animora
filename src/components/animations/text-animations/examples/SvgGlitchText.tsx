@@ -1,8 +1,16 @@
 "use client";
 
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
+
 export default function SvgGlitchText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.06,
+        min: 40,
+        max: 56,
+    });
+
     return (
-        <div className="w-full font-bold cursor-pointer bg-black flex items-center justify-center p-2">
+        <div ref={ref} className="w-full font-bold cursor-pointer bg-black flex items-center justify-center p-2">
             <svg
                 className="w-full h-auto"
                 viewBox="0 0 600 100"
@@ -82,7 +90,7 @@ export default function SvgGlitchText() {
                         filter="url(#filter)"
                         fill="white"
                         fontFamily="'Share Tech Mono', monospace"
-                        fontSize="6vw"
+                        style={{ fontSize }}
                     >
                         <tspan dy=".15em">SVG GLITCH</tspan>
                     </text>

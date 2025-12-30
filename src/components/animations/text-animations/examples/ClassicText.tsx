@@ -3,12 +3,12 @@
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Fjalla_One } from "next/font/google";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export const fjallaOne = Fjalla_One({
     weight: "400",
     subsets: ["latin"],
 });
-
 
 const titles = ["This is", "classic", "example"];
 
@@ -30,7 +30,6 @@ const lineVariants: Variants = {
     },
 };
 
-
 const letterVariants: Variants = {
     hidden: {
         opacity: 0,
@@ -48,6 +47,11 @@ const letterVariants: Variants = {
 
 export default function ClassicText() {
     const [key, setKey] = useState(0);
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.06,
+        min: 20,
+        max: 56,
+    });
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -58,10 +62,14 @@ export default function ClassicText() {
     }, []);
 
     return (
-        <section className={`w-full p-8 flex flex-col items-center justify-center bg-linear-to-b from-slate-700 to-slate-500 ${fjallaOne.className}`}>
+        <section ref={ref} className={`w-full mx-auto p-3 bg-linear-to-b from-slate-700 to-slate-500 ${fjallaOne.className}`}>
             <motion.h1
                 key={key}
-                className="uppercase text-[3vw] leading-9 font-bold text-center flex flex-col items-center"
+                className="uppercase font-bold text-center flex flex-col items-center"
+                style={{
+                    fontSize,
+                    lineHeight: 1.1,
+                }}
                 variants={titleContainerVariants}
                 initial="hidden"
                 animate="visible"

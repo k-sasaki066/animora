@@ -1,13 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export default function ReductionText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     return (
-        <div className="w-full px-4 flex items-center justify-center overflow-hidden">
+        <div ref={ref} className="w-full overflow-hidden">
             <motion.div
-                className="font-mono font-bold uppercase text-[3vw] origin-left"
+                className="font-bold uppercase origin-left"
+                style={{ fontSize }}
                 initial={{
                     opacity: 0,
                     x: "20vw",

@@ -2,8 +2,9 @@
 
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
-const text = "Slide Up Animation";
+const text = "Slide Up";
 
 const containerVariants = {
     hidden: {},
@@ -27,6 +28,8 @@ const charVariants: Variants = {
 };
 
 export default function TextSlideUp() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     const [active, setActive] = useState(true);
 
     useEffect(() => {
@@ -38,9 +41,10 @@ export default function TextSlideUp() {
     }, []);
 
     return (
-        <div className="w-full flex items-center justify-center bg-neutral-700 overflow-hidden p-4">
+        <div ref={ref} className="w-full bg-neutral-700 overflow-hidden p-2">
             <motion.div
-                className="flex flex-wrap justify-center text-center text-white font-mono font-bold uppercase text-[3vw] leading-tight"
+                className="text-white font-bold uppercase"
+                style={{ fontSize }}
                 variants={containerVariants}
                 initial="hidden"
                 animate={active ? "visible" : "hidden"}
@@ -48,7 +52,12 @@ export default function TextSlideUp() {
             >
                 {text.split("").map((char, i) =>
                     char === " " ? (
-                        <span key={i} className="w-[0.5em]" />
+                        <motion.span
+                            key={i}
+                            className="inline-block whitespace-pre"
+                        >
+                            {"\u00A0"}
+                        </motion.span>
                     ) : (
                         <motion.span
                             key={i}

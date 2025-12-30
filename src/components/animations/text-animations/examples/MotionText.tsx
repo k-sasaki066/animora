@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const text = "ANIMATION";
 
@@ -11,9 +12,13 @@ const getCharWidth = (char: string) => {
 };
 
 export default function VerticalRotationText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     return (
         <motion.div
-            className="inline-flex cursor-pointer overflow-hidden"
+            ref={ref}
+            className="w-full justify-center items-center inline-flex cursor-pointer overflow-hidden"
+            style={{ fontSize }}
             initial="rest"
             whileHover="hover"
             animate="rest"
@@ -37,7 +42,7 @@ export default function VerticalRotationText() {
                 return (
                     <div
                         key={i}
-                        className={`relative overflow-hidden h-[1em] ${getCharWidth(char)} text-[3vw]`}
+                        className={`relative overflow-hidden h-[1em] ${getCharWidth(char)}`}
                     >
                         {/* 上の文字 */}
                         <motion.span

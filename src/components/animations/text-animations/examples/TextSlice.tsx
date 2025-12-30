@@ -2,8 +2,11 @@
 
 import { motion, Transition } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export default function TextSliceMotion() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     const [active, setActive] = useState(false);
     const text = "SLICE ANIMATION";
 
@@ -21,8 +24,11 @@ export default function TextSliceMotion() {
     };
 
     return (
-        <div className="w-full px-4 flex items-center justify-center">
-            <div className="relative font-mono font-bold text-[3vw] leading-none overflow-hidden">
+        <div ref={ref} className="w-full">
+            <div
+                className="relative font-bold leading-none overflow-hidden"
+                style={{ fontSize }}
+            >
 
                 {/* ベース文字 */}
                 <div className="opacity-0 select-none">

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const words = [
     { text: "tasty.", color: "text-purple-500" },
@@ -41,6 +42,7 @@ export const letterVariants: Variants = {
 };
 
 export default function RotatingWordsText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -54,19 +56,24 @@ export default function RotatingWordsText() {
     const word = words[index];
 
     return (
-        <div className="relative inline-flex items-baseline gap-2 perspective-midrange text-[3vw]">
-            <span className="whitespace-nowrap">Nachos are</span>
+        <div
+            ref={ref}
+            className="w-full relative inline-flex justify-center  items-center gap-2 perspective-midrange leading-none"
+            style={{ fontSize }}
+        >
+            <span className="whitespace-nowrap leading-none">Nachos are</span>
 
-            <div className="relative inline-block w-[6ch] h-[1em]">
+            <div className="relative inline-flex items-center w-[6ch] h-[1em]">
                 <AnimatePresence mode="wait">
                     <motion.span
                         key={word.text}
-                        className={`absolute left-0 -top-1 inline-flex ${word.color}`}
+                        className={`absolute left-0 inline-flex items-baseline ${word.color}`}
+                        style={{ lineHeight: 1 }}
                     >
                         {word.text.split("").map((char, i) => (
                             <motion.span
                                 key={i}
-                                className="inline-block origin-center"
+                                className="inline-block origin-center leading-none"
                                 variants={letterVariants}
                                 initial="initial"
                                 animate="animate"
