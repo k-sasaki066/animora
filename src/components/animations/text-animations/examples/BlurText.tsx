@@ -31,7 +31,7 @@ const charVariants: Variants = {
     },
 };
 
-export default function TextBlurAnimation() {
+export default function BlurTextAnimation() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     return (
