@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function SvgText() {
     return (
-        <div className="relative w-[60%] h-64 overflow-hidden rounded-lg mx-auto">
+        <div className="relative w-full aspect-video overflow-hidden mx-auto">
             {/* 背景画像 */}
             <div
                 className="absolute inset-0 bg-cover bg-center"

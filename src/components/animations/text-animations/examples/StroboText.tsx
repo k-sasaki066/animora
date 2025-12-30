@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Orbitron } from "next/font/google";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const orbitron = Orbitron({
     subsets: ["latin"],
@@ -39,12 +40,18 @@ const colorShift: Variants = {
 };
 
 export default function StroboText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.06,
+        min: 28,
+        max: 72,
+    });
     const text = "STROBO";
 
     return (
-        <div className={`w-full p-4 bg-black ${orbitron.className}`}>
+        <div ref={ref} className={`w-full p-4 bg-black ${orbitron.className}`}>
             <motion.div
-                className="relative text-center font-extrabold uppercase text-white select-none text-[3vw]"
+                className="relative text-center font-extrabold uppercase text-white select-none"
+                style={{ fontSize }}
                 variants={glitchVariant}
                 animate="animate"
             >

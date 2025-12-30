@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
-const text = "Fade Animation";
+const text = "Fade Text";
 
 const containerVariants = {
     hidden: {},
@@ -24,6 +25,8 @@ const charVariants = {
 };
 
 export default function TypingText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     const [active, setActive] = useState(true);
 
     useEffect(() => {
@@ -36,7 +39,8 @@ export default function TypingText() {
 
     return (
         <motion.div
-            className="text-xl font-bold text-[3vw] font-mono"
+            ref={ref}
+            className="w-full font-bold"
             variants={containerVariants}
             initial="hidden"
             animate={active ? "visible" : "hidden"}
@@ -45,6 +49,7 @@ export default function TypingText() {
                 <motion.span
                     key={i}
                     className="inline-block"
+                    style={{ fontSize }}
                     variants={charVariants}
                     custom={i}
                 >

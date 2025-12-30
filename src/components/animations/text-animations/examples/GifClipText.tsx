@@ -2,14 +2,17 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const text = "AWESOME";
 
 export default function GifClipText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
     const [value, setValue] = useState(text);
 
     return (
         <motion.div
+            ref={ref}
             contentEditable
             suppressContentEditableWarning
             onInput={(e) => setValue(e.currentTarget.textContent || "")}
@@ -17,14 +20,15 @@ export default function GifClipText() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             whileHover={{ scale: 1.05 }}
-            className="text-center font-bold outline-none select-text cursor-text
-            text-[3vw] leading-none bg-clip-text
+            className="w-full text-center font-bold outline-none select-text cursor-text
+            leading-none bg-clip-text
             text-transparent"
             style={{
                 backgroundImage:
                 "url(https://media.giphy.com/media/3o6Ztb45EYezY9x9gQ/giphy.gif)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                fontSize
             }}
         >
         {value}

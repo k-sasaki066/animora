@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const blobs = [
     { size: 450, color: "#005ffe", stiffness: 50, damping: 20 },
@@ -13,19 +14,20 @@ export default function CursorBlobText() {
     // マウス位置
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-    const containerRef = useRef<HTMLDivElement>(null);
+
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            if (!containerRef.current) return;
+            if (!ref.current) return;
 
-            const rect = containerRef.current.getBoundingClientRect();
+            const rect = ref.current.getBoundingClientRect();
             mouseX.set(e.clientX - rect.left);
             mouseY.set(e.clientY - rect.top);
         };
 
-          window.addEventListener("mousemove", handleMouseMove);
-          return () => window.removeEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
     const blobSprings = blobs.map((blob) => ({
@@ -43,7 +45,7 @@ export default function CursorBlobText() {
         <>
             {/* ===== Blobエリア ===== */}
             <div
-                ref={containerRef} className="relative h-[50vh] w-full overflow-hidden bg-[#2128bd]">
+                ref={ref} className="relative h-23 w-full overflow-hidden bg-[#2128bd]">
                     {/* blobs */}
                     {blobs.map((blob, i) => (
                         <motion.div
@@ -63,7 +65,7 @@ export default function CursorBlobText() {
 
                     {/* Content */}
                     <div className="absolute inset-0 flex items-center justify-center bg-white mix-blend-screen">
-                        <h1 className="text-[3vw] font-bold text-center">
+                        <h1 className="font-bold text-center" style={{ fontSize }}>
                             HOVER ME!
                         </h1>
                     </div>

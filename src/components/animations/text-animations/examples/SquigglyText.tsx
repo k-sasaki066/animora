@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Amatic_SC } from "next/font/google";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const amatic = Amatic_SC({
     weight: ["400", "700"],
@@ -9,12 +10,18 @@ const amatic = Amatic_SC({
 });
 
 export default function SquigglyText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.07,
+        min: 36,
+        max: 80,
+    });
     return (
         <motion.div
-        className="space-y-2 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+            ref={ref}
+            className="space-y-2 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
         >
             {/* SVG Filters */}
             <svg width="0" height="0" className="absolute">
@@ -41,9 +48,10 @@ export default function SquigglyText() {
             <div
                 contentEditable
                 suppressContentEditableWarning
-                className={`squiggly inline-block font-bold text-[4vw] leading-tight outline-none
+                className={`squiggly inline-block font-bold leading-tight outline-none
                 select-text ${amatic.className}
                 `}
+                style={{ fontSize }}
             >
                 Squiggly Text
             </div>

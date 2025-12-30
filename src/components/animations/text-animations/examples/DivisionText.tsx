@@ -1,19 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 interface Props {
     text?: string;
 }
 
 export default function DivisionText({ text = "HOME" }: Props) {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
+        ratio: 0.06,
+        min: 32,
+        max: 72,
+    });
+
     return (
-        <div className="p-4 bg-[#1c1848]">
+        <div ref={ref} className="w-full p-4 bg-[#1c1848]">
             <motion.div
-            className="relative inline-block cursor-pointer select-none text-[4vw] leading-none"
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
+                className="relative inline-block cursor-pointer select-none leading-none"
+                style={{ fontSize }}
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
             >
                 {/* 上半分 */}
                 <motion.span

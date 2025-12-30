@@ -13,7 +13,7 @@ export const textAnimationData: TextAnimationItem[] = [
     },
     {
         key: "slideUp",
-        title: "slide up",
+        title: "Slide up",
         previewText: "Typing Animation Example",
     },
     {

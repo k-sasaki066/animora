@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export default function TextAnimation07() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -15,7 +18,7 @@ export default function TextAnimation07() {
     }, []);
 
     return (
-        <div className="w-full px-4 flex items-center justify-center overflow-hidden">
+        <div ref={ref} className="w-full  overflow-hidden">
             <div className="relative overflow-hidden">
                 {/* ワイプ背景 */}
                 <motion.div
@@ -29,7 +32,8 @@ export default function TextAnimation07() {
                 />
                 {/* テキスト */}
                 <motion.div
-                    className="relative font-mono font-bold uppercase text-[3vw]"
+                    className="relative  font-bold uppercase"
+                    style={{ fontSize }}
                     initial={{
                         x: "-110%",
                         skewX: 8,

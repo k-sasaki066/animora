@@ -14,7 +14,7 @@ export function TextAnimationPreview({ animationKey, showTitle = false, }: Props
                 <h2 className="text-2xl font-bold mb-4">{animationKey}</h2>
             )}
 
-            <div className="w-full border rounded-lg p-8 overflow-hidden">
+            <div className="w-full min-h-32 border rounded-lg p-4 overflow-hidden flex justify-center items-center">
                 <AnimationComponent />
             </div>
         </div>

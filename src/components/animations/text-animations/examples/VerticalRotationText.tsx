@@ -1,13 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 const text = "ANIMATION";
 
+const getCharWidth = (char: string) => {
+    if (char === "I") return "w-[0.4em]";
+    if (char === "W" || char === "M") return "w-[1.2em]";
+    if (char === " ") return "w-[0.5em]";
+    return "w-[0.85em]";
+};
+
 export default function VerticalRotationText() {
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+
     return (
         <motion.div
-            className="inline-flex gap-2 cursor-pointer overflow-hidden"
+            ref={ref}
+            className="w-full justify-center items-center inline-flex cursor-pointer overflow-hidden"
+            style={{ fontSize }}
             initial="rest"
             whileHover="hover"
             animate="rest"
@@ -28,18 +40,18 @@ export default function VerticalRotationText() {
             {text.split("").map((char, i) => (
                 <div
                     key={i}
-                    className="relative overflow-hidden h-[1em] text-[3vw]"
+                    className={`relative overflow-hidden h-[1em] ${getCharWidth(char)}`}
                 >
                     <motion.div
-                    className="flex flex-col font-bold leading-none text-black"
-                    variants={{
-                        rest: { y: "-1em" },
-                        hover: { y: "0em" },
-                    }}
-                    transition={{
-                        duration: 0.1,
-                        ease: "easeOut",
-                    }}
+                        className="flex flex-col font-bold leading-none text-black"
+                        variants={{
+                            rest: { y: "-1em" },
+                            hover: { y: "0em" },
+                        }}
+                        transition={{
+                            duration: 0.1,
+                            ease: "easeOut",
+                        }}
                     >
                         {/* 上の文字 */}
                         <span className="h-[1em] flex items-center justify-center">
