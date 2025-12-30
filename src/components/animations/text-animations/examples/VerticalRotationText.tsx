@@ -16,55 +16,56 @@ export default function VerticalRotationText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     return (
-        <motion.div
-            ref={ref}
-            className="w-full justify-center items-center inline-flex cursor-pointer overflow-hidden"
-            style={{ fontSize }}
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
-            variants={{
-                hover: {
-                    transition: {
-                        staggerChildren: 0.05,
+        <div ref={ref} className="w-full">
+            <motion.div
+                className="justify-center items-center inline-flex cursor-pointer overflow-hidden"
+                style={{ fontSize }}
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
+                variants={{
+                    hover: {
+                        transition: {
+                            staggerChildren: 0.05,
+                        },
                     },
-                },
-                rest: {
-                    transition: {
-                        staggerChildren: 0.05,
-                        staggerDirection: -1,
+                    rest: {
+                        transition: {
+                            staggerChildren: 0.05,
+                            staggerDirection: -1,
+                        },
                     },
-                },
-            }}
-        >
-            {text.split("").map((char, i) => (
-                <div
-                    key={i}
-                    className={`relative overflow-hidden h-[1em] ${getCharWidth(char)}`}
-                >
-                    <motion.div
-                        className="flex flex-col font-bold leading-none text-black"
-                        variants={{
-                            rest: { y: "-1em" },
-                            hover: { y: "0em" },
-                        }}
-                        transition={{
-                            duration: 0.1,
-                            ease: "easeOut",
-                        }}
+                }}
+            >
+                {text.split("").map((char, i) => (
+                    <div
+                        key={i}
+                        className={`relative overflow-hidden h-[1em] ${getCharWidth(char)}`}
                     >
-                        {/* 上の文字 */}
-                        <span className="h-[1em] flex items-center justify-center">
-                            {char}
-                        </span>
+                        <motion.div
+                            className="flex flex-col font-bold leading-none text-black"
+                            variants={{
+                                rest: { y: "-1em" },
+                                hover: { y: "0em" },
+                            }}
+                            transition={{
+                                duration: 0.1,
+                                ease: "easeOut",
+                            }}
+                        >
+                            {/* 上の文字 */}
+                            <span className="h-[1em] flex items-center justify-center">
+                                {char}
+                            </span>
 
-                        {/* 下の文字 */}
-                        <span className="h-[1em] flex items-center justify-center">
-                            {char}
-                        </span>
-                    </motion.div>
-                </div>
-            ))}
-        </motion.div>
+                            {/* 下の文字 */}
+                            <span className="h-[1em] flex items-center justify-center">
+                                {char}
+                            </span>
+                        </motion.div>
+                    </div>
+                ))}
+            </motion.div>
+        </div>
     );
 }
