@@ -30,7 +30,7 @@ const charVariants: Variants = {
     },
 };
 
-export default function TextScaleStagger() {
+export default function ScaleStaggerText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     const [active, setActive] = useState(false);

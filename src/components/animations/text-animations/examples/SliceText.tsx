@@ -4,7 +4,7 @@ import { motion, Transition } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
-export default function TextSliceMotion() {
+export default function SliceText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     const [active, setActive] = useState(false);

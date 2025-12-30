@@ -1,13 +1,13 @@
 import type { ComponentType } from "react";
 import TypingText from "./examples/TypingText";
-import TextSlideUp from "./examples/TextSlideUp";
+import SlideUpText from "./examples/SlideUpText";
 import FadeText from "./examples/FadeText";
 import TwistInText from "./examples/TwistInText";
-import TextScaleStagger from "./examples/TextScaleStagger";
-import TextSlice from "./examples/TextSlice";
+import ScaleStaggerText from "./examples/ScaleStaggerText";
+import SliceText from "./examples/SliceText";
 import WipeText from "./examples/WipeText";
 import ReductionText from "./examples/ReductionText";
-import TextBlur from "./examples/TextBlur";
+import BlurText from "./examples/BlurText";
 import PopRiseText from "./examples/PopRiseText";
 import ClassicText from "./examples/ClassicText";
 import LogoText from "./examples/LogoText";
@@ -33,14 +33,14 @@ import SvgGlitchText from "./examples/SvgGlitchText";
 
 export const textAnimationMap: Record<string, ComponentType> = {
     typing: TypingText,
-    slideUp: TextSlideUp,
+    slideUp: SlideUpText,
     fade: FadeText,
     twist: TwistInText,
-    scaleStagger: TextScaleStagger,
-    slice: TextSlice,
+    scaleStagger: ScaleStaggerText,
+    slice: SliceText,
     wipe: WipeText,
     reduction: ReductionText,
-    blur: TextBlur,
+    blur: BlurText,
     popRise: PopRiseText,
     classic: ClassicText,
     logo: LogoText,
