@@ -11,7 +11,7 @@ interface SliderModalProps {
 export function SliderModal({ sliderKey, onClose }: SliderModalProps) {
     return (
         <Dialog open={!!sliderKey} onOpenChange={onClose}>
-            <DialogContent className="max-w-4xl w-[80%]">
+            <DialogContent className="max-w-3xl w-[75%] max-h-[75vh] h-auto overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle>
                         {sliderKey ?? "Slider Preview"}

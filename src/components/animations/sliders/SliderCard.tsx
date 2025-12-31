@@ -26,7 +26,7 @@ export function SliderCard({
                 <img
                     src={thumbnail}
                     alt={title}
-                    className="w-full h-40 object-cover"
+                    className="w-full aspect-video object-cover"
                 />
 
                 {description && (

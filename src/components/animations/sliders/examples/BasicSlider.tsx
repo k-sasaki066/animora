@@ -44,7 +44,7 @@ export default function BasicSlider() {
     return (
         <div className="relative w-full max-w-xl mx-auto">
             {/* スライダー枠 */}
-            <div className="relative overflow-hidden rounded-xl h-48">
+            <div className="relative overflow-hidden rounded-xl aspect-video">
                 <AnimatePresence initial={false} custom={directionRef.current}>
                     <motion.div
                         key={current}
