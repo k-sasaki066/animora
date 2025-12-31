@@ -1,24 +1,24 @@
-import { motion } from "framer-motion"
-import { SkewedPageText } from "./SkewedPageText"
-import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig"
+import { motion } from "framer-motion";
+import { SkewedPageText } from "./SkewedPageText";
+import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig";
 
-const SKEW = 18
+const SKEW = 18;
 
 interface Props {
     data: {
-        title: string
-        description: string
-        leftBg?: string
-        rightBg?: string
-        textSide?: string
-    }
-    isActive: boolean
-    containerWidth: number
-}
+        title: string;
+        description: string;
+        leftBg?: string;
+        rightBg?: string;
+        textSide?: string;
+    };
+    isActive: boolean;
+    containerWidth: number;
+};
 
 export function SkewedPage({ data, isActive, containerWidth }: Props) {
-    const showTextOnLeft = data.textSide === "left"
-    const { magicVH } = getSkewedSliderConfig(containerWidth)
+    const showTextOnLeft = data.textSide === "left";
+    const { magicVH } = getSkewedSliderConfig(containerWidth);
 
     return (
         <div className="absolute inset-0 overflow-hidden">

@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { slides } from "./data"
-import { SlideIndicator } from "./SlideIndicator"
-import { useContainerSize } from "@/hooks/useContainerSize"
-import { getAnimeConfig } from "@/lib/responsive/animeConfig"
+import { slides } from "./data";
+import { SlideIndicator } from "./SlideIndicator";
+import { useContainerSize } from "@/hooks/useContainerSize";
+import { getAnimeConfig } from "@/lib/responsive/animeConfig";
 
 const containerVariants: Variants = {
     hidden: {},
@@ -66,7 +66,7 @@ const imageVariants = {
 export default function MotionSlider() {
     const [index, setIndex] = useState(0);
     const { ref, width } = useContainerSize<HTMLDivElement>();
-    const config = getAnimeConfig(width)
+    const config = getAnimeConfig(width);
 
     const next = () => setIndex((i) => (i + 1) % slides.length);
     const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);

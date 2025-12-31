@@ -1,7 +1,7 @@
 type SlideIndicatorProps = {
-    total: number
-    current: number
-    onSelect?: (index: number) => void
+    total: number;
+    current: number;
+    onSelect?: (index: number) => void;
 }
 
 export function SlideIndicator({

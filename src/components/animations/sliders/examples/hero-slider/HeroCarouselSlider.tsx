@@ -4,13 +4,13 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { heroSlides } from "./heroSlides";
 import { HeroSlide } from "./HeroSlide";
-import { useWindowSize } from "@/lib/responsive/useWindowSize"
-import { getHeroConfig } from "@/lib/responsive/heroConfig"
+import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { getHeroConfig } from "@/lib/responsive/heroConfig";
 
 export default function HeroCarousel() {
     const [current, setCurrent] = useState(0);
-    const width = useWindowSize()
-    const heroConfig = getHeroConfig(width)
+    const width = useWindowSize();
+    const heroConfig = getHeroConfig(width);
 
     const prev = () => {
         setCurrent((c) => (c === 0 ? heroSlides.length - 1 : c - 1));

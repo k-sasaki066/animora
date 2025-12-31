@@ -1,20 +1,20 @@
 "use client"
 
-import { useState } from "react"
-import { AnimatePresence } from "framer-motion"
-import { forests } from "./forestData"
-import { ForestPaneLeft } from "./ForestPaneLeft"
-import { ForestPaneRight } from "./ForestPaneRight"
-import { useContainerSize } from "@/hooks/useContainerSize"
-import { getForestSliderConfig } from "@/lib/responsive/forestConfig"
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { forests } from "./forestData";
+import { ForestPaneLeft } from "./ForestPaneLeft";
+import { ForestPaneRight } from "./ForestPaneRight";
+import { useContainerSize } from "@/hooks/useContainerSize";
+import { getForestSliderConfig } from "@/lib/responsive/forestConfig";
 
 export default function ForestSlider() {
-    const [active, setActive] = useState(0)
+    const [active, setActive] = useState(0);
 
-    const { ref, width } = useContainerSize<HTMLDivElement>()
-    const config = getForestSliderConfig(width)
+    const { ref, width } = useContainerSize<HTMLDivElement>();
+    const config = getForestSliderConfig(width);
 
-    if (!config) return null
+    if (!config) return null;
 
     return (
         <div ref={ref} className={`inset-0 w-full flex flex-col ${config.containerHeight}`}>

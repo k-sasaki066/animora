@@ -1,9 +1,9 @@
 export interface SkewedPageData {
-    title: string
-    description: string
-    leftBg?: string
-    rightBg?: string
-    textSide: "left" | "right"
+    title: string;
+    description: string;
+    leftBg?: string;
+    rightBg?: string;
+    textSide: "left" | "right";
 }
 
 export const skewedPages: SkewedPageData[] = [

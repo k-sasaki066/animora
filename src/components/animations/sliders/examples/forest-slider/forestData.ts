@@ -1,9 +1,9 @@
 export interface Forest {
-    rank: number
-    name: string
-    desc: string
-    location: string
-    img: string
+    rank: number;
+    name: string;
+    desc: string;
+    location: string;
+    img: string;
 }
 
 export const forests: Forest[] = [

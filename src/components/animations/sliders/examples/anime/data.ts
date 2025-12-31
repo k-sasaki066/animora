@@ -1,9 +1,9 @@
 export interface Anime {
-    id: number
-    title1: string
-    title2: string
-    image: string
-    bgColor: string
+    id: number;
+    title1: string;
+    title2: string;
+    image: string;
+    bgColor: string;
 }
 
 export const slides: Anime[] = [
