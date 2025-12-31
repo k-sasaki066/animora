@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWheelNavigation } from "./useWheelNavigation";
 import SlideImages from "./SlideImages";
-import { useWindowSize } from "@/lib/responsive/useWindowSize";
-import { getSplitConfig } from "@/lib/responsive/splitConfig"
+import { useContainerSize } from "@/hooks/useContainerSize";
+import { getSplitConfig } from "@/lib/responsive/splitConfig";
+import { SwipeHint } from "@/components/ui/SwipeHint";
+
 
 const images = [
     "/river.jpg",
@@ -13,12 +15,34 @@ const images = [
     "/sea.jpg",
 ];
 
+const colors = [
+    "#fff",
+    "#28385e",
+    "#8d8f91"
+];
+
 const texts = ["Desert", "Erosion", "Shape"];
+const SWIPE_KEY = "split_slideshow_swiped";
 
 export default function SplitSlideshow() {
     const [index, setIndex] = useState(0);
-    const width = useWindowSize()
-    const config = getSplitConfig(width)
+    const { ref, width: containerWidth } = useContainerSize<HTMLDivElement>();
+    const config = getSplitConfig(containerWidth);
+
+    const [showHint, setShowHint] = useState(false);
+
+    useEffect(() => {
+        // 初回のみ表示
+        const hasSwiped = sessionStorage.getItem(SWIPE_KEY);
+        if (!hasSwiped) setShowHint(true);
+    }, []);
+
+    const handleFirstSwipe = () => {
+        if (!showHint) return;
+
+        sessionStorage.setItem(SWIPE_KEY, "true");
+        setShowHint(false);
+    };
 
     const next = () =>
         setIndex((prev) => (prev + 1) % images.length);
@@ -26,7 +50,7 @@ export default function SplitSlideshow() {
         setIndex((prev) =>
         prev === 0 ? images.length - 1 : prev - 1
         );
-    
+
     useWheelNavigation({
         onNext: next,
         onPrev: prev,
@@ -35,39 +59,69 @@ export default function SplitSlideshow() {
 
     return (
         <div
-            className={`relative overflow-hidden mx-auto ${config.containerClass}`}
+            ref={ref}
+            className="w-full max-w-4xl mx-auto relative"
+            onWheel={handleFirstSwipe}
+            onTouchStart={handleFirstSwipe}
         >
-            <SlideImages images={images} index={index} />
+            <div
+                className="relative overflow-hidden mx-auto"
+                style={{
+                    width: config.width,
+                    aspectRatio: "3 / 2",
+                }}
+            >
+                <SlideImages images={images} index={index} />
 
-            {/* テキスト */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={index}
-                        className={`text-white  font-light tracking-[0.3em] flex items-center justify-center h-full ${config.mainTextClass}`}
-                        initial={{ y: "100%", opacity: 0 }}
-                        animate={{ y: "0%", opacity: 1 }}
-                        exit={{ y: "-100%", opacity: 0 }}
-                        transition={{ duration: 0.5, ease: [0.7, 0, 0.3, 1] }}
-                    >
-                        {texts[index]}
-                    </motion.div>
-                </AnimatePresence>
-            </div>
+                {/* テキスト */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={index}
+                            className={`text-white  font-light tracking-[0.3em] flex items-center justify-center h-full`}
+                            style={{ fontSize: config.fontSize }}
+                            initial={{
+                                y: "100%",
+                                opacity: 0,
+                                color: colors[(index - 1 + colors.length) % colors.length],
+                            }}
+                            animate={{
+                                y: "0%",
+                                opacity: 1,
+                                color: colors[index % colors.length],
+                            }}
+                            exit={{
+                                y: "-100%",
+                                opacity: 0
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                ease: [0.7, 0, 0.3, 1]
+                            }}
+                        >
+                            {texts[index]}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
 
-            <div className="absolute right-4 top-1/2 flex flex-col gap-2 -translate-y-1/2 items-end">
-                {images.map((_, i) => (
-                    <motion.div
-                    key={i}
-                    className="h-0.5 bg-white rounded-full"
-                    animate={{
-                        width: i === index ? 30 : 18, // 現在のスライドだけ長く
-                        opacity: i === index ? 1 : 0.6,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    />
-                ))}
+                <div className="absolute right-4 top-1/2 flex flex-col gap-2 -translate-y-1/2 items-end">
+                    {images.map((_, i) => (
+                        <motion.div
+                        key={i}
+                        className="h-0.5 bg-white rounded-full"
+                        animate={{
+                            width: i === index
+                                ? config.indicatorSize * 1.6
+                                : config.indicatorSize,
+                            opacity: i === index ? 1 : 0.6,
+                        }}
+                        transition={{ duration: 0.3 }}
+                        />
+                    ))}
+                </div>
             </div>
+            {/* スワイプヒント */}
+            <SwipeHint visible={showHint}/>
         </div>
     );
 }

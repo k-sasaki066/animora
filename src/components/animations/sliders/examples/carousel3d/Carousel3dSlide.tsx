@@ -23,7 +23,6 @@ export default function Carousel3dSlide({
             className={clsx(
                 "absolute rounded-xl shadow-2xl",
                 "flex flex-col justify-center text-center",
-                "transition-colors duration-300",
                 isActive
                     ? "bg-gray-800 text-white"
                     : "bg-white text-gray-700"
@@ -48,14 +47,14 @@ export default function Carousel3dSlide({
             }}
         >
             <h3 className={clsx(
-                "mb-3 font-semibold",
+                "mb-2 font-semibold text-[clamp(0.8rem,2.2vw,1.5rem)]",
                 isActive ? "text-2xl" : "text-lg"
             )}>
                 {title}
             </h3>
 
             <p className={clsx(
-                "leading-relaxed px-6",
+                "leading-snug px-2 text-[clamp(0.75rem,1.6vw,0.95rem)]", "line-clamp-3",
                 isActive ? "text-gray-300" : "text-gray-500"
             )}>
                 {text}

@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import Carousel3dSlide from "./Carousel3dSlide";
 import { slides } from "./data";
-import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { useContainerSize } from "@/hooks/useContainerSize";
 import { getCarousel3dConfig } from "@/lib/responsive/carousel3dConfig";
 
 export default function Carousel3dSlider() {
     const [current, setCurrent] = useState(0);
     const total = slides.length;
-    const width = useWindowSize();
+    const { ref, width } = useContainerSize<HTMLDivElement>();
     const config = getCarousel3dConfig(width);
 
     function getCircularOffset(
@@ -32,7 +32,7 @@ export default function Carousel3dSlider() {
     }, [total]);
 
     return (
-        <div className="relative w-full h-80 sm:h-[360px] md:h-[420px] flex items-center justify-center perspective-[1000px] overflow-hidden">
+        <div ref={ref} className="relative w-full max-w-5xl aspect-video flex items-center justify-center perspective-[1000px] overflow-hidden">
             {slides.map((slide, index) => {
                 const offset = getCircularOffset(index, current, total);
                 if (Math.abs(offset) > config.maxVisibleOffset) return null;
