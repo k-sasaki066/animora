@@ -11,36 +11,37 @@ export type getCarousel3dConfig = {
 
 export const getCarousel3dConfig = (
     width: number
-    ): getCarousel3dConfig => {
-        if (width < BREAKPOINTS.mobile) {
-            return {
-                cardWidth: 240,
-                cardHeight: 140,
-                gap: 140,
-                activeScale: 1,
-                inactiveScale: 0.85,
-                maxVisibleOffset: 1,
-            };
-        }
+): getCarousel3dConfig => {
+    const base = width * 0.3;
 
-        if (width < BREAKPOINTS.tablet) {
-            return {
-                cardWidth: 300,
-                cardHeight: 180,
-                gap: 160,
-                activeScale: 1.05,
-                inactiveScale: 0.9,
-                maxVisibleOffset: 2,
-            };
-        }
-
+    if (width < 640) {
         return {
-            cardWidth: 360,
-            cardHeight: 220,
-            gap: 180,
-            activeScale: 1.1,
+            cardWidth: base,
+            cardHeight: base * 1.2,
+            gap: base * 0.55,
+            activeScale: 1,
+            inactiveScale: 0.85,
+            maxVisibleOffset: 1,
+        };
+    }
+
+    if (width < 1024) {
+        return {
+            cardWidth: base,
+            cardHeight: base * 1.2,
+            gap: base * 0.6,
+            activeScale: 1.05,
             inactiveScale: 0.9,
             maxVisibleOffset: 2,
         };
+    }
 
+    return {
+        cardWidth: base,
+        cardHeight: base * 1.2,
+        gap: base * 0.65,
+        activeScale: 1.1,
+        inactiveScale: 0.9,
+        maxVisibleOffset: 2,
+    };
 };

@@ -1,32 +1,40 @@
 import { BREAKPOINTS } from "./breakpoints";
 
 export interface SplitConfig {
-    containerClass: string,
-    mainTextClass: string,
-    imageClass: string,
+    width: number,
+    fontSize: number,
+    indicatorSize: number,
 }
 
 export function getSplitConfig(width: number): SplitConfig {
 
-    if (width < BREAKPOINTS.mobile) {
+    if (!width) {
         return {
-            containerClass: "w-[240px] h-[160px]",
-            mainTextClass: "text-xl",
-            imageClass: "w-30",
-        }
+            width: 300,
+            fontSize: 20,
+            indicatorSize: 18,
+        };
     }
 
-    if (width < BREAKPOINTS.tablet) {
+    if (width < 640) {
         return {
-            containerClass: "w-[420px] h-[280px]",
-            mainTextClass: "text-3xl",
-            imageClass: "w-50",
-        }
+            width: width * 0.9,
+            fontSize: width * 0.06,
+            indicatorSize: 16,
+        };
+    }
+
+    if (width < 1024) {
+        return {
+            width: width * 0.7,
+            fontSize: width * 0.05,
+            indicatorSize: 18,
+        };
     }
 
     return {
-        containerClass: "w-[480px] h-80",
-        mainTextClass: "text-4xl",
-        imageClass: "w-70",
-    }
+        width: Math.min(width * 0.6, 560),
+        fontSize: 28,
+        indicatorSize: 20,
+    };
 }
