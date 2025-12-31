@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
 import { SkewedPageText } from "./SkewedPageText"
-import { useWindowSize } from "@/lib/responsive/useWindowSize";
 import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig"
 
 const SKEW = 18
@@ -14,12 +13,12 @@ interface Props {
         textSide?: string
     }
     isActive: boolean
+    containerWidth: number
 }
 
-export function SkewedPage({ data, isActive }: Props) {
+export function SkewedPage({ data, isActive, containerWidth }: Props) {
     const showTextOnLeft = data.textSide === "left"
-    const width = useWindowSize()
-    const { magicVH } = getSkewedSliderConfig(width)
+    const { magicVH } = getSkewedSliderConfig(containerWidth)
 
     return (
         <div className="absolute inset-0 overflow-hidden">
@@ -49,6 +48,7 @@ export function SkewedPage({ data, isActive }: Props) {
                             <SkewedPageText
                                 title={data.title}
                                 description={data.description}
+                                containerWidth={containerWidth}
                             />
                         )}
                     </div>
@@ -80,6 +80,7 @@ export function SkewedPage({ data, isActive }: Props) {
                             <SkewedPageText
                                 title={data.title}
                                 description={data.description}
+                                containerWidth={containerWidth}
                             />
                         )}
                     </div>

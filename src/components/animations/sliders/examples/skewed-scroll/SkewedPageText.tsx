@@ -1,14 +1,13 @@
-import { useWindowSize } from "@/lib/responsive/useWindowSize"
 import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig"
 
 interface Props {
     title: string
     description: string
+    containerWidth: number
 }
 
-export function SkewedPageText({ title, description }: Props) {
-    const width = useWindowSize()
-    const { titleClass, descriptionClass } = getSkewedSliderConfig(width)
+export function SkewedPageText({ title, description, containerWidth, }: Props) {
+    const { titleClass, descriptionClass } = getSkewedSliderConfig(containerWidth)
 
     return (
         <div className="flex flex-col items-center justify-canter text-center text-white">

@@ -3,15 +3,33 @@
 import { useState, useEffect } from "react"
 import { SkewedPage } from "./SkewedPage"
 import { skewedPages } from "./data"
-import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { useContainerSize } from "@/hooks/useContainerSize"
 import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig"
+import { SwipeHint } from "@/components/ui/SwipeHint"
+
+const SWIPE_KEY = "skewed_slideshow_swiped";
 
 export function SkewedScrollSlider() {
     const [page, setPage] = useState(0)
     const [locked, setLocked] = useState(false)
 
-    const windowWidth = useWindowSize()
-    const { width, height } = getSkewedSliderConfig(windowWidth)
+    const { ref, width } = useContainerSize<HTMLDivElement>()
+    const config = getSkewedSliderConfig(width)
+
+    const [showHint, setShowHint] = useState(false);
+    
+    useEffect(() => {
+        // 初回のみ表示
+        const hasSwiped = sessionStorage.getItem(SWIPE_KEY);
+        if (!hasSwiped) setShowHint(true);
+    }, []);
+
+    const handleFirstSwipe = () => {
+        if (!showHint) return;
+
+        sessionStorage.setItem(SWIPE_KEY, "true");
+        setShowHint(false);
+    }
 
     useEffect(() => {
         const onWheel = (e: WheelEvent) => {
@@ -32,12 +50,22 @@ export function SkewedScrollSlider() {
 
     return (
         <div
-            className="relative mx-auto overflow-hidden"
-            style={{ width, height }}
+            ref={ref}
+            className="relative mx-auto overflow-hidden w-full max-w-115"
+            style={{ height: config.height }}
+            onWheel={handleFirstSwipe}
+            onTouchStart={handleFirstSwipe}
             >
             {skewedPages.map((data, i) => (
-                <SkewedPage key={i} data={data} isActive={i === page} />
+                <SkewedPage
+                    key={i}
+                    data={data}
+                    isActive={i === page}
+                    containerWidth={width}
+                />
             ))}
+            {/* スワイプヒント */}
+            <SwipeHint visible={showHint}/>
         </div>
     )
 }
