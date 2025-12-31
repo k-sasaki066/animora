@@ -1,10 +1,10 @@
-import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig"
+import { getSkewedSliderConfig } from "@/lib/responsive/skewedConfig";
 
 interface Props {
-    title: string
-    description: string
-    containerWidth: number
-}
+    title: string;
+    description: string;
+    containerWidth: number;
+};
 
 export function SkewedPageText({ title, description, containerWidth, }: Props) {
     const { titleClass, descriptionClass } = getSkewedSliderConfig(containerWidth)

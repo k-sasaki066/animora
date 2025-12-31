@@ -7,7 +7,7 @@ interface FancySlideProps {
     title: string;
     image: string;
     direction: number;
-    config: FancyConfig
+    config: FancyConfig;
 }
 
 const bgVariants: Variants = {

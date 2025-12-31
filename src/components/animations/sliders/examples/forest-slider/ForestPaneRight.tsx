@@ -1,6 +1,6 @@
-import { motion } from "framer-motion"
-import { Forest } from "./forestData"
-import { ForestSliderConfig } from "@/lib/responsive/forestConfig"
+import { motion } from "framer-motion";
+import { Forest } from "./forestData";
+import { ForestSliderConfig } from "@/lib/responsive/forestConfig";
 
 export function ForestPaneRight({
     forest,

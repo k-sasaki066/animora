@@ -1,4 +1,4 @@
-import { HeroConfig } from "@/lib/responsive/heroConfig"
+import { HeroConfig } from "@/lib/responsive/heroConfig";
 
 type Props = {
     slide: {
