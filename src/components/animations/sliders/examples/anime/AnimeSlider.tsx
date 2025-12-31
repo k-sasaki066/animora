@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { slides } from "./data"
 import { SlideIndicator } from "./SlideIndicator"
-import { useWindowSize } from "@/lib/responsive/useWindowSize"
+import { useContainerSize } from "@/hooks/useContainerSize"
 import { getAnimeConfig } from "@/lib/responsive/animeConfig"
 
 const containerVariants: Variants = {
@@ -87,14 +87,14 @@ const imageVariants = {
 
 export default function MotionSlider() {
     const [index, setIndex] = useState(0);
-    const width = useWindowSize()
+    const { ref, width } = useContainerSize<HTMLDivElement>();
     const config = getAnimeConfig(width)
 
     const next = () => setIndex((i) => (i + 1) % slides.length);
     const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
 
     return (
-        <section className="relative w-full h-[400px] overflow-hidden bg-black text-white">
+        <section ref={ref} className="relative w-full min-h-62.5 overflow-hidden bg-black text-white" style={{ height: config?.height }}>
             <motion.div
             className="absolute inset-0 flex items-center justify-center"
             >
@@ -132,7 +132,7 @@ export default function MotionSlider() {
                             variants={imageVariants}
                             src={slides[index].image}
                             alt=""
-                            className={`${config.imageClass}`}
+                            style={{ width: config.imageWidth }}
                         />
                     </motion.div>
                 </AnimatePresence>
@@ -151,10 +151,16 @@ export default function MotionSlider() {
             </motion.div>
 
             {/* Controls */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 z-30">
+            <div
+                className="absolute left-1/2 flex gap-4 z-30"
+                style={{
+                    bottom: `${config.height * 0.05}px`,
+                    transform: "translateX(-50%)",
+                }}
+            >
                 <button
-                onClick={prev}
-                className="px-4 py-2 bg-white/20 rounded hover:bg-white/40"
+                    onClick={prev}
+                    className={`bg-white/20 rounded hover:bg-white/40 ${config.controlPaddingClass}`}
                 >
                 ←
                 </button>
@@ -167,7 +173,7 @@ export default function MotionSlider() {
 
                 <button
                 onClick={next}
-                className="px-4 py-2 bg-white/20 rounded hover:bg-white/40"
+                className={`bg-white/20 rounded hover:bg-white/40 ${config.controlPaddingClass}`}
                 >
                 →
                 </button>
