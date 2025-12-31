@@ -1,40 +1,45 @@
 import { BREAKPOINTS } from "./breakpoints";
 
 export interface SkewedSliderConfig {
-    width: number
     height: number
     magicVH: number
     titleClass: string
     descriptionClass: string
 }
 
-export function getSkewedSliderConfig(width: number): SkewedSliderConfig {
+export function getSkewedSliderConfig(containerWidth: number): SkewedSliderConfig {
+    const magicVH = clamp(containerWidth * 0.0235, 5, 14)
+    const width = clamp(containerWidth, 260, 460)
+    const height = Math.round(width * 0.67)
 
-    if (width < BREAKPOINTS.mobile) {
+    if (containerWidth < BREAKPOINTS.mobile) {
         return {
-            width: 280,
-            height: 185,
-            magicVH: 6.4,
+            height,
+            magicVH,
             titleClass: "text-sm tracking-widest",
             descriptionClass: "text-xs",
         }
     }
 
-    if (width < BREAKPOINTS.tablet) {
+    if (containerWidth < BREAKPOINTS.tablet) {
         return {
-            width: 380,
-            height: 250,
-            magicVH: 8.9,
+            height,
+            magicVH,
             titleClass: "text-lg tracking-widest",
             descriptionClass: "text-sm",
         }
     }
 
     return {
-        width: 448,
-        height: 300,
-        magicVH: 10.7,
+        height,
+        magicVH,
         titleClass: "text-2xl tracking-widest",
         descriptionClass: "text-base",
     }
+}
+
+/* ---------------- utils ---------------- */
+
+function clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max)
 }
