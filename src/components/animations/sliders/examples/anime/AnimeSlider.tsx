@@ -46,28 +46,6 @@ const textVariants: Variants = {
     },
 };
 
-const backgroundVariants: Variants = {
-    hidden: {
-        x: "100%",
-    },
-    visible: {
-        x: "0%",
-        transition: {
-            duration: 1.2,
-            ease: "easeInOut",
-            delay: 0,
-        },
-    },
-    exit: {
-        x: "-100%",
-        transition: {
-            duration: 0.6,
-            ease: "easeInOut",
-            delay: 0.8,
-        },
-    },
-};
-
 const imageVariants = {
     hidden: {
         opacity: 0,
@@ -94,14 +72,35 @@ export default function MotionSlider() {
     const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
 
     return (
-        <section ref={ref} className="relative w-full min-h-62.5 overflow-hidden bg-black text-white" style={{ height: config?.height }}>
+        <section
+            ref={ref}
+            className="relative w-full min-h-62.5 overflow-hidden text-white"
+            style={{ height: config?.height }}
+        >
+            {/* 背景スライド横並び */}
             <motion.div
-            className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0 flex w-[300%]" // 3枚前提
+                animate={{ x: `-${(index / slides.length) * 100}%` }}
+                transition={{
+                    duration: 1.2,
+                    ease: "easeInOut"
+                }}
             >
+                {slides.map((slide, i) => (
+                    <div
+                        key={i}
+                        className="w-1/3 h-full bg-cover bg-center"
+                        style={{ backgroundColor: slide.bgColor }}
+                    />
+                ))}
+            </motion.div>
+
+            {/* スライドコンテンツ */}
+            <motion.div className="absolute inset-0 flex items-center justify-center z-20">
                 <AnimatePresence mode="wait">
                     <motion.div
-                        className={`flex justify-center items-center max-w-5xl w-full px-10 z-20 ${config.containerClass}`}
                         key={slides[index].id}
+                        className={`flex justify-center items-center max-w-5xl w-full px-10 ${config.containerClass}`}
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -110,17 +109,17 @@ export default function MotionSlider() {
                         {/* Text */}
                         <div className="space-y-2">
                             <motion.h1
-                                className={`${config.mainTextClass}`}
                                 key={`${slides[index].id}-title1`}
                                 variants={textVariants}
+                                className={config.mainTextClass}
                             >
                                 {slides[index].title1}
-                            </motion.h1>
+                                </motion.h1>
 
                             <motion.h1
-                                className={`${config.mainTextClass}`}
                                 key={`${slides[index].id}-title2`}
                                 variants={textVariants}
+                                className={config.mainTextClass}
                             >
                                 {slides[index].title2}
                             </motion.h1>
@@ -129,24 +128,12 @@ export default function MotionSlider() {
                         {/* Image */}
                         <motion.img
                             key={`${slides[index].id}-image`}
-                            variants={imageVariants}
                             src={slides[index].image}
                             alt=""
+                            variants={imageVariants}
                             style={{ width: config.imageWidth }}
                         />
                     </motion.div>
-                </AnimatePresence>
-
-                {/* スライド背景 */}
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={`bg-${slides[index].id}`}
-                        className={`absolute inset-0 z-10 ${slides[index].bg}`}
-                        variants={backgroundVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                    />
                 </AnimatePresence>
             </motion.div>
 
@@ -162,7 +149,7 @@ export default function MotionSlider() {
                     onClick={prev}
                     className={`bg-white/20 rounded hover:bg-white/40 ${config.controlPaddingClass}`}
                 >
-                ←
+                    ←
                 </button>
 
                 <SlideIndicator
@@ -172,10 +159,10 @@ export default function MotionSlider() {
                 />
 
                 <button
-                onClick={next}
-                className={`bg-white/20 rounded hover:bg-white/40 ${config.controlPaddingClass}`}
+                    onClick={next}
+                    className={`bg-white/20 rounded hover:bg-white/40 ${config.controlPaddingClass}`}
                 >
-                →
+                    →
                 </button>
             </div>
         </section>
