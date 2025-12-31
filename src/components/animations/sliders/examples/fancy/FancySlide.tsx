@@ -1,11 +1,11 @@
 import { motion, Variants } from "framer-motion";
-import { FancyConfig } from "@/lib/responsive/fancyConfig"
+import { FancyConfig } from "@/lib/responsive/fancyConfig";
+import { slides } from "./sliderData";
 
 interface FancySlideProps {
     active: boolean;
     title: string;
     image: string;
-    onNext: () => void;
     direction: number;
     config: FancyConfig
 }
@@ -32,21 +32,6 @@ const bgVariants: Variants = {
             },
         },
     },
-    exit: (direction: number) => ({
-        x: direction > 0 ? "-100%" : "100%",
-        opacity: 1,
-        filter: "blur(0px)",
-        transition: {
-            filter: {
-                duration: 0.6,
-            },
-            x: {
-                delay: 0.6,
-                duration: 0.8,
-                ease: "easeInOut",
-            },
-        },
-    }),
 };
 
 const cardVariants: Variants = {
@@ -76,24 +61,34 @@ const cardVariants: Variants = {
 export function FancySlide({
     title,
     image,
-    onNext,
     direction,
     config,
-}: FancySlideProps & { direction: number }) {
+    index,
+}: FancySlideProps & { direction: number; index: number; }) {
+    // ループ用に1枚目を末尾に追加
+    const loopedSlides = [...slides, slides[0]];
 
     return (
         <motion.div className="absolute inset-0 flex items-center justify-center">
             {/* 背景 */}
             <motion.div
-                key={image}
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${image})` }}
-                variants={bgVariants}
-                custom={direction}
-                initial="enter"
-                animate="center"
-                exit="exit"
-            />
+                className="absolute inset-0 flex"
+                initial={false}
+                animate={{ x: -index * 100 + "%" }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+            >
+                {loopedSlides.map((slide, i) => (
+                    <motion.div
+                        key={i}
+                        className="shrink-0 w-full h-full bg-cover bg-center"
+                        style={{ backgroundImage: `url(${slide.image})` }}
+                        variants={bgVariants}
+                        custom={direction}
+                        initial="enter"
+                        animate="center"
+                    />
+                ))}
+            </motion.div>
 
             {/* 中央カード */}
             <motion.div
@@ -112,14 +107,6 @@ export function FancySlide({
                         </span>
                     ))}
                 </h1>
-
-                <button
-                    onClick={onNext}
-                    className={`group flex items-center gap-3 tracking-widest cursor-pointer ${config.buttonTextClass}`}
-                >
-                    NEXT
-                    <span className="w-12 h-px bg-white transition-all group-hover:w-20" />
-                </button>
             </motion.div>
         </motion.div>
     );
