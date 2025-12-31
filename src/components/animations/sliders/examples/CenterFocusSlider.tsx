@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { useContainerSize } from "@/hooks/useContainerSize";
 import { getCarouselConfig } from "@/lib/responsive/centerFocusConfig";
 
 const testimonials = [
@@ -47,14 +47,14 @@ const getOffset = (index: number, current: number, length: number) => {
     return offset;
 };
 
-export default function TestimonialsCarousel() {
+export default function CenterFocusSlider() {
     const [current, setCurrent] = useState(2);
-    const width = useWindowSize();
+    const { ref, width } = useContainerSize<HTMLDivElement>();
     const config = getCarouselConfig(width);
 
     return (
-        <div className="relative w-full max-w-5xl mx-auto overflow-hidden py-8">
-            <div className="relative flex items-center justify-center h-[300px]">
+        <div ref={ref} className="relative w-full max-w-5xl mx-auto overflow-hidden">
+            <div className="relative flex items-center justify-center w-full aspect-4/3 sm:aspect-video overflow-hidden">
                 {testimonials.map((item, index) => {
                     const offset = getOffset(
                         index,
@@ -86,7 +86,7 @@ export default function TestimonialsCarousel() {
                                 <img
                                     src={item.image}
                                     alt=""
-                                    className="w-[90px] h-[90px] object-cover rounded-full mx-auto mb-4"
+                                    className=" object-cover rounded-full mx-auto mb-4"
                                     style={{
                                         width: config.imageSize,
                                         height: config.imageSize,
@@ -104,7 +104,7 @@ export default function TestimonialsCarousel() {
             </div>
 
             {/* dots */}
-            <div className="flex justify-center gap-3 mt-8">
+            <div className="flex justify-center gap-3 mt-4">
                 {testimonials.map((_, index) => (
                     <button
                         key={index}

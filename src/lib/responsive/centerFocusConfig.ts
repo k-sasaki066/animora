@@ -1,43 +1,49 @@
 import { BREAKPOINTS } from "./breakpoints";
 
-export type getCarouselConfig = {
-    cardWidth: number;
-    imageSize: number;
-    gap: number;
-    visibleRange: number;
-    inactiveScale: number;
-    inactiveOpacity: number;
-};
-
-export const getCarouselConfig = (
-    width: number
-    ): getCarouselConfig => {
-    if (width < BREAKPOINTS.mobile) {
+export const getCarouselConfig = (width: number) => {
+    if (!width) {
         return {
-            cardWidth: 220,
-            imageSize: 60,
-            gap: 230,
+            cardWidth: 0,
+            imageSize: 0,
+            gap: 0,
+            visibleRange: 0,
+            inactiveScale: 1,
+            inactiveOpacity: 1,
+        };
+    }
+
+    if (width < BREAKPOINTS.mobile) {
+        const cardWidth = Math.min(width * 0.65, 180);
+
+        return {
+            cardWidth,
+            imageSize: cardWidth * 0.35,
+            gap: cardWidth * 1.1,
             visibleRange: 1,
             inactiveScale: 0.85,
-            inactiveOpacity: 0.2,
+            inactiveOpacity: 0.25,
         };
     }
 
     if (width < BREAKPOINTS.tablet) {
+        const cardWidth = Math.min(width * 0.45, 280);
+
         return {
-            cardWidth: 280,
-            imageSize: 80,
-            gap: 290,
+            cardWidth,
+            imageSize: cardWidth * 0.35,
+            gap: cardWidth * 1.1,
             visibleRange: 2,
             inactiveScale: 0.85,
             inactiveOpacity: 0.3,
         };
     }
 
+    const cardWidth = 320;
+
     return {
-        cardWidth: 320,
+        cardWidth,
         imageSize: 90,
-        gap: 320,
+        gap: cardWidth,
         visibleRange: 2,
         inactiveScale: 0.8,
         inactiveOpacity: 0.25,

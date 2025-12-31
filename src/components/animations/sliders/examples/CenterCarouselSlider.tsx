@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useWindowSize } from "@/lib/responsive/useWindowSize";
+import { useContainerSize } from "@/hooks/useContainerSize";
 import { getCarouselConfig } from "@/lib/responsive/centerCarouselConfig";
 
 const slides = [
@@ -27,7 +27,7 @@ const getOffset = (index: number, current: number, length: number) => {
 export default function CenterCarouselSlider() {
     const [current, setCurrent] = useState(2); // 最初は「3」を中央に
 
-    const width = useWindowSize();
+    const { ref, width } = useContainerSize<HTMLDivElement>();
     const { cardWidth, cardHeight, visibleRange, centerScale } =
     getCarouselConfig(width);
 
@@ -40,14 +40,14 @@ export default function CenterCarouselSlider() {
     };
 
     return (
-        <div className="relative w-full max-w-4xl mx-auto flex items-center justify-center">
+        <div ref={ref} className="relative w-full max-w-4xl mx-auto flex items-center justify-center">
             {/* 左ボタン */}
             <button onClick={prev} className="p-2 z-20">
-              <ChevronLeft />
+                <ChevronLeft />
             </button>
 
             {/* スライドエリア */}
-            <div className="relative flex items-center justify-center w-full h-64 overflow-hidden">
+            <div className="relative flex items-center justify-center w-full aspect-3/2 overflow-hidden">
                 {slides.map((item, index) => {
                     const offset = getOffset(index, current, slides.length);
 
@@ -60,12 +60,13 @@ export default function CenterCarouselSlider() {
                                 ? 1
                                 : 0.85;
 
-                    const targetX = offset * cardWidth;
+                    const gap = cardWidth * 1.05;
+                    const targetX = offset * gap;
 
                     const enterX =
-                        offset > 0
-                            ? (visibleRange + 1) * cardWidth
-                              : -(visibleRange + 1) * cardWidth;
+                    offset > 0
+                        ? (visibleRange + 1) * gap
+                        : -(visibleRange + 1) * gap;
 
                     const zIndex = 10 - Math.abs(offset);
 
@@ -82,8 +83,8 @@ export default function CenterCarouselSlider() {
                             animate={{ x: targetX, scale }}
                             transition={{
                                 type: "spring",
-                                stiffness: 300,
-                                damping: 30,
+                                stiffness: 260,
+                                damping: 28,
                             }}
                         >
                             <img

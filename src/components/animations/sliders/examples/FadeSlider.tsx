@@ -26,7 +26,7 @@ export default function FadeSlider() {
     return (
         <div className="relative w-full max-w-xl mx-auto">
             {/* スライダー本体 */}
-            <div className="relative overflow-hidden rounded-xl h-48">
+            <div className="relative overflow-hidden rounded-xl aspect-video">
                 <AnimatePresence mode="wait">
                     <motion.img
                         key={current}
