@@ -115,4 +115,29 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Passing Button",
         previewText: "Passing Button Example",
     },
+    {
+        key: "circleOut",
+        title: "Circle Out Button",
+        previewText: "Circle Out Button Example",
+    },
+    {
+        key: "click",
+        title: "Click Button",
+        previewText: "Click Button Example",
+    },
+    {
+        key: "flip",
+        title: "Flip Button",
+        previewText: "Flip Button Example",
+    },
+    {
+        key: "colorCycle",
+        title: "Color Cycle Button",
+        previewText: "Color Cycle Button Example",
+    },
+    {
+        key: "colorIntoCenter",
+        title: "Color Into Center Button",
+        previewText: "Color Into Center Button Example",
+    },
 ];
