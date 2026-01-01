@@ -12,6 +12,11 @@ import JigglyButton from "./examples/basic/JigglyButton";
 import ClickMoveButton from "./examples/basic/ClickMoveButton";
 import GradientMoveButton from "./examples/basic/GradientMoveButton";
 
+import ChangeTextButton from "./examples/hover-text/ChangeTextButton";
+import FlowTextButton from "./examples/hover-text/FlowTextButton";
+import FancyTextButton from "./examples/hover-text/FancyTextButton";
+import SmokeTextButton from "./examples/hover-text/SmokeTextButton";
+
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
     bulbul: BulbulButton,
@@ -25,5 +30,9 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     jiggly: JigglyButton,
     clickMove: ClickMoveButton,
     gradientMove: GradientMoveButton,
+    changeText: ChangeTextButton,
+    flowText: FlowTextButton,
+    fancyText: FancyTextButton,
+    smokeText: SmokeTextButton,
 
 };
