@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 
 interface ButtonHoverProps {
     className?: string;
-    type: "ChangeShape" | "HiddenText" | "ColorFlow" | "Mochi" | "Wave" | "BackgroundMoves" | "GradientSlide" | "Toggle" | "PixelHover" | "Bubble" | "LetterFill";
+    type: "Wave" | "BackgroundMoves" | "GradientSlide" | "Toggle" | "PixelHover" | "Bubble" | "LetterFill";
 }
 
 export function ButtonHover({ className = "w-40 h-12 cursor-pointer", type }: ButtonHoverProps) {
@@ -21,167 +21,167 @@ export function ButtonHover({ className = "w-40 h-12 cursor-pointer", type }: Bu
 
     const animations = {
 
-        ChangeShape: (
-            <motion.div
-                className={`relative px-8 py-4  overflow-hidden ${className}`}
-                whileHover="hover"
-                initial="initial"
-            >
-                {/* 背景 */}
-                <motion.div
-                    className="absolute top-0 left-0 w-full h-full"
-                    variants={{
-                        initial: {
-                            backgroundColor: "#FFFF0000",
-                            borderRadius: "4px",
-                        },
-                        hover: {
-                            backgroundColor: "rgba(255, 200, 0, 1)",
-                            borderRadius: "999px",
-                        },
-                    }}
-                    transition={{
-                        backgroundColor: {
-                            duration: 0.6,
-                            ease: "easeInOut",
-                        },
-                        borderRadius: {
-                            duration: 1,
-                            ease: "easeInOut",
-                            delay: 0.3,
-                        },
-                    }}
-                />
-                {/* テキスト */}
-                <span className={`absolute inset-0 ${flexCenter}`}>Button</span>
-            </motion.div>
-        ),
+        // ChangeShape: (
+        //     <motion.div
+        //         className={`relative px-8 py-4  overflow-hidden ${className}`}
+        //         whileHover="hover"
+        //         initial="initial"
+        //     >
+        //         {/* 背景 */}
+        //         <motion.div
+        //             className="absolute top-0 left-0 w-full h-full"
+        //             variants={{
+        //                 initial: {
+        //                     backgroundColor: "#FFFF0000",
+        //                     borderRadius: "4px",
+        //                 },
+        //                 hover: {
+        //                     backgroundColor: "rgba(255, 200, 0, 1)",
+        //                     borderRadius: "999px",
+        //                 },
+        //             }}
+        //             transition={{
+        //                 backgroundColor: {
+        //                     duration: 0.6,
+        //                     ease: "easeInOut",
+        //                 },
+        //                 borderRadius: {
+        //                     duration: 1,
+        //                     ease: "easeInOut",
+        //                     delay: 0.3,
+        //                 },
+        //             }}
+        //         />
+        //         {/* テキスト */}
+        //         <span className={`absolute inset-0 ${flexCenter}`}>Button</span>
+        //     </motion.div>
+        // ),
 
 
-        HiddenText: (
-            <motion.div
-                className={`relative px-8 py-4  overflow-hidden ${className}`}
-                whileHover="hovered"
-                initial="initial"
-                animate="initial"
-            >
-                {/* 背景 */}
-                <motion.div
-                    className={`absolute left-0 w-full h-full bg-pink-300 ${flexCenter}`}
-                    variants={{
-                        initial: { bottom: "-100%" },
-                        hovered: { bottom: 0 }
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                    <span className="text-white font-semibold">
-                        Hover
-                    </span>
-                </motion.div>
-                {/* テキスト */}
-                <motion.div
-                    className={`absolute w-full h-full left-0 border border-pink-300 ${flexCenter}`}
-                    variants={{
-                        initial: { top: 0 },
-                        hovered: { top: "-100%" }
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    >
-                    <span className="text-center">
-                        Button
-                    </span>
-                </motion.div>
-            </motion.div>
-        ),
+        // HiddenText: (
+        //     <motion.div
+        //         className={`relative px-8 py-4  overflow-hidden ${className}`}
+        //         whileHover="hovered"
+        //         initial="initial"
+        //         animate="initial"
+        //     >
+        //         {/* 背景 */}
+        //         <motion.div
+        //             className={`absolute left-0 w-full h-full bg-pink-300 ${flexCenter}`}
+        //             variants={{
+        //                 initial: { bottom: "-100%" },
+        //                 hovered: { bottom: 0 }
+        //             }}
+        //             transition={{ duration: 0.4, ease: "easeInOut" }}
+        //         >
+        //             <span className="text-white font-semibold">
+        //                 Hover
+        //             </span>
+        //         </motion.div>
+        //         {/* テキスト */}
+        //         <motion.div
+        //             className={`absolute w-full h-full left-0 border border-pink-300 ${flexCenter}`}
+        //             variants={{
+        //                 initial: { top: 0 },
+        //                 hovered: { top: "-100%" }
+        //             }}
+        //             transition={{ duration: 0.4, ease: "easeInOut" }}
+        //             >
+        //             <span className="text-center">
+        //                 Button
+        //             </span>
+        //         </motion.div>
+        //     </motion.div>
+        // ),
 
-        ColorFlow: (
-            <motion.div
-                className={`relative group px-8 py-4 rounded-md overflow-hidden ${className} ${flexCenter}`}
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-                variants={{
-                    rest: { boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
-                    hover: { boxShadow: "0px 8px 20px rgba(0,0,0,0.25)" },
-                }}
-                transition={{ duration: 0.3 }}
-            >
-                <div className={`relative w-full ${flexCenter}`}>
-                    <motion.span
-                        className="relative"
-                        variants={{
-                            rest: { x: 0 },
-                            hover: { x: -10 },
-                        }}
-                        transition={{ type: "tween", duration: 0.3 }}
-                    >
-                        Button
-                    </motion.span>
+        // ColorFlow: (
+        //     <motion.div
+        //         className={`relative group px-8 py-4 rounded-md overflow-hidden ${className} ${flexCenter}`}
+        //         initial="rest"
+        //         whileHover="hover"
+        //         animate="rest"
+        //         variants={{
+        //             rest: { boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
+        //             hover: { boxShadow: "0px 8px 20px rgba(0,0,0,0.25)" },
+        //         }}
+        //         transition={{ duration: 0.3 }}
+        //     >
+        //         <div className={`relative w-full ${flexCenter}`}>
+        //             <motion.span
+        //                 className="relative"
+        //                 variants={{
+        //                     rest: { x: 0 },
+        //                     hover: { x: -10 },
+        //                 }}
+        //                 transition={{ type: "tween", duration: 0.3 }}
+        //             >
+        //                 Button
+        //             </motion.span>
 
-                    {/* Hover Arrow */}
-                    <motion.span
-                        className="absolute right-0 text-xl text-red-500"
-                        initial={{ opacity: 0 }}
-                        variants={{
-                            rest: { opacity: 0 },
-                            hover: { opacity: 1 },
-                        }}
-                        transition={{ duration: 0.4 }}
-                        >
-                        &raquo;
-                    </motion.span>
-                </div>
-            </motion.div>
-        ),
+        //             {/* Hover Arrow */}
+        //             <motion.span
+        //                 className="absolute right-0 text-xl text-red-500"
+        //                 initial={{ opacity: 0 }}
+        //                 variants={{
+        //                     rest: { opacity: 0 },
+        //                     hover: { opacity: 1 },
+        //                 }}
+        //                 transition={{ duration: 0.4 }}
+        //                 >
+        //                 &raquo;
+        //             </motion.span>
+        //         </div>
+        //     </motion.div>
+        // ),
 
-        Mochi: (
-            <div className={`relative w-40 h-12 ${className}`} style={{ filter: "url(#goo)" }}>
-                <motion.div
-                    className="relative w-full h-full inline-block rounded-xl" initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                >
-                    {/* 上の丸 */}
-                    <motion.div
-                    className="absolute bg-gray-400 rounded-full z-0"
-                    style={{
-                        width: "36%",   // 親幅の36%
-                        height: "85%",  // 親高さの85%
-                        top: "-20%",    // 親上端より少し上
-                        left: "22%",    // 親幅の22%左から
-                    }}
-                    variants={{
-                        rest: { scale: 0 },
-                        hover: { scale: 1.15 }
-                    }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    />
+        // Mochi: (
+        //     <div className={`relative w-40 h-12 ${className}`} style={{ filter: "url(#goo)" }}>
+        //         <motion.div
+        //             className="relative w-full h-full inline-block rounded-xl" initial="rest"
+        //             whileHover="hover"
+        //             animate="rest"
+        //         >
+        //             {/* 上の丸 */}
+        //             <motion.div
+        //             className="absolute bg-gray-400 rounded-full z-0"
+        //             style={{
+        //                 width: "36%",   // 親幅の36%
+        //                 height: "85%",  // 親高さの85%
+        //                 top: "-20%",    // 親上端より少し上
+        //                 left: "22%",    // 親幅の22%左から
+        //             }}
+        //             variants={{
+        //                 rest: { scale: 0 },
+        //                 hover: { scale: 1.15 }
+        //             }}
+        //             transition={{ duration: 1, ease: "easeInOut" }}
+        //             />
 
-                    {/* 下の丸 */}
-                    <motion.div
-                    className="absolute bg-gray-400 rounded-full z-0"
-                    style={{
-                        width: "36%",
-                        height: "85%",
-                        bottom: "-20%",
-                        right: "20%",
-                    }}
-                    variants={{
-                        rest: { scale: 0 },
-                        hover: { scale: 1.15 }
-                    }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    />
+        //             {/* 下の丸 */}
+        //             <motion.div
+        //             className="absolute bg-gray-400 rounded-full z-0"
+        //             style={{
+        //                 width: "36%",
+        //                 height: "85%",
+        //                 bottom: "-20%",
+        //                 right: "20%",
+        //             }}
+        //             variants={{
+        //                 rest: { scale: 0 },
+        //                 hover: { scale: 1.15 }
+        //             }}
+        //             transition={{ duration: 1, ease: "easeInOut" }}
+        //             />
 
-                    {/* ボタン本体 */}
-                    <button
-                    className="relative w-full h-full rounded-xl font-bold text-white bg-gray-400"
-                    >
-                    Button
-                    </button>
-                </motion.div>
-            </div>
-        ),
+        //             {/* ボタン本体 */}
+        //             <button
+        //             className="relative w-full h-full rounded-xl font-bold text-white bg-gray-400"
+        //             >
+        //             Button
+        //             </button>
+        //         </motion.div>
+        //     </div>
+        // ),
 
         Wave: (
             <motion.button
