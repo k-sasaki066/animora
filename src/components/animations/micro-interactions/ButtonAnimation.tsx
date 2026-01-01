@@ -2,45 +2,45 @@ import { motion } from "framer-motion";
 
 interface ButtonAnimationProps {
     className?: string;
-    type: "Floating" | "Bulbul" | "Thump" | "Swaying" | "Shaky" | "Sparkling" | "Ripples" | "Skew" | "Spin" | "Jiggly" | "ClickMove" | "GradientMove";
+    type: "Swaying" | "Shaky" | "Sparkling" | "Ripples" | "Skew" | "Spin" | "Jiggly" | "ClickMove" | "GradientMove";
 }
 
 export function ButtonAnimation({ className = "w-40 h-12 cursor-pointer px-8 py-4", type }: ButtonAnimationProps) {
     const baseClass = `rounded-full ${className}`;
     const animations = {
 
-        Floating: (
-            <motion.div
-                className={`rounded-full bg-rose-400 ${className}`}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                >
-            </motion.div>
-        ),
+        // Floating: (
+        //     <motion.div
+        //         className={`rounded-full bg-rose-400 ${className}`}
+        //         animate={{ y: [0, -10, 0] }}
+        //         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+        //         >
+        //     </motion.div>
+        // ),
 
-        Bulbul: (
-            <motion.div
-                className={`text-white rounded-full bg-lime-500 ${className}`}
-                animate={{
-                x: [0, 0, -8, 10, -4, 12, 0], // CSS の keyframes の translateX を配列で表現
-                }}
-                transition={{
-                duration: 1,    // 1秒で1周
-                repeat: Infinity,
-                ease: "linear",
-                }}
-            >
-            </motion.div>
-        ),
+        // Bulbul: (
+        //     <motion.div
+        //         className={`text-white rounded-full bg-lime-500 ${className}`}
+        //         animate={{
+        //         x: [0, 0, -8, 10, -4, 12, 0], // CSS の keyframes の translateX を配列で表現
+        //         }}
+        //         transition={{
+        //         duration: 1,    // 1秒で1周
+        //         repeat: Infinity,
+        //         ease: "linear",
+        //         }}
+        //     >
+        //     </motion.div>
+        // ),
 
-        Thump: (
-            <motion.div
-                className={`rounded-full bg-fuchsia-400 ${className}`}
-                animate={{ scale: [1, 1.1, 1, 1, 1.1, 1] }} // dokundokun の keyframes
-                transition={{ duration: 1.3, repeat: Infinity, ease: "easeInOut" }}
-            >
-            </motion.div>
-        ),
+        // Thump: (
+        //     <motion.div
+        //         className={`rounded-full bg-fuchsia-400 ${className}`}
+        //         animate={{ scale: [1, 1.1, 1, 1, 1.1, 1] }} // dokundokun の keyframes
+        //         transition={{ duration: 1.3, repeat: Infinity, ease: "easeInOut" }}
+        //     >
+        //     </motion.div>
+        // ),
 
         Swaying: (
             <motion.div
