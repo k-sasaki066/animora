@@ -5,6 +5,7 @@ export interface ButtonAnimationItem {
 }
 
 export const buttonAnimationData: ButtonAnimationItem[] = [
+    // basic
     {
         key: "floating",
         title: "Floating Button",
@@ -64,5 +65,27 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         key: "gradientMove",
         title: "Gradient Move Button",
         previewText: "Gradient Move Button Example",
+    },
+
+    // hover-text
+    {
+        key: "changeText",
+        title: "Change Text Button",
+        previewText: "Change Text Button Example",
+    },
+    {
+        key: "flowText",
+        title: "Flow Text Button",
+        previewText: "Flow Text Button Example",
+    },
+    {
+        key: "fancyText",
+        title: "Fancy Text Button",
+        previewText: "Fancy Text Button Example",
+    },
+    {
+        key: "smokeText",
+        title: "Smoke Text Button",
+        previewText: "Smoke Text Button Example",
     },
 ];
