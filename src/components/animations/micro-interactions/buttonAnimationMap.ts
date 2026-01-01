@@ -22,6 +22,11 @@ import DiagonalSwipeButton from "./examples/hover/DiagonalSwipeButton";
 import DoubleSwipeButton from "./examples/hover/DoubleSwipeButton";
 import StopSwipeButton from "./examples/hover/StopSwipeButton";
 import PassingButton from "./examples/hover/PassingButton";
+import CircleOutButton from "./examples/hover/CircleOutButton";
+import ClickButton from "./examples/hover/ClickButton";
+import FlipButton from "./examples/hover/FlipButton";
+import ColorCycleButton from "./examples/hover/ColorCycleButton";
+import ColorIntoCenterButton from "./examples/hover/ColorIntoCenterButton";
 
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
@@ -47,5 +52,10 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     doubleSwipe: DoubleSwipeButton,
     stopSwipe: StopSwipeButton,
     passing: PassingButton,
+    circleOut: CircleOutButton,
+    click: ClickButton,
+    flip: FlipButton,
+    colorCycle: ColorCycleButton,
+    colorIntoCenter: ColorIntoCenterButton,
 
 };
