@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
 import LoadingList from "@/components/animations/loading/LoadingList";
-import ButtonHoverList from "@/components/animations/micro-interactions/LoadingList";
+import { ButtonAnimationList } from "@/components/animations/micro-interactions/ButtonAnimationList";
 import { ImageList } from "@/components/animations/images/ImageList";
 import { SliderList } from "@/components/animations/sliders/SliderList";
 import { TextAnimationList } from "@/components/animations/text-animations/TextAnimationList";
@@ -34,7 +34,7 @@ export default function HomePage() {
                   {/* SVGで手書きアニメーション */}
                   <motion.svg
                       viewBox="0 0 550 150"
-                      className="w-full max-w-[600px] text-gray-400 p-2"
+                      className="w-full max-w-150 text-gray-400 p-2"
                       initial="hidden"
                       animate="visible"
                   >
@@ -77,7 +77,7 @@ export default function HomePage() {
             ) : (
                 <motion.div
                     key="main"
-                    className="w-screen min-h-screen  body-color pt-[72px]"
+                    className="w-screen min-h-screen  body-color pt-18"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1 }}
@@ -105,7 +105,7 @@ export default function HomePage() {
                                 <div>
                                     <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
                                     {selectedItem === "Loading" && <LoadingList />}
-                                    {selectedItem === "Micro" && <ButtonHoverList />}
+                                    {selectedItem === "Micro" && <ButtonAnimationList />}
                                     {selectedItem === "Image" && <ImageList />}
                                     {selectedItem === "UI-components" && <SliderList />}
                                     {selectedItem === "Text" && <TextAnimationList />}
