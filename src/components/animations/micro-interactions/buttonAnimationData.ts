@@ -20,4 +20,24 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Thump Button",
         previewText: "Thump Button Example",
     },
+    {
+        key: "swaying",
+        title: "Swaying Button",
+        previewText: "Swaying Button Example",
+    },
+    {
+        key: "shaky",
+        title: "Shaky Button",
+        previewText: "Shaky Button Example",
+    },
+    {
+        key: "sparkling",
+        title: "Sparkling Button",
+        previewText: "Sparkling Button Example",
+    },
+    {
+        key: "ripples",
+        title: "Ripples Button",
+        previewText: "Ripples Button Example",
+    },
 ];
