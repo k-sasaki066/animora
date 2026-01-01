@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 interface ButtonAnimationProps {
     className?: string;
-    type: "Swaying" | "Shaky" | "Sparkling" | "Ripples" | "Skew" | "Spin" | "Jiggly" | "ClickMove" | "GradientMove";
+    type: "Skew" | "Spin" | "Jiggly" | "ClickMove" | "GradientMove";
 }
 
 export function ButtonAnimation({ className = "w-40 h-12 cursor-pointer px-8 py-4", type }: ButtonAnimationProps) {
@@ -42,70 +42,70 @@ export function ButtonAnimation({ className = "w-40 h-12 cursor-pointer px-8 py-
         //     </motion.div>
         // ),
 
-        Swaying: (
-            <motion.div
-                className={`rounded-full bg-indigo-400 ${className}`}
-                animate={{ rotate: [0, -2, 0, 2, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            />
-        ),
+        // Swaying: (
+        //     <motion.div
+        //         className={`rounded-full bg-indigo-400 ${className}`}
+        //         animate={{ rotate: [0, -2, 0, 2, 0] }}
+        //         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+        //     />
+        // ),
 
-        Shaky: (
-            <motion.div
-                className={`rounded-full bg-sky-400 ${className}`}
-                animate={{
-                y: [0, 2, 2, 2, 0],
-                rotate: [0, 1, 0, -1, 0]
-                }}
-                transition={{
-                duration: 0.1,   // CSSの0.1s×4みたいなイメージで短め
-                repeat: Infinity,
-                ease: "linear"
-                }}
-            >
-            </motion.div>
-        ),
+        // Shaky: (
+        //     <motion.div
+        //         className={`rounded-full bg-sky-400 ${className}`}
+        //         animate={{
+        //         y: [0, 2, 2, 2, 0],
+        //         rotate: [0, 1, 0, -1, 0]
+        //         }}
+        //         transition={{
+        //         duration: 0.1,   // CSSの0.1s×4みたいなイメージで短め
+        //         repeat: Infinity,
+        //         ease: "linear"
+        //         }}
+        //     >
+        //     </motion.div>
+        // ),
 
-        Sparkling: (
-            <motion.div
-                className={`${className} overflow-hidden bg-amber-400 relative rounded-full`}
-            >
-                <motion.div
-                className="absolute top-0 left-18 w-[200px] h-full bg-white rounded-full"
-                animate={{
-                    scale: [0, 0, 0, 8],
-                    rotate: [45, 45, 45, 45],
-                    opacity: [0, 0.5, 1, 0],
-                }}
-                transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
-                />
-            </motion.div>
-        ),
+        // Sparkling: (
+        //     <motion.div
+        //         className={`${className} overflow-hidden bg-amber-400 relative rounded-full`}
+        //     >
+        //         <motion.div
+        //         className="absolute top-0 left-18 w-[200px] h-full bg-white rounded-full"
+        //         animate={{
+        //             scale: [0, 0, 0, 8],
+        //             rotate: [45, 45, 45, 45],
+        //             opacity: [0, 0.5, 1, 0],
+        //         }}
+        //         transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
+        //         />
+        //     </motion.div>
+        // ),
 
-        Ripples: (
-            <motion.div
-                className={`relative flex justify-center items-center rounded-full bg-purple-400 ${className}`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-            >
-                <motion.div
-                    className="absolute rounded-full border  bg-purple-300"
-                    style={{
-                    width: "100%",
-                    height: "100%",
-                    }}
-                    animate={{
-                    scale: [1.1, 1.3],
-                    opacity: [0.5, 0],
-                    }}
-                    transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeOut",
-                    }}
-                />
-            </motion.div>
-        ),
+        // Ripples: (
+        //     <motion.div
+        //         className={`relative flex justify-center items-center rounded-full bg-purple-400 ${className}`}
+        //         whileHover={{ scale: 1.05 }}
+        //         whileTap={{ scale: 0.95 }}
+        //     >
+        //         <motion.div
+        //             className="absolute rounded-full border  bg-purple-300"
+        //             style={{
+        //             width: "100%",
+        //             height: "100%",
+        //             }}
+        //             animate={{
+        //             scale: [1.1, 1.3],
+        //             opacity: [0.5, 0],
+        //             }}
+        //             transition={{
+        //             duration: 1.5,
+        //             repeat: Infinity,
+        //             ease: "easeOut",
+        //             }}
+        //         />
+        //     </motion.div>
+        // ),
 
         Skew: (
             <motion.div
