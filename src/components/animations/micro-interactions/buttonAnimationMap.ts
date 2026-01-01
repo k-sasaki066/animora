@@ -27,6 +27,10 @@ import ClickButton from "./examples/hover/ClickButton";
 import FlipButton from "./examples/hover/FlipButton";
 import ColorCycleButton from "./examples/hover/ColorCycleButton";
 import ColorIntoCenterButton from "./examples/hover/ColorIntoCenterButton";
+import ChangeShapeButton from "./examples/hover/ChangeShapeButton";
+import HiddenTextButton from "./examples/hover/HiddenTextButton";
+import ColorFlowButton from "./examples/hover/ColorFlowButton";
+import MochiButton from "./examples/hover/MochiButton";
 
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
@@ -57,5 +61,9 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     flip: FlipButton,
     colorCycle: ColorCycleButton,
     colorIntoCenter: ColorIntoCenterButton,
+    changeShape: ChangeShapeButton,
+    hiddenText: HiddenTextButton,
+    colorFlow: ColorFlowButton,
+    mochi: MochiButton,
 
 };

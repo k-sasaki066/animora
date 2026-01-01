@@ -140,4 +140,24 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Color Into Center Button",
         previewText: "Color Into Center Button Example",
     },
+    {
+        key: "changeShape",
+        title: "Change Shape Button",
+        previewText: "Change Shape Button Example",
+    },
+    {
+        key: "hiddenText",
+        title: "Hidden Text Button",
+        previewText: "Hidden Text Button Example",
+    },
+    {
+        key: "colorFlow",
+        title: "Color Flow Button",
+        previewText: "Color Flow Button Example",
+    },
+    {
+        key: "mochi",
+        title: "Mochi Button",
+        previewText: "Mochi Button Example",
+    },
 ];
