@@ -17,6 +17,12 @@ import FlowTextButton from "./examples/hover-text/FlowTextButton";
 import FancyTextButton from "./examples/hover-text/FancyTextButton";
 import SmokeTextButton from "./examples/hover-text/SmokeTextButton";
 
+import ExtendLeftButton from "./examples/hover/ExtendLeftButton";
+import DiagonalSwipeButton from "./examples/hover/DiagonalSwipeButton";
+import DoubleSwipeButton from "./examples/hover/DoubleSwipeButton";
+import StopSwipeButton from "./examples/hover/StopSwipeButton";
+import PassingButton from "./examples/hover/PassingButton";
+
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
     bulbul: BulbulButton,
@@ -30,9 +36,16 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     jiggly: JigglyButton,
     clickMove: ClickMoveButton,
     gradientMove: GradientMoveButton,
+
     changeText: ChangeTextButton,
     flowText: FlowTextButton,
     fancyText: FancyTextButton,
     smokeText: SmokeTextButton,
+
+    extendLeft: ExtendLeftButton,
+    diagonalSwipe: DiagonalSwipeButton,
+    doubleSwipe: DoubleSwipeButton,
+    stopSwipe: StopSwipeButton,
+    passing: PassingButton,
 
 };

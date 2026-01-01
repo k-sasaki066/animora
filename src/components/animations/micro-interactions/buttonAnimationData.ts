@@ -88,4 +88,31 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Smoke Text Button",
         previewText: "Smoke Text Button Example",
     },
+
+    // hover
+    {
+        key: "extendLeft",
+        title: "Extend Left Button",
+        previewText: "Extend Left Button Example",
+    },
+    {
+        key: "diagonalSwipe",
+        title: "Diagonal Swipe Button",
+        previewText: "Diagonal Swipe Button Example",
+    },
+    {
+        key: "doubleSwipe",
+        title: "Double Swipe Button",
+        previewText: "Double Swipe Button Example",
+    },
+    {
+        key: "stopSwipe",
+        title: "Stop Swipe Button",
+        previewText: "Stop Swipe Button Example",
+    },
+    {
+        key: "passing",
+        title: "Passing Button",
+        previewText: "Passing Button Example",
+    },
 ];
