@@ -2,35 +2,14 @@ import { motion } from "framer-motion";
 
 interface BounceProps {
     className?: string;
-    type: "dots" | "pulse" | "bounce" | "cloud" | "3balls-scale" |"cubeMetronome" | "bouncy" | "grow-bars" | "gridBuildUp" | "bar-progress";
+    type: "cloud" | "3balls-scale" |"cubeMetronome" | "bouncy" | "grow-bars" | "gridBuildUp" | "bar-progress";
 }
 
 export function Bounce({ className = "w-12 h-12 text-purple-600", type}: BounceProps) {
-    const baseClass = `rounded-full ${className}`;
+    const baseClass = `rounded-full w-12 h-12 text-purple-600`;
     const gridOrder = [...Array(9).keys()];
     const animations = {
-        dots: (
-            <div className={`flex items-center space-x-2 ${className}`}>
-                {[0, 160, 320].map((delay, i) => (
-                <div
-                    key={i}
-                    className="w-3 h-3 bg-purple-600 rounded-full animate-bounce"
-                    style={{ animationDelay: `${delay}ms` }}
-                />
-                ))}
-            </div>
-        ),
 
-        pulse:
-            <div className={`bg-purple-600 ${baseClass} animate-pulse`} />,
-
-        bounce: (
-            <motion.div
-                className={`bg-purple-600 ${baseClass}`}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-            />
-        ),
 
         cloud: (
             <motion.div

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
-import LoadingList from "@/components/animations/loading/LoadingList";
+import { LoadingList } from "@/components/animations/loading/LoadingList";
 import { ButtonAnimationList } from "@/components/animations/micro-interactions/ButtonAnimationList";
 import { ImageList } from "@/components/animations/images/ImageList";
 import { SliderList } from "@/components/animations/sliders/SliderList";
