@@ -1,0 +1,51 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+export default function HoverOutlineButton() {
+
+    return (
+        <motion.div
+            className="relative w-40 h-12 cursor-pointer"
+            whileHover="hover"
+            initial="initial"
+        >
+            {/* SVG の線 */}
+            <motion.svg
+                className="absolute top-0 left-0 w-full h-full"
+                viewBox="0 0 150 40"
+                fill="none"
+            >
+                <motion.rect
+                    x="3"
+                    y="3"
+                    width="144"
+                    height="34"
+                    rx="4"
+                    stroke="#009FFD"
+                    strokeWidth="2"
+                    variants={{
+                        initial: {
+                            strokeDasharray: "85 400",
+                            strokeDashoffset: -200,
+                            stroke: "#009FFD",
+                            strokeWidth: 2,
+                        },
+                        hover: {
+                            strokeDasharray: "50 0",
+                            strokeDashoffset: 0,
+                            stroke: "#06D6A0",
+                            strokeWidth: 1,
+                            transition: { duration: 1, ease: "easeInOut" },
+                        },
+                    }}
+                />
+            </motion.svg>
+
+            {/* テキスト */}
+            <span className="absolute inset-0 text-gray-600 font-light flex justify-center items-center">
+                Button
+            </span>
+        </motion.div>
+    );
+}

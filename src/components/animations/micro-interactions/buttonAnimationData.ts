@@ -222,4 +222,29 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Arrow Extend Button",
         previewText: "Arrow Extend Button Example",
     },
+    {
+        key: "sporty",
+        title: "Sporty Button",
+        previewText: "Sporty Button Example",
+    },
+    {
+        key: "hoverOutline",
+        title: "Hover Out line Button",
+        previewText: "Hover Out line Button Example",
+    },
+    {
+        key: "hover4Corner",
+        title: "Hover 4 Corner Button",
+        previewText: "Hover 4 Corner Button Example",
+    },
+    {
+        key: "hoverSurround",
+        title: "Hover Surround Button",
+        previewText: "Hover Surround Button Example",
+    },
+    {
+        key: "pileUp",
+        title: "Pile Up Button",
+        previewText: "Pile Up Button Example",
+    },
 ];
