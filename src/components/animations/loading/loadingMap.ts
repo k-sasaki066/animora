@@ -21,6 +21,7 @@ import WavesLoader from "./examples/spinners/WavesLoader";
 import SquareLoader from "./examples/spinners/SquareLoader";
 import EaseSpinLoader from "./examples/spinners/EaseSpinLoader";
 import HourglassLoader from "./examples/spinners/HourglassLoader";
+import OrbitSpinLoader from "./examples/spinners/orbit-spin/OrbitSpinLoader";
 
 import TextLoader from "./examples/loading-texts/TextLoader";
 import SlideTextLoader from "./examples/loading-texts/SlideTextLoader";
@@ -53,6 +54,7 @@ export const loadingMap: Record<string, ComponentType> = {
     square: SquareLoader,
     easeSpin: EaseSpinLoader,
     hourglass: HourglassLoader,
+    orbitSpin: OrbitSpinLoader,
 
     // loading-texts
     text: TextLoader,
