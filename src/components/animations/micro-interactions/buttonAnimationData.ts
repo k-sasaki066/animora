@@ -160,4 +160,39 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Mochi Button",
         previewText: "Mochi Button Example",
     },
+    {
+        key: "wave",
+        title: "Wave Button",
+        previewText: "Wave Button Example",
+    },
+    {
+        key: "backgroundMoves",
+        title: "Background Moves Button",
+        previewText: "Background Moves Button Example",
+    },
+    {
+        key: "gradientSlide",
+        title: "Gradient Slide Button",
+        previewText: "Gradient Slide Button Example",
+    },
+    {
+        key: "toggle",
+        title: "Toggle Button",
+        previewText: "Toggle Button Example",
+    },
+    {
+        key: "pixelHover",
+        title: "Pixel Hover Button",
+        previewText: "Pixel Hover Button Example",
+    },
+    {
+        key: "bubble",
+        title: "Bubble Button",
+        previewText: "Bubble Button Example",
+    },
+    {
+        key: "letterFill",
+        title: "Letter Fill Button",
+        previewText: "Letter Fill Button Example",
+    },
 ];

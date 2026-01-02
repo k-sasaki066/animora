@@ -31,6 +31,13 @@ import ChangeShapeButton from "./examples/hover/ChangeShapeButton";
 import HiddenTextButton from "./examples/hover/HiddenTextButton";
 import ColorFlowButton from "./examples/hover/ColorFlowButton";
 import MochiButton from "./examples/hover/MochiButton";
+import WaveButton from "./examples/hover/WaveButton";
+import BackgroundMovesButton from "./examples/hover/BackgroundMovesButton";
+import GradientSlideButton from "./examples/hover/GradientSlideButton";
+import ToggleButton from "./examples/hover/ToggleButton";
+import PixelHoverButton from "./examples/hover/PixelHoverButton";
+import BubbleButton from "./examples/hover/BubbleButton";
+import LetterFillButton from "./examples/hover/LetterFillButton";
 
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
@@ -65,5 +72,12 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     hiddenText: HiddenTextButton,
     colorFlow: ColorFlowButton,
     mochi: MochiButton,
+    wave: WaveButton,
+    backgroundMoves: BackgroundMovesButton,
+    gradientSlide: GradientSlideButton,
+    toggle: ToggleButton,
+    pixelHover: PixelHoverButton,
+    bubble: BubbleButton,
+    letterFill: LetterFillButton,
 
 };
