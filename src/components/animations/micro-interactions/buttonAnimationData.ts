@@ -247,4 +247,29 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Pile Up Button",
         previewText: "Pile Up Button Example",
     },
+    {
+        key: "parallelogram",
+        title: "Parallelogram Button",
+        previewText: "Parallelogram Button Example",
+    },
+    {
+        key: "parallelogram2",
+        title: "Parallelogram 2 Button",
+        previewText: "Parallelogram 2 Button Example",
+    },
+    {
+        key: "outlineHover",
+        title: "Outline Hover Button",
+        previewText: "Outline Hover Button Example",
+    },
+    {
+        key: "moveAndSurround",
+        title: "Move And Surround Button",
+        previewText: "Move And Surround Button Example",
+    },
+    {
+        key: "lineSurround",
+        title: "Line Surround Button",
+        previewText: "Line Surround Button Example",
+    },
 ];

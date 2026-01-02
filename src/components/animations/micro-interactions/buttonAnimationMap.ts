@@ -49,6 +49,11 @@ import HoverOutlineButton from "./examples/hover-line/HoverOutlineButton";
 import Hover4CornerButton from "./examples/hover-line/Hover4CornerButton";
 import HoverSurroundButton from "./examples/hover-line/HoverSurroundButton";
 import PileUpButton from "./examples/hover-line/PileUpButton";
+import ParallelogramButton from "./examples/hover-line/ParallelogramButton";
+import Parallelogram2Button from "./examples/hover-line/Parallelogram2Button";
+import OutlineHoverButton from "./examples/hover-line/OutlineHoverButton";
+import MoveAndSurroundButton from "./examples/hover-line/MoveAndSurroundButton";
+import LineSurroundButton from "./examples/hover-line/LineSurroundButton";
 
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
@@ -101,5 +106,9 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     hover4Corner: Hover4CornerButton,
     hoverSurround: HoverSurroundButton,
     pileUp: PileUpButton,
-
+    parallelogram: ParallelogramButton,
+    parallelogram2: Parallelogram2Button,
+    outlineHover: OutlineHoverButton,
+    moveAndSurround: MoveAndSurroundButton,
+    lineSurround: LineSurroundButton,
 };
