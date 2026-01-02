@@ -112,6 +112,12 @@ export const loadingData: LoadingItem[] = [
         previewText: "Hourglass Loader Example",
     },
     {
+        key: "orbitSpin",
+        title: "Orbit Spin Loader",
+        previewText: "Orbit Spin Loader Example",
+    },
+
+    {
         key: "text",
         title: "Text Loader",
         previewText: "Text Loader Example",
