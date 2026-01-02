@@ -39,6 +39,12 @@ import PixelHoverButton from "./examples/hover/PixelHoverButton";
 import BubbleButton from "./examples/hover/BubbleButton";
 import LetterFillButton from "./examples/hover/LetterFillButton";
 
+import SideBracketsButton from "./examples/hover-line/SideBracketsButton";
+import TransformShapeButton from "./examples/hover-line/TransformShapeButton";
+import HoverLineButton from "./examples/hover-line/HoverLineButton";
+import RotateButton from "./examples/hover-line/RotateButton";
+import ArrowExtendButton from "./examples/hover-line/ArrowExtendButton";
+
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
     bulbul: BulbulButton,
@@ -79,5 +85,11 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     pixelHover: PixelHoverButton,
     bubble: BubbleButton,
     letterFill: LetterFillButton,
+
+    sideBrackets: SideBracketsButton,
+    transformShape: TransformShapeButton,
+    hoverLine: HoverLineButton,
+    rotate: RotateButton,
+    arrowExtend: ArrowExtendButton,
 
 };

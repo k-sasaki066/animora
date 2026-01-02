@@ -195,4 +195,31 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Letter Fill Button",
         previewText: "Letter Fill Button Example",
     },
+
+    // hover-line
+    {
+        key: "sideBrackets",
+        title: "SideBrackets Button",
+        previewText: "SideBrackets Button Example",
+    },
+    {
+        key: "transformShape",
+        title: "Transform Shape Button",
+        previewText: "Transform Shape Button Example",
+    },
+    {
+        key: "hoverLine",
+        title: "Hover Line Button",
+        previewText: "Hover Line Button Example",
+    },
+    {
+        key: "rotate",
+        title: "Rotate Button",
+        previewText: "Rotate Button Example",
+    },
+    {
+        key: "arrowExtend",
+        title: "Arrow Extend Button",
+        previewText: "Arrow Extend Button Example",
+    },
 ];
