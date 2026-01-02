@@ -44,6 +44,11 @@ import TransformShapeButton from "./examples/hover-line/TransformShapeButton";
 import HoverLineButton from "./examples/hover-line/HoverLineButton";
 import RotateButton from "./examples/hover-line/RotateButton";
 import ArrowExtendButton from "./examples/hover-line/ArrowExtendButton";
+import SportyButton from "./examples/hover-line/SportyButton";
+import HoverOutlineButton from "./examples/hover-line/HoverOutlineButton";
+import Hover4CornerButton from "./examples/hover-line/Hover4CornerButton";
+import HoverSurroundButton from "./examples/hover-line/HoverSurroundButton";
+import PileUpButton from "./examples/hover-line/PileUpButton";
 
 export const buttonAnimationMap: Record<string, ComponentType> = {
     floating: FloatingButton,
@@ -91,5 +96,10 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     hoverLine: HoverLineButton,
     rotate: RotateButton,
     arrowExtend: ArrowExtendButton,
+    sporty: SportyButton,
+    hoverOutline: HoverOutlineButton,
+    hover4Corner: Hover4CornerButton,
+    hoverSurround: HoverSurroundButton,
+    pileUp: PileUpButton,
 
 };
