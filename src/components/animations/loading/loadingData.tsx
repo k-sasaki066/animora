@@ -101,4 +101,14 @@ export const loadingData: LoadingItem[] = [
         title: "Ease Spin Loader",
         previewText: "Ease Spin Loader Example",
     },
+    {
+        key: "text",
+        title: "Text Loader",
+        previewText: "Text Loader Example",
+    },
+    {
+        key: "slideText",
+        title: "SlideText Loader",
+        previewText: "SlideText Loader Example",
+    },
 ];

@@ -20,6 +20,9 @@ import WavesLoader from "./examples/spinners/WavesLoader";
 import SquareLoader from "./examples/spinners/SquareLoader";
 import EaseSpinLoader from "./examples/spinners/EaseSpinLoader";
 
+import TextLoader from "./examples/loading-texts/TextLoader";
+import SlideTextLoader from "./examples/loading-texts/SlideTextLoader";
+
 export const loadingMap: Record<string, ComponentType> = {
     dots: DotsLoader,
     pulse: PulseLoader,
@@ -42,4 +45,8 @@ export const loadingMap: Record<string, ComponentType> = {
     waves: WavesLoader,
     square: SquareLoader,
     easeSpin: EaseSpinLoader,
+
+    // loading-texts
+    text: TextLoader,
+    slideText: SlideTextLoader,
 };
