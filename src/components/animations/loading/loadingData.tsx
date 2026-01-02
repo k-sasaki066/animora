@@ -11,6 +11,11 @@ export const loadingData: LoadingItem[] = [
         previewText: "Dots Loader Example",
     },
     {
+        key: "waveDots",
+        title: "Wave Dots Loader",
+        previewText: "Wave Dots Loader Example",
+    },
+    {
         key: "pulse",
         title: "Pulse Loader",
         previewText: "Pulse Loader Example",
@@ -102,6 +107,11 @@ export const loadingData: LoadingItem[] = [
         previewText: "Ease Spin Loader Example",
     },
     {
+        key: "hourglass",
+        title: "Hourglass Loader",
+        previewText: "Hourglass Loader Example",
+    },
+    {
         key: "text",
         title: "Text Loader",
         previewText: "Text Loader Example",
@@ -110,5 +120,20 @@ export const loadingData: LoadingItem[] = [
         key: "slideText",
         title: "SlideText Loader",
         previewText: "SlideText Loader Example",
+    },
+    {
+        key: "barcode",
+        title: "Barcode Loader",
+        previewText: "Barcode Loader Example",
+    },
+    {
+        key: "waveFill",
+        title: "Wave Fill Loader",
+        previewText: "Wave Fill Loader Example",
+    },
+    {
+        key: "shutter",
+        title: "Shutter Loader",
+        previewText: "Shutter Loader Example",
     },
 ];
