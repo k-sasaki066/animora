@@ -62,9 +62,9 @@ export const loadingData: LoadingItem[] = [
         previewText: "Default Loader Example",
     },
     {
-        key: "dual",
-        title: "Dual Loader",
-        previewText: "Dual Loader Example",
+        key: "starRotate",
+        title: "Star Rotate Loader",
+        previewText: "Star Rotate Loader Example",
     },
     {
         key: "fade",

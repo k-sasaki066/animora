@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function ClockLoader() {
     const size = 56;
-    const handHeight = size / 2 - 2;
+    const handHeight = size * 0.35;
     const thickness = 2;
 
     return (
@@ -19,21 +19,17 @@ export default function ClockLoader() {
         >
             {/* 時計の針 */}
             <motion.div
+                className="absolute w-0.5 left-1/2 top-1.5 -translate-x-1/2 bg-[#eee]"
                 style={{
-                    width: 2,
                     height: handHeight,
-                    backgroundColor: "#eee",
-                    position: "absolute",
-                    top: 2,
-                    left: `calc(50% - ${thickness / 2}px)`,
-                    transformOrigin: `50% ${handHeight}px`,
+                    transformOrigin: "50% 100%",
                 }}
                 animate={{
                     rotate: [0, 360]
                 }}
                 transition={{
                     repeat: Infinity,
-                    duration: 1,
+                    duration: 1.2,
                     ease: "linear"
                 }}
             />
