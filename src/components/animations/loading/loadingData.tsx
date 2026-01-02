@@ -55,4 +55,50 @@ export const loadingData: LoadingItem[] = [
         title: "Bar Progress Loader",
         previewText: "Bar Progress Loader Example",
     },
+
+    {
+        key: "default",
+        title: "Default Loader",
+        previewText: "Default Loader Example",
+    },
+    {
+        key: "dual",
+        title: "Dual Loader",
+        previewText: "Dual Loader Example",
+    },
+    {
+        key: "fade",
+        title: "Fade Loader",
+        previewText: "Fade Loader Example",
+    },
+    {
+        key: "rotateScale",
+        title: "Rotate Scale Loader",
+        previewText: "Rotate Scale Loader Example",
+    },
+    {
+        key: "slices",
+        title: "Slices Loader",
+        previewText: "Slices Loader Example",
+    },
+    {
+        key: "clock",
+        title: "Clock Loader",
+        previewText: "Clock Loader Example",
+    },
+    {
+        key: "waves",
+        title: "Waves Loader",
+        previewText: "Waves Loader Example",
+    },
+    {
+        key: "square",
+        title: "Square Loader",
+        previewText: "Square Loader Example",
+    },
+    {
+        key: "easeSpin",
+        title: "Ease Spin Loader",
+        previewText: "Ease Spin Loader Example",
+    },
 ];
