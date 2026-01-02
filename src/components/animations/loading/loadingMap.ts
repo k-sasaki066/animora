@@ -10,6 +10,16 @@ import GrowBarsLoader from "./examples/loaders/GrowBarsLoader";
 import GridBuildupLoader from "./examples/loaders/GridBuildupLoader";
 import BarProgressLoader from "./examples/loaders/BarProgressLoader";
 
+import DefaultLoader from "./examples/spinners/DefaultLoader";
+import DualLoader from "./examples/spinners/DualLoader";
+import FadeLoader from "./examples/spinners/FadeLoader";
+import RotateScaleLoader from "./examples/spinners/RotateScaleLoader";
+import SlicesLoader from "./examples/spinners/SlicesLoader";
+import ClockLoader from "./examples/spinners/ClockLoader";
+import WavesLoader from "./examples/spinners/WavesLoader";
+import SquareLoader from "./examples/spinners/SquareLoader";
+import EaseSpinLoader from "./examples/spinners/EaseSpinLoader";
+
 export const loadingMap: Record<string, ComponentType> = {
     dots: DotsLoader,
     pulse: PulseLoader,
@@ -21,4 +31,15 @@ export const loadingMap: Record<string, ComponentType> = {
     growBars: GrowBarsLoader,
     gridBuildup: GridBuildupLoader,
     barProgress: BarProgressLoader,
+
+    // spinner
+    default: DefaultLoader,
+    dual: DualLoader,
+    fade: FadeLoader,
+    rotateScale: RotateScaleLoader,
+    slices: SlicesLoader,
+    clock: ClockLoader,
+    waves: WavesLoader,
+    square: SquareLoader,
+    easeSpin: EaseSpinLoader,
 };
