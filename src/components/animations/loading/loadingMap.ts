@@ -11,7 +11,7 @@ import GridBuildupLoader from "./examples/loaders/GridBuildupLoader";
 import BarProgressLoader from "./examples/loaders/BarProgressLoader";
 
 import DefaultLoader from "./examples/spinners/DefaultLoader";
-import DualLoader from "./examples/spinners/DualLoader";
+import StarRotateLoader from "./examples/spinners/StarRotateLoader";
 import FadeLoader from "./examples/spinners/FadeLoader";
 import RotateScaleLoader from "./examples/spinners/RotateScaleLoader";
 import SlicesLoader from "./examples/spinners/SlicesLoader";
@@ -37,7 +37,7 @@ export const loadingMap: Record<string, ComponentType> = {
 
     // spinner
     default: DefaultLoader,
-    dual: DualLoader,
+    starRotate: StarRotateLoader,
     fade: FadeLoader,
     rotateScale: RotateScaleLoader,
     slices: SlicesLoader,

@@ -5,47 +5,48 @@ export default function SquareLoader() {
     return (
         <svg
             className="w-12 h-12 text-purple-600"
-            viewBox="0 0 35 35"
-            height="35"
-            width="35"
+            viewBox="0 0 36 36"
+            height="36"
+            width="36"
         >
             <rect
-                className="track"
-                x="2.5"
-                y="2.5"
+                x="3"
+                y="3"
+                width="30"
+                height="30"
+                rx="2"
+                ry="2"
                 fill="none"
+                stroke="currentColor"
                 strokeWidth="4"
-                width="30.5"
-                height="30.5"
-                style={{
-                    opacity: 0.1,
-                    stroke: "currentColor"
-                }}
+                opacity="0.15"
             />
+
+            {/* 流れる線 */}
             <rect
-                className="car"
-                x="2.5"
-                y="2.5"
+                x="3"
+                y="3"
+                width="30"
+                height="30"
+                rx="2"
+                ry="2"
                 fill="none"
-                strokeWidth="5"
-                width="32.5"
-                height="32.5"
-                pathLength={100}
-                style={{
-                    stroke: "currentColor",
-                    strokeDasharray: "25,75",
-                    strokeDashoffset: 0,
-                    animation: "square-travel 1.2s linear infinite"
-                }}
-            />
-            <style>
-                {`
-                    @keyframes square-travel {
-                    0% { stroke-dashoffset: 0; }
-                    100% { stroke-dashoffset: -100; }
-                    }
-                `}
-            </style>
+                stroke="currentColor"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                pathLength="100"
+                strokeDasharray="25 75"
+                strokeDashoffset="0"
+            >
+                <animate
+                    attributeName="stroke-dashoffset"
+                    from="0"
+                    to="-100"
+                    dur="1.2s"
+                    repeatCount="indefinite"
+                />
+            </rect>
         </svg>
     );
 }
