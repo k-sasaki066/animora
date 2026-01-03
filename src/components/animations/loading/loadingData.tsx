@@ -141,6 +141,26 @@ export const loadingData: LoadingItem[] = [
         title: "Orbit Spin Loader",
         previewText: "Orbit Spin Loader Example",
     },
+    {
+        key: "stepRotate",
+        title: "Step Rotate Loader",
+        previewText: "Step Rotate Loader Example",
+    },
+    {
+        key: "arrowRotate",
+        title: "Arrow Rotate Loader",
+        previewText: "Arrow Rotate Loader Example",
+    },
+    {
+        key: "quadSpin",
+        title: "Quad Spin Loader",
+        previewText: "Quad Spin Loader Example",
+    },
+    {
+        key: "scaleDotsSpin",
+        title: "Scale Dots Spin Loader",
+        previewText: "Scale Dots Spin Loader Example",
+    },
 
     {
         key: "text",
