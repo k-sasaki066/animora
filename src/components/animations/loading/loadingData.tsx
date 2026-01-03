@@ -85,6 +85,26 @@ export const loadingData: LoadingItem[] = [
         title: "Bar Progress Loader",
         previewText: "Bar Progress Loader Example",
     },
+    {
+        key: "stepBar",
+        title: "Step Bar Loader",
+        previewText: "Step Bar Loader Example",
+    },
+    {
+        key: "stepCircle",
+        title: "Step Circle Loader",
+        previewText: "Step Circle Loader Example",
+    },
+    {
+        key: "rhombusGradient",
+        title: "Rhombus Gradient Loader",
+        previewText: "Rhombus Gradient Loader Example",
+    },
+    {
+        key: "stripeSlide",
+        title: "Stripe Slide Loader",
+        previewText: "Stripe Slide Loader Example",
+    },
 
     {
         key: "default",
