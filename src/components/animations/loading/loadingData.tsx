@@ -41,6 +41,31 @@ export const loadingData: LoadingItem[] = [
         previewText: "CubeMetronome Loader Example",
     },
     {
+        key: "newtonCradle",
+        title: "Newton Cradle Loader",
+        previewText: "Newton Cradle Loader Example",
+    },
+    {
+        key: "marchingDots",
+        title: "Marching Dots Loader",
+        previewText: "Marching Dots Loader Example",
+    },
+    {
+        key: "cornerDots",
+        title: "Corner Dots Loader",
+        previewText: "Corner Dots Loader Example",
+    },
+    {
+        key: "hoppingDots",
+        title: "Hopping Dots Loader",
+        previewText: "Hopping Dots Loader Example",
+    },
+    {
+        key: "hopperBars",
+        title: "Hopper Bars Loader",
+        previewText: "Hopper Bars Loader Example",
+    },
+    {
         key: "bouncy",
         title: "Bouncy Loader",
         previewText: "Bouncy Loader Example",

@@ -6,6 +6,11 @@ import BounceLoader from "./examples/loaders/BounceLoader";
 import CloudLoader from "./examples/loaders/CloudLoader";
 import BallsScaleLoader from "./examples/loaders/BallsScaleLoader";
 import CubeMetronomeLoader from "./examples/loaders/CubeMetronomeLoader";
+import NewtonCradleLoader from "./examples/loaders/NewtonCradleLoader";
+import MarchingDotsLoader from "./examples/loaders/MarchingDotsLoader";
+import CornerDotsLoader from "./examples/loaders/CornerDotsLoader";
+import HoppingDotsLoader from "./examples/loaders/HoppingDotsLoader";
+import HopperBarsLoader from "./examples/loaders/HopperBarsLoader";
 import BouncyLoader from "./examples/loaders/BouncyLoader";
 import GrowBarsLoader from "./examples/loaders/GrowBarsLoader";
 import GridBuildupLoader from "./examples/loaders/GridBuildupLoader";
@@ -38,6 +43,11 @@ export const loadingMap: Record<string, ComponentType> = {
     cloud: CloudLoader,
     ballsScale: BallsScaleLoader,
     cubeMetronome: CubeMetronomeLoader,
+    newtonCradle: NewtonCradleLoader,
+    marchingDots: MarchingDotsLoader,
+    cornerDots: CornerDotsLoader,
+    hoppingDots: HoppingDotsLoader,
+    hopperBars: HopperBarsLoader,
     bouncy: BouncyLoader,
     growBars: GrowBarsLoader,
     gridBuildup: GridBuildupLoader,
