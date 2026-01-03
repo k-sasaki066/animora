@@ -15,6 +15,10 @@ import BouncyLoader from "./examples/loaders/BouncyLoader";
 import GrowBarsLoader from "./examples/loaders/GrowBarsLoader";
 import GridBuildupLoader from "./examples/loaders/GridBuildupLoader";
 import BarProgressLoader from "./examples/loaders/BarProgressLoader";
+import StepBarLoader from "./examples/loaders/StepBarLoader";
+import StepCircleLoader from "./examples/loaders/StepCircleLoader";
+import RhombusGradientLoader from "./examples/loaders/RhombusGradientLoader";
+import StripeSlideLoader from "./examples/loaders/StripeSlideLoader";
 
 import DefaultLoader from "./examples/spinners/DefaultLoader";
 import StarRotateLoader from "./examples/spinners/StarRotateLoader";
@@ -56,6 +60,10 @@ export const loadingMap: Record<string, ComponentType> = {
     growBars: GrowBarsLoader,
     gridBuildup: GridBuildupLoader,
     barProgress: BarProgressLoader,
+    stepBar: StepBarLoader,
+    stepCircle: StepCircleLoader,
+    rhombusGradient: RhombusGradientLoader,
+    stripeSlide: StripeSlideLoader,
 
     // spinner
     default: DefaultLoader,
