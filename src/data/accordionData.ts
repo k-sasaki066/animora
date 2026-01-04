@@ -22,7 +22,8 @@ export const accordionData: AccordionCategory[] = [
         { title: "Image", key: "Image", content: "Image hover" },
         { title: "Background Effects", key: "Background", content: "Gradient / Blur / Particles" },
         { title: "Micro Interactions",  key: "Micro",content: "Button hover / Card hover" },
-        { title: "UI Components", key: "UI-components",content: "Accordion / Modal / Drawer" },
+        { title: "UI Components", key: "UI-components", content: "Accordion / Modal / Drawer" },
+        { title: "Animated Parts", key: "Animated-parts",content: "SVG / CSS " },
         ],
     },
     {
