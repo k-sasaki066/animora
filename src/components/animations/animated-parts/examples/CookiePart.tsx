@@ -44,14 +44,42 @@ export default function CookiePart() {
     const centerX = width / 2;
     const centerY = height / 2;
 
-    const circleCookies = cookies.slice(0, 3);
     const topCookie = cookies[3];
+    const circleCookies = cookies.slice(0, 3);
 
     const angleStep = (2 * Math.PI) / circleCookies.length;
     const radius = cookieSize * 0.6; // 中心からの距離
 
     return (
         <div ref={ref} className="relative w-full h-full mx-auto">
+            {/* 上に重ねるクッキー */}
+            <motion.div
+                className="absolute rounded-full bg-[#f8b261] border-2 border-[#ce8b55]"
+                style={{
+                    width: cookieSize,
+                    height: cookieSize,
+                    left: centerX - cookieSize / 2,
+                    top: centerY - cookieSize / 2,
+                    zIndex: 10,
+                }}
+                initial={{ opacity: 1 }}
+                animate={{ opacity: visibleIndex > 0 ? 0 : 1 }} // visibleIndex > 0 で消える
+                transition={{ duration: 0.1 }}
+            >
+                {topCookie.map((pos, j) => (
+                    <div
+                        key={j}
+                        className="absolute rounded-full bg-[#724c44]"
+                        style={{
+                            width: cookieSize * 0.15,
+                            height: cookieSize * 0.15,
+                            top: pos.top * cookieSize,
+                            left: pos.left * cookieSize,
+                        }}
+                    />
+                ))}
+            </motion.div>
+
             {/* 円形に配置 */}
             {circleCookies.map((chipPositions, i) => {
                 const angle = i * angleStep - Math.PI / 2;
@@ -69,7 +97,7 @@ export default function CookiePart() {
                             height: cookieSize,
                         }}
                         initial={{ opacity: 1 }}
-                        animate={{ opacity: visibleIndex > i ? 0 : 1 }}
+                        animate={{ opacity: visibleIndex > i + 1 ? 0 : 1 }} // +1 で順番に消す
                         transition={{ duration: 0.1 }}
                     >
                         {chipPositions.map((pos, j) => (
@@ -87,34 +115,6 @@ export default function CookiePart() {
                     </motion.div>
                 );
             })}
-
-            {/* 上に重ねる1枚 */}
-            <motion.div
-                className="absolute rounded-full bg-[#f8b261] border-2 border-[#ce8b55]"
-                style={{
-                    width: cookieSize,
-                    height: cookieSize,
-                    left: centerX - cookieSize / 2,
-                    top: centerY - cookieSize / 2,
-                    zIndex: 10,
-                }}
-                initial={{ opacity: 1 }}
-                animate={{ opacity: visibleIndex > 3 ? 0 : 1 }}
-                transition={{ duration: 0.1 }}
-            >
-                {topCookie.map((pos, j) => (
-                    <div
-                        key={j}
-                        className="absolute rounded-full bg-[#724c44]"
-                        style={{
-                            width: cookieSize * 0.15,
-                            height: cookieSize * 0.15,
-                            top: pos.top * cookieSize,
-                            left: pos.left * cookieSize,
-                        }}
-                    />
-                ))}
-            </motion.div>
         </div>
     );
 }
