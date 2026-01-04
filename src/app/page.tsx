@@ -10,6 +10,7 @@ import { ImageList } from "@/components/animations/images/ImageList";
 import { SliderList } from "@/components/animations/sliders/SliderList";
 import { TextAnimationList } from "@/components/animations/text-animations/TextAnimationList";
 import { BackgroundList } from "@/components/animations/backgrounds/BackgroundList";
+import { PartList } from "@/components/animations/animated-parts/PartList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -96,7 +97,7 @@ export default function HomePage() {
                                 <>
                                     <h2 className="text-3xl font-bold mb-4">Welcome to Animora!</h2>
                                     <p className="text-lg text-gray-400">
-                                      このアプリでは CSSアニメーション・JavaScriptのサンプル・HTMLタグ辞典などを確認できます。
+                                        このアプリでは CSSアニメーション・JavaScriptのサンプル・HTMLタグ辞典などを確認できます。
                                     </p>
                                 </>
                             )}
@@ -110,6 +111,7 @@ export default function HomePage() {
                                     {selectedItem === "UI-components" && <SliderList />}
                                     {selectedItem === "Text" && <TextAnimationList />}
                                     {selectedItem === "Background" && <BackgroundList />}
+                                    {selectedItem === "Animated-parts" && <PartList />}
                                 </div>
                             )}
                         </main>
