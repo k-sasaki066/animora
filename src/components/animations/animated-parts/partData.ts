@@ -35,4 +35,14 @@ export const partData: PartItem[] = [
         title: "Cookie Loader",
         previewText: "Cookie Loader Example",
     },
+    {
+        key: "chocolate",
+        title: "Chocolate Loader",
+        previewText: "Chocolate Loader Example",
+    },
+    {
+        key: "sliceHam",
+        title: "Slice Ham Loader",
+        previewText: "Slice Ham Loader Example",
+    },
 ];
