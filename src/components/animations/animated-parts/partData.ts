@@ -45,4 +45,14 @@ export const partData: PartItem[] = [
         title: "Slice Ham Loader",
         previewText: "Slice Ham Loader Example",
     },
+    {
+        key: "quadSwap",
+        title: "Quad Swap Loader",
+        previewText: "Quad Swap Loader Example",
+    },
+    {
+        key: "quadCircle",
+        title: "Quad Circle Loader",
+        previewText: "Quad Circle Loader Example",
+    },
 ];
