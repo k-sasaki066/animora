@@ -36,11 +36,15 @@ export default function CookiePart() {
 
         const interval = setInterval(() => {
             setVisibleIndex((prev) => (prev + 1 > cookies.length ? 0 : prev + 1));
-        }, 1000); // 1秒ごとに1枚ずつ消す
+        }, 800); // 0.8秒ごとに1枚ずつ消す
         return () => clearInterval(interval);
     }, [width]);
 
-    const cookieSize = Math.min(width * 0.16, 70);
+    if (!width || !height) {
+        return <div ref={ref} className="relative w-full h-full" />;
+    }
+
+    const cookieSize = Math.min(width * 0.16, 65);
     const centerX = width / 2;
     const centerY = height / 2;
 
