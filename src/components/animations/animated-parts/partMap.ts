@@ -7,6 +7,8 @@ import PizzaPart from "./examples/PizzaPart";
 import CookiePart from "./examples/CookiePart";
 import ChocolatePart from "./examples/ChocolatePart";
 import SliceHamPart from "./examples/SliceHamPart";
+import QuadSwapPart from "./examples/QuadSwapPart";
+import QuadCirclePart from "./examples/QuadCirclePart";
 
 export const partMap: Record<string, ComponentType> = {
     ninjaStar: NinjaStarPart,
@@ -17,5 +19,7 @@ export const partMap: Record<string, ComponentType> = {
     cookie: CookiePart,
     chocolate: ChocolatePart,
     sliceHam: SliceHamPart,
+    quadSwap: QuadSwapPart,
+    quadCircle: QuadCirclePart,
 
 };
