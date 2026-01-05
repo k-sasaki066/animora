@@ -55,4 +55,19 @@ export const partData: PartItem[] = [
         title: "Quad Circle Loader",
         previewText: "Quad Circle Loader Example",
     },
+    {
+        key: "sun",
+        title: "Sun Loader",
+        previewText: "Sun Loader Example",
+    },
+    {
+        key: "moon",
+        title: "Moon Loader",
+        previewText: "Moon Loader Example",
+    },
+    {
+        key: "rainbowArc",
+        title: "RainbowArc Loader",
+        previewText: "RainbowArc Loader Example",
+    },
 ];

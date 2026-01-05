@@ -9,6 +9,9 @@ import ChocolatePart from "./examples/ChocolatePart";
 import SliceHamPart from "./examples/SliceHamPart";
 import QuadSwapPart from "./examples/QuadSwapPart";
 import QuadCirclePart from "./examples/QuadCirclePart";
+import SunPart from "./examples/SunPart";
+import MoonPart from "./examples/MoonPart";
+import RainbowArcPart from "./examples/RainbowArcPart";
 
 export const partMap: Record<string, ComponentType> = {
     ninjaStar: NinjaStarPart,
@@ -21,5 +24,7 @@ export const partMap: Record<string, ComponentType> = {
     sliceHam: SliceHamPart,
     quadSwap: QuadSwapPart,
     quadCircle: QuadCirclePart,
-
+    sun: SunPart,
+    moon: MoonPart,
+    rainbowArc: RainbowArcPart,
 };
