@@ -2,13 +2,20 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import { useContainerSize } from "@/hooks/useContainerSize";
 
 export default function ChocolatePart() {
+    const { ref, width } = useContainerSize<HTMLDivElement>();
 
     const rows = 3;
     const cols = 2;
-    const blockHeight = 17; // px単位の高さ
-    const blockWidth = 100 / cols; // %で幅
+
+    const baseSize = width ? Math.min(width * 0.18, 100): 40; // チョコ全体の幅
+    const blockHeight = baseSize / rows;
+    const blockWidth = baseSize / cols;
+
+    const patternSize = Math.min(blockWidth, blockHeight);
+    const corner = patternSize * 0.18;
 
     const controls = useAnimation();
 
@@ -45,7 +52,14 @@ export default function ChocolatePart() {
     }, [controls]);
 
     return (
-        <div className="relative w-9 h-20 bg-white overflow-hidden">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
+            <div
+                className="relative bg-white overflow-hidden"
+                style={{
+                    width: baseSize,
+                    height: baseSize * 1.6,
+                }}
+            >
             {/* チョコのブロック */}
             {[...Array(rows)].map((_, i) => (
                 <div key={i} className="flex">
@@ -56,24 +70,24 @@ export default function ChocolatePart() {
                             animate={controls}
                             className="border border-[#341612] box-border"
                             style={{
-                                width: `${blockWidth}%`,
+                                width: `${blockWidth}px`,
                                 height: `${blockHeight}px`,
-                                background: `
-                                conic-gradient(
-                                    from -90deg at calc(100% - 3px) 3px,
+                                backgroundImage: `
+                                    conic-gradient(
+                                    from -90deg at calc(100% - ${corner}px) ${corner}px,
                                     #7e3c26 135deg,
                                     #341612 0 270deg,
-                                    #0000 0
-                                ),
-                                conic-gradient(
-                                    from 0deg at 3px calc(100% - 3px),
-                                    #0000 90deg,
+                                    transparent 0
+                                    ),
+                                    conic-gradient(
+                                    from 0deg at ${corner}px calc(100% - ${corner}px),
+                                    transparent 90deg,
                                     #341612 0 225deg,
                                     #7e3c26 0
-                                ),
-                                #54281f
+                                    )
                                 `,
-                                backgroundSize: "17px 17px",
+                                backgroundColor: "#54281f",
+                                backgroundSize: `${blockWidth}px ${blockHeight}px`,
                                 backgroundClip: "content-box",
                             }}
                         />
@@ -83,6 +97,7 @@ export default function ChocolatePart() {
 
             {/* 包み紙 */}
             <div className="absolute bottom-0 w-full h-1/3 bg-red-600 border-t-2 border-gray-300" />
+            </div>
         </div>
     );
 }
