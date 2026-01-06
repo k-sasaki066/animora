@@ -70,4 +70,14 @@ export const partData: PartItem[] = [
         title: "RainbowArc Loader",
         previewText: "RainbowArc Loader Example",
     },
+    {
+        key: "clock",
+        title: "Clock Loader",
+        previewText: "Clock Loader Example",
+    },
+    {
+        key: "alarmClock",
+        title: "Alarm Clock Loader",
+        previewText: "Alarm Clock Loader Example",
+    },
 ];

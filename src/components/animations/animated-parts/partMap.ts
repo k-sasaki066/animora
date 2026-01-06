@@ -12,6 +12,8 @@ import QuadCirclePart from "./examples/QuadCirclePart";
 import SunPart from "./examples/SunPart";
 import MoonPart from "./examples/MoonPart";
 import RainbowArcPart from "./examples/RainbowArcPart";
+import ClockPart from "./examples/ClockPart";
+import AlarmClockPart from "./examples/AlarmClockPart";
 
 export const partMap: Record<string, ComponentType> = {
     ninjaStar: NinjaStarPart,
@@ -27,4 +29,6 @@ export const partMap: Record<string, ComponentType> = {
     sun: SunPart,
     moon: MoonPart,
     rainbowArc: RainbowArcPart,
+    clock: ClockPart,
+    alarmClock: AlarmClockPart,
 };
