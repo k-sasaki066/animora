@@ -80,4 +80,9 @@ export const partData: PartItem[] = [
         title: "Alarm Clock Loader",
         previewText: "Alarm Clock Loader Example",
     },
-];
+    {
+        key: "footPrint",
+        title: "Foot Print Loader",
+        previewText: "Foot Print Loader Example",
+    },
+]

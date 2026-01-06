@@ -14,6 +14,7 @@ import MoonPart from "./examples/MoonPart";
 import RainbowArcPart from "./examples/RainbowArcPart";
 import ClockPart from "./examples/ClockPart";
 import AlarmClockPart from "./examples/AlarmClockPart";
+import FootPrintPart from "./examples/FootPrintPart";
 
 export const partMap: Record<string, ComponentType> = {
     ninjaStar: NinjaStarPart,
@@ -31,4 +32,5 @@ export const partMap: Record<string, ComponentType> = {
     rainbowArc: RainbowArcPart,
     clock: ClockPart,
     alarmClock: AlarmClockPart,
+    footPrint: FootPrintPart,
 };
