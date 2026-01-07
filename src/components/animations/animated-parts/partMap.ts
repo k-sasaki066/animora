@@ -15,6 +15,9 @@ import RainbowArcPart from "./examples/RainbowArcPart";
 import ClockPart from "./examples/ClockPart";
 import AlarmClockPart from "./examples/AlarmClockPart";
 import FootPrintPart from "./examples/FootPrintPart";
+import TetrisBlockPart from "./examples/TetrisBlockPart";
+import CollapsePart from "./examples/CollapsePart";
+import InvaderPart from "./examples/invader/InvaderPart";
 
 export const partMap: Record<string, ComponentType> = {
     ninjaStar: NinjaStarPart,
@@ -33,4 +36,7 @@ export const partMap: Record<string, ComponentType> = {
     clock: ClockPart,
     alarmClock: AlarmClockPart,
     footPrint: FootPrintPart,
+    tetrisBlock: TetrisBlockPart,
+    collapse: CollapsePart,
+    invader: InvaderPart,
 };

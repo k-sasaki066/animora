@@ -85,4 +85,19 @@ export const partData: PartItem[] = [
         title: "Foot Print Loader",
         previewText: "Foot Print Loader Example",
     },
+    {
+        key: "tetrisBlock",
+        title: "Tetris Block Loader",
+        previewText: "Tetris Block Loader Example",
+    },
+    {
+        key: "collapse",
+        title: "Collapse Loader",
+        previewText: "Collapse Loader Example",
+    },
+    {
+        key: "invader",
+        title: "Invader Loader",
+        previewText: "Invader Loader Example",
+    },
 ]
