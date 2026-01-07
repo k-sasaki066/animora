@@ -18,6 +18,9 @@ import FootPrintPart from "./examples/FootPrintPart";
 import TetrisBlockPart from "./examples/TetrisBlockPart";
 import CollapsePart from "./examples/CollapsePart";
 import InvaderPart from "./examples/invader/InvaderPart";
+import LookAroundPart from "./examples/LookAroundPart";
+import BlinkEyesPart from "./examples/BlinkEyesPart";
+import ECGLinePart from "./examples/ecg/ECGLinePart";
 
 export const partMap: Record<string, ComponentType> = {
     ninjaStar: NinjaStarPart,
@@ -39,4 +42,7 @@ export const partMap: Record<string, ComponentType> = {
     tetrisBlock: TetrisBlockPart,
     collapse: CollapsePart,
     invader: InvaderPart,
+    lookAround: LookAroundPart,
+    blinkEyes: BlinkEyesPart,
+    ECGLine: ECGLinePart,
 };

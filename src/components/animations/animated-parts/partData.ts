@@ -100,4 +100,19 @@ export const partData: PartItem[] = [
         title: "Invader Loader",
         previewText: "Invader Loader Example",
     },
+    {
+        key: "lookAround",
+        title: "Look Around Loader",
+        previewText: "Look Around Loader Example",
+    },
+    {
+        key: "blinkEyes",
+        title: "Blink Eyes Loader",
+        previewText: "Blink Eyes Loader Example",
+    },
+    {
+        key: "ECGLine",
+        title: "ECG Line Loader",
+        previewText: "ECG Line Loader Example",
+    },
 ]
