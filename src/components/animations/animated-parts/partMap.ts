@@ -21,6 +21,8 @@ import InvaderPart from "./examples/invader/InvaderPart";
 import LookAroundPart from "./examples/LookAroundPart";
 import BlinkEyesPart from "./examples/BlinkEyesPart";
 import ECGLinePart from "./examples/ecg/ECGLinePart";
+import HeartDashedPart from "./examples/HeartDashedPart";
+import CheckCirclePart from "./examples/CheckCirclePart";
 
 export const partMap: Record<string, ComponentType> = {
     ninjaStar: NinjaStarPart,
@@ -45,4 +47,6 @@ export const partMap: Record<string, ComponentType> = {
     lookAround: LookAroundPart,
     blinkEyes: BlinkEyesPart,
     ECGLine: ECGLinePart,
+    heartDashed: HeartDashedPart,
+    checkCircle: CheckCirclePart,
 };

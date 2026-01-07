@@ -115,4 +115,14 @@ export const partData: PartItem[] = [
         title: "ECG Line Loader",
         previewText: "ECG Line Loader Example",
     },
+    {
+        key: "heartDashed",
+        title: "Heart Dashed Loader",
+        previewText: "Heart Dashed Loader Example",
+    },
+    {
+        key: "checkCircle",
+        title: "Check Circle Loader",
+        previewText: "Check Circle Loader Example",
+    },
 ]
