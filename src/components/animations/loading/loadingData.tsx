@@ -181,6 +181,11 @@ export const loadingData: LoadingItem[] = [
         title: "Scale Dots Spin Loader",
         previewText: "Scale Dots Spin Loader Example",
     },
+    {
+        key: "weaveCircle",
+        title: "Weave Circle Loader",
+        previewText: "Weave Circle Loader Example",
+    },
 
     {
         key: "text",

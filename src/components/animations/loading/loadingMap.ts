@@ -35,6 +35,7 @@ import StepRotateLoader from "./examples/spinners/StepRotateLoader";
 import ArrowRotateLoader from "./examples/spinners/ArrowRotateLoader";
 import QuadSpinLoader from "./examples/spinners/QuadSpinLoader";
 import ScaleDotsSpinLoader from "./examples/spinners/ScaleDotsSpinLoader";
+import WeaveCircleLoader from "./examples/spinners/WeaveCircleLoader";
 
 import TextLoader from "./examples/loading-texts/TextLoader";
 import SlideTextLoader from "./examples/loading-texts/SlideTextLoader";
@@ -81,6 +82,7 @@ export const loadingMap: Record<string, ComponentType> = {
     arrowRotate: ArrowRotateLoader,
     quadSpin: QuadSpinLoader,
     scaleDotsSpin: ScaleDotsSpinLoader,
+    weaveCircle: WeaveCircleLoader,
 
     // loading-texts
     text: TextLoader,
