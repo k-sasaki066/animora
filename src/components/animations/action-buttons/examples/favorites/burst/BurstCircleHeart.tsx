@@ -1,0 +1,112 @@
+"use client";
+
+import { motion, AnimatePresence, Transition } from "framer-motion";
+import { useState } from "react";
+import { HEART_PATH } from "@/assets/svg/heartPath";
+import { bubbles } from "./bubbles";
+
+export default function BurstCircleHeart() {
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [isActive, setIsActive] = useState(false);
+
+    const handleClick = () => {
+        if (isAnimating) return;
+        setIsActive(prev => !prev);
+        setIsAnimating(true);
+    };
+
+    const bubbleTransition: Transition = {
+        duration: 1,
+        times: [0, 0.5, 0.75, 0.85, 0.9, 1],
+        ease: "easeInOut",
+    };
+
+    return (
+        <div className="flex justify-center items-center">
+            <button
+                type="button"
+                aria-pressed={isActive}
+                onClick={handleClick}
+                disabled={isAnimating}
+                className="relative w-20 h-20 isolate"
+            >
+                <span className="sr-only">Like</span>
+
+                {/* HEART */}
+                <motion.svg
+                    key={isActive ? "active" : "inactive"}
+                    viewBox="0 0 24 24"
+                    className={`relative z-10 w-full h-full cursor-pointer ${ isAnimating ? "pointer-events-none" : "" }`}
+                    animate={
+                        isActive
+                        ? {
+                            scale: [1, 1, 0, 0, 1],
+                            }
+                        : { scale: 1 }
+                    }
+                    transition={{
+                        duration: 1,
+                        times: [0, 0.4, 0.6, 0.75, 1],
+                        ease: "easeInOut"
+                    }}
+                    onAnimationComplete={() => {
+                        setIsAnimating(false);
+                    }}
+                >
+                    <path
+                        d={HEART_PATH}
+                        fill={isActive ? "#dc2626" : "#e2ebf0"}
+                    />
+                </motion.svg>
+
+                {/* DONUT */}
+                <motion.div
+                    className="pointer-events-none absolute inset-0 flex items-center justify-center -z-10"
+                    animate={
+                        isActive
+                        ? { scale: [1, 1.5, 1, 1], opacity: 1 }
+                        : { scale: 1, opacity: 0 }
+                    }
+                    transition={{
+                        duration: 1,
+                        times: [0, 0.5, 0.75, 1],
+                        ease: "easeInOut",
+                    }}
+                >
+                    <motion.div
+                        className="rounded-full border-pink-300"
+                        animate={
+                        isActive
+                            ? { borderWidth: [5, 50, 5, 5] }
+                            : { borderWidth: 5 }
+                        }
+                        transition={{
+                            duration: 1,
+                            times: [0, 0.5, 0.75, 1],
+                            ease: "easeInOut",
+                        }}
+                        style={{
+                            width: 30,
+                            height: 30,
+                            borderStyle: "solid",
+                        }}
+                    />
+                </motion.div>
+
+                {/* BUBBLES */}
+                <AnimatePresence>
+                {isActive &&
+                    bubbles.map((bubble, i) => (
+                        <motion.span
+                            key={i}
+                            className="absolute w-1.5 h-1.5 bg-red-600 rounded-full"
+                            initial={{ opacity: 0 }}
+                            animate={bubble}
+                            transition={bubbleTransition}
+                        />
+                    ))}
+                </AnimatePresence>
+            </button>
+        </div>
+    );
+}
