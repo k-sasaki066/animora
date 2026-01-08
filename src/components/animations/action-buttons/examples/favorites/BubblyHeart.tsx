@@ -3,25 +3,40 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HEART_PATH } from "@/assets/svg/heartPath";
+import { useContainerSize } from "@/hooks/useContainerSize";
+
+// 基準サイズ（px）
+const BASE_WIDTH = 350;
+const HEART_SIZE = 72;
+const DISTANCE = 180;
 
 export default function BubblyHeart() {
     const [isAnimating, setIsAnimating] = useState(false);
     const [isActive, setIsActive] = useState(false);
 
+    const { ref, width } = useContainerSize<HTMLDivElement>();
+    const scale = width
+        ? Math.min(Math.max(width / BASE_WIDTH, 0.5), 1.3)
+        : 1;
+
     const handleClick = () => {
-        if (isAnimating) return; // ← 連打防止
+        if (isAnimating) return; // 連打防止
         setIsActive(prev => !prev);
         setIsAnimating(true);
-    }; //アニメーション中は何もしない
+    };
 
     return (
-        <div className="relative w-full h-full overflow-hidden flex justify-center items-center">
+        <div ref={ref} className="relative w-full h-full overflow-hidden flex justify-center items-center">
             <button
                 type="button"
                 aria-pressed={isActive}
                 onClick={handleClick}
                 disabled={isAnimating}
-                className="relative w-20 h-20"
+                className="relative"
+                style={{
+                    width: HEART_SIZE * scale,
+                    height: HEART_SIZE * scale,
+                }}
             >
                 <span className="sr-only">Like</span>
                 {/* バブル */}
@@ -29,15 +44,16 @@ export default function BubblyHeart() {
                     {isActive && (
                         <>
                             {[...Array(25)].map((_, i) => {
-                                const size = ["w-1 h-1", "w-1.5 h-1.5", "w-2.5 h-2.5"][
-                                Math.floor(Math.random() * 3)
-                                ];
+                                const size = [4, 6, 10][Math.floor(Math.random() * 3)] * scale;
+                                const distance = DISTANCE * scale;
 
                                 return (
                                     <motion.span
                                         key={i}
                                         className={`absolute rounded-full bg-pink-400 ${size}`}
                                         style={{
+                                            width: size,
+                                            height: size,
                                             left: "50%",
                                             top: "50%",
                                         }}
@@ -48,8 +64,8 @@ export default function BubblyHeart() {
                                             opacity: 1,
                                         }}
                                         animate={{
-                                            x: (Math.random() - 0.5) * 180,
-                                            y: (Math.random() - 0.5) * 180,
+                                            x: (Math.random() - 0.5) * distance,
+                                            y: (Math.random() - 0.5) * distance,
                                             scale: 1,
                                             opacity: 0,
                                         }}
@@ -70,9 +86,11 @@ export default function BubblyHeart() {
                     className={`w-full h-full  cursor-pointer ${ isAnimating ? "pointer-events-none" : "" }`}
                     viewBox="0 0 24 24"
                     animate={{
-                        scale: isActive ? [0, 0, 1.2, 1, 1.1, 0.95, 1] : 0.8,
-                        y: isActive ? [0, 0, 0, -25, 5, -3, 0] : 0,
-                        fill: isActive ? "red" : "gray",
+                        scale: isActive
+                            ? [ 0, 0, 1.2, 1, 1.1, 0.95, 1 ] : 0.8,
+                        y: isActive
+                            ? [ 0, 0, 0, -25, 5, -3, 0 ] : 0,
+                        fill: isActive ? "#ef4444" : "#9ca3af",
                     }}
                     transition={{ duration: 1 }}
                     onAnimationComplete={() => {
