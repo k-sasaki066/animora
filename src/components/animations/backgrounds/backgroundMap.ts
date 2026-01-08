@@ -22,6 +22,8 @@ import StarfieldBackground from "./examples/StarfieldBackground";
 import StaticNoiseBackground from "./examples/StaticNoiseBackground";
 import DriftingShapesBackground from "./examples/drifting-shapes/DriftingShapesBackground";
 import SunsetSkyBackground from "./examples/sunset-sky/SunsetSkyBackground";
+import BubbleBackground from "./examples/BubbleBackground";
+import ConfettiBackground from "./examples/ConfettiBackground";
 
 export const backgroundMap: Record<string, ComponentType> = {
     wave: WaveBackground,
@@ -47,4 +49,6 @@ export const backgroundMap: Record<string, ComponentType> = {
     static: StaticNoiseBackground,
     shapes: DriftingShapesBackground,
     sunsetSky: SunsetSkyBackground,
+    bubble: BubbleBackground,
+    confetti: ConfettiBackground,
 };
