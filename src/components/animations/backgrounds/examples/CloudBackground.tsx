@@ -7,7 +7,7 @@ export default function CloudBackground() {
         <motion.div
             className="
             w-full aspect-video bg-[#C0DEED] bg-repeat-x
-            bg-top rounded-lg"
+            bg-top ounded-rlg"
             style={{
                 backgroundImage:
                 "url(https://abs.twimg.com/images/themes/theme1/bg.png)",

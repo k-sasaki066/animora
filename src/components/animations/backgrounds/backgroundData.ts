@@ -121,4 +121,14 @@ export const backgroundData: BackgroundItem[] = [
         title: "Sunset Sky Background",
         previewText: "Sunset Sky Background Example",
     },
+    {
+        key: "bubble",
+        title: "Bubble Background",
+        previewText: "Bubble Background Example",
+    },
+    {
+        key: "confetti",
+        title: "Confetti Background",
+        previewText: "Confetti Background Example",
+    },
 ];
