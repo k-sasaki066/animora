@@ -3,12 +3,26 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { HEART_PATH } from "@/assets/svg/heartPath";
+import { useContainerSize } from "@/hooks/useContainerSize";
+
+// 基準サイズ（px）
+const BASE_WIDTH = 350;
+const HEART_SIZE = 50;
+const BROKEN_HEART_SIZE = 48;
+const HAPPY_Y = 110;
+const BROKEN_X = 50;
+const BROKEN_Y = 110;
 
 type HeartState = "idle" | "happy" | "broken";
 
 export default function ReactionHeart() {
     const [isAnimating, setIsAnimating] = useState(false);
     const [state, setState] = useState<HeartState>("idle");
+
+    const { ref, width } = useContainerSize<HTMLDivElement>();
+    const scale = width
+        ? Math.min(Math.max(width / BASE_WIDTH, 0.3), 1.3)
+        : 1;
 
     const handleClick = () => {
         if (isAnimating) return; // ← 連打防止
@@ -20,13 +34,17 @@ export default function ReactionHeart() {
     };
 
     return (
-        <div className="flex justify-center items-center w-full h-full">
+        <div ref={ref} className="flex justify-center items-end w-full h-full">
             <button
                 type="button"
                 aria-pressed={state === "happy"}
                 onClick={handleClick}
                 disabled={isAnimating}
-                className="relative w-16 h-16"
+                className="relative"
+                style={{
+                    width: HEART_SIZE * scale,
+                    height: HEART_SIZE * scale,
+                }}
             >
                 <span className="sr-only">Like</span>
 
@@ -64,7 +82,11 @@ export default function ReactionHeart() {
                             }}
                             animate={{
                                 opacity: [0, 0.8, 0],
-                                y: [-80, -90, -110],
+                                y: [
+                                    -HAPPY_Y * 0.7 * scale,
+                                    -HAPPY_Y * 0.85 * scale,
+                                    -HAPPY_Y * scale,
+                                ],
                                 rotate: [15, -15, 15],
                                 scale: [1, 2, 2],
                             }}
@@ -78,15 +100,22 @@ export default function ReactionHeart() {
 
                 {/* BROKEN */}
                 <AnimatePresence>
-                {state === "broken" &&
-                    ["left", "right"].map((direction) => {
+                    {state === "broken" &&
+                        ["left", "right"].map((direction) => {
                         const isLeft = direction === "left";
 
                         return (
                             <motion.svg
                                 key={direction}
                                 viewBox="0 0 24 24"
-                                className="absolute left-1/2 top-1/2 w-12 h-12 -translate-x-1/2 -translate-y-1/2"
+                                className="absolute left-1/2 top-1/2  -translate-x-1/2 -translate-y-1/2"
+                                style={{
+                                    width: BROKEN_HEART_SIZE * scale,
+                                    height: BROKEN_HEART_SIZE * scale,
+                                    clipPath: isLeft
+                                        ? "inset(0 50% 0 0)"
+                                        : "inset(0 0 0 50%)",
+                                }}
                                 initial={{
                                     opacity: 1,
                                     x: 0,
@@ -96,16 +125,23 @@ export default function ReactionHeart() {
                                 }}
                                 animate={{
                                     opacity: [1, 0.5, 0],
-                                    x: [0, isLeft ? -50 : 50, isLeft ? -50 : 50],
-                                    y: [-110, -110, -50],
-                                    rotate: [0, isLeft ? -25 : 25, isLeft ? -30 : 30],
+                                    x: [
+                                        0,
+                                        (isLeft ? -1 : 1) * BROKEN_X * scale,
+                                        (isLeft ? -1 : 1) * BROKEN_X * scale,
+                                    ],
+                                    y: [
+                                        -BROKEN_Y * scale,
+                                        -BROKEN_Y * scale,
+                                        -BROKEN_Y * 0.45 * scale,
+                                    ],
+                                    rotate: [
+                                        0,
+                                        (isLeft ? -25 : 25),
+                                        (isLeft ? -30 : 30),
+                                    ],
                                 }}
                                 transition={{ duration: 1 }}
-                                style={{
-                                    clipPath: isLeft
-                                    ? "inset(0 50% 0 0)"
-                                    : "inset(0 0 0 50%)",
-                                }}
                             >
                                 <path d={HEART_PATH} fill="#d1d5db" />
                             </motion.svg>

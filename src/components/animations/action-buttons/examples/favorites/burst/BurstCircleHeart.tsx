@@ -4,10 +4,23 @@ import { motion, AnimatePresence, Transition } from "framer-motion";
 import { useState } from "react";
 import { HEART_PATH } from "@/assets/svg/heartPath";
 import { bubbles } from "./bubbles";
+import { useContainerSize } from "@/hooks/useContainerSize";
+
+// 基準サイズ（px）
+const BASE_WIDTH = 350;
+const HEART_SIZE = 72;
+const CIRCLE_SIZE = 24;
+const BASE_BORDER = 5;
+const DONUT_EXPAND = 40;
 
 export default function BurstCircleHeart() {
     const [isAnimating, setIsAnimating] = useState(false);
     const [isActive, setIsActive] = useState(false);
+
+    const { ref, width } = useContainerSize<HTMLDivElement>();
+    const scale = width
+        ? Math.min(Math.max(width / BASE_WIDTH, 0.5), 1.3)
+        : 1;
 
     const handleClick = () => {
         if (isAnimating) return;
@@ -22,13 +35,17 @@ export default function BurstCircleHeart() {
     };
 
     return (
-        <div className="flex justify-center items-center">
+        <div ref={ref} className="w-full h-full overflow-hidden flex justify-center items-center">
             <button
                 type="button"
                 aria-pressed={isActive}
                 onClick={handleClick}
                 disabled={isAnimating}
-                className="relative w-20 h-20 isolate"
+                className="relative isolate"
+                style={{
+                    width: HEART_SIZE * scale,
+                    height: HEART_SIZE * scale,
+                }}
             >
                 <span className="sr-only">Like</span>
 
@@ -77,8 +94,15 @@ export default function BurstCircleHeart() {
                         className="rounded-full border-pink-300"
                         animate={
                         isActive
-                            ? { borderWidth: [5, 50, 5, 5] }
-                            : { borderWidth: 5 }
+                            ? {
+                                borderWidth: [
+                                    BASE_BORDER * scale,
+                                    DONUT_EXPAND * scale,
+                                    BASE_BORDER * scale,
+                                    BASE_BORDER * scale,
+                                ]
+                            }
+                            : { borderWidth: BASE_BORDER * scale }
                         }
                         transition={{
                             duration: 1,
@@ -86,8 +110,8 @@ export default function BurstCircleHeart() {
                             ease: "easeInOut",
                         }}
                         style={{
-                            width: 30,
-                            height: 30,
+                            width: CIRCLE_SIZE * scale,
+                            height: CIRCLE_SIZE * scale,
                             borderStyle: "solid",
                         }}
                     />
@@ -95,8 +119,8 @@ export default function BurstCircleHeart() {
 
                 {/* BUBBLES */}
                 <AnimatePresence>
-                {isActive &&
-                    bubbles.map((bubble, i) => (
+                    {isActive &&
+                        bubbles.map((bubble, i) => (
                         <motion.span
                             key={i}
                             className="absolute w-1.5 h-1.5 bg-red-600 rounded-full"
