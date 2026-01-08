@@ -11,6 +11,7 @@ import { SliderList } from "@/components/animations/sliders/SliderList";
 import { TextAnimationList } from "@/components/animations/text-animations/TextAnimationList";
 import { BackgroundList } from "@/components/animations/backgrounds/BackgroundList";
 import { PartList } from "@/components/animations/animated-parts/PartList";
+import { ActionButtonList } from "@/components/animations/action-buttons/ActionButtonList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -112,6 +113,7 @@ export default function HomePage() {
                                     {selectedItem === "Text" && <TextAnimationList />}
                                     {selectedItem === "Background" && <BackgroundList />}
                                     {selectedItem === "Animated-parts" && <PartList />}
+                                    {selectedItem === "Action-buttons" && <ActionButtonList />}
                                 </div>
                             )}
                         </main>
