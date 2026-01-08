@@ -1,8 +1,14 @@
 import type { ComponentType } from "react";
+import StandardHeart from "./examples/favorites/StandardHeart";
 import ParticlesHeart from "./examples/favorites/ParticlesHeart";
 import BubblyHeart from "./examples/favorites/BubblyHeart";
+import RotateHeart from "./examples/favorites/RotateHeart";
+import ReactionHeart from "./examples/favorites/ReactionHeart";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
     bubbly: BubblyHeart,
+    standard: StandardHeart,
+    rotate: RotateHeart,
+    reaction: ReactionHeart,
 };
