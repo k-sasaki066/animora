@@ -35,16 +35,18 @@ export default function ReactionHeart() {
 
     return (
         <div ref={ref} className="flex justify-center items-end w-full h-full">
-            <button
+            <motion.button
                 type="button"
                 aria-pressed={state === "happy"}
                 onClick={handleClick}
                 disabled={isAnimating}
                 className="relative"
                 style={{
-                    width: HEART_SIZE * scale,
-                    height: HEART_SIZE * scale,
+                    width: HEART_SIZE,
+                    height: HEART_SIZE,
+                    transformOrigin: "center",
                 }}
+                animate={{ scale }}
             >
                 <span className="sr-only">Like</span>
 
@@ -83,9 +85,9 @@ export default function ReactionHeart() {
                             animate={{
                                 opacity: [0, 0.8, 0],
                                 y: [
-                                    -HAPPY_Y * 0.7 * scale,
-                                    -HAPPY_Y * 0.85 * scale,
-                                    -HAPPY_Y * scale,
+                                    -HAPPY_Y * 0.7,
+                                    -HAPPY_Y * 0.85,
+                                    -HAPPY_Y,
                                 ],
                                 rotate: [15, -15, 15],
                                 scale: [1, 2, 2],
@@ -110,8 +112,8 @@ export default function ReactionHeart() {
                                 viewBox="0 0 24 24"
                                 className="absolute left-1/2 top-1/2  -translate-x-1/2 -translate-y-1/2"
                                 style={{
-                                    width: BROKEN_HEART_SIZE * scale,
-                                    height: BROKEN_HEART_SIZE * scale,
+                                    width: BROKEN_HEART_SIZE,
+                                    height: BROKEN_HEART_SIZE ,
                                     clipPath: isLeft
                                         ? "inset(0 50% 0 0)"
                                         : "inset(0 0 0 50%)",
@@ -127,13 +129,13 @@ export default function ReactionHeart() {
                                     opacity: [1, 0.5, 0],
                                     x: [
                                         0,
-                                        (isLeft ? -1 : 1) * BROKEN_X * scale,
-                                        (isLeft ? -1 : 1) * BROKEN_X * scale,
+                                        (isLeft ? -1 : 1) * BROKEN_X,
+                                        (isLeft ? -1 : 1) * BROKEN_X,
                                     ],
                                     y: [
-                                        -BROKEN_Y * scale,
-                                        -BROKEN_Y * scale,
-                                        -BROKEN_Y * 0.45 * scale,
+                                        -BROKEN_Y,
+                                        -BROKEN_Y,
+                                        -BROKEN_Y * 0.45,
                                     ],
                                     rotate: [
                                         0,
@@ -148,7 +150,7 @@ export default function ReactionHeart() {
                         );
                     })}
                 </AnimatePresence>
-            </button>
+            </motion.button>
         </div>
     );
 }

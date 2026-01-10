@@ -29,16 +29,17 @@ export default function StandardHeart() {
 
     return (
         <div ref={ref} className="w-full h-full overflow-hidden flex justify-center items-center">
-            <button
+            <motion.button
                 type="button"
                 aria-pressed={isActive}
                 onClick={handleClick}
                 disabled={isAnimating}
                 className="relative"
                 style={{
-                    width: HEART_SIZE * scale,
-                    height: HEART_SIZE * scale,
+                    width: HEART_SIZE,
+                    height: HEART_SIZE,
                 }}
+                animate={{ scale }}
             >
                 <span className="sr-only">Like</span>
 
@@ -73,7 +74,7 @@ export default function StandardHeart() {
                         transition={{ duration: 0.2 }}
                     />
                 </motion.svg>
-            </button>
+            </motion.button>
         </div>
     );
 }

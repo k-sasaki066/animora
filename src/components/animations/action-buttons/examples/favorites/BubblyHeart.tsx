@@ -27,16 +27,18 @@ export default function BubblyHeart() {
 
     return (
         <div ref={ref} className="relative w-full h-full overflow-hidden flex justify-center items-center">
-            <button
+            <motion.button
                 type="button"
                 aria-pressed={isActive}
                 onClick={handleClick}
                 disabled={isAnimating}
                 className="relative"
                 style={{
-                    width: HEART_SIZE * scale,
-                    height: HEART_SIZE * scale,
+                    width: HEART_SIZE,
+                    height: HEART_SIZE,
+                    transformOrigin: "center",
                 }}
+                animate={{ scale }}
             >
                 <span className="sr-only">Like</span>
                 {/* バブル */}
@@ -44,8 +46,8 @@ export default function BubblyHeart() {
                     {isActive && (
                         <>
                             {[...Array(25)].map((_, i) => {
-                                const size = [4, 6, 10][Math.floor(Math.random() * 3)] * scale;
-                                const distance = DISTANCE * scale;
+                                const size = [4, 6, 10][Math.floor(Math.random() * 3)];
+                                const distance = DISTANCE * scale; //演出量のみscale
 
                                 return (
                                     <motion.span
@@ -99,7 +101,7 @@ export default function BubblyHeart() {
                 >
                     <path d={HEART_PATH} />
                 </motion.svg>
-            </button>
+            </motion.button>
         </div>
     );
 }

@@ -112,7 +112,7 @@ export default function PawsHeart() {
     };
 
     return (
-        <div className="relative w-full h-full flex items-center justify-center">
+        <div ref={ref} className="relative w-full h-full flex items-center justify-center">
             <motion.button
                 onClick={toggleLike}
                 disabled={isAnimating}
@@ -121,6 +121,7 @@ export default function PawsHeart() {
                 className={`relative inline-flex items-center px-4 py-3 font-bold rounded-md justify-center gap-2 m-auto border-[#f0eceb] border-2 overflow-hidden ${isAnimating ? "cursor-not-allowed" : "cursor-pointer"}`}
                 style={{
                     pointerEvents: isAnimating ? "none" : "auto",
+                    scale,
                 }}
                 animate={{
                     borderColor: liked ? "#f9a8d4" : "#e5e7eb",
@@ -132,6 +133,8 @@ export default function PawsHeart() {
                     delay: liked ? 0.8 : undefined,
                 }}
             >
+                <span className="sr-only">Like</span>
+
                 {liked && <LikeRipple trigger={rippleKey} />}
 
                 <div className="relative flex items-center mr-2">

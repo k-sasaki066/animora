@@ -64,16 +64,18 @@ export default function ParticlesHeart() {
 
     return (
         <div ref={ref} className="relative w-full h-full overflow-hidden flex justify-center items-center">
-            <button
+            <motion.button
                 type="button"
                 aria-pressed={isActive}
                 onClick={handleClick}
                 disabled={isAnimating}
                 className="relative"
                 style={{
-                    width: HEART_SIZE * scale,
-                    height: HEART_SIZE * scale,
+                    width: HEART_SIZE,
+                    height: HEART_SIZE,
+                    transformOrigin: "center",
                 }}
+                animate={{ scale }}
             >
                 <span className="sr-only">Like</span>
 
@@ -106,8 +108,8 @@ export default function ParticlesHeart() {
                             key={i}
                             className="absolute rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                             style={{
-                                width: PARTICLE_SIZE * scale,
-                                height: PARTICLE_SIZE * scale,
+                                width: PARTICLE_SIZE,
+                                height: PARTICLE_SIZE,
                                 backgroundColor: PARTICLE_COLORS[i % PARTICLE_COLORS.length],
                             }}
                             initial={{
@@ -126,7 +128,7 @@ export default function ParticlesHeart() {
                         />
                     ))}
                 </AnimatePresence>
-            </button>
+            </motion.button>
         </div>
     );
 }
