@@ -6,6 +6,7 @@ import RotateHeart from "./examples/favorites/RotateHeart";
 import ReactionHeart from "./examples/favorites/ReactionHeart";
 import CircleHeart from "./examples/favorites/CircleHeart";
 import BurstCircleHeart from "./examples/favorites/burst/BurstCircleHeart";
+import PawsHeart from "./examples/favorites/paws/PawsHeart";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -15,4 +16,5 @@ export const actionButtonMap: Record<string, ComponentType> = {
     reaction: ReactionHeart,
     circle: CircleHeart,
     burstCircle: BurstCircleHeart,
+    paws: PawsHeart,
 };
