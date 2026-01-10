@@ -40,4 +40,9 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Burst Circle Heart",
         previewText: "Burst Circle Heart Example",
     },
+    {
+        key: "paws",
+        title: "Paws Heart",
+        previewText: "Paws Heart Example",
+    },
 ];
