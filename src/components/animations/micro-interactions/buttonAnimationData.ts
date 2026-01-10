@@ -88,6 +88,11 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Smoke Text Button",
         previewText: "Smoke Text Button Example",
     },
+    {
+        key: "bouncyText",
+        title: "Bouncy Text Button",
+        previewText: "Bouncy Text Button Example",
+    },
 
     // hover
     {
@@ -194,6 +199,11 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         key: "letterFill",
         title: "Letter Fill Button",
         previewText: "Letter Fill Button Example",
+    },
+    {
+        key: "everChanging",
+        title: "Ever Changing Button",
+        previewText: "Ever Changing Button Example",
     },
 
     // hover-line
