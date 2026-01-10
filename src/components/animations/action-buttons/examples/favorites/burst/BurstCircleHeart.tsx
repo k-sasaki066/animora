@@ -36,16 +36,18 @@ export default function BurstCircleHeart() {
 
     return (
         <div ref={ref} className="w-full h-full overflow-hidden flex justify-center items-center">
-            <button
+            <motion.button
                 type="button"
                 aria-pressed={isActive}
                 onClick={handleClick}
                 disabled={isAnimating}
                 className="relative isolate"
                 style={{
-                    width: HEART_SIZE * scale,
-                    height: HEART_SIZE * scale,
+                    width: HEART_SIZE,
+                    height: HEART_SIZE,
+                    transformOrigin: "center",
                 }}
+                animate={{ scale }}
             >
                 <span className="sr-only">Like</span>
 
@@ -96,13 +98,13 @@ export default function BurstCircleHeart() {
                         isActive
                             ? {
                                 borderWidth: [
-                                    BASE_BORDER * scale,
-                                    DONUT_EXPAND * scale,
-                                    BASE_BORDER * scale,
-                                    BASE_BORDER * scale,
+                                    BASE_BORDER,
+                                    DONUT_EXPAND,
+                                    BASE_BORDER,
+                                    BASE_BORDER,
                                 ]
                             }
-                            : { borderWidth: BASE_BORDER * scale }
+                            : { borderWidth: BASE_BORDER }
                         }
                         transition={{
                             duration: 1,
@@ -110,8 +112,8 @@ export default function BurstCircleHeart() {
                             ease: "easeInOut",
                         }}
                         style={{
-                            width: CIRCLE_SIZE * scale,
-                            height: CIRCLE_SIZE * scale,
+                            width: CIRCLE_SIZE,
+                            height: CIRCLE_SIZE,
                             borderStyle: "solid",
                         }}
                     />
@@ -130,7 +132,7 @@ export default function BurstCircleHeart() {
                         />
                     ))}
                 </AnimatePresence>
-            </button>
+            </motion.button>
         </div>
     );
 }

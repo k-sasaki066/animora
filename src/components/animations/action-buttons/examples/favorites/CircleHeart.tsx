@@ -29,16 +29,18 @@ export default function CircleHeart() {
 
     return (
         <div ref={ref} className="w-full h-full overflow-hidden flex justify-center items-center">
-            <button
+            <motion.button
                 type="button"
                 aria-pressed={isActive}
                 onClick={handleClick}
                 disabled={isAnimating}
                 className="relative"
                 style={{
-                    width: HEART_SIZE * scale,
-                    height: HEART_SIZE * scale,
+                    width: HEART_SIZE,
+                    height: HEART_SIZE,
+                    transformOrigin: "center",
                 }}
+                animate={{ scale }}
             >
                 <span className="sr-only">Like</span>
 
@@ -48,9 +50,9 @@ export default function CircleHeart() {
                         <motion.span
                             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  rounded-full border-pink-300"
                             style={{
-                                width: CIRCLE_SIZE * scale,
-                                height: CIRCLE_SIZE * scale,
-                                borderWidth: CIRCLE_BORDER * scale,
+                                width: CIRCLE_SIZE,
+                                height: CIRCLE_SIZE,
+                                borderWidth: CIRCLE_BORDER,
                             }}
                             initial={{
                                 scale: 0.2,
@@ -88,7 +90,7 @@ export default function CircleHeart() {
                 >
                     <path d={HEART_PATH} />
                 </motion.svg>
-            </button>
+            </motion.button>
         </div>
     );
 }
