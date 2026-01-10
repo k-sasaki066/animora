@@ -16,6 +16,7 @@ import ChangeTextButton from "./examples/hover-text/ChangeTextButton";
 import FlowTextButton from "./examples/hover-text/FlowTextButton";
 import FancyTextButton from "./examples/hover-text/FancyTextButton";
 import SmokeTextButton from "./examples/hover-text/SmokeTextButton";
+import BouncyTextButton from "./examples/hover-text/BouncyTextButton";
 
 import ExtendLeftButton from "./examples/hover/ExtendLeftButton";
 import DiagonalSwipeButton from "./examples/hover/DiagonalSwipeButton";
@@ -38,6 +39,7 @@ import ToggleButton from "./examples/hover/ToggleButton";
 import PixelHoverButton from "./examples/hover/PixelHoverButton";
 import BubbleButton from "./examples/hover/BubbleButton";
 import LetterFillButton from "./examples/hover/LetterFillButton";
+import EverChangingButton from "./examples/hover/EverChangingButton";
 
 import SideBracketsButton from "./examples/hover-line/SideBracketsButton";
 import TransformShapeButton from "./examples/hover-line/TransformShapeButton";
@@ -73,6 +75,7 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     flowText: FlowTextButton,
     fancyText: FancyTextButton,
     smokeText: SmokeTextButton,
+    bouncyText: BouncyTextButton,
 
     extendLeft: ExtendLeftButton,
     diagonalSwipe: DiagonalSwipeButton,
@@ -95,6 +98,7 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     pixelHover: PixelHoverButton,
     bubble: BubbleButton,
     letterFill: LetterFillButton,
+    everChanging: EverChangingButton,
 
     sideBrackets: SideBracketsButton,
     transformShape: TransformShapeButton,
