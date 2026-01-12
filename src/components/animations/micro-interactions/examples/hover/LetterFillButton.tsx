@@ -2,8 +2,23 @@
 
 import { motion } from "framer-motion";
 
-export default function LetterFillButton() {
+function hslToRgb(h: number, s: number, l: number): [number, number, number] {
+    s /= 100;
+    l /= 100;
 
+    const k = (n: number) => (n + h / 30) % 12;
+    const a = s * Math.min(l, 1 - l);
+    const f = (n: number) =>
+        l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+
+    return [
+        Math.round(255 * f(0)),
+        Math.round(255 * f(8)),
+        Math.round(255 * f(4)),
+    ];
+}
+
+export default function LetterFillButton() {
     return (
         <motion.div
             className="flex items-center justify-center w-40 h-12 cursor-pointer"
@@ -18,25 +33,31 @@ export default function LetterFillButton() {
                 },
             }}
         >
-            {"BUTTON".split("").map((char, i) => (
-                <motion.span
-                    key={i}
-                    className="w-[2em] h-[2em] grid place-content-center text-sm font-bold"
-                    variants={{
-                        initial: {
-                            backgroundColor: "rgb(30, 58, 138)", // darkblue
-                            color: "#ffffff",
-                        },
-                        hovered: {
-                            backgroundColor: `hsl(${(i + 200) * 10}deg 80% 70%)`,
-                            color: "#ffffff",
-                        },
-                    }}
-                    transition={{ duration: 0.2 }}
-                >
-                    {char}
-                </motion.span>
-            ))}
+            {"BUTTON".split("").map((char, i) => {
+                // 色を JS 側で計算（HSL風）
+                const hue = ((i + 200) * 10) % 360;
+                const rgb = hslToRgb(hue, 80, 70);
+
+                return (
+                    <motion.span
+                        key={i}
+                        className="w-[2em] h-[2em] grid place-content-center text-sm font-bold"
+                        variants={{
+                            initial: {
+                                backgroundColor: "rgba(30, 58, 138, 1)",
+                                color: "#ffffff",
+                            },
+                            hovered: {
+                                backgroundColor: `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 1)`,
+                                color: "#ffffff",
+                            },
+                        }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        {char}
+                    </motion.span>
+                );
+            })}
         </motion.div>
     );
 }
