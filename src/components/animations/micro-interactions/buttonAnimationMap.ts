@@ -40,6 +40,8 @@ import PixelHoverButton from "./examples/hover/PixelHoverButton";
 import BubbleButton from "./examples/hover/BubbleButton";
 import LetterFillButton from "./examples/hover/LetterFillButton";
 import EverChangingButton from "./examples/hover/EverChangingButton";
+import LiquidButton from "./examples/hover/LiquidButton";
+import Gradient3DButton from "./examples/hover/Gradient3DButton";
 
 import SideBracketsButton from "./examples/hover-line/SideBracketsButton";
 import TransformShapeButton from "./examples/hover-line/TransformShapeButton";
@@ -99,6 +101,8 @@ export const buttonAnimationMap: Record<string, ComponentType> = {
     bubble: BubbleButton,
     letterFill: LetterFillButton,
     everChanging: EverChangingButton,
+    liquid: LiquidButton,
+    gradient3D: Gradient3DButton,
 
     sideBrackets: SideBracketsButton,
     transformShape: TransformShapeButton,

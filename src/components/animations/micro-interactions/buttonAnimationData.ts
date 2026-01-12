@@ -205,6 +205,16 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         title: "Ever Changing Button",
         previewText: "Ever Changing Button Example",
     },
+    {
+        key: "liquid",
+        title: "Liquid Button",
+        previewText: "Liquid Button Example",
+    },
+    {
+        key: "gradient3D",
+        title: "Gradient 3D Button",
+        previewText: "Gradient 3D Button Example",
+    },
 
     // hover-line
     {

@@ -28,6 +28,9 @@ export default function EverChangingButton() {
                     mask="url(#knockout-text)"
                     fill="#ffc3a0"
                     className="cursor-pointer transition-colors hover:fill-[#a1c4fd]"
+                    initial={{
+                        d: "M 90 210 C 90 180 90 150 90 150 C 150 150 180 150 180 150 C 180 150 300 150 300 150 C 300 150 330 150 390 150 C 390 150 390 180 390 210 C 390 240 390 270 390 270 C 330 270 300 270 300 270 C 300 270 180 270 180 270 C 180 270 150 270 90 270 C 90 270 90 240 90 210"
+                    }}
                     animate={{
                         d: [
                         // 初期
