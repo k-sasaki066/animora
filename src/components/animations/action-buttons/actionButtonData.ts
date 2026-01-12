@@ -45,4 +45,10 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Paws Heart",
         previewText: "Paws Heart Example",
     },
+
+    {
+        key: "splatter",
+        title: "Splatter Button",
+        previewText: "Splatter Button Example",
+    },
 ];
