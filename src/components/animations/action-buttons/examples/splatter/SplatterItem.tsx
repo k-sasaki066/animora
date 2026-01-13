@@ -2,7 +2,7 @@
 
 import { motion, Variants } from 'framer-motion';
 import type { Splatter, SplatterType } from './splatter.types';
-import { STAR_PATH } from '@/assets/svg/starPath';
+import { STAR_PATH } from '@/assets/svg/icons';
 
 const splatterVariants: Variants = {
     initial: {
@@ -39,8 +39,8 @@ function SquareShape() {
 
 function StarShape() {
     return (
-        <svg viewBox="0 0 24 24" className="w-7 h-7 fill-blue-600">
-            <path d={STAR_PATH} />
+        <svg viewBox={STAR_PATH.viewBox} className="w-7 h-7 fill-blue-600">
+            <path d={STAR_PATH.path} />
         </svg>
     );
 }
