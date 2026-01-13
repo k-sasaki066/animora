@@ -47,6 +47,12 @@ export const actionButtonData: ActionButtonItem[] = [
     },
 
     {
+        key: "upload",
+        title: "Upload Progress",
+        previewText: "Upload Progress Example",
+    },
+
+    {
         key: "splatter",
         title: "Splatter Button",
         previewText: "Splatter Button Example",
