@@ -9,6 +9,7 @@ import BurstCircleHeart from "./examples/favorites/burst/BurstCircleHeart";
 import PawsHeart from "./examples/favorites/paws/PawsHeart";
 
 import SplatterButton from "./examples/splatter/SplatterButton";
+import AddMenuButton from "./examples/AddMenuButton";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -21,4 +22,5 @@ export const actionButtonMap: Record<string, ComponentType> = {
     paws: PawsHeart,
 
     splatter: SplatterButton,
+    addMenu: AddMenuButton,
 };

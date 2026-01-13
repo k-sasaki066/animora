@@ -51,4 +51,9 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Splatter Button",
         previewText: "Splatter Button Example",
     },
+    {
+        key: "addMenu",
+        title: "Add Menu Button",
+        previewText: "Add Menu Button Example",
+    },
 ];
