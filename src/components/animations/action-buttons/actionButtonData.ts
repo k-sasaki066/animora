@@ -46,12 +46,19 @@ export const actionButtonData: ActionButtonItem[] = [
         previewText: "Paws Heart Example",
     },
 
+    // progress
     {
         key: "upload",
         title: "Upload Progress",
         previewText: "Upload Progress Example",
     },
+    {
+        key: "truck",
+        title: "Truck Progress",
+        previewText: "Truck Progress Example",
+    },
 
+    // other
     {
         key: "splatter",
         title: "Splatter Button",

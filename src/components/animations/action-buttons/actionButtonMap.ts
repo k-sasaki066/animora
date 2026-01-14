@@ -9,6 +9,7 @@ import BurstCircleHeart from "./examples/favorites/burst/BurstCircleHeart";
 import PawsHeart from "./examples/favorites/paws/PawsHeart";
 
 import UploadProgress from "./examples/progress/UploadProgress";
+import TruckProgress from "./examples/progress/truck/TruckProgress";
 
 import SplatterButton from "./examples/splatter/SplatterButton";
 import AddMenuButton from "./examples/AddMenuButton";
@@ -24,6 +25,7 @@ export const actionButtonMap: Record<string, ComponentType> = {
     paws: PawsHeart,
 
     upload: UploadProgress,
+    truck: TruckProgress,
 
     splatter: SplatterButton,
     addMenu: AddMenuButton,
