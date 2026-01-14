@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Truck } from "./Truck";
 import type { TruckState } from "./truck.types";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -13,15 +13,20 @@ export default function TruckProgress() {
     const [state, setState] = useState<TruckState>("idle");
     const [isAnimating, setIsAnimating] = useState(false);
 
-    const buttonRef = useRef<HTMLButtonElement>(null);
     const { ref: containerRef, width: containerWidth } = useContainerSize<HTMLDivElement>();
     // ボタン幅に応じてscale
     const scale = containerWidth ? Math.min(Math.max(containerWidth / BASE_WIDTH, 0.5), 1.3) : 1;
 
     // ボタン幅取得
-    const buttonWidth = buttonRef.current?.offsetWidth ?? 0;
     const BUTTON_HEIGHT = 48;
     const BUTTON_COLLAPSED_HEIGHT = 10;
+    const BASE_BUTTON_WIDTH = 176;
+    const TRUCK_BASE_WIDTH = 72;
+
+    const truckWidth = TRUCK_BASE_WIDTH * scale;
+    const visualButtonWidth = BASE_BUTTON_WIDTH * scale;
+
+    const startX = -(truckWidth - TRUCK_BASE_WIDTH) / 2;
 
     const clicked = state === "loading" || state === "loaded" || state === "driving";
 
@@ -50,10 +55,14 @@ export default function TruckProgress() {
 
     return (
         <div ref={containerRef} className="w-full h-full flex justify-center items-center">
-            <div className="relative w-44 h-auto flex flex-col items-start">
+            <div
+                className="relative h-auto flex flex-col items-start"
+                style={{
+                    width: BASE_BUTTON_WIDTH,
+                }}
+            >
                 {/* Button */}
                 <motion.button
-                    ref={buttonRef}
                     onClick={handleClick}
                     className="absolute left-0  w-full text-white font-medium"
                     initial={{
@@ -112,7 +121,7 @@ export default function TruckProgress() {
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.3, delay: 0.4, ease: "easeOut" }}
                             >
-                            ✓
+                                ✓
                             </motion.span>
                         )}
                     </motion.span>
@@ -120,25 +129,26 @@ export default function TruckProgress() {
 
                 {/* Truck */}
                 <motion.div
-                    className="absolute -top-6 left-0 flex items-end"
-                    initial={{ x: 0, opacity: 0 }}
+                    className="absolute top-0 left-0 flex items-end"
+                    style={{
+                        pointerEvents: state === "done" ? "auto" : "none",
+                        y: "-102%",
+                    }}
+                    initial={{ x: startX, opacity: 1 }}
                     animate={{
                         x:
                             state === "driving"
-                            ? [0, 30, 15, buttonWidth * scale - 20]
+                            ? [startX, startX + 30, startX + 15, visualButtonWidth - truckWidth]
                             : state === "done"
-                            ? buttonWidth * scale - 20
-                            : 0,
+                            ? visualButtonWidth - truckWidth
+                            : startX,
                         opacity: state === "idle" || state === "done" ? 0 : 1,
                         scale,
-                    }}
-                    style={{
-                        pointerEvents: state === "done" ? "auto" : "none",
                     }}
                     transition={
                         state === "driving"
                             ? {
-                                duration: 2.4,
+                                duration: 2.1,
                                 times: [0, 0.45, 0.65, 1],
                                 ease: ["easeOut", "easeInOut", "linear"],
                                 delay: 0.5, // 荷物が載って沈むのを待つ
