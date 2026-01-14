@@ -69,4 +69,9 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Add Menu Button",
         previewText: "Add Menu Button Example",
     },
+    {
+        key: "neumorphism",
+        title: "Neumorphism Button",
+        previewText: "Neumorphism Button Example",
+    },
 ];
