@@ -181,11 +181,6 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
         previewText: "Gradient Slide Button Example",
     },
     {
-        key: "toggle",
-        title: "Toggle Button",
-        previewText: "Toggle Button Example",
-    },
-    {
         key: "pixelHover",
         title: "Pixel Hover Button",
         previewText: "Pixel Hover Button Example",
