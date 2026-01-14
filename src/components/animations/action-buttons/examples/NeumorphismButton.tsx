@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
-import { FaHome, FaPhone, FaPlane, FaSnowflake, FaBatteryFull, FaCode } from "react-icons/fa"
+import { FaHome, FaPhone, FaPlane, FaSnowflake, FaBatteryFull, FaCode } from "react-icons/fa";
 
 const icons = [
     FaHome,
@@ -32,11 +32,11 @@ export default function NeumorphismButton() {
 
     const toggle = (index: number) => {
         setActive(prev =>
-        prev.includes(index)
-            ? prev.filter(i => i !== index)
-            : [...prev, index]
-        )
-    }
+            prev.includes(index)
+                ? prev.filter(i => i !== index)
+                : [...prev, index]
+        );
+    };
 
     return (
         <div

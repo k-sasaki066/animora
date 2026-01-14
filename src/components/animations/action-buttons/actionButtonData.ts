@@ -57,6 +57,16 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Truck Progress",
         previewText: "Truck Progress Example",
     },
+    {
+        key: "holdDown",
+        title: "Hold Down Progress",
+        previewText: "Hold Down Progress Example",
+    },
+    {
+        key: "download",
+        title: "Download Progress",
+        previewText: "Download Progress Example",
+    },
 
     // other
     {
