@@ -84,4 +84,21 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Neumorphism Button",
         previewText: "Neumorphism Button Example",
     },
+
+    // toggles
+    {
+        key: "rotateToggle",
+        title: "Rotate Toggle",
+        previewText: "Rotate Toggle Example",
+    },
+    {
+        key: "slideToggle",
+        title: "Slide Toggle",
+        previewText: "Slide Toggle Example",
+    },
+    {
+        key: "circleExpandToggle",
+        title: "Circle Expand Toggle",
+        previewText: "Circle Expand Toggle Example",
+    },
 ];
