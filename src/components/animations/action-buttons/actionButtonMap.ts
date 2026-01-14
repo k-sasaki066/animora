@@ -13,6 +13,7 @@ import TruckProgress from "./examples/progress/truck/TruckProgress";
 
 import SplatterButton from "./examples/splatter/SplatterButton";
 import AddMenuButton from "./examples/AddMenuButton";
+import NeumorphismButton from "./examples/NeumorphismButton";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -29,4 +30,5 @@ export const actionButtonMap: Record<string, ComponentType> = {
 
     splatter: SplatterButton,
     addMenu: AddMenuButton,
+    neumorphism: NeumorphismButton,
 };
