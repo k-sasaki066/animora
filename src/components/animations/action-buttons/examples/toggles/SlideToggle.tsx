@@ -20,7 +20,7 @@ export default function SlideToggle() {
                 role="switch"
                 aria-checked={checked}
                 onClick={() => setChecked(v => !v)}
-                whileTap={{ scale: 1 }}
+                whileTap={{ y: 2 }}
                 className="relative w-28 h-12 rounded-lg bg-stone-400/50 p-2 cursor-pointer select-none flex items-center"
                 animate={{ scale }}
             >
@@ -50,7 +50,8 @@ export default function SlideToggle() {
                             strokeWidth="15"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            strokeDasharray="90 90"
+                            strokeDasharray={90}
+                            strokeDashoffset={checked ? 0 : 90}
                             animate={{
                                 strokeDashoffset: checked ? 0 : 90,
                             }}

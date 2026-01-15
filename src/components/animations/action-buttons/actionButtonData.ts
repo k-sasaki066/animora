@@ -101,4 +101,14 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Circle Expand Toggle",
         previewText: "Circle Expand Toggle Example",
     },
+    {
+        key: "rockerToggle",
+        title: "Rocker Toggle",
+        previewText: "Rocker Toggle Example",
+    },
+    {
+        key: "blobToggle",
+        title: "Blob Toggle",
+        previewText: "Blob Toggle Example",
+    },
 ];
