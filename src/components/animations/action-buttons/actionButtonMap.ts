@@ -20,6 +20,8 @@ import NeumorphismButton from "./examples/NeumorphismButton";
 import RotateToggle from "./examples/toggles/RotateToggle";
 import SlideToggle from "./examples/toggles/SlideToggle";
 import CircleExpandToggle from "./examples/toggles/CircleExpandToggle";
+import RockerToggle from "./examples/toggles/RockerToggle";
+import BlobToggle from "./examples/toggles/BlobToggle";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -43,4 +45,6 @@ export const actionButtonMap: Record<string, ComponentType> = {
     rotateToggle: RotateToggle,
     slideToggle: SlideToggle,
     circleExpandToggle: CircleExpandToggle,
+    rockerToggle: RockerToggle,
+    blobToggle: BlobToggle,
 };
