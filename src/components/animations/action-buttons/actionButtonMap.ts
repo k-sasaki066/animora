@@ -26,6 +26,7 @@ import ColorShiftToggle from "./examples/toggles/ColorShiftToggle";
 import MonochromeToggle from "./examples/toggles/MonochromeToggle";
 import MorphingToggle from "./examples/toggles/MorphingToggle";
 import SunMoonToggle from "./examples/toggles/SunMoonToggle";
+import LightToggle from "./examples/toggles/LightToggle";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -55,4 +56,5 @@ export const actionButtonMap: Record<string, ComponentType> = {
     monochromeToggle: MonochromeToggle,
     morphingToggle: MorphingToggle,
     sunMoonToggle: SunMoonToggle,
+    lightToggle: LightToggle,
 };
