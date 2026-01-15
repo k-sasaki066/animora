@@ -22,6 +22,10 @@ import SlideToggle from "./examples/toggles/SlideToggle";
 import CircleExpandToggle from "./examples/toggles/CircleExpandToggle";
 import RockerToggle from "./examples/toggles/RockerToggle";
 import BlobToggle from "./examples/toggles/BlobToggle";
+import ColorShiftToggle from "./examples/toggles/ColorShiftToggle";
+import MonochromeToggle from "./examples/toggles/MonochromeToggle";
+import MorphingToggle from "./examples/toggles/MorphingToggle";
+import SunMoonToggle from "./examples/toggles/SunMoonToggle";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -47,4 +51,8 @@ export const actionButtonMap: Record<string, ComponentType> = {
     circleExpandToggle: CircleExpandToggle,
     rockerToggle: RockerToggle,
     blobToggle: BlobToggle,
+    colorShiftToggle: ColorShiftToggle,
+    monochromeToggle: MonochromeToggle,
+    morphingToggle: MorphingToggle,
+    sunMoonToggle: SunMoonToggle,
 };

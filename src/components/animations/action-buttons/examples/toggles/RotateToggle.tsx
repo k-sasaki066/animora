@@ -20,8 +20,8 @@ export default function RotateToggle() {
                 type="button"
                 role="switch"
                 aria-checked={isChecked}
-                onClick={() => setIsChecked(!isChecked)}
-                whileTap={{ scale: 1 }}
+                onClick={() => setIsChecked(v => !v)}
+                whileTap={{ y: 2 }}
                 animate={{ scale }}
             >
                 <motion.div
