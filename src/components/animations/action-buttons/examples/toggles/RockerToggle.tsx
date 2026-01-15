@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 
-const BASE_WIDTH = 450;
+const BASE_WIDTH = 550;
 
 export default function RockerToggle() {
     const [isOn, setIsOn] = useState(true);
     const { ref, width } = useContainerSize<HTMLDivElement>();
     const scale = width
-        ? Math.min(Math.max(width / BASE_WIDTH, 0.4), 1.1)
+        ? Math.min(Math.max(width / BASE_WIDTH, 0.4), 0.8)
         : 1;
 
     return (

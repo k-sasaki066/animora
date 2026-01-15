@@ -22,7 +22,7 @@ export default function CircleExpandToggle() {
                     type="button"
                     role="switch"
                     aria-checked={isOn}
-                    onClick={() => setIsOn(!isOn)}
+                    onClick={() => setIsOn(v => !v)}
                     whileTap={{ scale: 1 }}
                     className="relative inline-block cursor-pointer"
                 >

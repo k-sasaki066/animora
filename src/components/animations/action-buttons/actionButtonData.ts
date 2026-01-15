@@ -111,4 +111,24 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Blob Toggle",
         previewText: "Blob Toggle Example",
     },
+    {
+        key: "colorShiftToggle",
+        title: "Color Shift Toggle",
+        previewText: "Color Shift Toggle Example",
+    },
+    {
+        key: "monochromeToggle",
+        title: "Monochrome Toggle",
+        previewText: "Monochrome Toggle Example",
+    },
+    {
+        key: "morphingToggle",
+        title: "Morphing Toggle",
+        previewText: "Morphing Toggle Example",
+    },
+    {
+        key: "sunMoonToggle",
+        title: "Sun Moon Toggle",
+        previewText: "Sun Moon Toggle Example",
+    },
 ];

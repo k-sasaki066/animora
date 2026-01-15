@@ -19,7 +19,8 @@ export default function BlobToggle() {
                 type="button"
                 role="switch"
                 aria-checked={checked}
-                onClick={() => setChecked(!checked)}
+                whileTap={{ y: 1 }}
+                onClick={() => setChecked(v => !v)}
                 className="relative w-28 h-12 rounded-full cursor-pointer select-none"
                 animate={{ scale }}
             >
