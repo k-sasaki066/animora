@@ -131,4 +131,9 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Sun Moon Toggle",
         previewText: "Sun Moon Toggle Example",
     },
+    {
+        key: "lightToggle",
+        title: "Light Toggle",
+        previewText: "Light Toggle Example",
+    },
 ];
