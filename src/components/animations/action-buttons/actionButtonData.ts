@@ -148,4 +148,16 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Light Toggle",
         previewText: "Light Toggle Example",
     },
+
+    //rate
+    {
+        key: "starGlow",
+        title: "Star Glow",
+        previewText: "Star Glow Example",
+    },
+    {
+        key: "starInput",
+        title: "Star Input",
+        previewText: "Star Input Example",
+    },
 ];

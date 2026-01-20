@@ -31,6 +31,9 @@ import MorphingToggle from "./examples/toggles/MorphingToggle";
 import SunMoonToggle from "./examples/toggles/SunMoonToggle";
 import LightToggle from "./examples/toggles/LightToggle";
 
+import StarGlowRate from "./examples/rates/StarGlowRate";
+import StarInputRate from "./examples/rates/StarInputRate";
+
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
     bubbly: BubblyHeart,
@@ -63,4 +66,7 @@ export const actionButtonMap: Record<string, ComponentType> = {
     morphingToggle: MorphingToggle,
     sunMoonToggle: SunMoonToggle,
     lightToggle: LightToggle,
+
+    starGlow: StarGlowRate,
+    starInput: StarInputRate,
 };
