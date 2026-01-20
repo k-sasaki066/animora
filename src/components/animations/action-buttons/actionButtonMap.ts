@@ -17,6 +17,9 @@ import SplatterButton from "./examples/splatter/SplatterButton";
 import AddMenuButton from "./examples/AddMenuButton";
 import NeumorphismButton from "./examples/NeumorphismButton";
 
+import RadioSlideButton from "./examples/radios/RadioSlideButton";
+import PopRadioButton from "./examples/radios/PopRadioButton";
+
 import RotateToggle from "./examples/toggles/RotateToggle";
 import SlideToggle from "./examples/toggles/SlideToggle";
 import CircleExpandToggle from "./examples/toggles/CircleExpandToggle";
@@ -46,6 +49,9 @@ export const actionButtonMap: Record<string, ComponentType> = {
     splatter: SplatterButton,
     addMenu: AddMenuButton,
     neumorphism: NeumorphismButton,
+
+    radioSlide: RadioSlideButton,
+    popRadio: PopRadioButton,
 
     rotateToggle: RotateToggle,
     slideToggle: SlideToggle,

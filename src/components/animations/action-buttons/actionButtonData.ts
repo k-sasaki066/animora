@@ -85,6 +85,18 @@ export const actionButtonData: ActionButtonItem[] = [
         previewText: "Neumorphism Button Example",
     },
 
+    //radios
+    {
+        key: "popRadio",
+        title: "Pop Radio Button",
+        previewText: "Pop Radio Button Example",
+    },
+    {
+        key: "radioSlide",
+        title: "Radio Slide Button",
+        previewText: "Radio Slide Button Example",
+    },
+
     // toggles
     {
         key: "rotateToggle",
