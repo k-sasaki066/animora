@@ -160,4 +160,9 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Star Input",
         previewText: "Star Input Example",
     },
+    {
+        key: "starSlider",
+        title: "Star Slider",
+        previewText: "Star Slider Example",
+    },
 ];
