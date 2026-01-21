@@ -33,6 +33,7 @@ import LightToggle from "./examples/toggles/LightToggle";
 
 import StarGlowRate from "./examples/rates/StarGlowRate";
 import StarInputRate from "./examples/rates/StarInputRate";
+import StarSliderRate from "./examples/rates/StarSliderRate";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -69,4 +70,5 @@ export const actionButtonMap: Record<string, ComponentType> = {
 
     starGlow: StarGlowRate,
     starInput: StarInputRate,
+    starSlider: StarSliderRate,
 };
