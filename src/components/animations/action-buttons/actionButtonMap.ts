@@ -24,6 +24,9 @@ import RippleRadio from "./examples/radios/RippleRadio";
 import SegmentedControlRadio from "./examples/radios/SegmentedControlRadio";
 import IconRadio from "./examples/radios/IconRadio";
 
+import FoldCheck from "./examples/checkboxes/FoldCheck";
+import SimpleCheck from "./examples/checkboxes/SimpleCheck";
+
 import RotateToggle from "./examples/toggles/RotateToggle";
 import SlideToggle from "./examples/toggles/SlideToggle";
 import CircleExpandToggle from "./examples/toggles/CircleExpandToggle";
@@ -64,6 +67,9 @@ export const actionButtonMap: Record<string, ComponentType> = {
     rippleRadio: RippleRadio,
     segmentedControl: SegmentedControlRadio,
     iconRadio: IconRadio,
+
+    foldCheck: FoldCheck,
+    simpleCheck: SimpleCheck,
 
     rotateToggle: RotateToggle,
     slideToggle: SlideToggle,

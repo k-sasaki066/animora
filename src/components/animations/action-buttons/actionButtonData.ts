@@ -117,6 +117,18 @@ export const actionButtonData: ActionButtonItem[] = [
         previewText: "Icon Radio Example",
     },
 
+    // checkboxes
+    {
+        key: "foldCheck",
+        title: "Fold Check",
+        previewText: "Fold Check Example",
+    },
+    {
+        key: "simpleCheck",
+        title: "Simple Check",
+        previewText: "Simple Check Example",
+    },
+
     // toggles
     {
         key: "rotateToggle",
