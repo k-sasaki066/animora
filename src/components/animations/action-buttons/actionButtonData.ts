@@ -88,13 +88,33 @@ export const actionButtonData: ActionButtonItem[] = [
     //radios
     {
         key: "popRadio",
-        title: "Pop Radio Button",
-        previewText: "Pop Radio Button Example",
+        title: "Pop Radio",
+        previewText: "Pop Radio Example",
     },
     {
         key: "radioSlide",
-        title: "Radio Slide Button",
-        previewText: "Radio Slide Button Example",
+        title: "Radio Slide",
+        previewText: "Radio Slide Example",
+    },
+    {
+        key: "colorChangeRadio",
+        title: "Color Change Radio",
+        previewText: "Color Change Radio Example",
+    },
+    {
+        key: "rippleRadio",
+        title: "Ripple Radio",
+        previewText: "Ripple Radio Example",
+    },
+    {
+        key: "segmentedControl",
+        title: "Segmented Control Radio",
+        previewText: "Segmented Control Radio Example",
+    },
+    {
+        key: "iconRadio",
+        title: "Icon Radio",
+        previewText: "Icon Radio Example",
     },
 
     // toggles

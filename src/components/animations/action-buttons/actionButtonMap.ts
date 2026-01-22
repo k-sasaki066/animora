@@ -19,6 +19,10 @@ import NeumorphismButton from "./examples/NeumorphismButton";
 
 import RadioSlideButton from "./examples/radios/RadioSlideButton";
 import PopRadioButton from "./examples/radios/PopRadioButton";
+import ColorChangeRadio from "./examples/radios/ColorChangeRadio";
+import RippleRadio from "./examples/radios/RippleRadio";
+import SegmentedControlRadio from "./examples/radios/SegmentedControlRadio";
+import IconRadio from "./examples/radios/IconRadio";
 
 import RotateToggle from "./examples/toggles/RotateToggle";
 import SlideToggle from "./examples/toggles/SlideToggle";
@@ -56,6 +60,10 @@ export const actionButtonMap: Record<string, ComponentType> = {
 
     radioSlide: RadioSlideButton,
     popRadio: PopRadioButton,
+    colorChangeRadio: ColorChangeRadio,
+    rippleRadio: RippleRadio,
+    segmentedControl: SegmentedControlRadio,
+    iconRadio: IconRadio,
 
     rotateToggle: RotateToggle,
     slideToggle: SlideToggle,

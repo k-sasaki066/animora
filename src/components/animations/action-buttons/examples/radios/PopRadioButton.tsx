@@ -23,13 +23,18 @@ export default function PopRadioButton() {
         : 1;
 
     const [checked, setChecked] = useState(0);
+    const values = [0, 1, 2];
 
     return (
         <div ref={ref} className="w-full h-full overflow-hidden flex justify-center items-center bg-[#50a7c2]">
             <motion.div animate={{ scale }}>
-                <div className="flex flex-col gap-4" role="radiogroup" aria-label="Options">
-                    {[0, 1, 2].map(i => {
-                        const isChecked = checked === i
+                <div
+                    className="flex flex-col gap-4"
+                    role="radiogroup"
+                    aria-label="Options"
+                >
+                    {values.map((i) => {
+                        const isChecked = checked === i;
 
                         return (
                             <button
@@ -37,8 +42,37 @@ export default function PopRadioButton() {
                                 type="button"
                                 role="radio"
                                 aria-checked={isChecked}
-                                onClick={() => setChecked(i)}
+                                tabIndex={isChecked ? 0 : -1}
                                 className="relative flex items-center gap-4 px-4 py-2"
+                                onPointerDown={(e) => {
+                                    e.preventDefault();
+                                    setChecked(i);
+                                    e.currentTarget.focus();
+                                }}
+                                onKeyDown={(e) => {
+                                    const currentIndex = values.indexOf(checked);
+
+                                    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+                                        e.preventDefault();
+                                        setChecked(
+                                            values[(currentIndex + 1) % values.length]
+                                        );
+                                    }
+
+                                    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+                                        e.preventDefault();
+                                        setChecked(
+                                            values[
+                                                (currentIndex - 1 + values.length) %
+                                                    values.length
+                                            ]
+                                        );
+                                    }
+
+                                    if (e.key === " " || e.key === "Enter") {
+                                        e.preventDefault();
+                                    }
+                                }}
                             >
                                 <div className="relative w-3 h-3">
                                     {/* radio */}
