@@ -195,6 +195,11 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Light Toggle",
         previewText: "Light Toggle Example",
     },
+    {
+        key: "lockToggle",
+        title: "Lock Toggle",
+        previewText: "Lock Toggle Example",
+    },
 
     //rate
     {
