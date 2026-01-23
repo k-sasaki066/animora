@@ -128,6 +128,21 @@ export const actionButtonData: ActionButtonItem[] = [
         title: "Simple Check",
         previewText: "Simple Check Example",
     },
+    {
+        key: "colorfulCheck",
+        title: "Colorful Check",
+        previewText: "Colorful Check Example",
+    },
+    {
+        key: "cardCheck",
+        title: "Card Check",
+        previewText: "Card Check Example",
+    },
+    {
+        key: "pencilCheck",
+        title: "Pencil Check",
+        previewText: "Pencil Check Example",
+    },
 
     // toggles
     {
