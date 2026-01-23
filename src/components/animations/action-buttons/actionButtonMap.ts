@@ -26,6 +26,9 @@ import IconRadio from "./examples/radios/IconRadio";
 
 import FoldCheck from "./examples/checkboxes/FoldCheck";
 import SimpleCheck from "./examples/checkboxes/SimpleCheck";
+import ColorfulCheck from "./examples/checkboxes/ColorfulCheck";
+import CardCheck from "./examples/checkboxes/CardCheck";
+import PencilCheck from "./examples/checkboxes/PencilCheck";
 
 import RotateToggle from "./examples/toggles/RotateToggle";
 import SlideToggle from "./examples/toggles/SlideToggle";
@@ -70,6 +73,9 @@ export const actionButtonMap: Record<string, ComponentType> = {
 
     foldCheck: FoldCheck,
     simpleCheck: SimpleCheck,
+    colorfulCheck: ColorfulCheck,
+    cardCheck: CardCheck,
+    pencilCheck: PencilCheck,
 
     rotateToggle: RotateToggle,
     slideToggle: SlideToggle,
