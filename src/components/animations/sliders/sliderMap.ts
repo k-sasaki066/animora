@@ -24,5 +24,5 @@ export const sliderMap: Record<string, ComponentType> = {
     SkewedScroll: SkewedScrollSlider,
     ForestSlider: ForestSlider,
     AnimeSlider: AnimeSlider,
-    Fancy:FancySlider,
+    Fancy: FancySlider,
 };
