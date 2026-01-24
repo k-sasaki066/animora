@@ -12,6 +12,7 @@ import { TextAnimationList } from "@/components/animations/text-animations/TextA
 import { BackgroundList } from "@/components/animations/backgrounds/BackgroundList";
 import { PartList } from "@/components/animations/animated-parts/PartList";
 import { ActionButtonList } from "@/components/animations/action-buttons/ActionButtonList";
+import { TabList } from "@/components/animations/tabs/TabList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -33,31 +34,31 @@ export default function HomePage() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                 >
-                  {/* SVGで手書きアニメーション */}
-                  <motion.svg
-                      viewBox="0 0 550 150"
-                      className="w-full max-w-150 text-gray-400 p-2"
-                      initial="hidden"
-                      animate="visible"
-                  >
-                      <motion.text
-                          x="50%"                      // 水平方向の中央
-                          y="50%"                      // 垂直方向の中央
-                          textAnchor="middle"          // 中央揃え
-                          dominantBaseline="middle"    // 中央揃え
-                          fontSize="150"                // 文字サイズ
-                          fontFamily="'Alex Brush', cursive" // 手書き風フォント
-                          fill="none"                  // 塗りなし
-                          strokeWidth="1"              // 線の太さ
-                          stroke="currentColor"        // Tailwindの色に連動
-                          strokeDasharray="1100"        // 線の長さ（アニメーション用）
-                          strokeDashoffset="1100"       // 初期値（線を隠す）
-                          animate={{ strokeDashoffset: 0 }} // 描きながら表示
-                          transition={{ duration: 2.5, ease: "easeInOut" }}      // アニメーション時間
+                    {/* SVGで手書きアニメーション */}
+                    <motion.svg
+                        viewBox="0 0 550 150"
+                        className="w-full max-w-150 text-gray-400 p-2"
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.text
+                            x="50%"                      // 水平方向の中央
+                            y="50%"                      // 垂直方向の中央
+                            textAnchor="middle"          // 中央揃え
+                            dominantBaseline="middle"    // 中央揃え
+                            fontSize="150"                // 文字サイズ
+                            fontFamily="'Alex Brush', cursive" // 手書き風フォント
+                            fill="none"                  // 塗りなし
+                            strokeWidth="1"              // 線の太さ
+                            stroke="currentColor"        // Tailwindの色に連動
+                            strokeDasharray="1100"        // 線の長さ（アニメーション用）
+                            strokeDashoffset="1100"       // 初期値（線を隠す）
+                            animate={{ strokeDashoffset: 0 }} // 描きながら表示
+                            transition={{ duration: 2.5, ease: "easeInOut" }}      // アニメーション時間
                         >
                             Animora
                         </motion.text>
-                    
+
                         {/* 線描画後に塗りつぶす */}
                         <motion.text
                             x="50%"
@@ -109,11 +110,12 @@ export default function HomePage() {
                                     {selectedItem === "Loading" && <LoadingList />}
                                     {selectedItem === "Micro" && <ButtonAnimationList />}
                                     {selectedItem === "Image" && <ImageList />}
-                                    {selectedItem === "UI-components" && <SliderList />}
+                                    {selectedItem === "Slider" && <SliderList />}
                                     {selectedItem === "Text" && <TextAnimationList />}
                                     {selectedItem === "Background" && <BackgroundList />}
                                     {selectedItem === "Animated-parts" && <PartList />}
                                     {selectedItem === "Action-buttons" && <ActionButtonList />}
+                                    {selectedItem === "Tab" && <TabList />}
                                 </div>
                             )}
                         </main>

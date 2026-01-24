@@ -17,7 +17,7 @@ export function SliderModal({ sliderKey, onClose }: SliderModalProps) {
                         {sliderKey ?? "Slider Preview"}
                     </DialogTitle>
                     <DialogDescription>
-                        スライダーの動作プレビューを確認できます
+                        プレビューを確認できます
                     </DialogDescription>
                 </DialogHeader>
 
