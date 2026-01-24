@@ -110,7 +110,7 @@ export default function StandardTab() {
                                             duration: 0.2,
                                             ease: "easeOut"
                                         }}
-                                        className="px-4 py-2 text-left"
+                                        className="px-4 py-3 text-left"
                                     >
                                         <h2 className="mb-1 text-lg font-bold">
                                             {tab.title}

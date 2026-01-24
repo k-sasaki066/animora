@@ -10,4 +10,9 @@ export const tabData: TabItem[] = [
         title: "Standard Tab",
         previewText: "Standard Tab Example",
     },
+    {
+        key: "modernTab",
+        title: "Modern Tab",
+        previewText: "Modern Tab Example",
+    },
 ];
