@@ -9,7 +9,7 @@ import { standardTabData } from "./animationTabData";
 const BASE_WIDTH = 300;
 const tabs = standardTabData;
 
-export default function StandardTab() {
+export default function IndexTab() {
     const [activeTab, setActiveTab] = useState<number>(1);
     const { ref, width } = useContainerSize<HTMLDivElement>();
     const scale = width
@@ -31,12 +31,12 @@ export default function StandardTab() {
             <motion.div className="w-full h-full flex justify-center items-center" animate={{scale}}>
                 <div className="w-55 max-w-120 aspect-video flex flex-col">
                     {/* Tabs */}
-                    <div className="flex shrink-0 h-1/4" role="tablist">
+                    <div className="flex shrink-0 h-1/5 gap-0.5" role="tablist">
                         {tabs.map((tab, index) => {
                             const isActive = activeTab === tab.id;
 
                             return (
-                                <button
+                                <motion.button
                                     key={tab.id}
                                     role="tab"
                                     aria-selected={isActive}
@@ -49,56 +49,49 @@ export default function StandardTab() {
                                         tabRefs.current[index] = el;
                                     }}
                                     tabIndex={isActive ? 0 : -1}
-                                    className={`relative h-full w-1/4 font-bold text-sm transition-colors duration-150 ${isActive ? "bg-[#cf3939] text-white" : "bg-[#d9d9d9] text-[#565656]"}`}
+                                    className={`relative w-1/4 h-[110%] font-bold text-sm rounded-t-sm transition-colors duration-150 ${isActive ? "bg-[#388dd1] text-white" : "bg-[#bababa] text-[#565656]"}`}
+                                    animate={{
+                                        y: isActive ? -3 : 0,
+                                    }}
+                                    transition={{
+                                        duration: 0.15,
+                                        ease: "easeIn"
+                                    }}
                                 >
-                                    {/* Top border animation */}
-                                    <motion.div
-                                        className="absolute top-0 left-0 h-1 w-full"
-                                        initial={false}
-                                        animate={{
-                                            backgroundColor: isActive ? "#8f2a2a" : "#d9d9d9",
-                                        }}
-                                        transition={{
-                                            duration: 0.15,
-                                            ease: "easeIn"
-                                        }}
-                                    />
-                                    <span className="relative z-10 leading-none text-xs">
-                                        {tab.label}
-                                    </span>
-                                </button>
+                                <span className="relative z-10 leading-none">
+                                    {tab.label}
+                                </span>
+                                </motion.button>
                             );
                         })}
                     </div>
 
                     {/* Content */}
-                    <div className="flex-1 border-4 border-[#cf3939] bg-white overflow-hidden">
+                    <div className="bg-[#f3f3f3] p-6 text-left overflow-hidden z-20">
                         <AnimatePresence mode="wait">
-                            {tabs
-                                .filter((tab) => tab.id === activeTab)
+                            {tabs.filter((tab) => tab.id === activeTab)
                                 .map((tab) => (
                                     <motion.div
                                         key={tab.id}
                                         role="tabpanel"
                                         id={`panel-${tab.id}`}
                                         aria-labelledby={`tab-${tab.id}`}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -10 }}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
                                         transition={{
-                                            duration: 0.2,
+                                            duration: 0.15,
                                             ease: "easeOut"
                                         }}
-                                        className="px-4 py-3 text-left"
                                     >
-                                        <h2 className="mb-1 text-lg font-bold">
+                                        <h2 className="text-lg mb-1 text-[#388dd1] border-b">
                                             {tab.title}
                                         </h2>
                                         <p className="text-xs">
                                             {tab.text}
                                         </p>
-                                    </motion.div>
-                                ))}
+                                </motion.div>
+                            ))}
                         </AnimatePresence>
                     </div>
                 </div>
