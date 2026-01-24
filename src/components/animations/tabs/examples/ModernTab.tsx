@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";
 import { standardTabData } from "./animationTabData";
 
 const BASE_WIDTH = 300;
@@ -20,41 +21,22 @@ export default function ModernTab() {
     const values = tabs.map((tab) => tab.id);
     const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-    const moveFocus = (nextIndex: number) => {
-        const nextId = values[nextIndex];
-        setActive(nextId);
-        tabRefs.current[nextIndex]?.focus();
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>
-    ) => {
-        const currentIndex = values.indexOf(active);
-
-        if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-            e.preventDefault();
-            moveFocus((currentIndex + 1) % values.length);
-        }
-
-        if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-            e.preventDefault();
-            moveFocus(
-                (currentIndex - 1 + values.length) % values.length
-            );
-        }
-
-        if (e.key === " " || e.key === "Enter") {
-            e.preventDefault();
-        }
-    };
+    const { onKeyDown } = useRovingTabFocus({
+        values,
+        activeValue: active,
+        setActiveValue: setActive,
+        refs: tabRefs,
+    });
 
     return (
         <div ref={ref} className="w-full h-full">
             <motion.div className="w-full h-full flex justify-center items-center" animate={{scale}}>
-                <div className="max-w-150 aspect-video flex flex-col">
+                <div className="w-55 max-w-120 aspect-video flex flex-col">
                     {/* Tabs */}
                     <div
                         className="flex shrink-0 h-1/4 z-10"
                         style={{ marginBottom: OVERLAP }}
+                        role="tablist"
                     >
                         {tabs.map((tab, index) => {
                             const isActive = active === tab.id;
@@ -68,14 +50,12 @@ export default function ModernTab() {
                                     id={`tab-${tab.id}`}
                                     onClick={() => setActive(tab.id)}
                                     onPointerDown={() => setActive(tab.id)}
+                                    onKeyDown={onKeyDown}
                                     ref={(el) => {
                                         tabRefs.current[index] = el;
                                     }}
                                     tabIndex={isActive ? 0 : -1}
-                                    onKeyDown={(e) => handleKeyDown(e)}
-                                    className={`relative h-full w-1/4 flex-1 text-sm
-                                    ${isActive ? "bg-white z-20" : "bg-transparent z-10"}
-                                    `}
+                                    className={`relative h-full w-1/4 flex-1 text-sm ${isActive ? "bg-white z-20" : "bg-transparent z-10"}`}
                                     animate={{
                                         borderColor: isActive ? "rgba(0,0,0,1)" : "rgba(0,0,0,0)",
                                     }}
