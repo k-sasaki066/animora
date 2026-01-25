@@ -7,6 +7,7 @@ import SimpleTab from "./examples/SimpleTab";
 import SlideTab from "./examples/SlideTab";
 import MotionTab from "./examples/MotionTab";
 import BubbleSlideTab from "./examples/BubbleSlideTab";
+import FileTab from "./examples/FileTab";
 
 export const tabMap: Record<string, ComponentType> = {
     standardTab: StandardTab,
@@ -17,4 +18,5 @@ export const tabMap: Record<string, ComponentType> = {
     slideTab: SlideTab,
     motionTab: MotionTab,
     bubbleSlideTab: BubbleSlideTab,
+    fileTab: FileTab,
 };
