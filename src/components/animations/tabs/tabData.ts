@@ -30,4 +30,14 @@ export const tabData: TabItem[] = [
         title: "Simple Tab",
         previewText: "Simple Tab Example",
     },
+    {
+        key: "slideTab",
+        title: "Slide Tab",
+        previewText: "Slide Tab Example",
+    },
+    {
+        key: "motionTab",
+        title: "Motion Tab",
+        previewText: "Motion Tab Example",
+    },
 ];
