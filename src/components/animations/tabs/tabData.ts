@@ -45,4 +45,9 @@ export const tabData: TabItem[] = [
         title: "Bubble Slide Tab",
         previewText: "Bubble Slide Tab Example",
     },
+    {
+        key: "fileTab",
+        title: "File Tab",
+        previewText: "File Tab Example",
+    },
 ];

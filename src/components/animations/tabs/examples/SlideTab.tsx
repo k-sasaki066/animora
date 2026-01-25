@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";
