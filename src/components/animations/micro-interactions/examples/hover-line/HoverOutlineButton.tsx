@@ -23,22 +23,21 @@ export default function HoverOutlineButton() {
                     height="34"
                     rx="4"
                     stroke="#009FFD"
-                    strokeWidth="2"
+                    strokeWidth={2}
                     variants={{
                         initial: {
                             strokeDasharray: "85 400",
                             strokeDashoffset: -200,
                             stroke: "#009FFD",
-                            strokeWidth: 2,
                         },
                         hover: {
                             strokeDasharray: "50 0",
                             strokeDashoffset: 0,
                             stroke: "#06D6A0",
-                            strokeWidth: 1,
                             transition: { duration: 1, ease: "easeInOut" },
                         },
                     }}
+                    className="hover:stroke-[1]"
                 />
             </motion.svg>
 
