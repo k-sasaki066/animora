@@ -20,4 +20,29 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Rotate Hamburger",
         previewText: "Rotate Hamburger Example",
     },
+    {
+        key: "extractHamburger",
+        title: "Extract Hamburger",
+        previewText: "Extract Hamburger Example",
+    },
+    {
+        key: "resetCrossHamburger",
+        title: "Reset Cross Hamburger",
+        previewText: "Reset Cross Hamburger Example",
+    },
+    {
+        key: "arrowHamburger",
+        title: "Arrow Hamburger",
+        previewText: "Arrow Hamburger Example",
+    },
+    {
+        key: "rotateArrowHamburger",
+        title: "Rotate Arrow Hamburger",
+        previewText: "Rotate Arrow Hamburger Example",
+    },
+    {
+        key: "rotate90Hamburger",
+        title: "Rotate 90 Hamburger",
+        previewText: "Rotate 90 Hamburger Example",
+    },
 ];
