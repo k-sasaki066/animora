@@ -50,4 +50,9 @@ export const tabData: TabItem[] = [
         title: "File Tab",
         previewText: "File Tab Example",
     },
+    {
+        key: "scrollTab",
+        title: "Scroll Tab",
+        previewText: "Scroll Tab Example",
+    },
 ];
