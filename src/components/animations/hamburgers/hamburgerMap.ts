@@ -7,6 +7,8 @@ import ResetCrossHamburger from "./examples/ResetCrossHamburger";
 import ArrowHamburger from "./examples/ArrowHamburger";
 import RotateArrowHamburger from "./examples/RotateArrowHamburger";
 import Rotate90Hamburger from "./examples/Rotate90Hamburger";
+import CircleAppearHamburger from "./examples/CircleAppearHamburger";
+import LabelHamburger from "./examples/LabelHamburger";
 
 export const hamburgerMap: Record<string, ComponentType> = {
     standardHamburger: StandardHamburger,
@@ -17,4 +19,6 @@ export const hamburgerMap: Record<string, ComponentType> = {
     arrowHamburger: ArrowHamburger,
     rotateArrowHamburger: RotateArrowHamburger,
     rotate90Hamburger: Rotate90Hamburger,
+    circleAppearHamburger: CircleAppearHamburger,
+    labelHamburger: LabelHamburger,
 };

@@ -45,4 +45,14 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Rotate 90 Hamburger",
         previewText: "Rotate 90 Hamburger Example",
     },
+    {
+        key: "circleAppearHamburger",
+        title: "Circle Appear Hamburger",
+        previewText: "Circle Appear Hamburger Example",
+    },
+    {
+        key: "labelHamburger",
+        title: "Label Hamburger",
+        previewText: "Label Hamburger Example",
+    },
 ];
