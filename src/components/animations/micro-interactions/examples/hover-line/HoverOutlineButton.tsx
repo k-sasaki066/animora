@@ -37,7 +37,7 @@ export default function HoverOutlineButton() {
                             transition: { duration: 1, ease: "easeInOut" },
                         },
                     }}
-                    className="hover:stroke-[1]"
+                    className="hover:stroke-1"
                 />
             </motion.svg>
 
