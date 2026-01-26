@@ -13,6 +13,7 @@ import { BackgroundList } from "@/components/animations/backgrounds/BackgroundLi
 import { PartList } from "@/components/animations/animated-parts/PartList";
 import { ActionButtonList } from "@/components/animations/action-buttons/ActionButtonList";
 import { TabList } from "@/components/animations/tabs/TabList";
+import { HamburgerList } from "@/components/animations/hamburgers/HamburgerList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -116,6 +117,7 @@ export default function HomePage() {
                                     {selectedItem === "Animated-parts" && <PartList />}
                                     {selectedItem === "Action-buttons" && <ActionButtonList />}
                                     {selectedItem === "Tab" && <TabList />}
+                                    {selectedItem === "Hamburger" && <HamburgerList />}
                                 </div>
                             )}
                         </main>

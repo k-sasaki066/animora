@@ -25,6 +25,7 @@ export const accordionData: AccordionCategory[] = [
         { title: "Action Buttons", key: "Action-buttons", content: "Favorite / Late / Check / Toggle" },
         { title: "Slider", key: "Slider", content: "" },
         { title: "Tab", key: "Tab", content: "" },
+        { title: "Hamburger", key: "Hamburger", content: "" },
         { title: "Animated Parts", key: "Animated-parts",content: "SVG / CSS " },
         ],
     },
