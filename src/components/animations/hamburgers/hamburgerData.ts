@@ -55,4 +55,20 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Label Hamburger",
         previewText: "Label Hamburger Example",
     },
+    {
+        key: "dotsHamburger",
+        title: "Dots Hamburger",
+        previewText: "Dots Hamburger Example",
+    },
+    {
+        key: "iconHamburger",
+        title: "Icon Hamburger",
+        previewText: "Icon Hamburger Example",
+    },
+
+    {
+        key: "slideInHamburger",
+        title: "Slide In Hamburger",
+        previewText: "Slide In Hamburger Example",
+    },
 ];
