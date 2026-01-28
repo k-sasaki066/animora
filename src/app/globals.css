@@ -187,3 +187,37 @@
 .squiggly {
   animation: squiggly 0.34s linear infinite;
 }
+
+/* スクロールバー全体 */
+*::-webkit-scrollbar {
+  width: 3px;
+  /* 横スクロールバーの幅 */
+  height: 3px;
+  /* 縦スクロールバーの高さ */
+}
+
+/* スクロールバーのトラック（背景） */
+*::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+/* スクロールバーのつまみ（ドラッグできる部分） */
+*::-webkit-scrollbar-thumb {
+  background-color: #505252;
+  border-radius: 9999px;
+  border: 1px solid #1e293b;
+  /* トラックと分ける枠線 */
+}
+
+/* ホバー時のつまみ */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #505252;
+}
+
+/* Firefox 対応 */
+* {
+  scrollbar-width: thin;
+  /* auto / thin / none */
+  scrollbar-color: #505252 #1e293b;
+  /* thumb color / track color */
+}
