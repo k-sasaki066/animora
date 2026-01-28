@@ -81,4 +81,9 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Grid Overlay Hamburger",
         previewText: "Grid Overlay Hamburger Example",
     },
+    {
+        key: "circleSpreadHamburger",
+        title: "Circle Spread Hamburger",
+        previewText: "Circle Spread Hamburger Example",
+    },
 ];
