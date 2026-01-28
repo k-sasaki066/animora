@@ -139,7 +139,7 @@ export default function SlideInHamburger() {
     });
 
     return (
-        <div ref={ref} className="w-full h-full relative bg-[#4d4c4c] overflow-hidden">
+        <div ref={ref} className="w-full h-full relative bg-[#4d4c4c] overflow-hidden z-0">
             <motion.div
                 className="w-full h-full origin-top-right"
                 animate={{ scale: iconScale }}

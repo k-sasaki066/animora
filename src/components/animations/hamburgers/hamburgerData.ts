@@ -71,4 +71,14 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Slide In Hamburger",
         previewText: "Slide In Hamburger Example",
     },
+    {
+        key: "overlayHamburger",
+        title: "Overlay Hamburger",
+        previewText: "Overlay Hamburger Example",
+    },
+    {
+        key: "gridOverlayHamburger",
+        title: "Grid Overlay Hamburger",
+        previewText: "Grid Overlay Hamburger Example",
+    },
 ];
