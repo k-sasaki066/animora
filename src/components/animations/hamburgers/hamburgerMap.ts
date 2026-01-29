@@ -16,6 +16,8 @@ import SlideInHamburger from "./examples/SlideInHamburger";
 import OverlayHamburger from "./examples/overlay-hamburger/OverlayHamburger";
 import GridOverlayHamburger from "./examples/grid-overlay/GridOverlayHamburger";
 import CircleSpreadHamburger from "./examples/circle-spread/CircleSpreadHamburger";
+import YellowSlideHamburger from "./examples/yellow-slide/YellowSlideHamburger";
+import PushDownHamburger from "./examples/push-down/PushDownHamburger";
 
 export const hamburgerMap: Record<string, ComponentType> = {
     standardHamburger: StandardHamburger,
@@ -35,4 +37,6 @@ export const hamburgerMap: Record<string, ComponentType> = {
     overlayHamburger: OverlayHamburger,
     gridOverlayHamburger: GridOverlayHamburger,
     circleSpreadHamburger: CircleSpreadHamburger,
+    yellowSlideHamburger: YellowSlideHamburger,
+    pushDownHamburger: PushDownHamburger,
 };

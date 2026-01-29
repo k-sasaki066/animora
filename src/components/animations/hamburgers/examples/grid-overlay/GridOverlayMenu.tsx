@@ -112,7 +112,7 @@ export function GridOverlayMenu({
             transition={
                 reduce ? { duration: 0 } : { duration: 0.5 }
             }
-            className="absolute inset-0 w-full h-full z-90 bg-neutral-900 overflow-y-auto"
+            className="absolute inset-0 w-full h-full z-90 bg-neutral-900 overflow-y-auto no-scrollbar"
         >
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 justify-center items-start py-10 px-8">
                 {MENU_SECTIONS.map((section) => (

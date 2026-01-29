@@ -8,9 +8,9 @@ const BASE_WIDTH = 400;
 
 const images = [
     "https://picsum.photos/id/139/180/120",
-    'https://picsum.photos/id/155/180/120',
-    'https://picsum.photos/id/537/180/120',
-    'https://picsum.photos/id/526/180/120',
+    "https://picsum.photos/id/155/180/120",
+    "https://picsum.photos/id/537/180/120",
+    "https://picsum.photos/id/526/180/120",
 ];
 
 export default function CardCheck() {

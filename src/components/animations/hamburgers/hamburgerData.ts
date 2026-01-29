@@ -86,4 +86,14 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Circle Spread Hamburger",
         previewText: "Circle Spread Hamburger Example",
     },
+    {
+        key: "yellowSlideHamburger",
+        title: "Yellow Slide Hamburger",
+        previewText: "Yellow Slide Hamburger Example",
+    },
+    {
+        key: "pushDownHamburger",
+        title: "Push Down Hamburger",
+        previewText: "Push Down Hamburger Example",
+    },
 ];

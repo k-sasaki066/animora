@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-type UseRovingTabFocusArgs<T extends number | string> = {
+type UseRovingTabFocusArgs<T> = {
     values: T[];
     activeValue: T;
     setActiveValue: (value: T) => void;
@@ -8,7 +8,7 @@ type UseRovingTabFocusArgs<T extends number | string> = {
     onActivate?: (value: T) => void;
 };
 
-export function useRovingTabFocus<T extends number | string>({
+export function useRovingTabFocus<T>({
     values,
     activeValue,
     setActiveValue,
