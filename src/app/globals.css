@@ -221,3 +221,18 @@
   scrollbar-color: #505252 #1e293b;
   /* thumb color / track color */
 }
+
+.no-scrollbar {
+  overflow: auto;
+  /* スクロール可能にしたい場合 */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Edge */
+}
