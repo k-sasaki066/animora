@@ -112,7 +112,7 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, Props>(({ isOpen, s
                     aria-label={isOpen ? "Close menu":"Open menu"}
                     aria-expanded={isOpen}
                     aria-controls="global-navigation"
-                    className="absolute top-[5%] left-[3%] w-8 h-7 bg-none border-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#eee] focus-visible:ring-offset-2"
+                    className="absolute top-[5%] left-[3%] w-8 h-7 bg-none border-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#eee]"
                 >
                     {lines.map(line => (
                         <motion.span
@@ -128,3 +128,4 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, Props>(({ isOpen, s
         </div>
     );
 });
+HamburgerButton.displayName = "HamburgerButton";

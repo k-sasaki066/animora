@@ -12,7 +12,7 @@ import LabelHamburger from "./examples/LabelHamburger";
 import DotsHamburger from "./examples/DotsHamburger";
 import IconHamburger from "./examples/IconHamburger";
 
-import SlideInHamburger from "./examples/SlideInHamburger";
+import SlideInHamburger from "./examples/slide-in/SlideInHamburger";
 import OverlayHamburger from "./examples/overlay-hamburger/OverlayHamburger";
 import GridOverlayHamburger from "./examples/grid-overlay/GridOverlayHamburger";
 import CircleSpreadHamburger from "./examples/circle-spread/CircleSpreadHamburger";

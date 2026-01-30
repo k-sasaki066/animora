@@ -24,8 +24,6 @@ type Props = {
     menuWidth: number;
 };
 
-
-
 export const DeepNaviMenu = forwardRef<HTMLElement, Props>(
     ({ isOpen, activeIndex, expandedIndex, setExpandedIndex, itemRefs, childRefs, onKeyDown, onChildKeyDown, onClose, isDesktop, menuWidth }, ref) => {
         const shouldReduceMotion = useReducedMotion();
@@ -160,3 +158,4 @@ export const DeepNaviMenu = forwardRef<HTMLElement, Props>(
         );
     }
 );
+DeepNaviMenu.displayName = "DeepNaviMenu";

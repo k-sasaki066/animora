@@ -109,3 +109,4 @@ export const OverlayMenu = forwardRef<HTMLElement, OverlayMenuProps>(
         );
     }
 );
+OverlayMenu.displayName = "OverlayMenu";
