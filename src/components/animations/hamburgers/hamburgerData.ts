@@ -96,4 +96,9 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Push Down Hamburger",
         previewText: "Push Down Hamburger Example",
     },
+    {
+        key: "deepNaviHamburger",
+        title: "Deep Navi Hamburger",
+        previewText: "Deep Navi Hamburger Example",
+    },
 ];

@@ -6,6 +6,7 @@ type UseRovingTabFocusArgs<T> = {
     setActiveValue: (value: T) => void;
     refs: React.RefObject<(HTMLElement | null)[]>;
     onActivate?: (value: T) => void;
+    onExpand?: (value: T) => void;
 };
 
 export function useRovingTabFocus<T>({
@@ -14,6 +15,7 @@ export function useRovingTabFocus<T>({
     setActiveValue,
     refs,
     onActivate,
+    onExpand
 }: UseRovingTabFocusArgs<T>) {
     const moveFocus = useCallback(
         (nextIndex: number) => {
@@ -48,7 +50,11 @@ export function useRovingTabFocus<T>({
                 case "Enter":
                 case " ":
                     e.preventDefault();
-                    if (onActivate) onActivate(activeValue);
+                    if (onExpand) {
+                        onExpand(activeValue);
+                    } else if (onActivate) {
+                        onActivate(activeValue);
+                    }
                 break;
             }
         },
