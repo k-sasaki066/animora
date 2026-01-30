@@ -55,7 +55,7 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, Props>(
                         }}
                         onKeyDown={handleKeyDown}
                         onPointerDown={handlePointerDown}
-                        className="relative w-full h-full bg-transparent cursor-pointer"
+                        className="relative w-full h-full bg-transparent cursor-pointer touch-manipulation focus-visible:outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#eee]"
                     >
                         {HAMBURGER_LINES.map((line) => (
                             <motion.span
@@ -71,3 +71,4 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, Props>(
         );
     }
 );
+HamburgerButton.displayName = "HamburgerButton";

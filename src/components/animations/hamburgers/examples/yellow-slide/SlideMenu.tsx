@@ -32,7 +32,7 @@ export const SlideMenu = forwardRef<HTMLElement, Props>(
                 id="global-navigation"
                 role="navigation"
                 aria-label="メインメニュー"
-                aria-hidden={!isOpen}
+                hidden={!isOpen}
                 initial={false}
                 animate={{
                     width: isOpen ? "100%" : 0,
@@ -84,3 +84,4 @@ export const SlideMenu = forwardRef<HTMLElement, Props>(
         );
     }
 );
+SlideMenu.displayName = "SlideMenu";

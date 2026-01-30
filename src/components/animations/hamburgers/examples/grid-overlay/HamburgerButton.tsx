@@ -98,3 +98,4 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, Props>(
         );
     }
 );
+HamburgerButton.displayName = "HamburgerButtonu";

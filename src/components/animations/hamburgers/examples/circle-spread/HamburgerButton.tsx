@@ -39,7 +39,7 @@ export const HamburgerButton = forwardRef<HTMLButtonElement, Props>(
                             ? { duration: 0 }
                             : { duration: 0.4, ease: "easeInOut" }
                         }
-                        className="absolute top-[5%] left-[3%] w-8 h-7 flex flex-col justify-between items-center"
+                        className="absolute top-[5%] left-[3%] w-8 h-7 flex flex-col justify-between items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cfcece] focus-visible:ring-offset-3 focus-visible:ring-offset-[#f2f0f0]"
                     >
                         {HAMBURGER_LINES.map((line) => (
                             <motion.span
