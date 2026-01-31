@@ -11,6 +11,7 @@ import CircleAppearHamburger from "./examples/CircleAppearHamburger";
 import LabelHamburger from "./examples/LabelHamburger";
 import DotsHamburger from "./examples/DotsHamburger";
 import IconHamburger from "./examples/IconHamburger";
+import ElasticMorphHamburger from "./examples/ElasticMorphHamburger";
 
 import SlideInHamburger from "./examples/slide-in/SlideInHamburger";
 import OverlayHamburger from "./examples/overlay-hamburger/OverlayHamburger";
@@ -19,6 +20,7 @@ import CircleSpreadHamburger from "./examples/circle-spread/CircleSpreadHamburge
 import YellowSlideHamburger from "./examples/yellow-slide/YellowSlideHamburger";
 import PushDownHamburger from "./examples/push-down/PushDownHamburger";
 import DeepNaviHamburger from "./examples/deep-navi/DeepNaviHamburger";
+import CurtainRevealHamburger from "./examples/curtain-reveal/CurtainRevealHamburger";
 
 export const hamburgerMap: Record<string, ComponentType> = {
     standardHamburger: StandardHamburger,
@@ -33,6 +35,7 @@ export const hamburgerMap: Record<string, ComponentType> = {
     labelHamburger: LabelHamburger,
     dotsHamburger: DotsHamburger,
     iconHamburger: IconHamburger,
+    elasticMorphHamburger: ElasticMorphHamburger,
 
     slideInHamburger: SlideInHamburger,
     overlayHamburger: OverlayHamburger,
@@ -41,4 +44,5 @@ export const hamburgerMap: Record<string, ComponentType> = {
     yellowSlideHamburger: YellowSlideHamburger,
     pushDownHamburger: PushDownHamburger,
     deepNaviHamburger: DeepNaviHamburger,
+    curtainRevealHamburger: CurtainRevealHamburger,
 };

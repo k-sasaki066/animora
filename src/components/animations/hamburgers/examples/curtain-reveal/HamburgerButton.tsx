@@ -1,0 +1,55 @@
+"use client";
+
+import { forwardRef } from "react";
+import { motion } from "framer-motion";
+import { HAMBURGER_LINES } from "./constants";
+
+type Props = {
+    isOpen: boolean;
+    scale: number;
+    onToggle: () => void;
+    shouldReduceMotion: boolean;
+};
+
+export const HamburgerButton = forwardRef<HTMLButtonElement, Props>(
+    ({ isOpen, scale, onToggle, shouldReduceMotion }, ref) => {
+
+        return (
+            <motion.div className="absolute top-[6%] right-[4%] w-8 h-5 z-100">
+                <motion.div
+                    className="w-full h-full origin-top-right"
+                    animate={{ scale }}
+                    transition={
+                        shouldReduceMotion
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 200, damping: 20 }
+                    }
+                >
+                    <button
+                        type="button"
+                        onClick={onToggle}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        aria-controls="global-navigation"
+                        aria-expanded={isOpen}
+                        aria-haspopup="menu"
+                        className="absolute top-[6%] right-[4%] w-8 h-5 z-100 cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#eee]"
+                    >
+                        {HAMBURGER_LINES.map((line) => (
+                            <motion.span
+                                key={line.key}
+                                className={`absolute left-0 w-full h-0.5 bg-white ${line.className}`}
+                                animate={line.animate(isOpen)}
+                                transition={
+                                    shouldReduceMotion
+                                        ? { duration: 0 }
+                                        : { duration: 0.4, ease: "easeInOut" }
+                                }
+                            />
+                        ))}
+                    </button>
+                </motion.div>
+            </motion.div>
+        );
+    }
+);
+HamburgerButton.displayName = "HamburgerButton";

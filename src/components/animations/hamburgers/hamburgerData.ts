@@ -65,6 +65,11 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Icon Hamburger",
         previewText: "Icon Hamburger Example",
     },
+    {
+        key: "elasticMorphHamburger",
+        title: "Elastic Morph Hamburger",
+        previewText: "Elastic Morph Hamburger Example",
+    },
 
     {
         key: "slideInHamburger",
@@ -100,5 +105,10 @@ export const hamburgerData: HamburgerItem[] = [
         key: "deepNaviHamburger",
         title: "Deep Navi Hamburger",
         previewText: "Deep Navi Hamburger Example",
+    },
+    {
+        key: "curtainRevealHamburger",
+        title: "Curtain Reveal Hamburger",
+        previewText: "Curtain Reveal Hamburger Example",
     },
 ];
