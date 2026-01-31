@@ -116,4 +116,9 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Exploding Hamburger",
         previewText: "Exploding Hamburger Example",
     },
+    {
+        key: "orbitHamburger",
+        title: "Orbit Hamburger",
+        previewText: "Orbit Hamburger Example",
+    },
 ];

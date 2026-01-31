@@ -22,6 +22,7 @@ import PushDownHamburger from "./examples/push-down/PushDownHamburger";
 import DeepNaviHamburger from "./examples/deep-navi/DeepNaviHamburger";
 import CurtainRevealHamburger from "./examples/curtain-reveal/CurtainRevealHamburger";
 import ExplodingHamburger from "./examples/exploding/ExplodingHamburger";
+import OrbitHamburger from "./examples/orbit/OrbitHamburger";
 
 export const hamburgerMap: Record<string, ComponentType> = {
     standardHamburger: StandardHamburger,
@@ -47,4 +48,5 @@ export const hamburgerMap: Record<string, ComponentType> = {
     deepNaviHamburger: DeepNaviHamburger,
     curtainRevealHamburger: CurtainRevealHamburger,
     explodingHamburger: ExplodingHamburger,
+    orbitHamburger: OrbitHamburger,
 };
