@@ -14,6 +14,7 @@ import { PartList } from "@/components/animations/animated-parts/PartList";
 import { ActionButtonList } from "@/components/animations/action-buttons/ActionButtonList";
 import { TabList } from "@/components/animations/tabs/TabList";
 import { HamburgerList } from "@/components/animations/hamburgers/HamburgerList";
+import { MenuList } from "@/components/animations/menus/MenuList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -118,6 +119,7 @@ export default function HomePage() {
                                     {selectedItem === "Action-buttons" && <ActionButtonList />}
                                     {selectedItem === "Tab" && <TabList />}
                                     {selectedItem === "Hamburger" && <HamburgerList />}
+                                    {selectedItem === "Menu" && <MenuList />}
                                 </div>
                             )}
                         </main>
