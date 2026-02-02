@@ -26,6 +26,7 @@ export const accordionData: AccordionCategory[] = [
         { title: "Slider", key: "Slider", content: "" },
         { title: "Tab", key: "Tab", content: "" },
         { title: "Hamburger", key: "Hamburger", content: "" },
+        { title: "Menu", key: "Menu", content: "" },
         { title: "Animated Parts", key: "Animated-parts",content: "SVG / CSS " },
         ],
     },
