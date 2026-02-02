@@ -10,4 +10,9 @@ export const menuData: MenuItem[] = [
         title: "Center Accordion Menu",
         previewText: "Center Accordion Menu Example",
     },
+    {
+        key: "circleMenu",
+        title: "Circle Menu",
+        previewText: "Circle Menu Example",
+    },
 ];
