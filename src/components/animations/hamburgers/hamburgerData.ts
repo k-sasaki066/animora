@@ -121,4 +121,9 @@ export const hamburgerData: HamburgerItem[] = [
         title: "Orbit Hamburger",
         previewText: "Orbit Hamburger Example",
     },
+    {
+        key: "blurHamburger",
+        title: "Blur Hamburger",
+        previewText: "Blur Hamburger Example",
+    },
 ];
