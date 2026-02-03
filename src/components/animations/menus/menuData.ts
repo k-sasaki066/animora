@@ -15,4 +15,14 @@ export const menuData: MenuItem[] = [
         title: "Circle Menu",
         previewText: "Circle Menu Example",
     },
+    {
+        key: "speechBubbleMenu",
+        title: "Speech Bubble Menu",
+        previewText: "Speech Bubble Menu Example",
+    },
+    {
+        key: "foldingMenu",
+        title: "Folding Menu",
+        previewText: "Folding Menu Example",
+    },
 ];

@@ -1,102 +1,20 @@
 "use client";
 
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { useState, useRef } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { ChevronDown } from "lucide-react";
-
-const BASE_WIDTH = 450;
-
-type MenuItem = {
-    title: string;
-    items: string[];
-};
-
-const menu: MenuItem[] = [
-    {
-        title: "History",
-        items: ["History book 1", "History book 2", "History book 3"],
-    },
-    {
-        title: "Fiction",
-        items: ["Fiction book 1", "Fiction book 2", "Fiction book 3"],
-    },
-    {
-        title: "Fantasy",
-        items: ["Fantasy book 1", "Fantasy book 2", "Fantasy book 3"],
-    },
-    {
-        title: "Action",
-        items: ["Action book 1", "Action book 2", "Action book 3"],
-    },
-];
+import { BASE_WIDTH, MENU_ITEMS } from "./constants";
+import { useCenterAccordionMenu } from "./useCenterAccordionMenu";
 
 export default function CenterAccordionMenu() {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
-    const [activeItemIndex, setActiveItemIndex] = useState(0);
-
     const { ref, width } = useContainerSize<HTMLDivElement>();
     const scale = width
         ? Math.min(Math.max(width / BASE_WIDTH, 0.6), 1)
         : 1;
 
-    const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
-    const itemRefs = useRef<(HTMLAnchorElement | null)[][]>([]);
+    const { openIndex, activeItemIndex, buttonRefs, itemRefs, toggle, close, onItemKeyDown } = useCenterAccordionMenu();
 
     const reduce = useReducedMotion();
-
-    const toggle = (index: number): void => {
-        if (openIndex === index) {
-            setOpenIndex(null);
-            return;
-        }
-
-        setOpenIndex(index);
-        setActiveItemIndex(0);
-
-        requestAnimationFrame(() => {
-            itemRefs.current[index]?.[0]?.focus();
-        });
-    };
-
-    const close = (index: number): void => {
-        setOpenIndex(null);
-
-        requestAnimationFrame(() => {
-            buttonRefs.current[index]?.focus();
-        });
-    };
-
-    const onItemKeyDown = (
-        e: React.KeyboardEvent,
-        sectionIndex: number,
-        itemIndex: number
-    ): void => {
-        const items = menu[sectionIndex].items;
-
-        switch (e.key) {
-            case "ArrowRight":
-            case "ArrowDown":
-            e.preventDefault();
-            const next = (itemIndex + 1) % items.length;
-            setActiveItemIndex(next);
-            itemRefs.current[sectionIndex]?.[next]?.focus();
-            break;
-
-        case "ArrowLeft":
-        case "ArrowUp":
-            e.preventDefault();
-            const prev = (itemIndex - 1 + items.length) % items.length;
-            setActiveItemIndex(prev);
-            itemRefs.current[sectionIndex]?.[prev]?.focus();
-            break;
-
-        case "Escape":
-            e.preventDefault();
-            close(sectionIndex);
-            break;
-        }
-    };
 
     return (
         <div
@@ -110,12 +28,15 @@ export default function CenterAccordionMenu() {
             <motion.div className="w-full h-full origin-top" animate={{scale}}>
                 <div className="mx-auto w-full max-w-sm rounded bg-white shadow">
                     <ul>
-                        {menu.map((section, index) => {
+                        {MENU_ITEMS.map((section, index) => {
                             const isOpen = openIndex === index;
                             const contentId = `menu-panel-${index}`;
 
                             return (
-                                <li key={section.title} className="border-b last:border-b-0">
+                                <li
+                                    key={section.title}
+                                    className="border-b last:border-b-0"
+                                >
                                     {/* Header */}
                                     <button
                                         type="button"
