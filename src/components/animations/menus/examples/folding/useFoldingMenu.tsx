@@ -1,15 +1,22 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useReducedMotion } from "framer-motion";
 import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";
 import { MENUS } from "./constants";
 
 export function useFoldingMenu() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const menuButtonRefs = useRef<HTMLButtonElement[]>([]);
     const menuItemRefs = useRef<HTMLAnchorElement[][]>([]);
+
+    const prefersReducedMotion = useReducedMotion();
+    const reduce = prefersReducedMotion ?? false;
+
+    const toggleMobileMenu = () => setMobileOpen(prev => !prev);
 
     const { onKeyDown: onMenuKeyDown } = useRovingTabFocus({
         values: MENUS.map((_, i) => i),
@@ -74,5 +81,5 @@ export function useFoldingMenu() {
         }
     };
 
-    return { openIndex, setOpenIndex, menuButtonRefs, menuItemRefs, onMenuKeyDown, onMenuItemKeyDown };
+    return { openIndex, setOpenIndex, menuButtonRefs, menuItemRefs, onMenuKeyDown, onMenuItemKeyDown, reduce, mobileOpen, setMobileOpen, toggleMobileMenu };
 }

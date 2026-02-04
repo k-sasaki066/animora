@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useReducedMotion } from "framer-motion";
 import { MENU_ITEMS } from "./constants";
 
 export function useSpeechBubbleMenu() {
@@ -8,6 +9,12 @@ export function useSpeechBubbleMenu() {
     const [hovered, setHovered] = useState<string | null>(null);
     const itemRefs = useRef<(HTMLElement | null)[]>([]);
     const navRef = useRef<HTMLUListElement | null>(null);
+
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
+
+    const prefersReducedMotion = useReducedMotion();
+    const reduce = prefersReducedMotion ?? false;
 
     useEffect(() => {
         const onDocPointerDown = (e: MouseEvent) => {
@@ -64,5 +71,18 @@ export function useSpeechBubbleMenu() {
         }
     };
 
-    return { openMenu, setOpenMenu, hovered, setHovered, itemRefs, navRef, toggle, onTopItemKeyDown };
+    return {
+        openMenu,
+        setOpenMenu,
+        hovered,
+        setHovered,
+        itemRefs,
+        navRef,
+        toggle,
+        onTopItemKeyDown,
+        isMobileMenuOpen,
+        setMobileMenuOpen,
+        toggleMobileMenu,
+        reduce
+    };
 }
