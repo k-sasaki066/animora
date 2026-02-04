@@ -11,7 +11,7 @@ interface Props {
 export function MenuModal({ animationKey, onClose }: Props) {
     return (
         <Dialog open={!!animationKey} onOpenChange={onClose}>
-            <DialogContent className="pt-8 max-w-3xl w-[80%]  overflow-x-auto no-scrollbar">
+            <DialogContent className="pt-8 max-w-3xl w-[80%] overflow-hidden">
                 <DialogHeader>
                     <DialogTitle>
                         {animationKey ?? "LoadingPreview"}

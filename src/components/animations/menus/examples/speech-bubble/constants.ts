@@ -20,7 +20,47 @@ export const MENU_ITEMS: MenuItem[] = [
         link: "#"
     },
     {
+        label: "Services",
+        link: "#"
+    },
+    {
         label: "More",
         submenu: ["About", "Contact", "---", "Support", "FAQs"],
+    },
+];
+
+type LineConfig = {
+    key: string;
+    className: string;
+    animate: (isOpen: boolean) => {
+        y?: number;
+        rotate?: number;
+        opacity?: number;
+    };
+};
+
+export const LINES: LineConfig[] = [
+    {
+        key: "top",
+        className: "top-0",
+        animate: (isOpen) => ({
+            y: isOpen ? 9 : 0,
+            rotate: isOpen ? -45 : 0,
+        }),
+    },
+    {
+        key: "middle",
+        className: "top-[9px]",
+        animate: (isOpen) => ({
+            opacity: isOpen ? 0 : 1,
+        }),
+    },
+    {
+        key: "bottom",
+        className: "bottom-0",
+        animate: (isOpen) => ({
+            y: isOpen ? -9 : 0,
+            rotate: isOpen ? 45 : 0,
+        }),
     },
 ];

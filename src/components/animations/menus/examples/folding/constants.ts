@@ -33,3 +33,50 @@ export const MENUS: MenuData[] = [
         items: ["Godzilla", "Man on Wire", "Spirited Away", "Interstellar"],
     },
 ];
+
+type LineConfig = {
+    key: string;
+    className: string;
+    animate: (isOpen: boolean) => {
+        width?: number;
+        x?: number | string;
+        y?: number;
+        rotate?: number;
+        opacity?: number;
+        scaleY?: number;
+        backgroundColor?: string;
+    };
+};
+
+export const LINES: LineConfig[] = [
+    {
+        key: "top",
+        className: "top-0",
+        animate: (isOpen) => ({
+            width: isOpen ? 20 : 32,
+            x: isOpen ? -5 : 0,
+            y: isOpen ? 3 : 0,
+            rotate: isOpen ? -45 : 0,
+            backgroundColor: isOpen ? "#000" : "#FFF",
+        }),
+    },
+    {
+        key: "middle",
+        className: "top-[9px]",
+        animate: (isOpen) => ({
+            opacity: isOpen ? 1 : 1,
+            backgroundColor: isOpen ? "#000" : "#FFF",
+        }),
+    },
+    {
+        key: "bottom",
+        className: "bottom-0",
+        animate: (isOpen) => ({
+            width: isOpen ? 20 : 32,
+            x: isOpen ? -5 : 0,
+            y: isOpen ? -3 : 0,
+            rotate: isOpen ? 45 : 0,
+            backgroundColor: isOpen ? "#000" : "#FFF",
+        }),
+    },
+];
