@@ -25,4 +25,9 @@ export const menuData: MenuItem[] = [
         title: "Folding Menu",
         previewText: "Folding Menu Example",
     },
+    {
+        key: "collapsibleMenu",
+        title: "Collapsible Menu",
+        previewText: "Collapsible Menu Example",
+    },
 ];
