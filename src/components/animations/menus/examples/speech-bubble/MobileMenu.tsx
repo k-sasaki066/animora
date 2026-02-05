@@ -150,3 +150,4 @@ export const MobileMenu = forwardRef<HTMLElement, Props>(
         );
     }
 );
+MobileMenu.displayName = "MobileMenu";

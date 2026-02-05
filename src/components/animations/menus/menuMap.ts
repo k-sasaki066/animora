@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import CenterAccordionMenu from "./examples/center-accordion/CenterAccordionMenu";
+import FaqAccordionMenu from "./examples/faq/FaqAccordionMenu";
 import CircleMenu from "./examples/CircleMenu";
 import SpeechBubbleMenu from "./examples/speech-bubble/SpeechBubbleMenu";
 import FoldingMenu from "./examples/folding/FoldingMenu";
@@ -13,4 +14,5 @@ export const menuMap: Record<string, ComponentType> = {
     foldingMenu: FoldingMenu,
     collapsibleMenu: CollapsibleMenu,
     activeRailMenu: ActiveRailMenu,
+    faqAccordionMenu: FaqAccordionMenu,
 };

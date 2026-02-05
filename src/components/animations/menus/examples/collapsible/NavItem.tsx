@@ -47,3 +47,4 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
         );
     }
 );
+NavItem.displayName = "NavItem";
