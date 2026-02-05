@@ -30,4 +30,9 @@ export const menuData: MenuItem[] = [
         title: "Collapsible Menu",
         previewText: "Collapsible Menu Example",
     },
+    {
+        key: "activeRailMenu",
+        title: "Active Rail Menu",
+        previewText: "Active Rail Menu Example",
+    },
 ];
