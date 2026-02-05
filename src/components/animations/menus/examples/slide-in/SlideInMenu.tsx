@@ -50,7 +50,7 @@ export const SlideInMenu = forwardRef<HTMLElement, Props>(
                                     <motion.a
                                         href="#"
                                         role="menuitem"
-                                        className="block py-3 text-sm text-gray-800 font-semibold border-b border-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#eee] focus-visible:text-[#ffafbd]"
+                                        className="block py-3 text-sm text-[#1e2939] font-semibold border-b border-[#e5e7eb] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#eee] focus-visible:text-[#ffafbd]"
                                         whileHover={{ color: "#ffafbd" }}
                                         ref={(el) => {
                                             itemRefs.current[i] = el;
