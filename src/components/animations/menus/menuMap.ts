@@ -4,6 +4,7 @@ import CircleMenu from "./examples/CircleMenu";
 import SpeechBubbleMenu from "./examples/speech-bubble/SpeechBubbleMenu";
 import FoldingMenu from "./examples/folding/FoldingMenu";
 import CollapsibleMenu from "./examples/collapsible/CollapsibleMenu";
+import ActiveRailMenu from "./examples/active-rail/ActiveRailMenu";
 
 export const menuMap: Record<string, ComponentType> = {
     centerAccordionMenu: CenterAccordionMenu,
@@ -11,4 +12,5 @@ export const menuMap: Record<string, ComponentType> = {
     speechBubbleMenu: SpeechBubbleMenu,
     foldingMenu: FoldingMenu,
     collapsibleMenu: CollapsibleMenu,
+    activeRailMenu: ActiveRailMenu,
 };
