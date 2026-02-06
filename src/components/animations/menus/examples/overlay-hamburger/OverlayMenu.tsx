@@ -2,29 +2,20 @@
 
 import { motion, Variants, useReducedMotion } from "framer-motion";
 import { NAV_MENUS } from "./constants";
-import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";
 import { forwardRef } from "react";
 
 export type OverlayMenuProps = {
     isOpen: boolean;
     scale: number;
     activeMenu: (typeof NAV_MENUS)[number];
-    setActiveMenu: React.Dispatch<React.SetStateAction<(typeof NAV_MENUS)[number]>>;
     itemRefs: React.RefObject<(HTMLAnchorElement | null)[]>;
     onClose: () => void;
+    onKeyDown: (e: React.KeyboardEvent) => void;
 };
 
 export const OverlayMenu = forwardRef<HTMLElement, OverlayMenuProps>(
-    ({ isOpen, scale, activeMenu, setActiveMenu, itemRefs, onClose }, ref) => {
+    ({ isOpen, scale, activeMenu, itemRefs, onClose, onKeyDown, }, ref) => {
         const reduce = useReducedMotion();
-
-        const { onKeyDown } = useRovingTabFocus({
-            values: [...NAV_MENUS],
-            activeValue: activeMenu,
-            setActiveValue: setActiveMenu,
-            refs: itemRefs,
-            onActivate: onClose,
-        });
 
         const overlayVariants: Variants = {
             closed: {
@@ -66,7 +57,11 @@ export const OverlayMenu = forwardRef<HTMLElement, OverlayMenuProps>(
                 initial="closed"
                 animate={isOpen ? "open" : "closed"}
                 variants={overlayVariants}
-                transition={reduce ? { duration: 0 } : { duration: 0.6 }}
+                transition={
+                    reduce
+                        ? { duration: 0 }
+                        : { duration: 0.6 }
+                }
                 className="absolute inset-0 z-90 bg-black/75"
             >
                 <div className="flex justify-center items-center h-full pointer-events-auto">
@@ -85,7 +80,7 @@ export const OverlayMenu = forwardRef<HTMLElement, OverlayMenuProps>(
                                 <a
                                     href="#"
                                     ref={(el) => {
-                                        itemRefs.current[i] = el as HTMLAnchorElement | null;
+                                        itemRefs.current[i] = el;
                                     }}
                                     tabIndex={activeMenu === label ? 0 : -1}
                                     role="menuitem"

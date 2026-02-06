@@ -15,12 +15,13 @@ export default function OverlayHamburger() {
     const {
         isOpen,
         activeMenu,
-        setActiveMenu,
         buttonRef,
         navRef,
         itemRefs,
         toggle,
         close,
+        onKeyDown,
+        openWithKeyboard
     } = useOverlayMenu();
 
     return (
@@ -30,6 +31,7 @@ export default function OverlayHamburger() {
                 isOpen={isOpen}
                 scale={scale}
                 onToggle={toggle}
+                openWithKeyboard={openWithKeyboard}
             />
 
             <OverlayMenu
@@ -37,9 +39,9 @@ export default function OverlayHamburger() {
                 isOpen={isOpen}
                 scale={scale}
                 activeMenu={activeMenu}
-                setActiveMenu={setActiveMenu}
                 itemRefs={itemRefs}
                 onClose={close}
+                onKeyDown={onKeyDown}
             />
         </div>
     );
