@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NAV_MENUS } from "./constants";
-
+import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";
 
 //Overlay メニューの状態・操作をまとめた hook
 export function useOverlayMenu() {
@@ -8,6 +8,7 @@ export function useOverlayMenu() {
     const [activeMenu, setActiveMenu] = useState<(typeof NAV_MENUS)[number]>(
         NAV_MENUS[0]
     );
+    const [openByKeyboard, setOpenByKeyboard] = useState(false);
 
     const buttonRef = useRef<HTMLButtonElement | null>(null);
     const navRef = useRef<HTMLElement | null>(null);
@@ -15,7 +16,14 @@ export function useOverlayMenu() {
 
     /** メニュー開閉 */
     const toggle = () => {
+        setOpenByKeyboard(false);
         setIsOpen((prev) => !prev);
+    };
+
+    /** メニュー開閉（キーボード） */
+    const openWithKeyboard = () => {
+        setOpenByKeyboard(true);
+        setIsOpen(true);
     };
 
     /** メニューを閉じる */
@@ -46,27 +54,32 @@ export function useOverlayMenu() {
     /** メニューオープン時の初期フォーカス */
     useEffect(() => {
         if (!isOpen) return;
+        if (!openByKeyboard) return;
 
         const index = NAV_MENUS.indexOf(activeMenu);
         const target =
         itemRefs.current[index] ?? itemRefs.current[0];
 
         target?.focus();
-    }, [isOpen, activeMenu]);
+    }, [isOpen, activeMenu, openByKeyboard]);
+
+    const { onKeyDown } = useRovingTabFocus({
+        values: [...NAV_MENUS],
+        activeValue: activeMenu,
+        setActiveValue: setActiveMenu,
+        refs: itemRefs,
+        onActivate: close,
+    });
 
     return {
-        // state
         isOpen,
         activeMenu,
-        setActiveMenu,
-
-        // refs
         buttonRef,
         navRef,
         itemRefs,
-
-        // actions
         toggle,
         close,
+        onKeyDown,
+        openWithKeyboard,
     };
 }
