@@ -1,6 +1,10 @@
 import type { ComponentType } from "react";
-import FloatingLabelInput from "./examples/input/FloatingLabelInput";
+import FloatingLabelInput from "./examples/input/floating-label/FloatingLabelInput";
+import LiftedLabelInput from "./examples/input/lifted-label/LiftedLabelInput";
+import SoftDropSelect from "./examples/select/soft-drop/SoftDropSelect";
 
 export const formPartMap: Record<string, ComponentType> = {
     floatingLabel: FloatingLabelInput,
+    liftedLabel: LiftedLabelInput,
+    softDropSelect: SoftDropSelect,
 };

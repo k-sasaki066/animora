@@ -7,7 +7,17 @@ export interface FormPartItem {
 export const formPartData: FormPartItem[] = [
     {
         key: "floatingLabel",
-        title: "floating Label",
-        previewText: "floating Label Example",
+        title: "Floating Label",
+        previewText: "Floating Label Example",
+    },
+    {
+        key: "liftedLabel",
+        title: "Lifted Label",
+        previewText: "Lifted Label Example",
+    },
+    {
+        key: "softDropSelect",
+        title: "Soft Drop Select",
+        previewText: "Soft Drop Select Example",
     },
 ];
