@@ -20,4 +20,9 @@ export const formPartData: FormPartItem[] = [
         title: "Soft Drop Select",
         previewText: "Soft Drop Select Example",
     },
+    {
+        key: "multiSelect",
+        title: "Multi Select",
+        previewText: "Multi Select Example",
+    },
 ];
