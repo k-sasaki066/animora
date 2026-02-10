@@ -17,19 +17,6 @@ import SplatterButton from "./examples/splatter/SplatterButton";
 import AddMenuButton from "./examples/AddMenuButton";
 import NeumorphismButton from "./examples/NeumorphismButton";
 
-import RadioSlideButton from "./examples/radios/RadioSlideButton";
-import PopRadioButton from "./examples/radios/PopRadioButton";
-import ColorChangeRadio from "./examples/radios/ColorChangeRadio";
-import RippleRadio from "./examples/radios/RippleRadio";
-import SegmentedControlRadio from "./examples/radios/SegmentedControlRadio";
-import IconRadio from "./examples/radios/IconRadio";
-
-import FoldCheck from "./examples/checkboxes/FoldCheck";
-import SimpleCheck from "./examples/checkboxes/SimpleCheck";
-import ColorfulCheck from "./examples/checkboxes/ColorfulCheck";
-import CardCheck from "./examples/checkboxes/CardCheck";
-import PencilCheck from "./examples/checkboxes/PencilCheck";
-
 import RotateToggle from "./examples/toggles/RotateToggle";
 import SlideToggle from "./examples/toggles/SlideToggle";
 import CircleExpandToggle from "./examples/toggles/CircleExpandToggle";
@@ -41,10 +28,6 @@ import MorphingToggle from "./examples/toggles/MorphingToggle";
 import SunMoonToggle from "./examples/toggles/SunMoonToggle";
 import LightToggle from "./examples/toggles/LightToggle";
 import LockToggle from "./examples/toggles/LockToggle";
-
-import StarGlowRate from "./examples/rates/StarGlowRate";
-import StarInputRate from "./examples/rates/StarInputRate";
-import StarSliderRate from "./examples/rates/StarSliderRate";
 
 export const actionButtonMap: Record<string, ComponentType> = {
     particles: ParticlesHeart,
@@ -65,19 +48,6 @@ export const actionButtonMap: Record<string, ComponentType> = {
     addMenu: AddMenuButton,
     neumorphism: NeumorphismButton,
 
-    radioSlide: RadioSlideButton,
-    popRadio: PopRadioButton,
-    colorChangeRadio: ColorChangeRadio,
-    rippleRadio: RippleRadio,
-    segmentedControl: SegmentedControlRadio,
-    iconRadio: IconRadio,
-
-    foldCheck: FoldCheck,
-    simpleCheck: SimpleCheck,
-    colorfulCheck: ColorfulCheck,
-    cardCheck: CardCheck,
-    pencilCheck: PencilCheck,
-
     rotateToggle: RotateToggle,
     slideToggle: SlideToggle,
     circleExpandToggle: CircleExpandToggle,
@@ -89,8 +59,4 @@ export const actionButtonMap: Record<string, ComponentType> = {
     sunMoonToggle: SunMoonToggle,
     lightToggle: LightToggle,
     lockToggle: LockToggle,
-
-    starGlow: StarGlowRate,
-    starInput: StarInputRate,
-    starSlider: StarSliderRate,
 };
