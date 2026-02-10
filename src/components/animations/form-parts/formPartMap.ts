@@ -1,8 +1,8 @@
 import type { ComponentType } from "react";
-import FloatingLabelInput from "./examples/input/floating-label/FloatingLabelInput";
-import LiftedLabelInput from "./examples/input/lifted-label/LiftedLabelInput";
-import SoftDropSelect from "./examples/select/soft-drop/SoftDropSelect";
-import MultiSelect from "./examples/select/multi/MultiSelect";
+import FloatingLabelInput from "./examples/inputs/floating-label/FloatingLabelInput";
+import LiftedLabelInput from "./examples/inputs/lifted-label/LiftedLabelInput";
+import SoftDropSelect from "./examples/selects/soft-drop/SoftDropSelect";
+import MultiSelect from "./examples/selects/multi/MultiSelect";
 
 import RadioSlideButton from "./examples/radios/RadioSlideButton";
 import PopRadioButton from "./examples/radios/PopRadioButton";
