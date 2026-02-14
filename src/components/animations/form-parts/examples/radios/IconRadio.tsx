@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { FaWalking, FaBicycle, FaCar, FaPlane } from "react-icons/fa";
@@ -18,85 +18,91 @@ export default function IconRadio() {
     const scale = width
         ? Math.min(Math.max(width / BASE_WIDTH, 0.35), 1.3)
         : 1;
+
     const [value, setValue] = useState<string>("");
+
+    const prefersReducedMotion = useReducedMotion();
+    const reduce = prefersReducedMotion ?? false;
 
     return (
         <div ref={ref} className="w-full h-full bg-[#222]">
-            <motion.div className="w-full h-full flex justify-center items-center" animate={{scale}}>
-                <div
-                    className="flex flex-wrap items-center justify-center gap-4"
-                    role="radiogroup"
-                    aria-label="Icon radio group"
-                >
-                    {options.map(({ id, label, icon: Icon }) => {
-                        const active = value === id;
+            <motion.div
+                className="w-full h-full flex justify-center items-center"
+                animate={{ scale }}
+            >
+                <fieldset className="border-0 p-0 m-0">
+                    <legend className="sr-only">Icon radio group</legend>
 
-                        return (
-                            <button
-                                key={id}
-                                type="button"
-                                role="radio"
-                                aria-checked={active}
-                                tabIndex={
-                                    active || (value === "" && id === options[0].id)
-                                        ? 0
-                                        : -1
-                                }
-                                onPointerDown={(e) => {
-                                    e.preventDefault();
-                                    setValue(id);
-                                    e.currentTarget.focus();
-                                }}
-                                onKeyDown={(e) => {
-                                    const i = options.findIndex(o => o.id === value);
+                    <div className="flex flex-wrap items-center justify-center gap-4">
+                        {options.map(({ id, label, icon: Icon }) => {
+                            const active = value === id;
 
-                                    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-                                        e.preventDefault();
-                                        setValue(options[(i + 1) % options.length].id);
-                                    }
-
-                                    if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-                                        e.preventDefault();
-                                        setValue(
-                                            options[(i - 1 + options.length) % options.length].id
-                                        );
-                                    }
-
-                                    if (e.key === " " || e.key === "Enter") {
-                                        e.preventDefault();
-                                    }
-                                }}
-                                className="relative h-18 w-18"
-                            >
-                                <motion.div
-                                    className="flex h-full w-full flex-col items-center justify-center rounded-xs border-2 border-[#079ad9] p-1.5"
-                                    animate={{
-                                        scale: active ? 1.1 : 1,
-                                        backgroundColor: active ? "#079ad9" : "#222222",
-                                    }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 20,
-                                    }}
+                            return (
+                                <label
+                                    key={id}
+                                    className="relative h-18 w-18 cursor-pointer"
                                 >
-                                    <Icon
-                                        size={48}
-                                        className={`${active ? "text-white" : "text-[#079ad9]"}`}
+                                    {/* Native radio */}
+                                    <input
+                                        type="radio"
+                                        name="icon-selector"
+                                        value={id}
+                                        checked={active}
+                                        onChange={() => setValue(id)}
+                                        className="sr-only peer"
                                     />
-                                    <span
-                                        className={`
-                                            mt-2 text-xs font-semibold tracking-widest uppercase
-                                            ${active ? "text-white" : "text-[#079ad9]"}
-                                        `}
+
+                                    {/* Visual */}
+                                    <motion.div
+                                        className="
+                                            flex h-full w-full flex-col items-center justify-center
+                                            rounded-xs border-2 border-[#079ad9] p-1.5
+                                            peer-focus-visible:outline-2
+                                            peer-focus-visible:outline-[#0DFF92]
+                                        "
+                                        animate={{
+                                            scale: active ? 1.1 : 1,
+                                            backgroundColor: active
+                                                ? "#079ad9"
+                                                : "#222222",
+                                        }}
+                                        transition={
+                                            reduce
+                                                ? { duration: 0 }
+                                                :{
+                                                    type: "spring",
+                                                    stiffness: 300,
+                                                    damping: 20,
+                                                }
+                                        }
                                     >
-                                        {label}
-                                    </span>
-                                </motion.div>
-                            </button>
-                        );
-                    })}
-                </div>
+                                        <Icon
+                                            size={48}
+                                            className={
+                                                active
+                                                    ? "text-white"
+                                                    : "text-[#079ad9]"
+                                            }
+                                        />
+
+                                        <span
+                                            className={`
+                                                mt-2 text-xs font-semibold tracking-widest uppercase
+                                                ${
+                                                    active
+                                                        ? "text-white"
+                                                        : "text-[#079ad9]"
+                                                }
+                                            `}
+                                        >
+                                            {label}
+                                        </span>
+                                    </motion.div>
+                                </label>
+                            );
+                        })}
+                    </div>
+                </fieldset>
             </motion.div>
         </div>
     );

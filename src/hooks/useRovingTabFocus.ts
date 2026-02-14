@@ -58,7 +58,7 @@ export function useRovingTabFocus<T>({
                 break;
             }
         },
-        [activeValue, values, moveFocus, onActivate]
+        [activeValue, values, moveFocus, onActivate, onExpand]
     );
 
     return { onKeyDown };
