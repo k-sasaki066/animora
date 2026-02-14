@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 
 const BASE_WIDTH = 380;
@@ -22,42 +22,49 @@ export default function SimpleCheck() {
     const scale = width
         ? Math.min(Math.max(width / BASE_WIDTH, 0.35), 1.2)
         : 1;
+
     const [checked, setChecked] = useState<boolean[]>(
         options.map((_, i) => i === 0)
     );
-    const pointerDownRef = useRef<number | null>(null);
 
-    const toggle = (index: number) => {
-        setChecked((prev) =>
-            prev.map((v, i) => (i === index ? !v : v))
-        );
-    };
+    const prefersReducedMotion = useReducedMotion();
+    const reduce = prefersReducedMotion ?? false;
 
     return (
-        <div ref={ref} className="w-full h-full flex justify-center items-center">
-            <motion.div className="flex flex-col gap-4" animate={{ scale }}>
+        <div
+            ref={ref}
+            className="w-full h-full flex justify-center items-center"
+        >
+            <motion.div
+                className="flex flex-col gap-4"
+                animate={{ scale }}
+            >
                 {options.map((opt, index) => {
+                    const id = `simple-check-${index}`;
                     const isChecked = checked[index];
 
                     return (
-                        <button
+                        <label
                             key={opt.id}
-                            role="checkbox"
-                            aria-checked={isChecked}
-                            className={`group flex items-center gap-3 select-none text-gray-400 hover:text-blue-400 transition-colors`}
-                            onPointerDown={(e) => {
-                                e.preventDefault();
-                                pointerDownRef.current = index;
-                            }}
-                            onPointerUp={() => {
-                                if (pointerDownRef.current === index) toggle(index);
-                                pointerDownRef.current = null;
-                            }}
-                            onPointerLeave={() => {
-                                pointerDownRef.current = null;
-                            }}
+                            htmlFor={id}
+                            className="relative group flex items-center gap-3 cursor-pointer select-none text-gray-400 hover:text-blue-400 transition-colors"
                         >
-                            <span className="relative w-6 h-6">
+                            {/* checkbox */}
+                            <input
+                                id={id}
+                                type="checkbox"
+                                checked={isChecked}
+                                onChange={() =>
+                                    setChecked(prev =>
+                                        prev.map((v, i) =>
+                                            i === index ? !v : v
+                                        )
+                                    )
+                                }
+                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 peer"
+                            />
+
+                            <span className="relative w-6 h-6 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-400 peer-focus-visible:ring-offset-2">
                                 <AnimatePresence>
                                     {!isChecked && (
                                         <motion.span
@@ -65,8 +72,12 @@ export default function SimpleCheck() {
                                             initial={{ scale: 0.8, opacity: 0 }}
                                             animate={{ scale: 1, opacity: 1 }}
                                             exit={{ scale: 0.8, opacity: 0 }}
-                                            transition={{ duration: 0.15 }}
-                                            className="absolute inset-0 border-2 border-gray-400 group-hover:border-blue-400 rounded-sm"
+                                            transition={
+                                                reduce
+                                                    ? { duration: 0 }
+                                                    : { duration: 0.15 }
+                                            }
+                                            className="absolute inset-0 border-2 border-gray-400 group-hover:border-blue-400 rounded-sm pointer-events-none"
                                         />
                                     )}
 
@@ -76,25 +87,34 @@ export default function SimpleCheck() {
                                             initial={{ scale: 0.6, opacity: 0 }}
                                             animate={{ scale: 1, opacity: 1 }}
                                             exit={{ scale: 0.6, opacity: 0 }}
-                                            transition={{
-                                                type: "spring",
-                                                stiffness: 300,
-                                                damping: 20,
-                                            }}
-                                            className="absolute inset-0 bg-blue-400 rounded-sm flex items-center justify-center text-white text-xl font-bold"
+                                            transition={
+                                                reduce
+                                                    ? { duration: 0 }
+                                                    : {
+                                                        type: "spring",
+                                                        stiffness: 300,
+                                                        damping: 20,
+                                                    }
+                                            }
+                                            className="absolute inset-0 bg-blue-400 rounded-sm flex items-center justify-center text-white text-xl font-bold pointer-events-none"
                                         >
                                             ✓
                                         </motion.span>
                                     )}
                                 </AnimatePresence>
                             </span>
-                            <span className={`text-2xl ${isChecked ? "text-blue-400" : ""}`}>
+
+                            <span
+                                className={`text-2xl ${
+                                    isChecked ? "text-blue-400" : ""
+                                }`}
+                            >
                                 {opt.label}
                             </span>
-                        </button>
+                        </label>
                     );
                 })}
             </motion.div>
         </div>
     );
-};
+}

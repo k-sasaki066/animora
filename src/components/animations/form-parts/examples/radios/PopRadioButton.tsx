@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useState, useRef } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";
 
 const BASE_WIDTH = 400;
 const lines = [
@@ -23,7 +24,18 @@ export default function PopRadioButton() {
         : 1;
 
     const [checked, setChecked] = useState(0);
+    const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
     const values = [0, 1, 2];
+
+    const { onKeyDown } = useRovingTabFocus<number>({
+        values: values,
+        activeValue: checked,
+        setActiveValue: setChecked,
+        refs: buttonRefs,
+    });
+
+    const prefersReducedMotion = useReducedMotion();
+    const reduce = prefersReducedMotion ?? false;
 
     return (
         <div ref={ref} className="w-full h-full overflow-hidden flex justify-center items-center bg-[#50a7c2]">
@@ -33,46 +45,25 @@ export default function PopRadioButton() {
                     role="radiogroup"
                     aria-label="Options"
                 >
-                    {values.map((i) => {
+                    {values.map((i, index) => {
                         const isChecked = checked === i;
 
                         return (
                             <button
                                 key={i}
                                 type="button"
+                                ref={(el) => {
+                                    buttonRefs.current[index] = el;
+                                }}
                                 role="radio"
                                 aria-checked={isChecked}
                                 tabIndex={isChecked ? 0 : -1}
-                                className="relative flex items-center gap-4 px-4 py-2"
+                                className="relative flex items-center gap-4 px-4 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#eee]"
                                 onPointerDown={(e) => {
                                     e.preventDefault();
                                     setChecked(i);
-                                    e.currentTarget.focus();
                                 }}
-                                onKeyDown={(e) => {
-                                    const currentIndex = values.indexOf(checked);
-
-                                    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-                                        e.preventDefault();
-                                        setChecked(
-                                            values[(currentIndex + 1) % values.length]
-                                        );
-                                    }
-
-                                    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-                                        e.preventDefault();
-                                        setChecked(
-                                            values[
-                                                (currentIndex - 1 + values.length) %
-                                                    values.length
-                                            ]
-                                        );
-                                    }
-
-                                    if (e.key === " " || e.key === "Enter") {
-                                        e.preventDefault();
-                                    }
-                                }}
+                                onKeyDown={onKeyDown}
                             >
                                 <div className="relative w-3 h-3">
                                     {/* radio */}
@@ -87,7 +78,11 @@ export default function PopRadioButton() {
                                                 ? { scale: [10, 0.5, 1], opacity: 1 }
                                                 : { opacity: 0 }
                                         }
-                                        transition={{ duration: 0.35 }}
+                                        transition={
+                                            reduce
+                                                ? { duration: 0 }
+                                                : { duration: 0.35 }
+                                        }
                                     >
                                         {lines.map((l, idx) => (
                                             <motion.span
@@ -115,11 +110,15 @@ export default function PopRadioButton() {
                                                         }
                                                         : {}
                                                 }
-                                                transition={{
-                                                    delay: 0.2,
-                                                    duration: 0.9,
-                                                    ease: "easeOut",
-                                                }}
+                                                transition={
+                                                    reduce
+                                                        ? { duration: 0 }
+                                                        : {
+                                                            delay: 0.2,
+                                                            duration: 0.9,
+                                                            ease: "easeOut",
+                                                        }
+                                                }
                                             />
                                         ))}
                                     </motion.div>
