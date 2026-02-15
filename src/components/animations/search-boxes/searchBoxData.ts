@@ -15,4 +15,9 @@ export const searchBoxData: SearchBoxItem[] = [
         title: "Expand Search",
         previewText: "Expand Search Example",
     },
+    {
+        key: "arcMotionSearch",
+        title: "Arc Motion Search",
+        previewText: "Arc Motion Search Example",
+    },
 ];
