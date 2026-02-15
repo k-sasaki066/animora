@@ -6,8 +6,13 @@ export interface SearchBoxItem {
 
 export const searchBoxData: SearchBoxItem[] = [
     {
-        key: "elasticFocus",
+        key: "elasticFocusSearch",
         title: "Elastic Focus Search",
         previewText: "Elastic Focus Search Example",
+    },
+    {
+        key: "expandSearch",
+        title: "Expand Search",
+        previewText: "Expand Search Example",
     },
 ];
