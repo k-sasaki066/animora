@@ -25,4 +25,9 @@ export const searchBoxData: SearchBoxItem[] = [
         title: "Category Search",
         previewText: "Category Search Example",
     },
+    {
+        key: "filterSearch",
+        title: "Filter Search",
+        previewText: "Filter Search Example",
+    },
 ];
