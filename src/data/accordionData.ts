@@ -29,7 +29,8 @@ export const accordionData: AccordionCategory[] = [
             { title: "Menu", key: "Menu", content: "Hamburger Menu / FAQ" },
             { title: "Form Parts", key: "Form-Parts", content: "Textbox / Select / Checkbox / Rate" },
             { title: "Search Box", key: "Search-Box",content: "" },
-            { title: "Animated Parts", key: "Animated-parts",content: "SVG / CSS " },
+            { title: "Animated Parts", key: "Animated-parts", content: "SVG / CSS " },
+            { title: "Line", key: "Line",content: "Line Animation" },
         ],
     },
     {
