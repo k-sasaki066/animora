@@ -35,4 +35,9 @@ export const paginationData: PaginationItem[] = [
         title: "Drop Down Pagination",
         previewText: "Drop Down Pagination Example",
     },
+    {
+        key: "infiniteScrollList",
+        title: "Infinite Scroll List",
+        previewText: "Infinite Scroll List Example",
+    },
 ];
