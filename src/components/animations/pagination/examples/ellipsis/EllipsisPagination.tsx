@@ -75,7 +75,7 @@ export default function EllipsisPagination() {
                         direction="prev"
                         onClick={goPrev}
                         disabled={currentPage === 1}
-                        className="text-[#4FD1C5] text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
+                        className="text-[#4FD1C5] text-sm hover:text-[#4a5565] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
 
                     {/* Page Numbers */}
@@ -121,7 +121,7 @@ export default function EllipsisPagination() {
                         direction="next"
                         onClick={goNext}
                         disabled={currentPage === totalPages}
-                        className="text-[#4FD1C5] text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
+                        className="text-[#4FD1C5] text-sm hover:text-[#4a5565] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
                 </nav>
             </motion.div>

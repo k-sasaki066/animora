@@ -25,14 +25,12 @@ export function PaginationArrow({
             onClick={onClick}
             disabled={disabled}
             aria-label={isPrev ? "Previous page" : "Next page"}
-            whileTap={{ scale: 0.85 }}
-            whileHover={!disabled ? { color: "#4a5565" } : undefined}
             transition={{
                 type: "spring",
                 stiffness: 400,
                 damping: 25,
             }}
-            className={`disabled:opacity-30 cursor-pointer ${className}`}
+            className={`disabled:opacity-30 disabled:pointer-events-none cursor-pointer ${className}`}
         >
             {icon}
         </motion.button>
