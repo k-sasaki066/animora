@@ -83,7 +83,7 @@ export default function CirclePaginationWithList() {
                         direction="prev"
                         onClick={goPrev}
                         disabled={currentPage === 1}
-                        className="text-[#99a1af] text-2xl  focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
+                        className="text-[#99a1af] text-2xl hover:text-[#4a5565] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
 
                     {/* Pages */}
@@ -99,7 +99,7 @@ export default function CirclePaginationWithList() {
                         direction="next"
                         onClick={goNext}
                         disabled={currentPage === totalPages}
-                        className="text-[#99a1af] text-2xl  focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
+                        className="text-[#99a1af] text-2xl hover:text-[#4a5565] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
                 </div>
             </motion.div>

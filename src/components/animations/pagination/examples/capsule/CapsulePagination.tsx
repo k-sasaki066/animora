@@ -106,7 +106,7 @@ export default function CapsulePagination() {
                         direction="prev"
                         onClick={goPrev}
                         disabled={currentPage === 1}
-                        className="text-[#4F6BFF] text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
+                        className="text-[#4F6BFF] text-lg hover:text-[#4a5565] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
 
                     {/* Page Info */}
@@ -133,7 +133,7 @@ export default function CapsulePagination() {
                         direction="next"
                         onClick={goNext}
                         disabled={currentPage === totalPages}
-                        className="text-[#4F6BFF] text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
+                        className="text-[#4F6BFF] text-lg hover:text-[#4a5565] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
                 </motion.nav>
             </motion.div>

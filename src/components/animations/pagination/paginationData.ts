@@ -30,4 +30,9 @@ export const paginationData: PaginationItem[] = [
         title: "Load More List",
         previewText: "Load More List Example",
     },
+    {
+        key: "dropDownPagination",
+        title: "Drop Down Pagination",
+        previewText: "Drop Down Pagination Example",
+    },
 ];
