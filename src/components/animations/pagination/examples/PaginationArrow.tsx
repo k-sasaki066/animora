@@ -7,6 +7,7 @@ type PaginationArrowProps = {
     direction: "prev" | "next";
     onClick: () => void;
     disabled: boolean;
+    className?: string;
 };
 
 export function PaginationArrow({
@@ -14,6 +15,7 @@ export function PaginationArrow({
     direction,
     onClick,
     disabled,
+    className = "",
 }: PaginationArrowProps) {
     const isPrev = direction === "prev";
 
@@ -23,13 +25,14 @@ export function PaginationArrow({
             onClick={onClick}
             disabled={disabled}
             aria-label={isPrev ? "Previous page" : "Next page"}
-            whileHover={{ color: "#4a5565" }}
+            whileTap={{ scale: 0.85 }}
+            whileHover={!disabled ? { color: "#4a5565" } : undefined}
             transition={{
                 type: "spring",
                 stiffness: 400,
                 damping: 25,
             }}
-            className="text-gray-400 disabled:opacity-30 cursor-pointer text-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500"
+            className={`disabled:opacity-30 cursor-pointer ${className}`}
         >
             {icon}
         </motion.button>

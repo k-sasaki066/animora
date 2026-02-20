@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
-import { PaginationArrow } from "./PaginationArrow";
+import { PaginationArrow } from "../PaginationArrow";
 import { PaginationPages } from "./PaginationPages";
 
 const BASE_WIDTH = 420;
@@ -43,7 +43,7 @@ export default function CirclePaginationWithList() {
         setCurrentPage((p) => Math.min(p + 1, totalPages));
 
     return (
-        <div ref={ref} className="w-full min-h-full flex justify-center items-center py-4 bg-gray-100">
+        <div ref={ref} className="w-full min-h-full flex justify-center items-center py-4 bg-[#f3f4f6]">
             <motion.div className="w-full h-full flex flex-col justify-center items-center gap-8" animate={{ scale }}>
                 {/* 表示リスト */}
                 <ul
@@ -61,10 +61,10 @@ export default function CirclePaginationWithList() {
                                     onClick={() => setSelectedItem(item)}
                                     role="option"
                                     aria-selected={isSelected}
-                                    className={`w-full p-2 rounded text-center text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 transition
+                                    className={`w-full p-2 rounded text-center text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6a7282] transition
                                         ${isSelected
-                                            ? "bg-gray-500 text-white"
-                                            : "bg-white hover:bg-gray-200"
+                                            ? "bg-[#6a7282] text-white"
+                                            : "bg-white hover:bg-[#e5e7eb]"
                                         }
                                     `}
                                 >
@@ -83,6 +83,7 @@ export default function CirclePaginationWithList() {
                         direction="prev"
                         onClick={goPrev}
                         disabled={currentPage === 1}
+                        className="text-[#99a1af] text-2xl  focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
 
                     {/* Pages */}
@@ -98,6 +99,7 @@ export default function CirclePaginationWithList() {
                         direction="next"
                         onClick={goNext}
                         disabled={currentPage === totalPages}
+                        className="text-[#99a1af] text-2xl  focus:outline-none focus-visible:ring-2 focus-visible:ring-[#99a1af]"
                     />
                 </div>
             </motion.div>
