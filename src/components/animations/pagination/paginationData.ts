@@ -15,4 +15,19 @@ export const paginationData: PaginationItem[] = [
         title: "Circle Pagination",
         previewText: "Circle Pagination Example",
     },
+    {
+        key: "capsulePagination",
+        title: "Capsule Pagination",
+        previewText: "Capsule Pagination Example",
+    },
+    {
+        key: "ellipsisPagination",
+        title: "Ellipsis Pagination",
+        previewText: "Ellipsis Pagination Example",
+    },
+    {
+        key: "loadMoreList",
+        title: "Load More List",
+        previewText: "Load More List Example",
+    },
 ];
