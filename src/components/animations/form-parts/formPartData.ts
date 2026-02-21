@@ -108,4 +108,9 @@ export const formPartData: FormPartItem[] = [
         title: "Question Step",
         previewText: "Question Step Example",
     },
+    {
+        key: "carouselStep",
+        title: "Carousel Step",
+        previewText: "Carousel Step Example",
+    },
 ];
