@@ -101,4 +101,11 @@ export const formPartData: FormPartItem[] = [
         title: "Star Slider",
         previewText: "Star Slider Example",
     },
+
+    //steps
+    {
+        key: "questionStep",
+        title: "Question Step",
+        previewText: "Question Step Example",
+    },
 ];
