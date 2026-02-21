@@ -21,6 +21,8 @@ import StarGlowRate from "./examples/rates/StarGlowRate";
 import StarInputRate from "./examples/rates/StarInputRate";
 import StarSliderRate from "./examples/rates/StarSliderRate";
 
+import QuestionStep from "./examples/steps/question/QuestionStep";
+
 export const formPartMap: Record<string, ComponentType> = {
     floatingLabel: FloatingLabelInput,
     liftedLabel: LiftedLabelInput,
@@ -43,4 +45,6 @@ export const formPartMap: Record<string, ComponentType> = {
     starGlow: StarGlowRate,
     starInput: StarInputRate,
     starSlider: StarSliderRate,
+
+    questionStep: QuestionStep,
 };
