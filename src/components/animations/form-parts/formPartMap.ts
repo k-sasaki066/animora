@@ -22,6 +22,7 @@ import StarInputRate from "./examples/rates/StarInputRate";
 import StarSliderRate from "./examples/rates/StarSliderRate";
 
 import QuestionStep from "./examples/steps/question/QuestionStep";
+import CarouselStep from "./examples/steps/carousel/CarouselStep";
 
 export const formPartMap: Record<string, ComponentType> = {
     floatingLabel: FloatingLabelInput,
@@ -47,4 +48,5 @@ export const formPartMap: Record<string, ComponentType> = {
     starSlider: StarSliderRate,
 
     questionStep: QuestionStep,
+    carouselStep: CarouselStep,
 };
