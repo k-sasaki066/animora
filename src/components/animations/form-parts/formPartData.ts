@@ -113,4 +113,9 @@ export const formPartData: FormPartItem[] = [
         title: "Carousel Step",
         previewText: "Carousel Step Example",
     },
+    {
+        key: "cardStepper",
+        title: "Card Stepper",
+        previewText: "Card Stepper Example",
+    },
 ];
