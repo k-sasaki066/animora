@@ -25,6 +25,18 @@ export const sliderData: SliderItem[] = [
         description: "自動再生スライダー",
     },
     {
+        key: "select",
+        title: "Select Slider",
+        thumbnail: "/fruits.jpg",
+        description: "画像選択",
+    },
+    {
+        key: "vertical",
+        title: "Vertical Slider",
+        thumbnail: "/fruits.jpg",
+        description: "画像選択",
+    },
+    {
         key: "centerCarousel",
         title: "Center Carousel Slider",
         thumbnail: "/river.jpg",
