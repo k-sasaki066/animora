@@ -15,4 +15,24 @@ export const ribbonData: RibbonItem[] = [
         title: "Folded Ribbon",
         previewText: "Folded Ribbon Example",
     },
+    {
+        key: "bookMarkRibbon",
+        title: "Book Mark Ribbon",
+        previewText: "Book Mark Ribbon Example",
+    },
+    {
+        key: "foldedBookMarkRibbon",
+        title: "Folded Book Mark Ribbon",
+        previewText: "Folded Book Mark Ribbon Example",
+    },
+    {
+        key: "cornerRibbon",
+        title: "Corner Ribbon",
+        previewText: "Corner Ribbon Example",
+    },
+    {
+        key: "verticalRibbon",
+        title: "Vertical Ribbon",
+        previewText: "Vertical Ribbon Example",
+    },
 ];
