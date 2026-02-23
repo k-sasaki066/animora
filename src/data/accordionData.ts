@@ -17,7 +17,6 @@ export const accordionData: AccordionCategory[] = [
         items: [
             { title: "Basic", key: "Basic", content: "Fade / Slide / Rotate / Scale"},
             { title: "Loading", key: "Loading", content: "Spinner / Pulse / Bounce" },
-            { title: "Appearance", key: "Appearance", content: "Fade-in / Slide-in / Zoom-in" },
             { title: "Text", key: "Text", content: "Typing / Gradient text / Letter spacing" },
             { title: "Image", key: "Image", content: "Image hover" },
             { title: "Background Effects", key: "Background", content: "Gradient / Blur / Particles" },
@@ -31,7 +30,8 @@ export const accordionData: AccordionCategory[] = [
             { title: "Search Box", key: "Search-Box",content: "" },
             { title: "Animated Parts", key: "Animated-parts", content: "SVG / CSS " },
             { title: "Line", key: "Line", content: "Line Animation" },
-            { title: "Pagination", key: "Pagination",content: "" },
+            { title: "Pagination", key: "Pagination", content: "" },
+            { title: "Ribbon", key: "Ribbon", content: "" },
         ],
     },
     {

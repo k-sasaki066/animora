@@ -19,6 +19,7 @@ import { FormPartList } from "@/components/animations/form-parts/FormPartList";
 import { SearchBoxList } from "@/components/animations/search-boxes/SearchBoxList";
 import { LineList } from "@/components/animations/lines/LineList";
 import { PaginationList } from "@/components/animations/pagination/PaginationList";
+import { RibbonList } from "@/components/animations/ribbons/RibbonList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -128,6 +129,7 @@ export default function HomePage() {
                                     {selectedItem === "Search-Box" && <SearchBoxList />}
                                     {selectedItem === "Line" && <LineList />}
                                     {selectedItem === "Pagination" && <PaginationList />}
+                                    {selectedItem === "Ribbon" && <RibbonList />}
                                 </div>
                             )}
                         </main>
