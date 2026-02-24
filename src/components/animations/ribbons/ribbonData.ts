@@ -35,4 +35,19 @@ export const ribbonData: RibbonItem[] = [
         title: "Vertical Ribbon",
         previewText: "Vertical Ribbon Example",
     },
+    {
+        key: "badgeRibbon",
+        title: "Badge Ribbon",
+        previewText: "Badge Ribbon Example",
+    },
+    {
+        key: "soldOutRibbon",
+        title: "Sold Out Ribbon",
+        previewText: "Sold Out Ribbon Example",
+    },
+    {
+        key: "starRibbon",
+        title: "Star Ribbon",
+        previewText: "Star Ribbon Example",
+    },
 ];

@@ -8,14 +8,16 @@ const montserrat = Montserrat({
     weight: ["600", "700"],
 });
 
+const WIDTH_PERCENT = 20;
 const RIBBON_WIDTH = 52;
 const RIBBON_COLOR = "#fa8383";
 const FOLD_COLOR = "#d07676";
 
+// 比率設計
 const FOLD_HEIGHT = 6;
+const PADDING_TOP_RATIO = 0.25;
+const PADDING_BOTTOM_RATIO = 0.35;
 const FOLD_WIDTH = RIBBON_WIDTH * 0.15;
-const PADDING_TOP = RIBBON_WIDTH * 0.25;
-const PADDING_BOTTOM = RIBBON_WIDTH * 0.35;
 
 export default function FoldedBookMarkRibbon() {
     return (
@@ -26,10 +28,10 @@ export default function FoldedBookMarkRibbon() {
             className="relative w-full h-full bg-[#f1f1f1] flex justify-center items-center"
         >
             <div
-                className="absolute right-3 z-10"
+                className="absolute right-3 z-10 max-w-18"
                 style={{
-                    width: RIBBON_WIDTH,
-                    top: -FOLD_HEIGHT
+                    width: `${WIDTH_PERCENT}%`,
+                    top: -FOLD_HEIGHT,
                 }}
             >
                 {/* 背景レイヤー */}
@@ -46,8 +48,8 @@ export default function FoldedBookMarkRibbon() {
                 <div
                     className={`relative flex justify-center text-white text-sm ${montserrat.className} font-semibold tracking-wider`}
                     style={{
-                        paddingTop: PADDING_TOP,
-                        paddingBottom: PADDING_BOTTOM,
+                        paddingTop: `${PADDING_TOP_RATIO * 100}%`,
+                        paddingBottom: `${PADDING_BOTTOM_RATIO * 100}%`,
                     }}
                 >
                     NEW
@@ -55,10 +57,8 @@ export default function FoldedBookMarkRibbon() {
 
                 {/* 折り返し */}
                 <div
-                    className="absolute"
+                    className="absolute top-0 left-full"
                     style={{
-                        top: 0,
-                        left: "100%",
                         width: 0,
                         height: 0,
                         borderBottom: `${FOLD_HEIGHT}px solid ${FOLD_COLOR}`,
