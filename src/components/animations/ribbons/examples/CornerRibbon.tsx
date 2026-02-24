@@ -46,7 +46,7 @@ export default function CornerRibbon() {
                         left: ribbonLeft,
                         top: ribbonTop,
                         padding: `${SIZE * 0.08}px 0`,
-                        fontSize: SIZE * 0.18,
+                        fontSize: SIZE * 0.14,
                         lineHeight: `${SIZE * 0.18}px`,
                         textShadow: "0 2px 2px #56a1f3",
                     }}

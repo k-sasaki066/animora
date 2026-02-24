@@ -3,14 +3,12 @@
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 
-const RIBBON_WIDTH = 48;
-const RIBBON_HEIGHT = RIBBON_WIDTH * 1.2;
+const WIDTH_PERCENT = 15;
+const HEIGHT_RATIO = 1.2;
 const TRIANGLE_RATIO = 0.2;
-const TRIANGLE_HEIGHT = RIBBON_HEIGHT * TRIANGLE_RATIO;
 const RIBBON_COLOR = "#ff785b";
 
 export default function BookMarkRibbon() {
-    const RECT_HEIGHT = RIBBON_HEIGHT - TRIANGLE_HEIGHT;
 
     return (
         <motion.div
@@ -21,10 +19,10 @@ export default function BookMarkRibbon() {
         >
             {/* リボン本体 */}
             <div
-                className="absolute top-0 right-2.5 flex flex-col items-center text-white text-center z-10"
+                className="absolute top-0 right-2.5 flex flex-col items-center text-white text-center z-10 max-w-15"
                 style={{
-                    width: RIBBON_WIDTH,
-                    height: RIBBON_HEIGHT,
+                    width: `${WIDTH_PERCENT}%`,
+                    aspectRatio: `1 / ${HEIGHT_RATIO}`,
                     backgroundColor: RIBBON_COLOR,
                     clipPath: `polygon(
                         0% 0%,
@@ -37,7 +35,7 @@ export default function BookMarkRibbon() {
             >
                 <div
                     className="flex items-center justify-center w-full"
-                    style={{ height: RECT_HEIGHT }}
+                    style={{ height: `${(1 - TRIANGLE_RATIO) * 100}%`, }}
                 >
                     <FaStar size={18} />
                 </div>
