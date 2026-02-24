@@ -5,6 +5,7 @@ import StepsList from "./examples/StepsList";
 import NumberedTimelineList from "./examples/NumberedTimelineList";
 import BoxedList from "./examples/BoxedList";
 import GradationNumberList from "./examples/GradationNumberList";
+import StickyNoteList from "./examples/StickyNoteList";
 
 export const listMap: Record<string, ComponentType> = {
     chatBubbleList: ChatBubbleList,
@@ -13,4 +14,5 @@ export const listMap: Record<string, ComponentType> = {
     numberedTimelineList: NumberedTimelineList,
     boxedList: BoxedList,
     gradationNumberList: GradationNumberList,
+    stickyNoteList: StickyNoteList,
 };
