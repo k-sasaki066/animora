@@ -35,4 +35,9 @@ export const listData: ListItem[] = [
         title: "Gradation Number List",
         previewText: "Gradation Number List Example",
     },
+    {
+        key: "stickyNoteList",
+        title: "Sticky Note List",
+        previewText: "Sticky Note List Example",
+    },
 ];
