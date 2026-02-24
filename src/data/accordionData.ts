@@ -32,6 +32,7 @@ export const accordionData: AccordionCategory[] = [
             { title: "Line", key: "Line", content: "Line Animation" },
             { title: "Pagination", key: "Pagination", content: "" },
             { title: "Ribbon", key: "Ribbon", content: "" },
+            { title: "List", key: "List", content: "" },
         ],
     },
     {
