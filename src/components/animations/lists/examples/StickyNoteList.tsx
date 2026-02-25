@@ -5,7 +5,14 @@ import { useContainerSize } from "@/hooks/useContainerSize";
 
 const BASE_WIDTH = 420;
 
-const items = ["Buy groceries", "Write blog post", "Check emails", "Read a book"];
+type TodoItem = string;
+
+const items: TodoItem[] = [
+    "Buy groceries",
+    "Write blog post",
+    "Check emails",
+    "Read a book"
+];
 
 export default function StickyNoteList() {
     const { ref, width } = useContainerSize<HTMLDivElement>();

@@ -5,12 +5,15 @@ import { useContainerSize } from "@/hooks/useContainerSize";
 
 const BASE_WIDTH = 420;
 
+type CourseItem = string;
+
+const items: CourseItem[] = ["html", "css", "js", "php"];
+
 export default function ChatBubbleList() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
     const scale = width
         ? Math.min(Math.max(width / BASE_WIDTH, 0.3), 1)
         : 1;
-    const items = ["html", "css", "js", "php"];
 
     return (
         <div ref={ref} className="w-full h-full flex justify-center items-center">

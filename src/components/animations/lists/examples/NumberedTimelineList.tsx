@@ -5,17 +5,20 @@ import { useContainerSize } from "@/hooks/useContainerSize";
 
 const BASE_WIDTH = 420;
 
+type PlanItem = string;
+
+const items: PlanItem[] = [
+    "Check in at the hotel",
+    "Walk around the town",
+    "Take photos at sunset",
+    "Relax at a local café",
+];
+
 export default function NumberedTimelineList() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
     const scale = width
         ? Math.min(Math.max(width / BASE_WIDTH, 0.5), 1)
         : 1;
-    const items = [
-        "Check in at the hotel",
-        "Walk around the town",
-        "Take photos at sunset",
-        "Relax at a local café",
-    ];
 
     return (
         <div ref={ref} className="w-full h-full flex justify-center items-center">
