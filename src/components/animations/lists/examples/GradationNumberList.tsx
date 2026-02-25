@@ -5,7 +5,9 @@ import { useContainerSize } from "@/hooks/useContainerSize";
 
 const BASE_WIDTH = 420;
 
-const ITEMS = Array.from({ length: 15 }, (_, i) => [
+type ListItem = string;
+
+const ITEMS: ListItem[][] = Array.from({ length: 15 }, (_, i) => [
     "The quick brown fox jumps high",
     "She sells seashells by the seashore"
 ]);

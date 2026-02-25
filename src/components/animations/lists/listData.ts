@@ -6,6 +6,16 @@ export interface ListItem {
 
 export const listData: ListItem[] = [
     {
+        key: "softPastelList",
+        title: "Soft Pastel List",
+        previewText: "Soft Pastel List Example",
+    },
+    {
+        key: "colorfulList",
+        title: "Colorful List",
+        previewText: "Colorful List Example",
+    },
+    {
         key: "chatBubbleList",
         title: "Chat Bubble List",
         previewText: "Chat Bubble List Example",
@@ -39,5 +49,15 @@ export const listData: ListItem[] = [
         key: "stickyNoteList",
         title: "Sticky Note List",
         previewText: "Sticky Note List Example",
+    },
+    {
+        key: "recipeTimelineList",
+        title: "Recipe Timeline List",
+        previewText: "Recipe Timeline List Example",
+    },
+    {
+        key: "processFlowList",
+        title: "Process Flow List",
+        previewText: "Process Flow List Example",
     },
 ];

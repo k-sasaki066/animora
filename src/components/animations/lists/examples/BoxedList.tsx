@@ -11,7 +11,9 @@ const comfortaa = Comfortaa({
     weight: ["400", "600", "700"],
 });
 
-const items = [
+type CourseItem = string;
+
+const items: CourseItem[]  = [
     "Introduction to Web Design",
     "Fundamentals of HTML and CSS",
     "Building Responsive Layouts",

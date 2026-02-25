@@ -9,6 +9,39 @@ const dancing = Dancing_Script({
     weight: ["400", "600", "700"],
 });
 
+type StepItem = {
+    title: string;
+    description: string;
+};
+
+const steps: StepItem[] = [
+    {
+        title: "Getting Started",
+        description:
+            "Begin by setting up your environment and installing all necessary dependencies. Make sure everything is configured correctly before moving forward.",
+    },
+    {
+        title: "Planning the Structure",
+        description:
+            "Outline the overall structure of your project, including components, layout, and data flow. A clear plan will help you build more efficiently.",
+    },
+    {
+        title: "Building the Components",
+        description:
+            "Create reusable components and implement the core functionality. Focus on clean, maintainable code and consistent styling.",
+    },
+    {
+        title: "Adding Interactions",
+        description:
+            "Enhance the user experience by adding animations and interactive elements. Smooth transitions and feedback improve usability.",
+    },
+    {
+        title: "Final Review",
+        description:
+            "Test your application thoroughly, fix any issues, and optimize performance. Once everything looks good, you're ready to launch.",
+    },
+];
+
 const BASE_WIDTH = 420;
 
 export default function StepsList() {
@@ -16,35 +49,6 @@ export default function StepsList() {
     const scale = width
         ? Math.min(Math.max(width / BASE_WIDTH, 0.78), 1)
         : 1;
-
-    const steps = [
-        {
-            title: "Getting Started",
-            description:
-                "Begin by setting up your environment and installing all necessary dependencies. Make sure everything is configured correctly before moving forward.",
-        },
-        {
-            title: "Planning the Structure",
-            description:
-                "Outline the overall structure of your project, including components, layout, and data flow. A clear plan will help you build more efficiently.",
-        },
-        {
-            title: "Building the Components",
-            description:
-                "Create reusable components and implement the core functionality. Focus on clean, maintainable code and consistent styling.",
-        },
-        {
-            title: "Adding Interactions",
-            description:
-                "Enhance the user experience by adding animations and interactive elements. Smooth transitions and feedback improve usability.",
-        },
-        {
-            title: "Final Review",
-            description:
-                "Test your application thoroughly, fix any issues, and optimize performance. Once everything looks good, you're ready to launch.",
-        },
-    ];
-
 
     return (
         <div ref={ref} className="w-full h-full overflow-y-auto no-scrollbar">
