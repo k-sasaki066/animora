@@ -21,6 +21,7 @@ import { LineList } from "@/components/animations/lines/LineList";
 import { PaginationList } from "@/components/animations/pagination/PaginationList";
 import { RibbonList } from "@/components/animations/ribbons/RibbonList";
 import { ListList } from "@/components/animations/lists/ListList";
+import { CardList } from "@/components/animations/cards/CardList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -132,6 +133,7 @@ export default function HomePage() {
                                     {selectedItem === "Pagination" && <PaginationList />}
                                     {selectedItem === "Ribbon" && <RibbonList />}
                                     {selectedItem === "List" && <ListList />}
+                                    {selectedItem === "Card" && <CardList />}
                                 </div>
                             )}
                         </main>
