@@ -4,6 +4,7 @@ import SlideMetaCard from "./examples/SlideMetaCard";
 import OpacityContentCard from "./examples/OpacityContentCard";
 import SkewHeaderCard from "./examples/SkewHeaderCard";
 import TicketCard from "./examples/TicketCard";
+import CharacterCard from "./examples/character/CharacterCard";
 
 export const cardMap: Record<string, ComponentType> = {
     dateBadgeCard: DateBadgeCard,
@@ -11,4 +12,5 @@ export const cardMap: Record<string, ComponentType> = {
     opacityContentCard: OpacityContentCard,
     skewHeaderCard: SkewHeaderCard,
     ticketCard: TicketCard,
+    characterCard: CharacterCard,
 };
