@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FaBookmark, FaHeart, FaComment } from "react-icons/fa";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { Data, CARD_DATA } from "./cardData";
-import { sortByNewest, formatDate, truncateText } from "./cardUtils";
+import { sortByNewest, formatDate, truncateText, toggleLike } from "./cardUtils";
 
 const BASE_WIDTH = 400;
 const DOT_COUNT = 3;
@@ -23,21 +23,7 @@ export default function SlideMetaCard() {
     const sortedCards = sortByNewest(cards);
 
     const handleLike = (id: number) => {
-        setCards((prev) =>
-            prev.map((card) => {
-                if (card.id !== id) return card;
-
-                const isLiked = card.likedByMe;
-
-                return {
-                    ...card,
-                    likedByMe: !isLiked,
-                    likes: isLiked
-                        ? card.likes - 1
-                        : card.likes + 1,
-                };
-            })
-        );
+        setCards((prev) => toggleLike(prev, id));
     };
 
     const metaClassName = "w-1/3 h-full bg-gray-500/80 flex items-center justify-center text-white text-lg relative";
