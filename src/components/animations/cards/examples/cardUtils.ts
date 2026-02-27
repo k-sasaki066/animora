@@ -50,3 +50,25 @@ export const getRelativeTime = (createdAt: string): string => {
     const diffMonths = Math.floor(diffDays / 30);
     return `${diffMonths} months ago`;
 };
+
+// いいねトグル
+export const toggleLike = <
+    T extends { id: number; likedByMe: boolean; likes: number }
+>(
+    data: T[],
+    id: number
+): T[] => {
+    return data.map((item) => {
+        if (item.id !== id) return item;
+
+        const isLiked = item.likedByMe;
+
+        return {
+            ...item,
+            likedByMe: !isLiked,
+            likes: isLiked
+                ? item.likes - 1
+                : item.likes + 1,
+        };
+    });
+};

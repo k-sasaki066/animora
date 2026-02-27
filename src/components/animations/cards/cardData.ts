@@ -15,4 +15,19 @@ export const cardData: CardItem[] = [
         title: "Slide Meta Card",
         previewText: "Slide Meta Card Example",
     },
+    {
+        key: "opacityContentCard",
+        title: "Opacity Content Card",
+        previewText: "Opacity Content Card Example",
+    },
+    {
+        key: "skewHeaderCard",
+        title: "Skew Header Card",
+        previewText: "Skew Header Card Example",
+    },
+    {
+        key: "ticketCard",
+        title: "Ticket Card",
+        previewText: "Ticket Card Example",
+    },
 ];
