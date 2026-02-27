@@ -30,4 +30,9 @@ export const cardData: CardItem[] = [
         title: "Ticket Card",
         previewText: "Ticket Card Example",
     },
+    {
+        key: "characterCard",
+        title: "Character Card",
+        previewText: "Character Card Example",
+    },
 ];
