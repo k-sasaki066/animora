@@ -35,4 +35,9 @@ export const cardData: CardItem[] = [
         title: "Character Card",
         previewText: "Character Card Example",
     },
+    {
+        key: "pastelBubbleCard",
+        title: "Pastel Bubble Card",
+        previewText: "Pastel Bubble Card Example",
+    },
 ];
