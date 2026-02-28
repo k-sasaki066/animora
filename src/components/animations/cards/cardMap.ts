@@ -9,6 +9,7 @@ import PastelBubbleCard from "./examples/pastel-bubble/PastelBubbleCard";
 import FloatingTiltCard from "./examples/FloatingTiltCard";
 import EnvelopeCard from "./examples/EnvelopeCard";
 import ConcaveCornerCard from "./examples/ConcaveCornerCard";
+import FlipCard from "./examples/FlipCard";
 
 export const cardMap: Record<string, ComponentType> = {
     dateBadgeCard: DateBadgeCard,
@@ -21,4 +22,5 @@ export const cardMap: Record<string, ComponentType> = {
     floatingTiltCard: FloatingTiltCard,
     envelopeCard: EnvelopeCard,
     concaveCornerCard: ConcaveCornerCard,
+    flipCard: FlipCard,
 };

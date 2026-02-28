@@ -55,4 +55,9 @@ export const cardData: CardItem[] = [
         title: "Concave Corner Card",
         previewText: "Concave Corner Card Example",
     },
+    {
+        key: "flipCard",
+        title: "Flip Card",
+        previewText: "Flip Card Example",
+    },
 ];
