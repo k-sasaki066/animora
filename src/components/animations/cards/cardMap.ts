@@ -8,6 +8,7 @@ import CharacterCard from "./examples/character/CharacterCard";
 import PastelBubbleCard from "./examples/pastel-bubble/PastelBubbleCard";
 import FloatingTiltCard from "./examples/FloatingTiltCard";
 import EnvelopeCard from "./examples/EnvelopeCard";
+import ConcaveCornerCard from "./examples/ConcaveCornerCard";
 
 export const cardMap: Record<string, ComponentType> = {
     dateBadgeCard: DateBadgeCard,
@@ -19,4 +20,5 @@ export const cardMap: Record<string, ComponentType> = {
     pastelBubbleCard: PastelBubbleCard,
     floatingTiltCard: FloatingTiltCard,
     envelopeCard: EnvelopeCard,
+    concaveCornerCard: ConcaveCornerCard,
 };
