@@ -29,7 +29,7 @@ export default function TicketCard() {
     const scale = width
         ? Math.min(Math.max(width / BASE_WIDTH, 0.8), 1)
         : 1;
-    const isVertical = width <= 480
+    const isVertical = width <= 480;
 
     return (
         <div ref={ref} className="h-full w-full bg-[#E6E5E1] flex flex-col items-center justify-start gap-2 p-2 overflow-y-auto no-scrollbar">
