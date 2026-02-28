@@ -6,6 +6,8 @@ import SkewHeaderCard from "./examples/SkewHeaderCard";
 import TicketCard from "./examples/TicketCard";
 import CharacterCard from "./examples/character/CharacterCard";
 import PastelBubbleCard from "./examples/pastel-bubble/PastelBubbleCard";
+import FloatingTiltCard from "./examples/FloatingTiltCard";
+import EnvelopeCard from "./examples/EnvelopeCard";
 
 export const cardMap: Record<string, ComponentType> = {
     dateBadgeCard: DateBadgeCard,
@@ -15,4 +17,6 @@ export const cardMap: Record<string, ComponentType> = {
     ticketCard: TicketCard,
     characterCard: CharacterCard,
     pastelBubbleCard: PastelBubbleCard,
+    floatingTiltCard: FloatingTiltCard,
+    envelopeCard: EnvelopeCard,
 };
