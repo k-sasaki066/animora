@@ -12,7 +12,7 @@ export function TextAnimationCard({ title, animationKey, onClick }: Props) {
     return (
         <Card
         onClick={onClick}
-        className="cursor-pointer hover:shadow-lg transition"
+        className="cursor-pointer hover:shadow-lg transition w-70"
         >
             <CardHeader>
                 <CardTitle className="text-center">{title}</CardTitle>

@@ -13,7 +13,7 @@ export function CardCard({ title, animationKey, onClick }: Props) {
     return (
         <Card
             onClick={onClick}
-            className="cursor-pointer hover:shadow-lg transition w-70"
+            className="cursor-pointer hover:shadow-lg transition"
         >
             <CardHeader>
                 <CardTitle className="text-center">{title}</CardTitle>

@@ -10,7 +10,7 @@ export function TextAnimationList() {
 
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-wrap gap-6 p-4 justify-center">
                 {textAnimationData.map((item) => (
                     <TextAnimationCard
                         key={item.key}
