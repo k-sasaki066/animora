@@ -10,7 +10,7 @@ export function MenuList() {
 
     return (
         <>
-            <div className="flex flex-wrap gap-6 p-4 justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
                 {menuData.map((item) => (
                     <MenuCard
                         key={item.key}
