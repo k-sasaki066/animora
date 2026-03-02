@@ -20,4 +20,14 @@ export const tableData: TableItem[] = [
         title: "Sortable Table",
         previewText: "Sortable Table Example",
     },
+    {
+        key: "animalTable",
+        title: "Animal Table",
+        previewText: "Animal Table Example",
+    },
+    {
+        key: "planTable",
+        title: "Plan Table",
+        previewText: "Plan Table Example",
+    },
 ];
