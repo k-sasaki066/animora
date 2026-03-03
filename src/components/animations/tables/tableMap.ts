@@ -5,6 +5,7 @@ import SortableTable from "./examples/sortable/SortableTable";
 import AnimalTable from "./examples/animal/AnimalTable";
 import PlanTable from "./examples/plan/PlanTable";
 import OrderHistoryTable from "./examples/order-history/OrderHistoryTable";
+import InlineEditTable from "./examples/inline-edit/InlineEditTable";
 
 export const tableMap: Record<string, ComponentType> = {
     materialTable: MaterialTable,
@@ -13,4 +14,5 @@ export const tableMap: Record<string, ComponentType> = {
     animalTable: AnimalTable,
     planTable: PlanTable,
     orderHistoryTable: OrderHistoryTable,
+    inlineEditTable: InlineEditTable,
 }

@@ -35,4 +35,9 @@ export const tableData: TableItem[] = [
         title: "Order History Table",
         previewText: "Order History Table Example",
     },
+    {
+        key: "inlineEditTable",
+        title: "InlineEdit Table",
+        previewText: "InlineEdit Table Example",
+    },
 ];
