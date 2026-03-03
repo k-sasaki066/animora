@@ -30,4 +30,9 @@ export const tableData: TableItem[] = [
         title: "Plan Table",
         previewText: "Plan Table Example",
     },
+    {
+        key: "orderHistoryTable",
+        title: "Order History Table",
+        previewText: "Order History Table Example",
+    },
 ];
