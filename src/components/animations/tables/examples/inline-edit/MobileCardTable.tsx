@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Row, EditableField, Column } from "./data";
 import { EditableCell } from "./EditableCell";
@@ -26,6 +27,8 @@ export function MobileCardTable({
     cancelEdit,
     handleChange,
 }: MobileCardTableProps) {
+    const id = useId();
+
     return (
         <div className="md:hidden w-full h-full flex flex-col gap-4 overflow-auto no-scrollbar">
             <AnimatePresence>
@@ -51,6 +54,8 @@ export function MobileCardTable({
                                     </span>
                                     <div className="flex-1 ml-2">
                                         <EditableCell
+                                            id={`${id}-${row.id}-${col.key}`}
+                                            name={col.key as string}
                                             editing={editing}
                                             value={String(editRow?.[col.key] ?? "")}
                                             fallbackValue={String(row[col.key])}

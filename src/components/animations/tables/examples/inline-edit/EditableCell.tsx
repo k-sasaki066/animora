@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useId } from "react";
 
 type EditableCellProps = {
+    id: string;
+    name: string;
     editing: boolean;
     value: string;
     fallbackValue?: string;
@@ -12,6 +15,8 @@ type EditableCellProps = {
 };
 
 export function EditableCell({
+    id,
+    name,
     editing,
     value,
     fallbackValue,
@@ -24,6 +29,9 @@ export function EditableCell({
     if (type === "select") {
         return (
             <motion.select
+                id={id}
+                name={name}
+                autoComplete="off"
                 initial={{ scale: 0.95 }}
                 animate={{ scale: 1 }}
                 className="border rounded px-2 py-1 w-full"
@@ -42,6 +50,9 @@ export function EditableCell({
     // type === "text"
     return (
         <motion.input
+            id={id}
+            name={name}
+            autoComplete={name === "email" ? "email" : "off"}
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
             className="border rounded px-2 py-1 w-full"
