@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { EditableField, columns } from "./data";
 import { MobileCardTable } from "./MobileCardTable";
@@ -8,6 +9,8 @@ import { ActionButtons } from "./ActionButtons";
 import { useInlineEditTable } from "./useInlineEditTable";
 
 export default function InlineEditTable() {
+    const id = useId();
+
     const {
         editRow,
         editingId,
@@ -27,6 +30,8 @@ export default function InlineEditTable() {
             {/* 検索バー */}
             <div className="w-50 mb-4">
                 <input
+                    id={id}
+                    name="search"
                     type="text"
                     placeholder="Search..."
                     value={query}
@@ -71,6 +76,8 @@ export default function InlineEditTable() {
                                         {columns.map((col) => (
                                             <td key={col.key as string} className={itemPadding}>
                                                 <EditableCell
+                                                    id={`${id}-${row.id}-${col.key}`}
+                                                    name={col.key as string}
                                                     editing={editing}
                                                     value={String(editRow?.[col.key] ?? "")}
                                                     fallbackValue={String(row[col.key])}

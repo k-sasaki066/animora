@@ -37,7 +37,12 @@ export const tableData: TableItem[] = [
     },
     {
         key: "inlineEditTable",
-        title: "InlineEdit Table",
-        previewText: "InlineEdit Table Example",
+        title: "Inline Edit Table",
+        previewText: "Inline Edit Table Example",
+    },
+    {
+        key: "dragTable",
+        title: "Drag Table",
+        previewText: "Drag Table Example",
     },
 ];
