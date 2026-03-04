@@ -8,6 +8,7 @@ import OrderHistoryTable from "./examples/order-history/OrderHistoryTable";
 import InlineEditTable from "./examples/inline-edit/InlineEditTable";
 import DragTable from "./examples/drag/DragTable";
 import VacancyCalendar from "./examples/vacancy/VacancyCalendar";
+import DayCalendar from "./examples/day-calendar/DayCalendar";
 
 export const tableMap: Record<string, ComponentType> = {
     materialTable: MaterialTable,
@@ -19,4 +20,5 @@ export const tableMap: Record<string, ComponentType> = {
     inlineEditTable: InlineEditTable,
     dragTable: DragTable,
     vacancyCalendar: VacancyCalendar,
+    dayCalendar: DayCalendar,
 }
