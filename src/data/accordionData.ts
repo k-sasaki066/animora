@@ -35,6 +35,7 @@ export const accordionData: AccordionCategory[] = [
             { title: "Search Box", key: "Search-Box",content: "" },
             { title: "Pagination", key: "Pagination", content: "" },
             { title: "Background Effects", key: "Background", content: "" },
+            { title: "Graph", key: "Graph", content: "" },
         ],
     },
     {
