@@ -23,6 +23,7 @@ import { RibbonList } from "@/components/animations/ribbons/RibbonList";
 import { ListList } from "@/components/animations/lists/ListList";
 import { CardList } from "@/components/animations/cards/CardList";
 import { TableList } from "@/components/animations/tables/TableList";
+import { GraphList } from "@/components/animations/graphs/GraphList";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -136,6 +137,7 @@ export default function HomePage() {
                                     {selectedItem === "List" && <ListList />}
                                     {selectedItem === "Card" && <CardList />}
                                     {selectedItem === "Table" && <TableList />}
+                                    {selectedItem === "Graph" && <GraphList />}
                                 </div>
                             )}
                         </main>
