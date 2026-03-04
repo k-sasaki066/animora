@@ -8,6 +8,7 @@ import VerticalRibbon from "./examples/VerticalRibbon";
 import BadgeRibbon from "./examples/BadgeRibbon";
 import SoldOutRibbon from "./examples/SoldOutRibbon";
 import StarRibbon from "./examples/StarRibbon";
+import CrownRibbon from "./examples/CrownRibbon";
 
 export const ribbonMap: Record<string, ComponentType> = {
     simpleRibbon: SimpleRibbon,
@@ -19,4 +20,5 @@ export const ribbonMap: Record<string, ComponentType> = {
     badgeRibbon: BadgeRibbon,
     soldOutRibbon: SoldOutRibbon,
     starRibbon: StarRibbon,
+    crownRibbon: CrownRibbon,
 };
