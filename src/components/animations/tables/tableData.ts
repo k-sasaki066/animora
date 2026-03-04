@@ -50,4 +50,9 @@ export const tableData: TableItem[] = [
         title: "Vacancy Calendar",
         previewText: "Vacancy Calendar Example",
     },
+    {
+        key: "dayCalendar",
+        title: "Day Calendar",
+        previewText: "Day Calendar Example",
+    },
 ];
