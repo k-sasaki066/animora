@@ -45,4 +45,9 @@ export const tableData: TableItem[] = [
         title: "Drag Table",
         previewText: "Drag Table Example",
     },
+    {
+        key: "vacancyCalendar",
+        title: "Vacancy Calendar",
+        previewText: "Vacancy Calendar Example",
+    },
 ];
