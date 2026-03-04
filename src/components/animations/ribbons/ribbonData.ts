@@ -50,4 +50,9 @@ export const ribbonData: RibbonItem[] = [
         title: "Star Ribbon",
         previewText: "Star Ribbon Example",
     },
+    {
+        key: "crownRibbon",
+        title: "Crown Ribbon",
+        previewText: "Crown Ribbon Example",
+    },
 ];
