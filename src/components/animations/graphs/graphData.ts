@@ -15,4 +15,9 @@ export const graphData: GraphItem[] = [
         title: "Access Line Graph",
         previewText: "Access Line Graph Example",
     },
+    {
+        key: "goodsSalesDonutGraph",
+        title: "Goods Sales Donut Graph",
+        previewText: "Goods Sales Donut Graph Example",
+    },
 ];
