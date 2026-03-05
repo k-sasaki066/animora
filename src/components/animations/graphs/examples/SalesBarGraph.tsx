@@ -23,7 +23,7 @@ export default function SalesBarGraph() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-full h-full max-w-150 overflow-auto no-scrollbar"
+            className="w-full h-full max-w-150 overflow-auto no-scrollbar **:focus:outline-none"
         >
             <h2 className="text-xl font-bold mb-4">
                 売上比較
