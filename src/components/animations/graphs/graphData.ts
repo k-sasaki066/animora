@@ -10,4 +10,9 @@ export const graphData: GraphItem[] = [
         title: "Sales Bar Graph",
         previewText: "Sales Bar Graph Example",
     },
+    {
+        key: "accessLineGraph",
+        title: "Access Line Graph",
+        previewText: "Access Line Graph Example",
+    },
 ];
