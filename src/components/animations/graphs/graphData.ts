@@ -25,4 +25,9 @@ export const graphData: GraphItem[] = [
         title: "Study Time Graph",
         previewText: "Study Time Graph Example",
     },
+    {
+        key: "heatmapGraph",
+        title: "Heatmap Graph",
+        previewText: "Heatmap Graph Example",
+    },
 ];
