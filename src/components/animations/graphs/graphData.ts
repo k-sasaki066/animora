@@ -20,4 +20,9 @@ export const graphData: GraphItem[] = [
         title: "Goods Sales Donut Graph",
         previewText: "Goods Sales Donut Graph Example",
     },
+    {
+        key: "studyTimeGraph",
+        title: "Study Time Graph",
+        previewText: "Study Time Graph Example",
+    },
 ];
