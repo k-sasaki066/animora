@@ -1,12 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BarChart, Bar, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
-import { useContainerSize } from "@/hooks/useContainerSize";
+import { BarChart, Bar, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend } from "recharts";
 
 export default function SalesBarGraph() {
-    const { ref, width, height } = useContainerSize<HTMLDivElement>();
-    const ready = width > 0 && height > 0;
 
     const data = [
         { month: "Jan", sales: 4200, lastYear: 3800, target: 4500 },
@@ -19,7 +16,6 @@ export default function SalesBarGraph() {
 
     return (
         <motion.div
-            ref={ref}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -29,71 +25,69 @@ export default function SalesBarGraph() {
                 売上比較
             </h2>
 
-            <div className="w-full h-full">
-                {ready && (
-                    <ResponsiveContainer width={width} height={300}>
-                        <BarChart data={data}>
-                            {/* グラデーション定義 */}
-                            <defs>
-                                <linearGradient id="salesGradient" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#60a5fa" stopOpacity={1} />
-                                    <stop offset="100%" stopColor="#1d4ed8" stopOpacity={1} />
-                                </linearGradient>
-                            </defs>
+            <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                    {/* グラデーション定義 */}
+                    <defs>
+                        <linearGradient id="salesGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#60a5fa" stopOpacity={1} />
+                            <stop offset="100%" stopColor="#1d4ed8" stopOpacity={1} />
+                        </linearGradient>
+                    </defs>
 
-                            <CartesianGrid
-                                strokeDasharray="3 3"
-                                vertical={false}
-                            />
+                    <CartesianGrid
+                        strokeDasharray="3 3"
+                        vertical={false}
+                    />
 
-                            <XAxis
-                                dataKey="month"
-                                axisLine={false}
-                                tickLine={false}
-                            />
+                    <XAxis
+                        dataKey="month"
+                        axisLine={false}
+                        tickLine={false}
+                    />
 
-                            <YAxis
-                                axisLine={false}
-                                tickLine={false}
-                            />
+                    <YAxis
+                        axisLine={false}
+                        tickLine={false}
+                    />
 
-                            <Tooltip cursor={{ fill: "rgba(0,0,0,0.05)" }} />
+                    <Legend height={60}/>
 
-                            {/* 今年の売上 */}
-                            <Bar
-                                dataKey="sales"
-                                radius={[4, 4, 0, 0]}
-                                barSize={42}
-                                animationDuration={800}
-                                animationEasing="ease-out"
-                                fill="url(#salesGradient)"
-                                className="focus:outline-none"
-                            />
+                    <Tooltip cursor={{ fill: "rgba(0,0,0,0.05)" }} />
 
-                            {/* 目標ライン */}
-                            <Line
-                                type="linear"
-                                dataKey="target"
-                                stroke="#f59e0b"
-                                strokeWidth={2}
-                                dot={false}
-                                activeDot={{ r:4 }}
-                            />
+                    {/* 今年の売上 */}
+                    <Bar
+                        dataKey="sales"
+                        radius={[4, 4, 0, 0]}
+                        barSize={42}
+                        animationDuration={800}
+                        animationEasing="ease-out"
+                        fill="url(#salesGradient)"
+                        className="focus:outline-none"
+                    />
 
-                            {/* 去年 */}
-                            <Line
-                                type="linear"
-                                dataKey="lastYear"
-                                stroke="#94a3b8"
-                                strokeWidth={2}
-                                strokeDasharray="5 5"
-                                dot={false}
-                                activeDot={{ r: 4 }}
-                            />
-                        </BarChart>
-                    </ResponsiveContainer>
-                )}
-            </div>
+                    {/* 目標ライン */}
+                    <Line
+                        type="linear"
+                        dataKey="target"
+                        stroke="#f59e0b"
+                        strokeWidth={2}
+                        dot={false}
+                        activeDot={{ r:4 }}
+                    />
+
+                    {/* 去年 */}
+                    <Line
+                        type="linear"
+                        dataKey="lastYear"
+                        stroke="#c9d1db"
+                        strokeWidth={2}
+                        strokeDasharray="5 5"
+                        dot={false}
+                        activeDot={{ r: 4 }}
+                    />
+                </BarChart>
+            </ResponsiveContainer>
         </motion.div>
     );
 }

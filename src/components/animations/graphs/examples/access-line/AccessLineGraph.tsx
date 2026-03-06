@@ -8,8 +8,7 @@ import { KpiCards } from "./KpiCards";
 import { accessData } from "./accessData";
 
 export default function AccessLineGraph() {
-    const { ref, width, height } = useContainerSize<HTMLDivElement>();
-    const ready = width > 0 && height > 0;
+    const { ref, width } = useContainerSize<HTMLDivElement>();
     const isMobile = width <= 530;
 
     const {
@@ -56,53 +55,49 @@ export default function AccessLineGraph() {
                 isMobile={isMobile}
             />
 
-            <div className="w-full h-full">
-                {ready && (
-                    <ResponsiveContainer width={width} height={300}>
-                        <LineChart data={accessData}>
-                            <ReferenceLine
-                                y={avg}
-                                stroke="#ef4444"
-                                strokeDasharray="4 4"
-                                label="AVG"
-                            />
+            <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={accessData}>
+                    <ReferenceLine
+                        y={avg}
+                        stroke="#ef4444"
+                        strokeDasharray="4 4"
+                        label="AVG"
+                    />
 
-                            <Legend />
+                    <Legend />
 
-                            <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid strokeDasharray="3 3" />
 
-                            <XAxis
-                                dataKey="date"
-                                tickLine={false}
-                                padding={{ left: 20, right: 20 }}
-                            />
+                    <XAxis
+                        dataKey="date"
+                        tickLine={false}
+                        padding={{ left: 20, right: 20 }}
+                    />
 
-                            <YAxis
-                                tickLine={false}
-                                domain={[0, niceMax]}
-                            />
+                    <YAxis
+                        tickLine={false}
+                        domain={[0, niceMax]}
+                    />
 
-                            <Tooltip
-                                contentStyle={{
-                                    borderRadius: "10px",
-                                    border: "none",
-                                    boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
-                                }}
-                            />
+                    <Tooltip
+                        contentStyle={{
+                            borderRadius: "10px",
+                            border: "none",
+                            boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
+                        }}
+                    />
 
-                            <Line
-                                type="monotone"
-                                dataKey="access"
-                                stroke="#3b82f6"
-                                strokeWidth={3}
-                                dot={renderDot}
-                                activeDot={{ r: 7 }}
-                                animationDuration={1200}
-                            />
-                        </LineChart>
-                    </ResponsiveContainer>
-                )}
-            </div>
+                    <Line
+                        type="monotone"
+                        dataKey="access"
+                        stroke="#3b82f6"
+                        strokeWidth={3}
+                        dot={renderDot}
+                        activeDot={{ r: 7 }}
+                        animationDuration={1200}
+                    />
+                </LineChart>
+            </ResponsiveContainer>
         </motion.div>
     );
 }
