@@ -4,6 +4,7 @@ import AccessLineGraph from "./examples/access-line/AccessLineGraph";
 import GoodsSalesDonutGraph from "./examples/goods-sales/GoodsSalesDonutGraph";
 import StudyTimeGraph from "./examples/study-time/StudyTimeGraph";
 import HeatmapGraph from "./examples/heat-map/HeatmapGraph";
+import EvaluationRadarGraph from "./examples/radar/EvaluationRadarGraph";
 
 export const graphMap: Record<string, ComponentType> = {
     salesBarGraph: SalesBarGraph,
@@ -11,4 +12,5 @@ export const graphMap: Record<string, ComponentType> = {
     goodsSalesDonutGraph: GoodsSalesDonutGraph,
     studyTimeGraph: StudyTimeGraph,
     heatmapGraph: HeatmapGraph,
+    evaluationRadarGraph: EvaluationRadarGraph,
 }

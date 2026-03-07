@@ -30,4 +30,9 @@ export const graphData: GraphItem[] = [
         title: "Heatmap Graph",
         previewText: "Heatmap Graph Example",
     },
+    {
+        key: "evaluationRadarGraph",
+        title: "Evaluation Radar Graph",
+        previewText: "Evaluation Radar Graph Example",
+    },
 ];
