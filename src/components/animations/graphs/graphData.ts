@@ -35,4 +35,9 @@ export const graphData: GraphItem[] = [
         title: "Evaluation Radar Graph",
         previewText: "Evaluation Radar Graph Example",
     },
+    {
+        key: "iceCreamScatterGraph",
+        title: "IceCream Scatter Graph",
+        previewText: "IceCream Scatter Graph Example",
+    },
 ];
