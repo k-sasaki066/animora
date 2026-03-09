@@ -10,12 +10,13 @@ export function TableList() {
 
     return (
         <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6">
                 {tableData.map((item) => (
                     <TableCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        image={item.image}
+                        mobileImage={item.mobileImage}
                         onClick={() => setActiveKey(item.key)}
                     />
                 ))}
