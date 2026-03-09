@@ -19,7 +19,7 @@ export default function GoodsSalesDonutGraph() {
         <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            className="w-full h-full max-w-150 bg-zinc-900 p-6 overflow-auto no-scrollbar **:focus:outline-none"
+            className="w-full h-full bg-zinc-900 overflow-auto no-scrollbar **:focus:outline-none"
         >
             <h2 className="mb-4 text-lg font-semibold text-white">
                 イベントグッズ売上
