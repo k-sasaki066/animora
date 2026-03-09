@@ -1,8 +1,8 @@
 
 import { useState, useRef } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { CiCirclePlus } from "react-icons/ci";
 import { motion, AnimatePresence } from "framer-motion";
+import { PlusButton } from "@/components/ui/PlusButton";
 
 interface SliderCardProps {
     title: string;
@@ -32,13 +32,7 @@ export function SliderCard({
 
     return (
         <Card className="relative max-w-140 mx-auto">
-            <button
-                type="button"
-                onClick={onClick}
-                className="absolute top-2 right-2 text-3xl text-[#464861] p-1.5 cursor-pointer"
-            >
-                <CiCirclePlus />
-            </button>
+            <PlusButton onClick={onClick} />
 
             <CardHeader>
                 <CardTitle className="text-center">
