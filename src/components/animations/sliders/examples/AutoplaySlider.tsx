@@ -3,14 +3,9 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getRandomImages } from "@/lib/randomImages";
 
-const images = [
-    "/lavender.jpg",
-    "/flower.jpg",
-    "/hydrangea.jpg",
-    "/river.jpg",
-    "/leading.jpg",
-];
+const images = getRandomImages(5);
 
 export default function BasicSlider() {
     const [current, setCurrent] = useState(0);
@@ -18,16 +13,16 @@ export default function BasicSlider() {
 
     const slideVariants = {
         enter: (direction: 1 | -1) => ({
-            x: direction === 1 ? 300 : -300,
-            opacity: 0,
+            x: direction === 1 ? "100%" : "-100%",
+            opacity: 1,
         }),
         center: {
             x: 0,
             opacity: 1,
         },
         exit: (direction: 1 | -1) => ({
-            x: direction === 1 ? -300 : 300,
-            opacity: 0,
+            x: direction === 1 ? "-100%" : "100%",
+            opacity: 1,
         }),
     };
 
@@ -46,7 +41,7 @@ export default function BasicSlider() {
     };
 
     useEffect(() => {
-        const interval = setInterval(next, 3000);
+        const interval = setInterval(next, 4000);
         return () => clearInterval(interval);
     }, []);
 
@@ -62,7 +57,7 @@ export default function BasicSlider() {
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        transition={{ duration: 0.4 }}
+                        transition={{ duration: 0.6 }}
                     >
                         <img
                             src={images[current]}

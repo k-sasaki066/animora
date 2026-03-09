@@ -15,7 +15,7 @@ export function SliderList() {
                     <SliderCard
                         key={slider.key}
                         title={slider.title}
-                        thumbnail={slider.thumbnail}
+                        video={slider.video}
                         description={slider.description}
                         onClick={() => setActiveKey(slider.key)}
                     />

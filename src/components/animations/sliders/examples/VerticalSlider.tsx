@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getRandomImages } from "@/lib/randomImages";
 
-const slides = [
-    { src: "/lavender.jpg", title: "sample1" },
-    { src: "/flower.jpg", title: "sample2" },
-    { src: "/hydrangea.jpg", title: "sample3" },
-    { src: "/river.jpg", title: "sample4" },
-    { src: "/leading.jpg", title: "sample5" },
-];
+const images = getRandomImages(5);
+
+const slides = images.map((src, i) => ({
+    src,
+    title: `sample${i + 1}`,
+}));
 
 export default function VerticalSlider() {
     const [hovered, setHovered] = useState(false);
@@ -26,9 +26,10 @@ export default function VerticalSlider() {
 
     return (
         <div
-            className="relative w-full max-w-xl aspect-video mx-auto border-10 border-white shadow-lg overflow-visible bg-gray-300"
+            className="relative w-full max-w-xl aspect-video mx-auto border-7 md:border-10 border-[#dad9d9] shadow-lg overflow-visible bg-gray-300"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            onClick={() => setHovered((prev) => !prev)}
         >
             <div className="overflow-hidden relative w-full h-full">
                 <AnimatePresence>
@@ -36,9 +37,9 @@ export default function VerticalSlider() {
                         index === current ? (
                             <motion.div
                                 key={index}
-                                initial={{ y: "-100%", opacity: 0 }}
+                                initial={{ y: "-100%", opacity: 1 }}
                                 animate={{ y: "0%", opacity: 1 }}
-                                exit={{ y: "100%", opacity: 0 }}
+                                exit={{ y: "100%", opacity: 1 }}
                                 transition={{ duration: 1 }}
                                 className="absolute inset-0 top-0 left-0"
                             >
@@ -51,7 +52,7 @@ export default function VerticalSlider() {
                                 <motion.div
                                     initial={{ x: "-100%" }}
                                     animate={{ x: hovered ? 0 : "-100%" }}
-                                    transition={{ duration: 0.3 }}
+                                    transition={{ duration: 0.5 }}
                                     className="absolute bottom-[8%] left-0 w-[50%] max-w-60 bg-black/70 text-white text-xs md:text-sm p-2 z-10"
                                 >
                                     <h1 className="text-center font-semibold uppercase">

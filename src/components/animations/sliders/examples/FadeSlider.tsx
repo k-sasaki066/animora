@@ -3,14 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getRandomImages } from "@/lib/randomImages";
 
-const images = [
-    "/lavender.jpg",
-    "/flower.jpg",
-    "/hydrangea.jpg",
-    "/river.jpg",
-    "/leading.jpg",
-];
+const images = getRandomImages(5);
 
 export default function FadeSlider() {
     const [current, setCurrent] = useState(0);

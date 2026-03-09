@@ -45,7 +45,7 @@ export default function HomePage() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                 >
-                    {/* SVGで手書きアニメーション */}
+                    {/* SVGアニメーション */}
                     <motion.svg
                         viewBox="0 0 550 150"
                         className="w-full max-w-150 text-gray-400 p-2"
@@ -53,19 +53,22 @@ export default function HomePage() {
                         animate="visible"
                     >
                         <motion.text
-                            x="50%"                      // 水平方向の中央
-                            y="50%"                      // 垂直方向の中央
-                            textAnchor="middle"          // 中央揃え
-                            dominantBaseline="middle"    // 中央揃え
-                            fontSize="150"                // 文字サイズ
-                            fontFamily="'Alex Brush', cursive" // 手書き風フォント
-                            fill="none"                  // 塗りなし
-                            strokeWidth="1"              // 線の太さ
-                            stroke="currentColor"        // Tailwindの色に連動
-                            strokeDasharray="1100"        // 線の長さ（アニメーション用）
-                            strokeDashoffset="1100"       // 初期値（線を隠す）
+                            x="50%"
+                            y="50%"
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            fontSize="150"
+                            fontFamily="'Alex Brush', cursive"
+                            fill="none"
+                            strokeWidth="1"
+                            stroke="currentColor"
+                            strokeDasharray="1100"
+                            strokeDashoffset="1100"
                             animate={{ strokeDashoffset: 0 }} // 描きながら表示
-                            transition={{ duration: 2.5, ease: "easeInOut" }}      // アニメーション時間
+                            transition={{
+                                duration: 2.5,
+                                ease: "easeInOut"
+                            }}
                         >
                             Animora
                         </motion.text>
@@ -78,11 +81,14 @@ export default function HomePage() {
                             dominantBaseline="middle"
                             fontSize="150"
                             fontFamily="'Alex Brush', cursive"
-                            fill="currentColor"          // 塗りつぶす色
+                            fill="currentColor"
                             stroke="none"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 2, duration: 1 }}  // 線アニメ後に塗り
+                            transition={{
+                                delay: 2,
+                                duration: 1
+                            }}
                         >
                             Animora
                         </motion.text>
@@ -91,7 +97,7 @@ export default function HomePage() {
             ) : (
                 <motion.div
                     key="main"
-                    className="w-screen min-h-screen  body-color pt-18"
+                    className="w-screen h-screen body-color pt-18 flex flex-col"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1 }}
@@ -100,15 +106,20 @@ export default function HomePage() {
                     <Header onSelectItem={setSelectedItem} />
                     {/* NavMenuからのonSelectを選択状態にセット */}
 
-                    <div className="flex">
+                    <div className="flex flex-1 overflow-hidden">
                         {/* 左ナビ */}
-                        <NavMenu onSelectItem={setSelectedItem} selectedItem={selectedItem} />
+                        <NavMenu
+                            onSelectItem={setSelectedItem}
+                            selectedItem={selectedItem}
+                        />
 
                         {/* メインコンテンツ */}
-                        <main className="flex-1 md:ml-0 p-4 h-screen overflow-y-scroll">
+                        <main className="flex-1 md:ml-0 p-4 overflow-y-scroll">
                             {!selectedItem && (
                                 <>
-                                    <h2 className="text-3xl font-bold mb-4">Welcome to Animora!</h2>
+                                    <h2 className="text-3xl font-bold mb-4">
+                                        Welcome to Animora!
+                                    </h2>
                                     <p className="text-lg text-gray-400">
                                         このアプリでは CSSアニメーション・JavaScriptのサンプル・HTMLタグ辞典などを確認できます。
                                     </p>
@@ -117,7 +128,9 @@ export default function HomePage() {
 
                             {selectedItem && (
                                 <div>
-                                    <h2 className="text-3xl font-bold mb-4">{selectedItem}</h2>
+                                    <h2 className="text-3xl font-bold mb-4">
+                                        {selectedItem}
+                                    </h2>
                                     {selectedItem === "Loading" && <LoadingList />}
                                     {selectedItem === "Micro" && <ButtonAnimationList />}
                                     {selectedItem === "Image" && <ImageList />}

@@ -9,6 +9,9 @@ export const getCarouselConfig = (width: number) => {
             visibleRange: 0,
             inactiveScale: 1,
             inactiveOpacity: 1,
+            padding: 0,
+            namePaddingX: 0,
+            namePaddingY: 0,
         };
     }
 
@@ -22,11 +25,14 @@ export const getCarouselConfig = (width: number) => {
             visibleRange: 1,
             inactiveScale: 0.85,
             inactiveOpacity: 0.25,
+            padding: 12,
+            namePaddingX: 16,
+            namePaddingY: 4,
         };
     }
 
     if (width < BREAKPOINTS.tablet) {
-        const cardWidth = Math.min(width * 0.45, 280);
+        const cardWidth = Math.min(width * 0.5, 380);
 
         return {
             cardWidth,
@@ -35,10 +41,13 @@ export const getCarouselConfig = (width: number) => {
             visibleRange: 2,
             inactiveScale: 0.85,
             inactiveOpacity: 0.3,
+            padding: 24,
+            namePaddingX: 24,
+            namePaddingY: 8,
         };
     }
 
-    const cardWidth = 320;
+    const cardWidth = 420;
 
     return {
         cardWidth,
@@ -47,5 +56,8 @@ export const getCarouselConfig = (width: number) => {
         visibleRange: 2,
         inactiveScale: 0.8,
         inactiveOpacity: 0.25,
+        padding: 24,
+        namePaddingX: 24,
+        namePaddingY: 8,
     };
 };

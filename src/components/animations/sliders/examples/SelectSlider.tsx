@@ -2,14 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getRandomImages } from "@/lib/randomImages";
 
-const images = [
-    "/lavender.jpg",
-    "/flower.jpg",
-    "/hydrangea.jpg",
-    "/river.jpg",
-    "/leading.jpg",
-];
+const images = getRandomImages(5);
 
 export default function SelectSlider() {
     const [selected, setSelected] = useState(0);
@@ -27,7 +22,7 @@ export default function SelectSlider() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.6 }}
                         />
                     </div>
                 </AnimatePresence>

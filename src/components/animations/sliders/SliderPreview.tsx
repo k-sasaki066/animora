@@ -13,7 +13,7 @@ export function SliderPreview({ sliderKey }: SliderPreviewProps) {
                 {sliderKey}
             </h2>
 
-            <div className="border rounded-lg p-6">
+            <div className="border rounded-lg p-2">
                 <SliderComponent />
             </div>
         </div>

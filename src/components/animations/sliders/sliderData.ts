@@ -1,7 +1,7 @@
 export interface SliderItem {
     key: string;
     title: string;
-    thumbnail: string;
+    video: string;
     description?: string;
 }
 
@@ -9,85 +9,85 @@ export const sliderData: SliderItem[] = [
     {
         key: "basic",
         title: "Basic Slider",
-        thumbnail: "/fruits.jpg",
+        video: "/videos/sliders/basic-slider.mp4",
         description: "左右にスライドする基本形",
     },
     {
         key: "fade",
         title: "Fade Slider",
-        thumbnail: "/fruits.jpg",
+        video: "/videos/sliders/fade-slider.mp4",
         description: "フェード切り替え",
     },
     {
         key: "autoplay",
         title: "Autoplay Slider",
-        thumbnail: "/fruits.jpg",
+        video: "/videos/sliders/autoplay-slider.mp4",
         description: "自動再生スライダー",
     },
     {
         key: "select",
         title: "Select Slider",
-        thumbnail: "/fruits.jpg",
+        video: "/videos/sliders/select-slider.mp4",
         description: "画像選択",
     },
     {
         key: "vertical",
         title: "Vertical Slider",
-        thumbnail: "/fruits.jpg",
+        video: "/videos/sliders/vertical-slider.mp4",
         description: "画像選択",
     },
     {
         key: "centerCarousel",
         title: "Center Carousel Slider",
-        thumbnail: "/river.jpg",
+        video: "/videos/sliders/center-carousel-slider.mp4",
         description: "",
     },
     {
         key: "centerFocus",
         title: "Center Focus Slider",
-        thumbnail: "/sea.jpg",
+        video: "/videos/sliders/center-focus-slider.mp4",
         description: "",
     },
     {
         key: "heroCarousel",
         title: "Hero Carousel Slider",
-        thumbnail: "/lavender.jpg",
+        video: "",
         description: "",
     },
     {
         key: "Carousel3D",
         title: "3D Carousel Slider",
-        thumbnail: "/leading.jpg",
+        video: "",
         description: "",
     },
     {
         key: "Split",
         title: "Split Slider",
-        thumbnail: "/river.jpg",
+        video: "",
         description: "",
     },
     {
         key: "SkewedScroll",
         title: "Skewed Scroll Slider",
-        thumbnail: "/fruits.jpg",
+        video: "",
         description: "",
     },
     {
         key: "ForestSlider",
         title: "Forest Slider",
-        thumbnail: "/lavender.jpg",
+        video: "",
         description: "",
     },
     {
         key: "AnimeSlider",
         title: "Anime Slider",
-        thumbnail: "/leading.jpg",
+        video: "",
         description: "",
     },
     {
         key: "Fancy",
         title: "Fancy Slider",
-        thumbnail: "/sea.jpg",
+        video: "",
         description: "",
     },
 ];
