@@ -10,7 +10,7 @@ export function SkewedPageText({ title, description, containerWidth, }: Props) {
     const { titleClass, descriptionClass } = getSkewedSliderConfig(containerWidth)
 
     return (
-        <div className="flex flex-col items-center justify-canter text-center text-white">
+        <div className="w-[60%] flex flex-col items-center justify-canter text-center text-white">
             <h2 className={`uppercase mb-4 ${titleClass}`}>{title}</h2>
             <p className={descriptionClass}>{description}</p>
         </div>

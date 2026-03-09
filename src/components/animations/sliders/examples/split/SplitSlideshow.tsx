@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWheelNavigation } from "./useWheelNavigation";
 import SlideImages from "./SlideImages";
@@ -8,17 +8,16 @@ import { useContainerSize } from "@/hooks/useContainerSize";
 import { getSplitConfig } from "@/lib/responsive/splitConfig";
 import { SwipeHint } from "@/components/ui/SwipeHint";
 
-
 const images = [
-    "/river.jpg",
-    "/leading.jpg",
-    "/sea.jpg",
+    "/images/sample-02.webp",
+    "/images/sample-14.webp",
+    "/images/sample-27.webp"
 ];
 
 const colors = [
     "#fff",
-    "#28385e",
-    "#8d8f91"
+    "#eee",
+    "#eee"
 ];
 
 const texts = ["Desert", "Erosion", "Shape"];
@@ -36,6 +35,21 @@ export default function SplitSlideshow() {
         const hasSwiped = sessionStorage.getItem(SWIPE_KEY);
         if (!hasSwiped) setShowHint(true);
     }, []);
+
+    const touchStartY = useRef(0);
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+
+        if (Math.abs(deltaY) > 50) {
+            if (deltaY > 0) prev();
+            else next();
+        }
+    };
 
     const handleFirstSwipe = () => {
         if (!showHint) return;
@@ -62,7 +76,11 @@ export default function SplitSlideshow() {
             ref={ref}
             className="w-full max-w-4xl mx-auto relative"
             onWheel={handleFirstSwipe}
-            onTouchStart={handleFirstSwipe}
+            onTouchStart={(e) => {
+                handleFirstSwipe();
+                handleTouchStart(e);
+            }}
+            onTouchEnd={handleTouchEnd}
         >
             <div
                 className="relative overflow-hidden mx-auto"
@@ -87,7 +105,7 @@ export default function SplitSlideshow() {
                             }}
                             animate={{
                                 y: "0%",
-                                opacity: 1,
+                                opacity: 0.9,
                                 color: colors[index % colors.length],
                             }}
                             exit={{
@@ -107,15 +125,15 @@ export default function SplitSlideshow() {
                 <div className="absolute right-4 top-1/2 flex flex-col gap-2 -translate-y-1/2 items-end">
                     {images.map((_, i) => (
                         <motion.div
-                        key={i}
-                        className="h-0.5 bg-white rounded-full"
-                        animate={{
-                            width: i === index
-                                ? config.indicatorSize * 1.6
-                                : config.indicatorSize,
-                            opacity: i === index ? 1 : 0.6,
-                        }}
-                        transition={{ duration: 0.3 }}
+                            key={i}
+                            className="h-0.5 bg-white rounded-full"
+                            animate={{
+                                width: i === index
+                                    ? config.indicatorSize * 1.6
+                                    : config.indicatorSize,
+                                opacity: i === index ? 1 : 0.6,
+                            }}
+                            transition={{ duration: 0.3 }}
                         />
                     ))}
                 </div>

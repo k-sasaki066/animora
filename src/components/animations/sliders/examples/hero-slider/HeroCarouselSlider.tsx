@@ -24,24 +24,24 @@ export default function HeroCarousel() {
         <div className="relative w-full max-w-3xl">
             {/* スライド */}
             <div className={`relative ${heroConfig.containerHeight} overflow-hidden`}>
-            {heroSlides.map((slide, index) => (
-                <HeroSlide
-                key={index}
-                slide={slide}
-                active={index === current}
-                config={heroConfig}
-                />
-            ))}
+                {heroSlides.map((slide, index) => (
+                    <HeroSlide
+                        key={index}
+                        slide={slide}
+                        active={index === current}
+                        config={heroConfig}
+                    />
+                ))}
             </div>
 
             {/* ナビ */}
             <div className={`flex items-center ${heroConfig.navClass}`}>
                 <div className="flex-1 h-1 bg-blue-100 rounded-full overflow-hidden">
                     <div
-                    className="h-full bg-blue-500 transition-all duration-500"
-                    style={{
-                        width: `${((current + 1) / heroSlides.length) * 100}%`,
-                    }}
+                        className="h-full bg-blue-500 transition-all duration-500"
+                        style={{
+                            width: `${((current + 1) / heroSlides.length) * 100}%`,
+                        }}
                     />
                 </div>
 
