@@ -8,7 +8,7 @@ export interface SkewedSliderConfig {
 }
 
 export function getSkewedSliderConfig(containerWidth: number): SkewedSliderConfig {
-    const magicVH = clamp(containerWidth * 0.0235, 5, 14)
+    const magicVH = clamp(containerWidth * 0.0238, 6.5, 11)
     const width = clamp(containerWidth, 260, 460)
     const height = Math.round(width * 0.67)
 
