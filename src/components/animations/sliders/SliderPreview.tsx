@@ -9,10 +9,6 @@ export function SliderPreview({ sliderKey }: SliderPreviewProps) {
 
     return (
         <div className="space-y-4 w-full max-w-5xl mx-auto">
-            <h2 className="text-xl font-bold text-center">
-                {sliderKey}
-            </h2>
-
             <div className="border rounded-lg p-2">
                 <SliderComponent />
             </div>

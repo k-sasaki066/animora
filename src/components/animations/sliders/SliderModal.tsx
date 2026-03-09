@@ -2,6 +2,7 @@
 
 import { Dialog, DialogContent, DialogHeader,DialogTitle, DialogDescription} from "@/components/ui/dialog";
 import { SliderPreview } from "./SliderPreview";
+import { sliderData } from "./sliderData";
 
 interface SliderModalProps {
     sliderKey: string | null;
@@ -9,12 +10,14 @@ interface SliderModalProps {
 }
 
 export function SliderModal({ sliderKey, onClose }: SliderModalProps) {
+    const sliderTitle = sliderData.find((s) => s.key === sliderKey)?.title ?? "Slider Preview";
+
     return (
         <Dialog open={!!sliderKey} onOpenChange={onClose}>
             <DialogContent className="max-w-3xl w-[75%] max-h-[75vh] h-auto overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle>
-                        {sliderKey ?? "Slider Preview"}
+                        {sliderTitle}
                     </DialogTitle>
                     <DialogDescription>
                         プレビューを確認できます

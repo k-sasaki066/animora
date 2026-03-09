@@ -38,7 +38,7 @@ export default function FancySlider() {
                 />
             </AnimatePresence>
 
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-2 flex items-center  gap-4 text-white">
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-2 flex items-center gap-4 text-white">
                 {/* 前へボタン */}
                 <button
                     onClick={prev}

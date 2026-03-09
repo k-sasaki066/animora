@@ -10,13 +10,12 @@ export function SliderList() {
 
     return (
         <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6">
                 {sliderData.map((slider) => (
                     <SliderCard
                         key={slider.key}
                         title={slider.title}
                         video={slider.video}
-                        description={slider.description}
                         onClick={() => setActiveKey(slider.key)}
                     />
                 ))}
