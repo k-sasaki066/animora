@@ -5,15 +5,9 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { getCarouselConfig } from "@/lib/responsive/centerCarouselConfig";
+import { getRandomImages } from "@/lib/randomImages";
 
-const slides = [
-    "/lavender.jpg",
-    "/flower.jpg",
-    "/hydrangea.jpg",
-    "/river.jpg",
-    "/leading.jpg",
-    "/sea.jpg"
-];
+const slides = getRandomImages(6);
 
 const getOffset = (index: number, current: number, length: number) => {
     let offset = index - current;
@@ -39,6 +33,16 @@ export default function CenterCarouselSlider() {
         setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     };
 
+    const swipeThreshold = 80;
+
+    const handleDragEnd = (_: any, info: any) => {
+        if (info.offset.x < -swipeThreshold) {
+            next();
+        } else if (info.offset.x > swipeThreshold) {
+            prev();
+        }
+    };
+
     return (
         <div ref={ref} className="relative w-full max-w-4xl mx-auto flex items-center justify-center">
             {/* 左ボタン */}
@@ -47,7 +51,13 @@ export default function CenterCarouselSlider() {
             </button>
 
             {/* スライドエリア */}
-            <div className="relative flex items-center justify-center w-full aspect-3/2 overflow-hidden">
+            <motion.div
+                className="relative flex items-center justify-center w-full aspect-3/2 overflow-hidden"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleDragEnd}
+            >
                 {slides.map((item, index) => {
                     const offset = getOffset(index, current, slides.length);
 
@@ -83,19 +93,24 @@ export default function CenterCarouselSlider() {
                             animate={{ x: targetX, scale }}
                             transition={{
                                 type: "spring",
-                                stiffness: 260,
+                                stiffness: 180,
                                 damping: 28,
                             }}
                         >
-                            <img
+                            <motion.img
                                 src={item}
                                 alt=""
                                 className="w-full h-full object-cover"
+                                animate={{
+                                    filter: offset === 0 ? "grayscale(0%)" : "grayscale(100%)",
+                                    opacity: offset === 0 ? 1 : 0.8
+                                }}
+                                transition={{ duration: 0.5 }}
                             />
                         </motion.div>
                     );
                 })}
-            </div>
+            </motion.div>
 
             {/* 右ボタン */}
             <button onClick={next} className="p-2 z-20">
