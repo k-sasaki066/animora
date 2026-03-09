@@ -32,11 +32,11 @@ export function SkewedPage({ data, isActive, containerWidth }: Props) {
                 transition={{ duration: 1 }}
             >
                 <div
-                    className="absolute top-0 -left-[24%] w-[124%] h-full bg-black overflow-hidden"
+                    className="absolute top-0 -left-[23%] w-[124%] h-full bg-black overflow-hidden"
                     style={{ transform: `skewX(-${SKEW}deg)` }}
                 >
                     <div
-                        className="w-full h-full flex items-center justify-center text-white px-10 sm:px-12 md:px-15"
+                        className={`h-full flex items-center justify-center text-white px-10 sm:px-12 md:px-15 ${!showTextOnLeft ? "w-[140%]" : "w-full"}`}
                         style={{
                             transform: `skewX(${SKEW}deg)`,
                             backgroundImage: data.leftBg,
@@ -65,11 +65,11 @@ export function SkewedPage({ data, isActive, containerWidth }: Props) {
                 transition={{ duration: 1 }}
             >
                 <div
-                    className="absolute top-0 -right-[23%] w-[124%] h-full bg-neutral-900 overflow-hidden"
+                    className="absolute top-0 -right-[24%] w-[124%] h-full bg-neutral-900 overflow-hidden"
                     style={{ transform: `skewX(-${SKEW}deg)` }}
                 >
                     <div
-                        className="w-full h-full flex flex-col items-center justify-center text-white px-10 sm:px-12 md:px-15"
+                        className={`h-full flex flex-col items-center justify-center text-white px-10 sm:px-12 md:px-15 ${showTextOnLeft ? "w-[140%] absolute right-0" : "w-full"}`}
                         style={{
                             transform: `skewX(${SKEW}deg)`,
                             backgroundImage: data.rightBg,

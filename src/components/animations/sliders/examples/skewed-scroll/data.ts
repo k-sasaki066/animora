@@ -10,19 +10,19 @@ export const skewedPages: SkewedPageData[] = [
     {
         title: "Page 1",
         description: "Just scroll down",
-        leftBg: "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-1.jpg')",
+        leftBg: "url('/images/sample-03.webp')",
         textSide: "right",
     },
     {
         title: "Page 2",
         description: "Nothing to do here, continue scrolling.",
-        rightBg: "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg')",
+        rightBg: "url('/images/sample-04.webp')",
         textSide: "left",
     },
     {
         title: "Page 3",
         description: "The end is near, I promise!",
-        leftBg: "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-2.jpg')",
+        leftBg: "url('/images/sample-05.webp')",
         textSide: "right",
     },
 ]

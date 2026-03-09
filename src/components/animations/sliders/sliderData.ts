@@ -51,25 +51,25 @@ export const sliderData: SliderItem[] = [
     {
         key: "heroCarousel",
         title: "Hero Carousel Slider",
-        video: "",
+        video: "/videos/sliders/hero-carousel-slider.mp4",
         description: "",
     },
     {
         key: "Carousel3D",
         title: "3D Carousel Slider",
-        video: "",
+        video: "/videos/sliders/carousel-3d-slider.mp4",
         description: "",
     },
     {
         key: "Split",
         title: "Split Slider",
-        video: "",
+        video: "/videos/sliders/split-slider.mp4",
         description: "",
     },
     {
         key: "SkewedScroll",
         title: "Skewed Scroll Slider",
-        video: "",
+        video: "/videos/sliders/skew-scroll-slider.mp4",
         description: "",
     },
     {
