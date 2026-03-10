@@ -1,8 +1,10 @@
-"use client"
-
 import { motion, Variants } from "framer-motion";
 
-export default function StepCircleLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function StepCircleLoader({ paused = false }: Props) {
     const backgroundVariants: Variants = {
         animate: {
             background: [
@@ -22,13 +24,16 @@ export default function StepCircleLoader() {
                 repeat: Infinity,
             },
         },
+        paused: {
+            background: "conic-gradient(#f8b01c 315deg,#0000 316deg)",
+        },
     };
 
     return (
         <motion.div
             className="w-12 aspect-square rounded-full"
             variants={backgroundVariants}
-            animate="animate"
+            animate={paused ? "paused" : "animate"}
         />
     );
 }

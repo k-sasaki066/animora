@@ -1,15 +1,20 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function GridBuildupLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function GridBuildupLoader({ paused = false }: Props) {
     const gridOrder = [...Array(9).keys()];
+    const animateState = paused ? "hidden" : "visible";
+    const totalCells = gridOrder.length;
+    const pausedIndex = Math.floor(totalCells / 2);
 
     return (
         <motion.div
-            className="grid grid-cols-3 gap-1 w-12 h-12 text-purple-600"
+            className="grid grid-cols-3 gap-1 w-12 h-12"
             initial="hidden"
-            animate="visible"
+            animate={animateState}
             variants={{
                 visible: {
                     transition: {
@@ -21,15 +26,16 @@ export default function GridBuildupLoader() {
             }}
         >
             {gridOrder.map((_, index) => {
-                const upIndex = index;
+                const isActive = paused ? index <= pausedIndex : true;
 
                 return (
                     <motion.div
                         key={index}
-                        className="w-3 h-3 bg-purple-600"
+                        className="w-3 h-3 bg-[#6f86d6]"
                         variants={{
                             hidden: {
-                                opacity: 0, scale: 0.4
+                                opacity: isActive ? 1 : 0.2,
+                                scale: isActive ? 1 : 0.4
                             },
 
                             visible: {
@@ -40,7 +46,7 @@ export default function GridBuildupLoader() {
                                     duration: 2.4,
                                     repeat: Infinity,
                                     repeatType: "loop",
-                                    delay: (upIndex * 0.1),
+                                    delay: (index * 0.1),
                                 },
                             },
                         }}

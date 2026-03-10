@@ -1,9 +1,25 @@
-"use client"
+import { useEffect, useRef } from "react";
 
-export default function BarProgressLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function BarProgressLoader({ paused = false }: Props) {
+    const svgRef = useRef<SVGSVGElement>(null);
+
+    useEffect(() => {
+        if (!svgRef.current) return;
+
+        if (paused) {
+            svgRef.current.pauseAnimations();
+        } else {
+            svgRef.current.unpauseAnimations();
+        }
+    }, [paused]);
 
     return (
         <svg
+            ref={svgRef}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 120 6"
             width="120"

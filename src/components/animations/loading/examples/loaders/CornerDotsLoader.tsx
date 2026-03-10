@@ -1,6 +1,8 @@
-"use client"
-
 import { motion, Variants } from "framer-motion";
+
+interface Props {
+    paused?: boolean;
+}
 
 const size = 35;
 const dotSize = 12;
@@ -14,6 +16,11 @@ const positions = {
 };
 
 const dotVariants: Variants = {
+    paused: (pos: keyof typeof positions) => ({
+        x: positions[pos].x,
+        y: positions[pos].y,
+    }),
+
     animate: (path: (keyof typeof positions)[]) => ({
         x: path.map(p => positions[p].x),
         y: path.map(p => positions[p].y),
@@ -25,7 +32,8 @@ const dotVariants: Variants = {
     }),
 };
 
-export default function CornerDotsLoader() {
+export default function CornerDotsLoader({ paused = false }: Props) {
+    const animateState = paused ? "paused" : "animate";
 
     return (
         <div
@@ -40,8 +48,8 @@ export default function CornerDotsLoader() {
                     height: dotSize
                 }}
                 variants={dotVariants}
-                animate="animate"
-                custom={["tl", "tr", "tr", "br"]}
+                animate={animateState}
+                custom={paused ? "tl" : ["tl", "tr", "tr", "br"]}
                 transition={{
                     delay: 0
                 }}
@@ -55,8 +63,8 @@ export default function CornerDotsLoader() {
                     height: dotSize
                 }}
                 variants={dotVariants}
-                animate="animate"
-                custom={["bl", "bl", "tl", "tl"]}
+                animate={animateState}
+                custom={paused ? "bl" : ["bl", "bl", "tl", "tl"]}
                 transition={{
                     delay: cycle / 3
                 }}
@@ -70,8 +78,8 @@ export default function CornerDotsLoader() {
                     height: dotSize
                 }}
                 variants={dotVariants}
-                animate="animate"
-                custom={["br", "br", "br", "bl"]}
+                animate={animateState}
+                custom={paused ? "br" : ["br", "br", "br", "bl"]}
                 transition={{
                     delay: (cycle / 3) * 2
                 }}

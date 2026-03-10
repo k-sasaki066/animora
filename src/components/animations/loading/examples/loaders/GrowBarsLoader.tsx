@@ -1,8 +1,11 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function GrowBarsLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function GrowBarsLoader({ paused = false }: Props) {
+    const pausedScales = [0.3, 0.5, 0.7, 1];
 
     return (
         <div
@@ -15,21 +18,27 @@ export default function GrowBarsLoader() {
             {[ -0.45, -0.3, -0.15, 0 ].map((delay, i) => (
                 <motion.div
                     key={i}
-                    className="bg-purple-600"
+                    className="bg-[#ff758c]"
                     style={{
                         width: "3.5px",
                         height: "100%",
                         borderRadius: "2px",
                     }}
-                    animate={{
-                        scaleY: [0.3, 1, 0.3],
-                    }}
-                    transition={{
-                        duration: 1,
-                        ease: "easeInOut",
-                        repeat: Infinity,
-                        delay: delay,
-                    }}
+                    animate={
+                        paused
+                            ? { scaleY: pausedScales[i] }
+                            : { scaleY: [0.3, 1, 0.3] }
+                    }
+                    transition={
+                        paused
+                            ? { duration: 0 }
+                            : {
+                                duration: 1,
+                                ease: "easeInOut",
+                                repeat: Infinity,
+                                delay: delay,
+                            }
+                    }
                 />
             ))}
         </div>

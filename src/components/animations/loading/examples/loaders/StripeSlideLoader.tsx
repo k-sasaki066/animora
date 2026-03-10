@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function StripeSlideLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function StripeSlideLoader({ paused = false }: Props) {
 
     return (
         <motion.div
@@ -11,14 +13,20 @@ export default function StripeSlideLoader() {
                 background: `repeating-linear-gradient(-45deg, #6f86d6 0 15px, transparent 0 20px)`,
                 backgroundSize: "200% 100%",
             }}
-            animate={{
-                backgroundPosition: ["0% 0%", "100% 0%"],
-            }}
-            transition={{
-                repeat: Infinity,
-                duration: 2,
-                ease: "linear",
-            }}
+            animate={
+                !paused
+                    ? { backgroundPosition: ["0% 0%", "100% 0%"] }
+                    : undefined
+            }
+            transition={
+                paused
+                    ? { duration: 0 }
+                    : {
+                        repeat: Infinity,
+                        duration: 2,
+                        ease: "linear",
+                    }
+            }
         />
     );
 }
