@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function RhombusGradientLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function RhombusGradientLoader({ paused = false }: Props) {
 
     const maskSvg = encodeURIComponent(`
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -22,14 +24,20 @@ export default function RhombusGradientLoader() {
         >
             <motion.div
                 className="absolute w-full h-full top-0 left-0 bg-green-400"
-                animate={{
-                    x: ["-100%", "0%"],
-                }}
-                transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "linear",
-                }}
+                animate={
+                    paused
+                        ? { x: "-50%" }
+                        : { x: ["-100%", "0%"] }
+                }
+                transition={
+                    paused
+                        ? { duration: 0 }
+                        : {
+                            duration: 2.5,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }
+                }
             />
         </div>
     );

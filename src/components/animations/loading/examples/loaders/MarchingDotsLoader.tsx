@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function MarchingDotsLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function MarchingDotsLoader({ paused = false }: Props) {
     return (
         <div className="relative w-3 aspect-square">
             {/* 水平移動 */}
@@ -11,14 +13,20 @@ export default function MarchingDotsLoader() {
                 style={{
                     boxShadow: "-20px 0 0 #77db9a",
                 }}
-                animate={{
-                    x: [0, 20],
-                }}
-                transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    ease: "linear",
-                }}
+                animate={
+                    paused
+                        ? { x: 0 }
+                        : { x: [0, 20] }
+                }
+                transition={
+                    paused
+                        ? { duration: 0 }
+                        : {
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }
+                }
             />
 
             {/* 飛び越えるドット */}
@@ -27,14 +35,20 @@ export default function MarchingDotsLoader() {
                 transformTemplate={({ rotate }) =>
                     `rotate(${rotate}) translateX(20px)`
                 }
-                animate={{
-                    rotate: [0, -180]
-                }}
-                transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    ease: "linear",
-                }}
+                animate={
+                    paused
+                        ? { rotate: -45 }
+                        : { rotate: [0, -180] }
+                }
+                transition={
+                    paused
+                        ? { duration: 0 }
+                        : {
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }
+                }
             />
         </div>
     );

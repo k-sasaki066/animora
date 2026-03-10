@@ -1,10 +1,12 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 
-export default function BarcodeLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function BarcodeLoader({ paused = false }: Props) {
     const text = "Loading";
     const { ref, width } = useContainerSize<HTMLDivElement>();
 
@@ -25,6 +27,8 @@ export default function BarcodeLoader() {
         });
     }, [width]);
 
+    const pausedBars = bars.map((bar, i) => bar.y1 / 8);
+
     return (
         <div
             ref={ref}
@@ -44,17 +48,25 @@ export default function BarcodeLoader() {
                             left: bar.x,
                             textIndent: -bar.x,
                         }}
-                        animate={{
-                            y: [0, bar.y1, bar.y1 + (i % 2 === 0 ? -bar.y2 : bar.y2), 0, 0],
-                        }}
-                        transition={{
-                            duration: 2.6,
-                            times: [0, 0.3, 0.6, 0.85, 1],
-                            ease: "easeInOut",
-                            delay: Math.max(0, bar.delay),
-                            repeat: Infinity,
-                            repeatDelay: 1.0,
-                        }}
+                        animate={
+                            paused
+                                ? { y: pausedBars[i] }
+                                : {
+                                    y: [0, bar.y1, bar.y1 + (i % 2 === 0 ? -bar.y2 : bar.y2), 0, 0],
+                                }
+                        }
+                        transition={
+                            paused
+                                ? { duration: 0 }
+                                : {
+                                    duration: 2.6,
+                                    times: [0, 0.3, 0.6, 0.85, 1],
+                                    ease: "easeInOut",
+                                    delay: Math.max(0, bar.delay),
+                                    repeat: Infinity,
+                                    repeatDelay: 1.0,
+                                }
+                        }
                     >
                         {text}
                     </motion.span>

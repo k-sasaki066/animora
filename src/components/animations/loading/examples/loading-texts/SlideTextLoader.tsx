@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function SlideTextLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function SlideTextLoader({ paused = false }: Props) {
     const text = ["L", "o", "a", "d", "i", "n", "g"];
 
     return (
@@ -16,14 +18,20 @@ export default function SlideTextLoader() {
                 initial={{
                     width: 0
                 }}
-                animate={{
-                    width: ["0%", "100%", "0%"]
-                }}
-                transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "linear",
-                }}
+                animate={
+                    paused
+                        ? { width: "50%" }
+                        : { width: ["0%", "100%", "0%"] }
+                }
+                transition={
+                    paused
+                        ? { duration: 0 }
+                        : {
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }
+                }
             >
                 {text}
             </motion.span>

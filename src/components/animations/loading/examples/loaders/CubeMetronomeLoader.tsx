@@ -1,22 +1,30 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function CubeMetronomeLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function CubeMetronomeLoader({ paused = false }: Props) {
 
     return (
-        <div className="flex items-center justify-center w-12 h-12 relative">
+        <div className="relative flex items-center justify-center w-12 h-12">
             <motion.div
-                className="absolute bg-purple-600 rounded-sm"
+                className="absolute bg-[#ec6ead] rounded-sm"
                 style={{ width: 14, height: 14 }}
-                animate={{
-                    x: [-8, 0, 8, 0, -8],
-                }}
-                transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
+                animate={
+                    paused
+                        ? { x: 0 }
+                        : { x: [-8, 0, 8, 0, -8] }
+                }
+                transition={
+                    paused
+                        ? { duration: 0 }
+                        : {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }
+                }
             />
         </div>
     );

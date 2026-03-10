@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function HopperBarsLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function HopperBarsLoader({ paused = false }: Props) {
 
     const containerWidth = 40;
     const leftOffset = 16;
@@ -36,23 +38,31 @@ export default function HopperBarsLoader() {
                     left: -leftOffset,
                     top: 0,
                 }}
-                animate={{
-                    x: [0, containerWidth + leftOffset * 2],
-                    y: yKeyframes,
-                }}
-                transition={{
-                    x: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear",
-                    },
-                    y: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeIn",
-                        times: yTimes,
-                    },
-                }}
+                animate={
+                    paused
+                        ? { x: 5, y: -10}
+                        : {
+                            x: [0, containerWidth + leftOffset * 2],
+                            y: yKeyframes,
+                        }
+                }
+                transition={
+                    paused
+                        ? { duration: 0 }
+                        : {
+                            x: {
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "linear",
+                            },
+                            y: {
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeIn",
+                                times: yTimes,
+                            },
+                        }
+                }
             />
         </div>
     );

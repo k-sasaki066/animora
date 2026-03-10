@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function WaveFillLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function WaveFillLoader({ paused = false }: Props) {
 
     return (
         <svg
@@ -39,12 +41,20 @@ export default function WaveFillLoader() {
                             V20 H-40 Z
                         "
                         fill="url(#gradient)"
-                        animate={{ x: [0, 40] }}
-                        transition={{
-                            duration: 1.5,
-                            ease: "linear",
-                            repeat: Infinity,
-                        }}
+                        animate={
+                            paused
+                                ? { x: 0 }
+                                : { x: [0, 40] }
+                        }
+                        transition={
+                            paused
+                                ? { duration: 0 }
+                                : {
+                                    duration: 1.5,
+                                    ease: "linear",
+                                    repeat: Infinity
+                                }
+                        }
                     />
                 </pattern>
             </defs>

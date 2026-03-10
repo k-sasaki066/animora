@@ -1,93 +1,53 @@
-import type { ComponentType } from "react";
-import DotsLoader from "./examples/loaders/DotsLoader";
-import WaveDotsLoader from "./examples/loaders/WaveDotsLoader";
-import PulseLoader from "./examples/loaders/PulseLoader";
-import BounceLoader from "./examples/loaders/BounceLoader";
-import CloudLoader from "./examples/loaders/CloudLoader";
-import BallsScaleLoader from "./examples/loaders/BallsScaleLoader";
-import CubeMetronomeLoader from "./examples/loaders/CubeMetronomeLoader";
-import NewtonCradleLoader from "./examples/loaders/NewtonCradleLoader";
-import MarchingDotsLoader from "./examples/loaders/MarchingDotsLoader";
-import CornerDotsLoader from "./examples/loaders/CornerDotsLoader";
-import HoppingDotsLoader from "./examples/loaders/HoppingDotsLoader";
-import HopperBarsLoader from "./examples/loaders/HopperBarsLoader";
-import BouncyLoader from "./examples/loaders/BouncyLoader";
-import GrowBarsLoader from "./examples/loaders/GrowBarsLoader";
-import GridBuildupLoader from "./examples/loaders/GridBuildupLoader";
-import BarProgressLoader from "./examples/loaders/BarProgressLoader";
-import StepBarLoader from "./examples/loaders/StepBarLoader";
-import StepCircleLoader from "./examples/loaders/StepCircleLoader";
-import RhombusGradientLoader from "./examples/loaders/RhombusGradientLoader";
-import StripeSlideLoader from "./examples/loaders/StripeSlideLoader";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type LoaderComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+>;
 
-import DefaultLoader from "./examples/spinners/DefaultLoader";
-import StarRotateLoader from "./examples/spinners/StarRotateLoader";
-import FadeLoader from "./examples/spinners/FadeLoader";
-import RotateScaleLoader from "./examples/spinners/RotateScaleLoader";
-import SlicesLoader from "./examples/spinners/SlicesLoader";
-import ClockLoader from "./examples/spinners/ClockLoader";
-import WavesLoader from "./examples/spinners/WavesLoader";
-import SquareLoader from "./examples/spinners/SquareLoader";
-import EaseSpinLoader from "./examples/spinners/EaseSpinLoader";
-import HourglassLoader from "./examples/spinners/HourglassLoader";
-import OrbitSpinLoader from "./examples/spinners/orbit-spin/OrbitSpinLoader";
-import StepRotateLoader from "./examples/spinners/StepRotateLoader";
-import ArrowRotateLoader from "./examples/spinners/ArrowRotateLoader";
-import QuadSpinLoader from "./examples/spinners/QuadSpinLoader";
-import ScaleDotsSpinLoader from "./examples/spinners/ScaleDotsSpinLoader";
-import WeaveCircleLoader from "./examples/spinners/WeaveCircleLoader";
-
-import TextLoader from "./examples/loading-texts/TextLoader";
-import SlideTextLoader from "./examples/loading-texts/SlideTextLoader";
-import BarcodeLoader from "./examples/loading-texts/BarcodeLoader";
-import WaveFillLoader from "./examples/loading-texts/WaveFillLoader";
-import ShutterLoader from "./examples/loading-texts/ShutterLoader";
-
-
-export const loadingMap: Record<string, ComponentType> = {
-    dots: DotsLoader,
-    waveDots: WaveDotsLoader,
-    pulse: PulseLoader,
-    bounce: BounceLoader,
-    cloud: CloudLoader,
-    ballsScale: BallsScaleLoader,
-    cubeMetronome: CubeMetronomeLoader,
-    newtonCradle: NewtonCradleLoader,
-    marchingDots: MarchingDotsLoader,
-    cornerDots: CornerDotsLoader,
-    hoppingDots: HoppingDotsLoader,
-    hopperBars: HopperBarsLoader,
-    bouncy: BouncyLoader,
-    growBars: GrowBarsLoader,
-    gridBuildup: GridBuildupLoader,
-    barProgress: BarProgressLoader,
-    stepBar: StepBarLoader,
-    stepCircle: StepCircleLoader,
-    rhombusGradient: RhombusGradientLoader,
-    stripeSlide: StripeSlideLoader,
+export const loadingMap: Record<string, LoaderComponent> = {
+    dots: lazy(() => import("./examples/loaders/DotsLoader")),
+    waveDots: lazy(() => import("./examples/loaders/WaveDotsLoader")),
+    pulse: lazy(() => import("./examples/loaders/PulseLoader")),
+    bounce: lazy(() => import("./examples/loaders/BounceLoader")),
+    cloud: lazy(() => import("./examples/loaders/CloudLoader")),
+    ballsScale: lazy(() => import("./examples/loaders/BallsScaleLoader")),
+    cubeMetronome: lazy(() => import("./examples/loaders/CubeMetronomeLoader")),
+    newtonCradle: lazy(() => import("./examples/loaders/NewtonCradleLoader")),
+    marchingDots: lazy(() => import("./examples/loaders/MarchingDotsLoader")),
+    cornerDots: lazy(() => import("./examples/loaders/CornerDotsLoader")),
+    hoppingDots: lazy(() => import("./examples/loaders/HoppingDotsLoader")),
+    hopperBars: lazy(() => import("./examples/loaders/HopperBarsLoader")),
+    bouncy: lazy(() => import("./examples/loaders/BouncyLoader")),
+    growBars: lazy(() => import("./examples/loaders/GrowBarsLoader")),
+    gridBuildup: lazy(() => import("./examples/loaders/GridBuildupLoader")),
+    barProgress: lazy(() => import("./examples/loaders/BarProgressLoader")),
+    stepBar: lazy(() => import("./examples/loaders/StepBarLoader")),
+    stepCircle: lazy(() => import("./examples/loaders/StepCircleLoader")),
+    rhombusGradient: lazy(() => import("./examples/loaders/RhombusGradientLoader")),
+    stripeSlide: lazy(() => import("./examples/loaders/StripeSlideLoader")),
 
     // spinner
-    default: DefaultLoader,
-    starRotate: StarRotateLoader,
-    fade: FadeLoader,
-    rotateScale: RotateScaleLoader,
-    slices: SlicesLoader,
-    clock: ClockLoader,
-    waves: WavesLoader,
-    square: SquareLoader,
-    easeSpin: EaseSpinLoader,
-    hourglass: HourglassLoader,
-    orbitSpin: OrbitSpinLoader,
-    stepRotate: StepRotateLoader,
-    arrowRotate: ArrowRotateLoader,
-    quadSpin: QuadSpinLoader,
-    scaleDotsSpin: ScaleDotsSpinLoader,
-    weaveCircle: WeaveCircleLoader,
+    default: lazy(() => import("./examples/spinners/DefaultLoader")),
+    starRotate: lazy(() => import("./examples/spinners/StarRotateLoader")),
+    fade: lazy(() => import("./examples/spinners/FadeLoader")),
+    rotateScale: lazy(() => import("./examples/spinners/RotateScaleLoader")),
+    slices: lazy(() => import("./examples/spinners/SlicesLoader")),
+    clock: lazy(() => import("./examples/spinners/ClockLoader")),
+    waves: lazy(() => import("./examples/spinners/WavesLoader")),
+    square: lazy(() => import("./examples/spinners/SquareLoader")),
+    easeSpin: lazy(() => import("./examples/spinners/EaseSpinLoader")),
+    hourglass: lazy(() => import("./examples/spinners/HourglassLoader")),
+    orbitSpin: lazy(() => import("./examples/spinners/orbit-spin/OrbitSpinLoader")),
+    stepRotate: lazy(() => import("./examples/spinners/StepRotateLoader")),
+    arrowRotate: lazy(() => import("./examples/spinners/ArrowRotateLoader")),
+    quadSpin: lazy(() => import("./examples/spinners/QuadSpinLoader")),
+    scaleDotsSpin: lazy(() => import("./examples/spinners/ScaleDotsSpinLoader")),
+    weaveCircle: lazy(() => import("./examples/spinners/WeaveCircleLoader")),
 
     // loading-texts
-    text: TextLoader,
-    slideText: SlideTextLoader,
-    barcode: BarcodeLoader,
-    waveFill: WaveFillLoader,
-    shutter: ShutterLoader,
+    text: lazy(() => import("./examples/loading-texts/TextLoader")),
+    slideText: lazy(() => import("./examples/loading-texts/SlideTextLoader")),
+    barcode: lazy(() => import("./examples/loading-texts/BarcodeLoader")),
+    waveFill: lazy(() => import("./examples/loading-texts/WaveFillLoader")),
+    shutter: lazy(() => import("./examples/loading-texts/ShutterLoader")),
 };
