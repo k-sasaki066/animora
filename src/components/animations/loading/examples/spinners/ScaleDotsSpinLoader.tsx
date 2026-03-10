@@ -1,9 +1,11 @@
-"use client"
-
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
 
-export default function ScaleDotsSpinLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function ScaleDotsSpinLoader({ paused = false }: Props) {
 
     const baseSize = 4;
     const maxScale = 3;
@@ -23,9 +25,6 @@ export default function ScaleDotsSpinLoader() {
 
     const rotate = useMotionValue(0);
 
-    // 0~7 のステップ判定
-    const stepIndex = useTransform(rotate, (r) => Math.floor((r / 360) * steps) % steps);
-
     useEffect(() => {
         const controls = animate(rotate, 360, {
             repeat: Infinity,
@@ -34,6 +33,12 @@ export default function ScaleDotsSpinLoader() {
         });
         return () => controls.stop();
     }, [rotate]);
+
+    // paused のときは途中のステップで止める
+    const stepIndex = useTransform(rotate, (r) => {
+        const step = Math.floor((r / 360) * steps) % steps;
+        return paused ? Math.floor(steps / 2) : step;
+    });
 
     return (
         <motion.div

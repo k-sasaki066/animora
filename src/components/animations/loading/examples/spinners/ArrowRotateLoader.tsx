@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function ArrowRotateLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function ArrowRotateLoader({ paused = false }: Props) {
     const size = 50;
 
     return (
@@ -20,14 +22,16 @@ export default function ArrowRotateLoader() {
                 backgroundRepeat: "no-repeat",
                 color: "#8b5cf6",
             }}
-            animate={{
-                rotate: 360
-            }}
-            transition={{
-                repeat: Infinity,
-                ease: "linear",
-                duration: 1
-            }}
+            animate={
+                paused
+                    ? {}
+                    : { rotate: [0, 360] }
+            }
+            transition={
+                paused
+                    ? { duration: 0 }
+                    : { repeat: Infinity, ease: "linear", duration: 1 }
+            }
         />
     );
 }

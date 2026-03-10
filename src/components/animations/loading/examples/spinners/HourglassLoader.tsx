@@ -1,10 +1,12 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function HourglassLoader() {
-    const fill = "#08b7c8"; // 紫
-    const bg = "#fff";   // 背景
+interface Props {
+    paused?: boolean;
+}
+
+export default function HourglassLoader({ paused = false }: Props) {
+    const fill = "#08b7c8";
+    const bg = "#fff";
 
     return (
         <motion.div
@@ -14,27 +16,35 @@ export default function HourglassLoader() {
                 height: "4em",
                 background: bg,
             }}
-            animate={{
-                rotate: [0, 0, 180],
-                boxShadow: [
-                    `inset ${fill} 0 -0em 0 0,inset ${bg} 0 -2em 0 0,
-                    inset ${fill} 0 -4em 0 0`,
+            animate={
+                paused
+                    ? {}
+                    : {
+                        rotate: [0, 0, 180],
+                        boxShadow: [
+                            `inset ${fill} 0 -0em 0 0,inset ${bg} 0 -2em 0 0,
+                            inset ${fill} 0 -4em 0 0`,
 
-                    `inset ${fill} 0 -2em 0 0,
-                    inset ${bg} 0 -2em 0 0,
-                    inset ${fill} 0 -2em 0 0`,
+                            `inset ${fill} 0 -2em 0 0,
+                            inset ${bg} 0 -2em 0 0,
+                            inset ${fill} 0 -2em 0 0`,
 
-                    `inset ${fill} 0 -2em 0 0,
-                    inset ${bg} 0 -2em 0 0,
-                    inset ${fill} 0 -2em 0 0`,
-                ],
-            }}
-            transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "linear",
-                times: [0, 0.8, 1],
-            }}
+                            `inset ${fill} 0 -2em 0 0,
+                            inset ${bg} 0 -2em 0 0,
+                            inset ${fill} 0 -2em 0 0`,
+                        ],
+                    }
+            }
+            transition={
+                paused
+                    ? { duration: 0 }
+                    : {
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: "linear",
+                        times: [0, 0.8, 1],
+                    }
+            }
         >
             {/* SVG を上に重ねる */}
             <svg

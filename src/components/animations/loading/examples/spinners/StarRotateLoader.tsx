@@ -1,13 +1,15 @@
-"use client"
+interface Props {
+    paused?: boolean;
+}
 
-export default function StarRotateLoader() {
+export default function StarRotateLoader({ paused = false }: Props) {
 
     return (
         <svg
             width="48"
             height="48"
             viewBox="0 0 100 100"
-            className="text-purple-600"
+            className="text-[#70e1f5]"
         >
             <polygon
                 points="
@@ -30,6 +32,7 @@ export default function StarRotateLoader() {
                 style={{
                     transformOrigin: "50% 50%",
                     animation: "spin-pause 3s infinite",
+                    animationPlayState: paused ? "paused" : "running"
                 }}
             />
 

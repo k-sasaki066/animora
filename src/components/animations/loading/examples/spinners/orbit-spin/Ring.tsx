@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion";
 
 type RingProps = {
@@ -9,6 +7,7 @@ type RingProps = {
     rotateX: number;      // 初期傾きX
     rotateY: number;      // 初期傾きY
     duration?: number;    // 回転速度
+    paused?: boolean;
 };
 
 export function Ring({
@@ -18,6 +17,7 @@ export function Ring({
     rotateX,
     rotateY,
     duration = 1.15,
+    paused
 }: RingProps) {
     const circumference = 2 * Math.PI * radius;
 
@@ -32,14 +32,20 @@ export function Ring({
                 rotateY,
                 rotateZ: 0,
             }}
-            animate={{
-                rotateZ: 360
-            }}
-            transition={{
-                repeat: Infinity,
-                duration,
-                ease: "linear"
-            }}
+            animate={
+                paused
+                    ? { rotateX, rotateY, rotateZ: 0 }
+                    : { rotateZ: 360 }
+            }
+            transition={
+                paused
+                    ? { duration: 0 }
+                    : {
+                        repeat: Infinity,
+                        duration,
+                        ease: "linear"
+                    }
+            }
         >
             <circle
                 cx="50%"
