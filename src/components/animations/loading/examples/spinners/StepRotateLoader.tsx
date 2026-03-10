@@ -1,8 +1,10 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function StepRotateLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function StepRotateLoader({ paused = false }: Props) {
     const size = 50;
     const steps = 10;
 
@@ -22,14 +24,20 @@ export default function StepRotateLoader() {
                 WebkitMaskComposite: "destination-in",
                 maskComposite: "intersect",
             }}
-            animate={{
-                rotate: rotateFrames
-            }}
-            transition={{
-                repeat: Infinity,
-                duration: 1.2,
-                ease: "linear",
-            }}
+            animate={
+                paused
+                    ? {}
+                    : { rotate: rotateFrames }
+            }
+            transition={
+                paused
+                    ? { duration: 0 }
+                    : {
+                        repeat: Infinity,
+                        duration: 1.2,
+                        ease: "linear",
+                    }
+            }
         />
     );
 }

@@ -1,37 +1,43 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function ClockLoader() {
-    const size = 56;
-    const handHeight = size * 0.35;
-    const thickness = 2;
+interface Props {
+    paused?: boolean;
+}
+
+export default function ClockLoader({ paused = false }: Props) {
+    const size = 50;
+    const handHeight = size * 0.5;
 
     return (
         <div
-            className="relative rounded-full bg-purple-600"
+            className="relative rounded-full bg-[#f7b2e1]"
             style={{
                 width: size,
                 height: size,
-                border: `2px solid #eee`,
                 borderRadius: "50%",
             }}
         >
             {/* 時計の針 */}
             <motion.div
-                className="absolute w-0.5 left-1/2 top-1.5 -translate-x-1/2 bg-[#eee]"
+                className="absolute w-0.5 left-1/2 top-0 -translate-x-1/2 bg-[#f789d4]"
                 style={{
                     height: handHeight,
                     transformOrigin: "50% 100%",
                 }}
-                animate={{
-                    rotate: [0, 360]
-                }}
-                transition={{
-                    repeat: Infinity,
-                    duration: 1.2,
-                    ease: "linear"
-                }}
+                animate={
+                    paused
+                        ? { rotate: 0 }
+                        : { rotate: [0, 360] }
+                }
+                transition={
+                    paused
+                        ? { duration: 0 }
+                        : {
+                            repeat: Infinity,
+                            duration: 1.2,
+                            ease: "linear"
+                        }
+                }
             />
         </div>
     );

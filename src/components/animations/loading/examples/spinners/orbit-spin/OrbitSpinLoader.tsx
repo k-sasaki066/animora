@@ -1,8 +1,10 @@
-"use client"
-
 import { Ring } from "./Ring";
 
-export default function OrbitSpinLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function OrbitSpinLoader({ paused = false }: Props) {
 
     return (
         <div
@@ -14,18 +16,21 @@ export default function OrbitSpinLoader() {
                 rotateX={35}
                 rotateY={-45}
                 duration={1.15}
+                paused={paused}
             />
             <Ring
                 color="rgba(76, 70, 101, 0.99)"
                 rotateX={50}
                 rotateY={10}
                 duration={1.15}
+                paused={paused}
             />
             <Ring
                 color="rgb(233, 144, 138)"
                 rotateX={35}
                 rotateY={55}
                 duration={1.15}
+                paused={paused}
             />
         </div>
     );

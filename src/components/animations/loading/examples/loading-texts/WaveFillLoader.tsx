@@ -1,10 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
 interface Props {
     paused?: boolean;
 }
 
 export default function WaveFillLoader({ paused = false }: Props) {
+
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (paused) {
+            controls.stop();
+        } else {
+            controls.start({
+                x: [0, 40],
+                transition: { duration: 1.5, ease: "linear", repeat: Infinity },
+            });
+        }
+    }, [paused, controls]);
 
     return (
         <svg
@@ -41,20 +55,7 @@ export default function WaveFillLoader({ paused = false }: Props) {
                             V20 H-40 Z
                         "
                         fill="url(#gradient)"
-                        animate={
-                            paused
-                                ? { x: 0 }
-                                : { x: [0, 40] }
-                        }
-                        transition={
-                            paused
-                                ? { duration: 0 }
-                                : {
-                                    duration: 1.5,
-                                    ease: "linear",
-                                    repeat: Infinity
-                                }
-                        }
+                        animate={controls}
                     />
                 </pattern>
             </defs>

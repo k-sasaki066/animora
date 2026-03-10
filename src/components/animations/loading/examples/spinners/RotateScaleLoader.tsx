@@ -1,21 +1,31 @@
-"use client"
-
 import { motion } from "framer-motion";
 
-export default function RotateScaleLoader() {
+interface Props {
+    paused?: boolean;
+}
+
+export default function RotateScaleLoader({ paused = false }: Props) {
 
     return (
         <motion.div
-            className="w-12 h-12 border-4 border-t-purple-600 border-gray-300 rounded-full"
-            animate={{
-                rotate: 360,
-                scale: [1, 1.3, 1]
-            }}
-            transition={{
-                repeat: Infinity,
-                duration: 1.2,
-                ease: "linear"
-            }}
+            className="w-12 h-12 border-5 border-t-[#80ac4c] border-gray-300 rounded-full"
+            animate={
+                paused
+                    ? { rotate: 0, scale: 1 }
+                    : {
+                        rotate: [0, 360],
+                        scale: [1, 1.3, 1]
+                    }
+            }
+            transition={
+                paused
+                    ? { duration: 0 }
+                    : {
+                        repeat: Infinity,
+                        duration: 1.2,
+                        ease: "linear"
+                    }
+            }
         />
     );
 }
