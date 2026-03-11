@@ -1,17 +1,19 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function OutlineHoverButton() {
+    const { active, bind} = useToggleHover();
 
     return (
         <motion.div
             className="relative w-40 h-12 cursor-pointer flex justify-center items-center"
-            whileHover="hover"
+            initial="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* ボタン本体 */}
             <div className="px-6 py-3 w-full h-full z-10 text-center">
-                Button
+                BUTTON
             </div>
 
             {/* 回転するアウトライン（SVG） */}

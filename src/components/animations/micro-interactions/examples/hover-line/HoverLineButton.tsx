@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function HoverLineButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.button
-            className="relative overflow-hidden border-none bg-emerald-600 text-white font-semibold px-8 py-4 w-40 h-12 cursor-pointer"
+            className="relative overflow-hidden border-none bg-emerald-600 text-white font-semibold w-40 h-12 cursor-pointer"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             {/* 上線：右→左 に伸びる */}
             <motion.span
@@ -60,7 +60,7 @@ export default function HoverLineButton() {
                         ease: "easeInOut"
                     }}
                 >
-                    Button
+                    BUTTON
                 </motion.span>
             </motion.div>
         </motion.button>

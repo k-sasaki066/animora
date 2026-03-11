@@ -1,14 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function TransformShapeButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4 cursor-pointer w-40 h-12 flex justify-center items-center"
+            className="relative cursor-pointer w-40 h-12 flex justify-center items-center"
             initial="rest"
-            whileHover="hover"
+            animate={active ? "hover" : "rest"}
+            {...bind}
             variants={{
                 rest: {
                     borderRadius: "0px",
@@ -23,8 +24,8 @@ export default function TransformShapeButton() {
                 duration: 0.5,
                 ease: "easeInOut"
             }}
-            >
-            Button
+        >
+            BUTTON
 
             {/* 短い下線 */}
             <motion.span

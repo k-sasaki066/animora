@@ -1,17 +1,19 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function MoveAndSurroundButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
             className="relative w-40 h-12 cursor-pointer flex justify-center items-center"
-            whileHover="hover"
+            initial="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* ボタン本体 */}
             <div className="px-6 py-3 w-full h-full z-10 text-center">
-                Button
+                BUTTON
             </div>
 
             {/* 回転するアウトライン（SVG） */}
@@ -38,7 +40,7 @@ export default function MoveAndSurroundButton() {
                                 duration: 0.8,
                                 ease: [0.1, 0.8, 0.3, 1], //徐々に減速
                                 strokeDasharray: {
-                                    delay: 0.5, // ← offsetが終わった後に開始
+                                    delay: 0.5,
                                 }
                             },
                         },

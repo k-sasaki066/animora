@@ -1,14 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function HoverOutlineButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
             className="relative w-40 h-12 cursor-pointer"
-            whileHover="hover"
             initial="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* SVG の線 */}
             <motion.svg
@@ -43,7 +44,7 @@ export default function HoverOutlineButton() {
 
             {/* テキスト */}
             <span className="absolute inset-0 text-gray-600 font-light flex justify-center items-center">
-                Button
+                BUTTON
             </span>
         </motion.div>
     );

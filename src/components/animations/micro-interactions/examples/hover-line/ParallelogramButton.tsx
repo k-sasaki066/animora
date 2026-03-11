@@ -1,16 +1,16 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ParallelogramButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.button
-            className="relative font-semibold px-8 py-4 overflow-hidden w-40 h-12 cursor-pointer"
+            className="relative font-semibold overflow-hidden w-40 h-12 cursor-pointer"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
-            >
+            animate={active ? "hover" : "rest"}
+            {...bind}
+        >
             {/* --- 枠線コンテナ --- */}
             <motion.div
                 className="absolute inset-0 pointer-events-none"
@@ -83,7 +83,7 @@ export default function ParallelogramButton() {
             {/* --- 背景・文字 --- */}
             <div className="absolute inset-1 z-0 flex justify-center items-center">
                 <span className="z-10 text-orange-600">
-                    Button
+                    BUTTON
                 </span>
             </div>
         </motion.button>
