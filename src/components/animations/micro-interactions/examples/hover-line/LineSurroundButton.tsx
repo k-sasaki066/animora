@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function LineSurroundButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
             className="relative flex justify-center w-40 h-12 cursor-pointer"
             initial="rest"
-            animate="rest"
-            whileHover="hover"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             {/* ボタン本体 */}
             <motion.div
@@ -28,7 +28,7 @@ export default function LineSurroundButton() {
                     },
                 }}
             >
-                Button
+                BUTTON
             </motion.div>
 
             {/* 回転するアウトライン（SVG） */}

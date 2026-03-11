@@ -1,19 +1,20 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function SideBracketsButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.button
-            className="relative px-8 py-4 w-40 h-12 cursor-pointer"
+            className="relative w-40 h-12 cursor-pointer"
             initial="rest"
-            whileHover="hover"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
 
             {/* 左 bracket */}
             <motion.span
-                className="absolute left-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl"
+                className="absolute left-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl pb-1"
                 variants={{
                     rest: { opacity: 0, x: -10 },
                     hover: { opacity: 1, x: -2 }
@@ -25,12 +26,12 @@ export default function SideBracketsButton() {
 
             {/* ボタンのテキスト */}
             <span className="relative z-10">
-                Button
+                BUTTON
             </span>
 
             {/* 右 bracket */}
             <motion.span
-                className="absolute right-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl"
+                className="absolute right-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl pb-1"
                 variants={{
                     rest: { opacity: 0, x: 10 },
                     hover: { opacity: 1, x: 2 }

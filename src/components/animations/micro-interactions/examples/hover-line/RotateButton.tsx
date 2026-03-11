@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function RotateButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
             className="relative px-8 py-4 bg-transparent text-purple-600 w-40 h-12 cursor-pointer flex justify-center items-center"
             initial="initial"
-            animate="initial"
-            whileHover="hover"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* 外枠（時計回り） */}
             <motion.div

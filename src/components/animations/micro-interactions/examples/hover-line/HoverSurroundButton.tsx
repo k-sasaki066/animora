@@ -1,67 +1,57 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function HoverSurroundButton() {
+    const { active, bind } = useToggleHover();
+
+    const lines = [
+        {
+            className: "absolute bottom-0 right-0 h-0.5 bg-orange-400 z-20",
+            rest: { width: 24 },
+            hover: { width: "100%" },
+            duration: 0.5,
+        },
+        {
+            className: "absolute bottom-0 right-0 w-0.5 bg-orange-400 z-20",
+            rest: { height: 24 },
+            hover: { height: "100%" },
+            duration: 0.6,
+        },
+        {
+            className: "absolute top-0 left-0 h-0.5 bg-orange-400 z-20",
+            rest: { width: 24 },
+            hover: { width: "100%" },
+            duration: 0.5,
+        },
+        {
+            className: "absolute top-0 left-0 w-0.5 bg-orange-400 z-20",
+            rest: { height: 24 },
+            hover: { height: "100%" },
+            duration: 0.6,
+        },
+    ];
 
     return (
         <motion.button
-            className="relative font-semibold px-8 py-4 w-40 h-12 cursor-pointer"
+            className="relative font-semibold w-40 h-12 cursor-pointer"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
-            {/* 線1 */}
-            <motion.span
-                className="absolute bottom-0 right-0 h-0.5 bg-orange-400 z-20"
-                variants={{
-                    rest: { width: 24 },
-                    hover: { width: "100%" },
-                }}
-                transition={{
-                    duration: 0.5,
-                    ease: "easeInOut"
-                }}
-            />
-
-            {/* 線2： */}
-            <motion.span
-                className="absolute bottom-0 right-0 w-0.5 bg-orange-400 z-20"
-                variants={{
-                    rest: { height: 24 },
-                    hover: { height: "100%" },
-                }}
-                transition={{
-                    duration: 0.6,
-                    ease: "easeInOut"
-                }}
-            />
-
-            {/* 線3： */}
-            <motion.span
-                className="absolute top-0 left-0 h-0.5 bg-orange-400 z-20"
-                variants={{
-                    rest: { width: 24 },
-                    hover: { width: "100%" },
-                }}
-                transition={{
-                    duration: 0.5,
-                    ease: "easeInOut"
-                }}
-            />
-
-            {/* 線4 */}
-            <motion.span
-                className="absolute top-0 left-0 w-0.5 bg-orange-400 z-20"
-                variants={{
-                    rest: { height: 24 },
-                    hover: { height: "100%" },
-                }}
-                transition={{
-                    duration: 0.6,
-                    ease: "easeInOut"
-                }}
-            />
+            {lines.map((line, i) => (
+                <motion.span
+                    key={i}
+                    className={line.className}
+                    variants={{
+                        rest: line.rest,
+                        hover: line.hover,
+                    }}
+                    transition={{
+                        duration: line.duration,
+                        ease: "easeInOut",
+                    }}
+                />
+            ))}
 
             {/* 背景 & テキスト変化 */}
             <motion.div
@@ -86,7 +76,7 @@ export default function HoverSurroundButton() {
                         ease: "easeInOut"
                     }}
                 >
-                    Button
+                    BUTTON
                 </motion.span>
             </motion.div>
         </motion.button>

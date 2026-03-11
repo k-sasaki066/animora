@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ArrowExtendButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
             className="relative rounded-full overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
-            whileHover="hovered"
             initial="initial"
-            animate="initial"
+            animate={active ? "hovered" : "initial"}
+            {...bind}
         >
             {/* 背景丸 */}
             <motion.div
@@ -31,7 +31,7 @@ export default function ArrowExtendButton() {
                     className="w-2 h-2 border-r-2 border-b-2 border-black -rotate-45"
                 />
                 <span className="font-semibold">
-                    Button
+                    BUTTON
                 </span>
             </div>
         </motion.div>
