@@ -1,24 +1,25 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function GradientSlideButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="w-40 h-12 cursor-pointer flex justify-center items-center px-8 py-4 rounded-lg text-white font-semibold bg-size-[200%_auto] bg-linear-to-r from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb]"
+            className="w-40 h-12 cursor-pointer flex justify-center items-center rounded-lg text-white font-semibold bg-size-[200%_auto] bg-linear-to-r from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb]"
+            {...bind}
             initial={{
                 backgroundPosition: "0% center"
             }}
-            whileHover={{
-                backgroundPosition: "100% center"
+            animate={{
+                backgroundPosition: active ? "100% center" : "0% center"
             }}
             transition={{
                 duration: 0.5,
                 ease: "easeInOut"
             }}
         >
-            Button
+            BUTTON
         </motion.div>
     );
 }

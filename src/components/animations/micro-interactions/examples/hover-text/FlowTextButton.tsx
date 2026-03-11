@@ -1,21 +1,25 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function FlowTextButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative group px-8 py-4 rounded-md overflow-hidden bg-green-600 w-40 h-12 cursor-pointer flex justify-center items-center"
+            className="relative group rounded-md overflow-hidden bg-green-600 w-40 h-12 cursor-pointer flex justify-center items-center"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
+            variants={{
+                rest: {},
+                hover: {}
+            }}
         >
             <motion.span
                 className="text-white font-semibold"
                 variants={{
                     rest: { x: 0 },
-                    hover: { x: -16 }, // ← ホバーで少し左に動く
+                    hover: { x: -16 },
                 }}
                 transition={{
                     type: "tween",
@@ -34,7 +38,7 @@ export default function FlowTextButton() {
                     hover: { x: -28 },
                 }}
                 transition={{ duration: 0.3 }}
-                >
+            >
                 &raquo;
             </motion.div>
         </motion.div>

@@ -1,6 +1,5 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 function hslToRgb(h: number, s: number, l: number): [number, number, number] {
     s /= 100;
@@ -19,12 +18,14 @@ function hslToRgb(h: number, s: number, l: number): [number, number, number] {
 }
 
 export default function LetterFillButton() {
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             className="flex items-center justify-center w-40 h-12 cursor-pointer"
             initial="initial"
-            whileHover="hovered"
-            animate="initial"
+            animate={active ? "hovered" : "initial"}
+            {...bind}
             variants={{
                 hovered: {
                     transition: {
@@ -34,7 +35,6 @@ export default function LetterFillButton() {
             }}
         >
             {"BUTTON".split("").map((char, i) => {
-                // 色を JS 側で計算（HSL風）
                 const hue = ((i + 200) * 10) % 360;
                 const rgb = hslToRgb(hue, 80, 70);
 

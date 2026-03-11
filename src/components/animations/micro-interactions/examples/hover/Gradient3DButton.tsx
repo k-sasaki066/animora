@@ -1,6 +1,5 @@
-"use client";
-
 import { motion, Variants } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 const innerVariants: Variants = {
     initial: {
@@ -15,12 +14,12 @@ const innerVariants: Variants = {
 };
 
 export default function Gradient3DButton() {
+    const { active, bind } = useToggleHover();
+
     return (
         <div className="relative inline-block">
             {/* 影 */}
-            <div
-                className="absolute inset-0 -translate-x-1.5 translate-y-1.5 bg-gray-200 blur-[1.5px] pointer-events-none"
-            />
+            <div className="absolute inset-0 -translate-x-1.5 translate-y-1.5 bg-gray-200 blur-[1.5px] pointer-events-none"/>
 
             {/* ボタン本体 */}
             <motion.button
@@ -30,7 +29,8 @@ export default function Gradient3DButton() {
                 hover:from-[#15b8dd] hover:to-[#fb03fe]
                 bg-origin-border"
                 initial="initial"
-                whileHover="hover"
+                animate={active ? "hover" : "initial"}
+                {...bind}
                 variants={{
                     initial: { x: 0, y: 0 },
                     hover: { x: 8, y: -8 },
@@ -46,7 +46,7 @@ export default function Gradient3DButton() {
                     variants={innerVariants}
                     transition={{ duration: 0.1 }}
                 >
-                    hover
+                    BUTTON
                 </motion.span>
 
                 {/* SIDE */}

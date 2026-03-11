@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function CircleOutButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4 rounded-sm border border-gray-300  overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hover"
+            className="relative rounded-sm border border-gray-300  overflow-hidden w-40 h-12 cursor-pointer"
             initial="initial"
-            animate="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* 円エフェクト */}
             <motion.div
@@ -42,7 +42,7 @@ export default function CircleOutButton() {
                     ease: "easeInOut"
                 }}
             >
-                HOVER
+                BUTTON
             </motion.span>
         </motion.div>
     );

@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ExtendLeftButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
             className="relative rounded-sm border border-gray-300 overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hovered"
             initial="initial"
-            animate="initial"
+            animate={active ? "hovered" : "initial"}
+            {...bind}
         >
             {/* 背景 */}
             <motion.div
@@ -35,7 +35,7 @@ export default function ExtendLeftButton() {
                     ease: "easeInOut"
                 }}
             >
-                HOVER
+                BUTTON
             </motion.span>
         </motion.div>
     );

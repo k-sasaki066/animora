@@ -1,8 +1,7 @@
-"use client";
-
 import { motion } from "framer-motion";
 import GooeyFilter from "@/components/ui/GooeyFilter";
 import { useMemo } from "react";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function BubbleButton() {
     const bubbles = useMemo(() => {
@@ -13,6 +12,8 @@ export default function BubbleButton() {
             duration: 1.5 + Math.random() * 1.5,
         }));
     }, []);
+
+    const { active, bind } = useToggleHover();
 
     return (
         <>
@@ -31,8 +32,9 @@ export default function BubbleButton() {
                         type: "spring",
                         stiffness: 150
                     }}
+                    {...bind}
                 >
-                    Button
+                    BUTTON
 
                     {/* Bubbles container */}
                     <div className="absolute inset-0 pointer-events-none -z-1">
@@ -45,16 +47,22 @@ export default function BubbleButton() {
                                     height: b.size,
                                     left: `${b.left}%`,
                                     bottom: 0,
-                                    opacity: 1,
                                 }}
-                                animate={{
-                                    y: [0, -b.rise],
-                                    opacity: [1, 1, 0.9, 0.3, 0],
-                                    scale: [1, 0.8, 0.5, 0.3],
+                                animate={active ? "hover" : "rest"}
+                                variants={{
+                                    rest: {
+                                        opacity: 0,
+                                        scale: 0.8
+                                    },
+                                    hover: {
+                                        y: [0, -b.rise],
+                                        opacity: [1, 1, 0.9, 0.3, 0],
+                                        scale: [1, 0.8, 0.5, 0.3],
+                                    }
                                 }}
                                 transition={{
                                     duration: b.duration,
-                                    repeat: Infinity,
+                                    repeat: active ? Infinity : 0,
                                     delay: i * 0.2,
                                     ease: "easeInOut",
                                 }}

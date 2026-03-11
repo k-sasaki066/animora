@@ -1,8 +1,8 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function PixelHoverButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
@@ -10,7 +10,9 @@ export default function PixelHoverButton() {
             style={{
                 backgroundSize: "180px",
             }}
-            whileHover="hover"
+            initial="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
             variants={{
                 hover: {
                     color: "#ffffff",

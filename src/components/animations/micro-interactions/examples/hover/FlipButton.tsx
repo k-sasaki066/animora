@@ -1,14 +1,14 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function FlipButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
             className="relative px-8 py-4 rounded-lg w-40 h-12 cursor-pointer"
-            whileHover={{
-                rotateX: 180
+            animate={{
+                rotateX: active ? 180 : 0
             }}
             transition={{
                 duration: 0.5,
@@ -18,12 +18,11 @@ export default function FlipButton() {
                 transformStyle: "preserve-3d",
                 perspective: 600
             }}
+            {...bind}
         >
             {/* 前面 */}
-            <div
-                className="absolute inset-0  bg-purple-600 text-white rounded-lg flex justify-center items-center"
-            >
-                Button
+            <div className="absolute inset-0  bg-purple-600 text-white rounded-lg flex justify-center items-center">
+                BUTTON
             </div>
 
             {/* 背面 */}
@@ -33,7 +32,7 @@ export default function FlipButton() {
                     backfaceVisibility: "hidden", transform: "rotateX(180deg)"
                 }}
             >
-                Hover
+                FLIP
             </div>
         </motion.div>
     );

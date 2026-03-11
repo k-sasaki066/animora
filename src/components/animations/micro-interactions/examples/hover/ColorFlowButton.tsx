@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ColorFlowButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative group px-8 py-4 rounded-md overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
+            className="relative group rounded-md overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
             variants={{
                 rest: { boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
                 hover: { boxShadow: "0px 8px 20px rgba(0,0,0,0.25)" },
@@ -28,12 +28,12 @@ export default function ColorFlowButton() {
                         duration: 0.3
                     }}
                 >
-                    Button
+                    BUTTON
                 </motion.span>
 
                 {/* Hover Arrow */}
                 <motion.span
-                    className="absolute right-0 text-xl text-red-500"
+                    className="absolute right-2 text-xl text-red-500 pb-1"
                     initial={{ opacity: 0 }}
                     variants={{
                         rest: { opacity: 0 },

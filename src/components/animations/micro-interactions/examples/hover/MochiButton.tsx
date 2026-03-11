@@ -1,9 +1,9 @@
-"use client";
-
 import { motion } from "framer-motion";
 import GooeyFilter from "@/components/ui/GooeyFilter";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function MochiButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <>
@@ -14,9 +14,10 @@ export default function MochiButton() {
                 style={{ filter: "url(#goo)" }}
             >
                 <motion.div
-                    className="relative w-full h-full inline-block rounded-xl" initial="rest"
-                    whileHover="hover"
-                    animate="rest"
+                    className="relative w-full h-full inline-block rounded-xl"
+                    initial="rest"
+                    animate={active ? "hover" : "rest"}
+                    {...bind}
                 >
                     {/* 上の丸 */}
                     <motion.div
@@ -58,7 +59,7 @@ export default function MochiButton() {
 
                     {/* ボタン本体 */}
                     <button className="relative w-full h-full rounded-xl font-bold text-white bg-gray-400">
-                        Button
+                        BUTTON
                     </button>
                 </motion.div>
             </div>

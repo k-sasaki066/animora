@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function StopSwipeButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4 rounded-sm border border-orange-400  overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hovered"
+            className="relative rounded-sm border border-orange-400  overflow-hidden w-40 h-12 cursor-pointer"
             initial="initial"
-            animate="initial"
+            animate={active ? "hovered" : "initial"}
+            {...bind}
         >
             {/* 斜め背景1 */}
             <motion.div
@@ -42,7 +42,7 @@ export default function StopSwipeButton() {
                     ease: "easeInOut"
                 }}
             >
-                HOVER
+                BUTTON
             </motion.span>
         </motion.div>
     );

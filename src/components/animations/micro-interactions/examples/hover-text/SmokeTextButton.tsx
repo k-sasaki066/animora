@@ -1,16 +1,20 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function SmokeTextButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.button
-            className="px-8 py-4 rounded-full bg-black text-white font-semibold relative overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
-            whileHover="hover"
-            initial="rest"
+            className="rounded-full bg-black text-white font-semibold relative overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
+            variants={{
+                rest: {},
+                hover: {}
+            }}
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
-            {"HOVER".split("").map((char, i) => (
+            {"SMOKE".split("").map((char, i) => (
                 <motion.span
                     key={i}
                     className="inline-block"

@@ -1,14 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ChangeShapeButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4  overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hover"
+            className="relative overflow-hidden w-40 h-12 cursor-pointer"
             initial="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* 背景 */}
             <motion.div
@@ -35,10 +36,10 @@ export default function ChangeShapeButton() {
                     },
                 }}
             />
-            {/* テキスト */}
-            <span className="absolute inset-0 flex justify-center items-center">
-                HOVER
-            </span>
+                {/* テキスト */}
+                <span className="absolute inset-0 flex justify-center items-center text-[#30384b]">
+                    BUTTON
+                </span>
         </motion.div>
     );
 }
