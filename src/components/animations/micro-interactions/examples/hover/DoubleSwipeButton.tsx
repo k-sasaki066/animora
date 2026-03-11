@@ -1,53 +1,52 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function DoubleSwipeButton() {
+    const { active, bind } = useToggleHover();
+
+    const swipes = [
+        {
+            className: "-top-40",
+            rotate: "45deg",
+            initial: "-150%",
+            hover: "-10%",
+        },
+        {
+            className: "top-14",
+            rotate: "-45deg",
+            initial: "116%",
+            hover: "-25%",
+        },
+    ];
 
     return (
         <motion.div
-            className="relative px-8 py-4 rounded-sm border border-green-400  overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hovered"
+            className="relative rounded-sm border border-green-400  overflow-hidden w-40 h-12 cursor-pointer"
             initial="initial"
-            animate="initial"
+            animate={active ? "hovered" : "initial"}
+            {...bind}
         >
-            {/* 斜め背景1 */}
-            <motion.div
-                className="absolute -top-40 h-full bg-green-400"
-                style={{
-                    width: "200%",
-                    height: "350%",
-                    rotate: "45deg",
-                    transformOrigin: "left center"
-                }}
-                variants={{
-                    initial: { left: "-150%" },
-                    hovered: { left: "-10%" }
-                }}
-                transition={{
-                    duration: 0.5,
-                    ease: "easeInOut"
-                }}
-            />
-
-            {/* 斜め背景2 */}
-            <motion.div
-                className="absolute top-14 h-full bg-green-400"
-                style={{
-                    width: "200%",
-                    height: "350%",
-                    rotate: "-45deg",
-                    transformOrigin: "left center"
-                }}
-                variants={{
-                    initial: { left: "116%" },
-                    hovered: { left: "-25%" }
-                }}
-                transition={{
-                    duration: 0.5,
-                    ease: "easeInOut"
-                }}
-            />
+            {/* 斜め背景 */}
+            {swipes.map((bg, i) => (
+                <motion.div
+                    key={i}
+                    className={`absolute ${bg.className} h-full bg-green-400`}
+                    style={{
+                        width: "200%",
+                        height: "350%",
+                        rotate: bg.rotate,
+                        transformOrigin: "left center",
+                    }}
+                    variants={{
+                        initial: { left: bg.initial },
+                        hovered: { left: bg.hover },
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeInOut",
+                    }}
+                />
+            ))}
 
             {/* テキスト */}
             <motion.span
@@ -61,7 +60,7 @@ export default function DoubleSwipeButton() {
                     ease: "easeInOut"
                 }}
             >
-                HOVER
+                BUTTON
             </motion.span>
         </motion.div>
     );

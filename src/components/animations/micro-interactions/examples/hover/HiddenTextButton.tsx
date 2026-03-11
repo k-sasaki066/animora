@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function HiddenTextButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4  overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hovered"
+            className="relative overflow-hidden w-40 h-12 cursor-pointer"
             initial="initial"
-            animate="initial"
+            animate={active ? "hovered" : "initial"}
+            {...bind}
         >
             {/* 背景 */}
             <motion.div
@@ -24,9 +24,10 @@ export default function HiddenTextButton() {
                 }}
             >
                 <span className="text-white font-semibold">
-                    Hover
+                    BUTTON
                 </span>
             </motion.div>
+
             {/* テキスト */}
             <motion.div
                 className="absolute w-full h-full left-0 border border-pink-300 flex justify-center items-center"
@@ -39,8 +40,8 @@ export default function HiddenTextButton() {
                     ease: "easeInOut"
                 }}
             >
-                <span className="text-center">
-                    Button
+                <span className="text-center text-pink-500">
+                    BUTTON
                 </span>
             </motion.div>
         </motion.div>

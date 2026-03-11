@@ -1,19 +1,19 @@
-"use client";
-
 import { motion } from "framer-motion";
 import GooeyFilter from "@/components/ui/GooeyFilter";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function WaneButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <>
             <GooeyFilter id="goo" />
             <motion.button
-                className="relative px-8 py-4 font-bold uppercase text-indigo-400 border-2 border-blue-500 w-40 h-12 cursor-pointer flex justify-center items-center"
+                className="relative font-bold uppercase text-indigo-400 border-2 border-blue-500 w-40 h-12 cursor-pointer flex justify-center items-center"
                 style={{ filter: "url(#goo)" }}
                 initial="rest"
-                whileHover="hover"
-                animate="rest"
+                animate={active ? "hover" : "rest"}
+                {...bind}
             >
 
                 {/* Blob container */}
@@ -55,7 +55,7 @@ export default function WaneButton() {
                         hover: { color: "#fff" },
                     }}
                 >
-                    Button
+                    BUTTON
                 </motion.span>
 
                 {/* 外側の枠 */}

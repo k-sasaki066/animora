@@ -1,14 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ColorCycleButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4 rounded-full border-2 border-green-600 overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hover"
+            className="relative rounded-full border-2 border-green-600 overflow-hidden w-40 h-12 cursor-pointer"
             initial="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* 背景1 */}
             <motion.div
@@ -49,7 +50,7 @@ export default function ColorCycleButton() {
                     ease: "easeInOut"
                 }}
             >
-                HOVER
+                BUTTON
             </motion.span>
         </motion.div>
     );

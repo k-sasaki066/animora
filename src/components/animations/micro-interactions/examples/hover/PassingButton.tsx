@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function PassingButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4 rounded-sm border border-indigo-500 overflow-hidden w-40 h-12 cursor-pointer"
-            whileHover="hover"
+            className="relative rounded-sm border border-indigo-500 overflow-hidden w-40 h-12 cursor-pointer"
             initial="initial"
-            animate="initial"
+            animate={active ? "hover" : "initial"}
+            {...bind}
         >
             {/* 背景 */}
             <motion.div
@@ -24,10 +24,8 @@ export default function PassingButton() {
                 }}
             />
             {/* テキスト */}
-            <span
-                className="absolute inset-0 z-10 flex justify-center items-center"
-            >
-                HOVER
+            <span className="absolute inset-0 z-10 flex justify-center items-center text-indigo-600">
+                BUTTON
             </span>
         </motion.div>
     );

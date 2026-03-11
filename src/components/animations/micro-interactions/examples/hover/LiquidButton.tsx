@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 
 type Props = {
@@ -143,7 +141,8 @@ export default function LiquidButton({ isOpen = true }: Props) {
             s.relMouseY = s.mouseY - r.top;
         };
 
-        window.addEventListener("mousemove", onMove);
+        window.addEventListener("pointermove", onMove);
+        window.addEventListener("pointerdown", onMove);
 
         intervalRef.current = window.setInterval(() => {
             const s = state.current;
@@ -188,7 +187,8 @@ export default function LiquidButton({ isOpen = true }: Props) {
         render();
 
         return () => {
-            window.removeEventListener("mousemove", onMove);
+            window.addEventListener("pointermove", onMove);
+            window.addEventListener("pointerdown", onMove);
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
@@ -200,7 +200,7 @@ export default function LiquidButton({ isOpen = true }: Props) {
             ref={wrapperRef}
             className="relative inline-block w-40 h-12 px-8 py-4 rounded-full text-white font-bold text-sm tracking-widest uppercase text-center leading-12"
         >
-            <span className="absolute top-0 left-1/2 -translate-x-1/2 z-10">Hover</span>
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 z-10">BUTTON</span>
             <canvas
                 ref={canvasRef}
                 className="absolute -top-12.5 -left-12.5"

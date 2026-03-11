@@ -1,15 +1,15 @@
-"use client";
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ChangeTextButton() {
+    const { active, bind } = useToggleHover();
 
     return (
         <motion.button
-            className="relative px-8 py-4 rounded-sm bg-amber-500 overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
+            className="relative rounded-sm bg-amber-500 overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
             variants={{
                 rest: {},
                 hover: {},
@@ -32,7 +32,7 @@ export default function ChangeTextButton() {
                     },
                 }}
             >
-                HOVER
+                CHANGE
             </motion.span>
 
             {/* 新テキスト */}
