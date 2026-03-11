@@ -1,7 +1,7 @@
 export interface ButtonAnimationItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const buttonAnimationData: ButtonAnimationItem[] = [
@@ -9,282 +9,282 @@ export const buttonAnimationData: ButtonAnimationItem[] = [
     {
         key: "floating",
         title: "Floating Button",
-        previewText: "Floating Button Example",
+        video: "/videos/micro-interactions/floating-button.mp4",
     },
     {
         key: "bulbul",
         title: "Bulbul Button",
-        previewText: "Bulbul Button Example",
+        video: "/videos/micro-interactions/bulbul-button.mp4",
     },
     {
         key: "thump",
         title: "Thump Button",
-        previewText: "Thump Button Example",
+        video: "/videos/micro-interactions/thump-button.mp4",
     },
     {
         key: "swaying",
-        title: "Swaying Button",
-        previewText: "Swaying Button Example",
+        title: "Swaying Button Button",
+        video: "/videos/micro-interactions/swaying-button.mp4",
     },
     {
         key: "shaky",
         title: "Shaky Button",
-        previewText: "Shaky Button Example",
+        video: "/videos/micro-interactions/shaky-button.mp4",
     },
     {
         key: "sparkling",
         title: "Sparkling Button",
-        previewText: "Sparkling Button Example",
+        video: "/videos/micro-interactions/sparkling-button.mp4",
     },
     {
         key: "ripples",
         title: "Ripples Button",
-        previewText: "Ripples Button Example",
+        video: "/videos/micro-interactions/ripples-button.mp4",
     },
     {
         key: "skew",
         title: "Skew Button",
-        previewText: "Skew Button Example",
+        video: "/videos/micro-interactions/skew-button.mp4",
     },
     {
         key: "spin",
         title: "Spin Button",
-        previewText: "Spin Button Example",
+        video: "/videos/micro-interactions/spin-button.mp4",
     },
     {
         key: "jiggly",
         title: "Jiggly Button",
-        previewText: "Jiggly Button Example",
+        video: "/videos/micro-interactions/jiggly-button.mp4",
     },
     {
         key: "clickMove",
         title: "Click Move Button",
-        previewText: "Click Move Button Example",
+        video: "/videos/micro-interactions/click-move-button.mp4",
     },
     {
         key: "gradientMove",
         title: "Gradient Move Button",
-        previewText: "Gradient Move Button Example",
+        video: "/videos/micro-interactions/gradient-move-button.mp4",
     },
 
     // hover-text
     {
         key: "changeText",
         title: "Change Text Button",
-        previewText: "Change Text Button Example",
+        video: "/videos/micro-interactions/change-text-button.mp4",
     },
     {
         key: "flowText",
         title: "Flow Text Button",
-        previewText: "Flow Text Button Example",
+        video: "/videos/micro-interactions/flow-text-button.mp4",
     },
     {
         key: "fancyText",
         title: "Fancy Text Button",
-        previewText: "Fancy Text Button Example",
+        video: "/videos/micro-interactions/fancy-text-button.mp4",
     },
     {
         key: "smokeText",
         title: "Smoke Text Button",
-        previewText: "Smoke Text Button Example",
+        video: "/videos/micro-interactions/smoke-text-button.mp4",
     },
     {
         key: "bouncyText",
         title: "Bouncy Text Button",
-        previewText: "Bouncy Text Button Example",
+        video: "/videos/micro-interactions/bouncy-text-button.mp4",
     },
 
     // hover
     {
         key: "extendLeft",
         title: "Extend Left Button",
-        previewText: "Extend Left Button Example",
+        video: "/videos/micro-interactions/extend-left-button.mp4",
     },
     {
         key: "diagonalSwipe",
         title: "Diagonal Swipe Button",
-        previewText: "Diagonal Swipe Button Example",
+        video: "/videos/micro-interactions/diagonal-swipe-button.mp4",
     },
     {
         key: "doubleSwipe",
         title: "Double Swipe Button",
-        previewText: "Double Swipe Button Example",
+        video: "/videos/micro-interactions/double-swipe-button.mp4",
     },
     {
         key: "stopSwipe",
         title: "Stop Swipe Button",
-        previewText: "Stop Swipe Button Example",
+        video: "/videos/micro-interactions/stop-swipe-button.mp4",
     },
     {
         key: "passing",
         title: "Passing Button",
-        previewText: "Passing Button Example",
+        video: "/videos/micro-interactions/passing-button.mp4",
     },
     {
         key: "circleOut",
         title: "Circle Out Button",
-        previewText: "Circle Out Button Example",
+        video: "/videos/micro-interactions/circle-out-button.mp4",
     },
     {
         key: "click",
         title: "Click Button",
-        previewText: "Click Button Example",
+        video: "/videos/micro-interactions/click-button.mp4",
     },
     {
         key: "flip",
         title: "Flip Button",
-        previewText: "Flip Button Example",
+        video: "/videos/micro-interactions/flip-button.mp4",
     },
     {
         key: "colorCycle",
         title: "Color Cycle Button",
-        previewText: "Color Cycle Button Example",
+        video: "/videos/micro-interactions/color-cycle-button.mp4",
     },
     {
         key: "colorIntoCenter",
         title: "Color Into Center Button",
-        previewText: "Color Into Center Button Example",
+        video: "/videos/micro-interactions/color-into-center.mp4",
     },
     {
         key: "changeShape",
         title: "Change Shape Button",
-        previewText: "Change Shape Button Example",
+        video: "/videos/micro-interactions/change-shape-button.mp4",
     },
     {
         key: "hiddenText",
         title: "Hidden Text Button",
-        previewText: "Hidden Text Button Example",
+        video: "/videos/micro-interactions/hidden-text-button.mp4",
     },
     {
         key: "colorFlow",
         title: "Color Flow Button",
-        previewText: "Color Flow Button Example",
+        video: "/videos/micro-interactions/color-flow-button.mp4",
     },
     {
         key: "mochi",
         title: "Mochi Button",
-        previewText: "Mochi Button Example",
+        video: "/videos/micro-interactions/mochi-button.mp4",
     },
     {
         key: "wave",
         title: "Wave Button",
-        previewText: "Wave Button Example",
+        video: "/videos/micro-interactions/wave-button.mp4",
     },
     {
         key: "backgroundMoves",
         title: "Background Moves Button",
-        previewText: "Background Moves Button Example",
+        video: "/videos/micro-interactions/background-moves-button.mp4",
     },
     {
         key: "gradientSlide",
         title: "Gradient Slide Button",
-        previewText: "Gradient Slide Button Example",
+        video: "/videos/micro-interactions/gradient-slide-button.mp4",
     },
     {
         key: "pixelHover",
         title: "Pixel Hover Button",
-        previewText: "Pixel Hover Button Example",
+        video: "/videos/micro-interactions/pixel-hover-button.mp4",
     },
     {
         key: "bubble",
         title: "Bubble Button",
-        previewText: "Bubble Button Example",
+        video: "/videos/micro-interactions/bubble-button.mp4",
     },
     {
         key: "letterFill",
         title: "Letter Fill Button",
-        previewText: "Letter Fill Button Example",
+        video: "/videos/micro-interactions/letter-fill-button.mp4",
     },
     {
         key: "everChanging",
         title: "Ever Changing Button",
-        previewText: "Ever Changing Button Example",
+        video: "/videos/micro-interactions/ever-changing-button.mp4",
     },
     {
         key: "liquid",
         title: "Liquid Button",
-        previewText: "Liquid Button Example",
+        video: "/videos/micro-interactions/liquid-button.mp4",
     },
     {
         key: "gradient3D",
         title: "Gradient 3D Button",
-        previewText: "Gradient 3D Button Example",
+        video: "/videos/micro-interactions/gradient-3d-button.mp4",
     },
 
     // hover-line
     {
         key: "sideBrackets",
         title: "SideBrackets Button",
-        previewText: "SideBrackets Button Example",
+        video: "/videos/micro-interactions/side-brackets-button.mp4",
     },
     {
         key: "transformShape",
         title: "Transform Shape Button",
-        previewText: "Transform Shape Button Example",
+        video: "/videos/micro-interactions/transform-shape-button.mp4",
     },
     {
         key: "hoverLine",
         title: "Hover Line Button",
-        previewText: "Hover Line Button Example",
+        video: "/videos/micro-interactions/hover-line-button.mp4",
     },
     {
         key: "rotate",
         title: "Rotate Button",
-        previewText: "Rotate Button Example",
+        video: "/videos/micro-interactions/rotate-button.mp4",
     },
     {
         key: "arrowExtend",
         title: "Arrow Extend Button",
-        previewText: "Arrow Extend Button Example",
+        video: "/videos/micro-interactions/arrow-extend-button.mp4",
     },
     {
         key: "sporty",
         title: "Sporty Button",
-        previewText: "Sporty Button Example",
+        video: "/videos/micro-interactions/sporty-button.mp4",
     },
     {
         key: "hoverOutline",
         title: "Hover Out line Button",
-        previewText: "Hover Out line Button Example",
+        video: "/videos/micro-interactions/hover-outline-button.mp4",
     },
     {
         key: "hover4Corner",
         title: "Hover 4 Corner Button",
-        previewText: "Hover 4 Corner Button Example",
+        video: "/videos/micro-interactions/hover-4-corner-button.mp4",
     },
     {
         key: "hoverSurround",
         title: "Hover Surround Button",
-        previewText: "Hover Surround Button Example",
+        video: "/videos/micro-interactions/hover-surround-button.mp4",
     },
     {
         key: "pileUp",
         title: "Pile Up Button",
-        previewText: "Pile Up Button Example",
+        video: "/videos/micro-interactions/pipeup-button.mp4",
     },
     {
         key: "parallelogram",
         title: "Parallelogram Button",
-        previewText: "Parallelogram Button Example",
+        video: "/videos/micro-interactions/parallelogram-button.mp4",
     },
     {
         key: "parallelogram2",
         title: "Parallelogram 2 Button",
-        previewText: "Parallelogram 2 Button Example",
+        video: "/videos/micro-interactions/parallelogram-2-button.mp4",
     },
     {
         key: "outlineHover",
         title: "Outline Hover Button",
-        previewText: "Outline Hover Button Example",
+        video: "/videos/micro-interactions/outline-hover-button.mp4",
     },
     {
         key: "moveAndSurround",
         title: "Move And Surround Button",
-        previewText: "Move And Surround Button Example",
+        video: "/videos/micro-interactions/move-and-surround-button.mp4",
     },
     {
         key: "lineSurround",
         title: "Line Surround Button",
-        previewText: "Line Surround Button Example",
+        video: "/videos/micro-interactions/line-surround-button.mp4",
     },
 ];

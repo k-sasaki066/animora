@@ -1,10 +1,6 @@
 import { useEffect, useRef } from "react";
 
-type Props = {
-    isOpen?: boolean; // モーダル用
-};
-
-export default function LiquidButton({ isOpen = true }: Props) {
+export default function LiquidButton() {
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const wrapperRef = useRef<HTMLButtonElement | null>(null);
@@ -82,8 +78,6 @@ export default function LiquidButton({ isOpen = true }: Props) {
     }
 
     useEffect(() => {
-        if (!isOpen) return;
-
         const canvas = canvasRef.current;
         const wrapper = wrapperRef.current;
         if (!canvas || !wrapper) return;
@@ -192,7 +186,7 @@ export default function LiquidButton({ isOpen = true }: Props) {
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
-    }, [isOpen]);
+    }, []);
 
 
     return (

@@ -1,120 +1,66 @@
-import type { ComponentType } from "react";
-import FloatingButton from "./examples/basic/FloatingButton";
-import BulbulButton from "./examples/basic/BulbulButton";
-import ThumpButton from "./examples/basic/ThumpButton";
-import SwayingButton from "./examples/basic/SwayingButton";
-import ShakyButton from "./examples/basic/ShakyButton";
-import SparklingButton from "./examples/basic/SparklingButton";
-import RipplesButton from "./examples/basic/RipplesButton";
-import SkewButton from "./examples/basic/SkewButton";
-import SpinButton from "./examples/basic/SpinButton";
-import JigglyButton from "./examples/basic/JigglyButton";
-import ClickMoveButton from "./examples/basic/ClickMoveButton";
-import GradientMoveButton from "./examples/basic/GradientMoveButton";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type ButtonComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-import ChangeTextButton from "./examples/hover-text/ChangeTextButton";
-import FlowTextButton from "./examples/hover-text/FlowTextButton";
-import FancyTextButton from "./examples/hover-text/FancyTextButton";
-import SmokeTextButton from "./examples/hover-text/SmokeTextButton";
-import BouncyTextButton from "./examples/hover-text/BouncyTextButton";
+export const buttonAnimationMap: Record<string, ButtonComponent> = {
+    floating: lazy(() => import("./examples/basic/FloatingButton")),
+    bulbul: lazy(() => import("./examples/basic/BulbulButton")),
+    thump: lazy(() => import("./examples/basic/ThumpButton")),
+    swaying: lazy(() => import("./examples/basic/SwayingButton")),
+    shaky: lazy(() => import("./examples/basic/ShakyButton")),
+    sparkling: lazy(() => import("./examples/basic/SparklingButton")),
+    ripples: lazy(() => import("./examples/basic/RipplesButton")),
+    skew: lazy(() => import("./examples/basic/SkewButton")),
+    spin: lazy(() => import("./examples/basic/SpinButton")),
+    jiggly: lazy(() => import("./examples/basic/JigglyButton")),
+    clickMove: lazy(() => import("./examples/basic/ClickMoveButton")),
+    gradientMove: lazy(() => import("./examples/basic/GradientMoveButton")),
 
-import ExtendLeftButton from "./examples/hover/ExtendLeftButton";
-import DiagonalSwipeButton from "./examples/hover/DiagonalSwipeButton";
-import DoubleSwipeButton from "./examples/hover/DoubleSwipeButton";
-import StopSwipeButton from "./examples/hover/StopSwipeButton";
-import PassingButton from "./examples/hover/PassingButton";
-import CircleOutButton from "./examples/hover/CircleOutButton";
-import ClickButton from "./examples/hover/ClickButton";
-import FlipButton from "./examples/hover/FlipButton";
-import ColorCycleButton from "./examples/hover/ColorCycleButton";
-import ColorIntoCenterButton from "./examples/hover/ColorIntoCenterButton";
-import ChangeShapeButton from "./examples/hover/ChangeShapeButton";
-import HiddenTextButton from "./examples/hover/HiddenTextButton";
-import ColorFlowButton from "./examples/hover/ColorFlowButton";
-import MochiButton from "./examples/hover/MochiButton";
-import WaveButton from "./examples/hover/WaveButton";
-import BackgroundMovesButton from "./examples/hover/BackgroundMovesButton";
-import GradientSlideButton from "./examples/hover/GradientSlideButton";
-import PixelHoverButton from "./examples/hover/PixelHoverButton";
-import BubbleButton from "./examples/hover/BubbleButton";
-import LetterFillButton from "./examples/hover/LetterFillButton";
-import EverChangingButton from "./examples/hover/EverChangingButton";
-import LiquidButton from "./examples/hover/LiquidButton";
-import Gradient3DButton from "./examples/hover/Gradient3DButton";
+    changeText: lazy(() => import("./examples/hover-text/ChangeTextButton")),
+    flowText: lazy(() => import("./examples/hover-text/FlowTextButton")),
+    fancyText: lazy(() => import("./examples/hover-text/FancyTextButton")),
+    smokeText: lazy(() => import("./examples/hover-text/SmokeTextButton")),
+    bouncyText: lazy(() => import("./examples/hover-text/BouncyTextButton")),
 
-import SideBracketsButton from "./examples/hover-line/SideBracketsButton";
-import TransformShapeButton from "./examples/hover-line/TransformShapeButton";
-import HoverLineButton from "./examples/hover-line/HoverLineButton";
-import RotateButton from "./examples/hover-line/RotateButton";
-import ArrowExtendButton from "./examples/hover-line/ArrowExtendButton";
-import SportyButton from "./examples/hover-line/SportyButton";
-import HoverOutlineButton from "./examples/hover-line/HoverOutlineButton";
-import Hover4CornerButton from "./examples/hover-line/Hover4CornerButton";
-import HoverSurroundButton from "./examples/hover-line/HoverSurroundButton";
-import PileUpButton from "./examples/hover-line/PileUpButton";
-import ParallelogramButton from "./examples/hover-line/ParallelogramButton";
-import Parallelogram2Button from "./examples/hover-line/Parallelogram2Button";
-import OutlineHoverButton from "./examples/hover-line/OutlineHoverButton";
-import MoveAndSurroundButton from "./examples/hover-line/MoveAndSurroundButton";
-import LineSurroundButton from "./examples/hover-line/LineSurroundButton";
+    extendLeft: lazy(() => import("./examples/hover/ExtendLeftButton")),
+    diagonalSwipe: lazy(() => import("./examples/hover/DiagonalSwipeButton")),
+    doubleSwipe: lazy(() => import("./examples/hover/DoubleSwipeButton")),
+    stopSwipe: lazy(() => import("./examples/hover/StopSwipeButton")),
+    passing: lazy(() => import("./examples/hover/PassingButton")),
+    circleOut: lazy(() => import("./examples/hover/CircleOutButton")),
+    click: lazy(() => import("./examples/hover/ClickButton")),
+    flip: lazy(() => import("./examples/hover/FlipButton")),
+    colorCycle: lazy(() => import("./examples/hover/ColorCycleButton")),
+    colorIntoCenter: lazy(() => import("./examples/hover/ColorIntoCenterButton")),
+    changeShape: lazy(() => import("./examples/hover/ChangeShapeButton")),
+    hiddenText: lazy(() => import("./examples/hover/HiddenTextButton")),
+    colorFlow: lazy(() => import("./examples/hover/ColorFlowButton")),
+    mochi: lazy(() => import("./examples/hover/MochiButton")),
+    wave: lazy(() => import("./examples/hover/WaveButton")),
+    backgroundMoves: lazy(() => import("./examples/hover/BackgroundMovesButton")),
+    gradientSlide: lazy(() => import("./examples/hover/GradientSlideButton")),
+    pixelHover: lazy(() => import("./examples/hover/PixelHoverButton")),
+    bubble: lazy(() => import("./examples/hover/BubbleButton")),
+    letterFill: lazy(() => import("./examples/hover/LetterFillButton")),
+    everChanging: lazy(() => import("./examples/hover/EverChangingButton")),
+    liquid: lazy(() => import("./examples/hover/LiquidButton")),
+    gradient3D: lazy(() => import("./examples/hover/Gradient3DButton")),
 
-export const buttonAnimationMap: Record<string, ComponentType> = {
-    floating: FloatingButton,
-    bulbul: BulbulButton,
-    thump: ThumpButton,
-    swaying: SwayingButton,
-    shaky: ShakyButton,
-    sparkling: SparklingButton,
-    ripples: RipplesButton,
-    skew: SkewButton,
-    spin: SpinButton,
-    jiggly: JigglyButton,
-    clickMove: ClickMoveButton,
-    gradientMove: GradientMoveButton,
-
-    changeText: ChangeTextButton,
-    flowText: FlowTextButton,
-    fancyText: FancyTextButton,
-    smokeText: SmokeTextButton,
-    bouncyText: BouncyTextButton,
-
-    extendLeft: ExtendLeftButton,
-    diagonalSwipe: DiagonalSwipeButton,
-    doubleSwipe: DoubleSwipeButton,
-    stopSwipe: StopSwipeButton,
-    passing: PassingButton,
-    circleOut: CircleOutButton,
-    click: ClickButton,
-    flip: FlipButton,
-    colorCycle: ColorCycleButton,
-    colorIntoCenter: ColorIntoCenterButton,
-    changeShape: ChangeShapeButton,
-    hiddenText: HiddenTextButton,
-    colorFlow: ColorFlowButton,
-    mochi: MochiButton,
-    wave: WaveButton,
-    backgroundMoves: BackgroundMovesButton,
-    gradientSlide: GradientSlideButton,
-    pixelHover: PixelHoverButton,
-    bubble: BubbleButton,
-    letterFill: LetterFillButton,
-    everChanging: EverChangingButton,
-    liquid: LiquidButton,
-    gradient3D: Gradient3DButton,
-
-    sideBrackets: SideBracketsButton,
-    transformShape: TransformShapeButton,
-    hoverLine: HoverLineButton,
-    rotate: RotateButton,
-    arrowExtend: ArrowExtendButton,
-    sporty: SportyButton,
-    hoverOutline: HoverOutlineButton,
-    hover4Corner: Hover4CornerButton,
-    hoverSurround: HoverSurroundButton,
-    pileUp: PileUpButton,
-    parallelogram: ParallelogramButton,
-    parallelogram2: Parallelogram2Button,
-    outlineHover: OutlineHoverButton,
-    moveAndSurround: MoveAndSurroundButton,
-    lineSurround: LineSurroundButton,
+    sideBrackets: lazy(() => import("./examples/hover-line/SideBracketsButton")),
+    transformShape: lazy(() => import("./examples/hover-line/TransformShapeButton")),
+    hoverLine: lazy(() => import("./examples/hover-line/HoverLineButton")),
+    rotate: lazy(() => import("./examples/hover-line/RotateButton")),
+    arrowExtend: lazy(() => import("./examples/hover-line/ArrowExtendButton")),
+    sporty: lazy(() => import("./examples/hover-line/SportyButton")),
+    hoverOutline: lazy(() => import("./examples/hover-line/HoverOutlineButton")),
+    hover4Corner: lazy(() => import("./examples/hover-line/Hover4CornerButton")),
+    hoverSurround: lazy(() => import("./examples/hover-line/HoverSurroundButton")),
+    pileUp: lazy(() => import("./examples/hover-line/PileUpButton")),
+    parallelogram: lazy(() => import("./examples/hover-line/ParallelogramButton")),
+    parallelogram2: lazy(() => import("./examples/hover-line/Parallelogram2Button")),
+    outlineHover: lazy(() => import("./examples/hover-line/OutlineHoverButton")),
+    moveAndSurround: lazy(() => import("./examples/hover-line/MoveAndSurroundButton")),
+    lineSurround: lazy(() => import("./examples/hover-line/LineSurroundButton")),
 };
