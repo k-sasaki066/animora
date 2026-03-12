@@ -5,7 +5,7 @@ export default function ReductionText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     return (
-        <div ref={ref} className="w-full overflow-hidden">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.div
                 className="font-bold uppercase origin-left"
                 style={{ fontSize }}
@@ -28,10 +28,10 @@ export default function ReductionText() {
                     ease: [0.165, 0.84, 0.44, 1],
                     times: [0, 0.6, 1],
                     repeat: Infinity,
-                    repeatDelay: 1.5,
+                    repeatDelay: 3,
                 }}
             >
-                Text Animation
+                Reduction Text
             </motion.div>
         </div>
     );

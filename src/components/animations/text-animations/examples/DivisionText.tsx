@@ -2,11 +2,9 @@ import { motion } from "framer-motion";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 import { useToggleHover } from "@/hooks/useToggleHover";
 
-interface Props {
-    text?: string;
-}
+const text = "HOME";
 
-export default function DivisionText({ text = "HOME" }: Props) {
+export default function DivisionText() {
     const { active, bind } = useToggleHover();
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
         ratio: 0.06,
@@ -15,7 +13,7 @@ export default function DivisionText({ text = "HOME" }: Props) {
     });
 
     return (
-        <div ref={ref} className="w-full p-4 bg-[#1c1848]">
+        <div ref={ref} className="w-full h-full flex justify-center items-center p-4 bg-[#1c1848]">
             <motion.div
                 className="relative inline-block cursor-pointer select-none leading-none"
                 style={{ fontSize }}

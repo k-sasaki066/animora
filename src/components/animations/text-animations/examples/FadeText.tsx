@@ -36,7 +36,7 @@ export default function TypingText() {
     }, []);
 
     return (
-        <div ref={ref} className="w-full">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.div
                 className="font-bold"
                 style={{ fontSize }}

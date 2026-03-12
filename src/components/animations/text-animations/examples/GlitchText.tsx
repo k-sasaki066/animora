@@ -11,7 +11,7 @@ export default function GlitchText() {
     return (
         <motion.div
             ref={ref}
-            className="w-full flex justify-center gap-1 font-bold cursor-pointer"
+            className="w-full h-full flex justify-center items-center gap-1 font-bold cursor-pointer"
             style={{ fontSize }}
         >
             {text.split("").map((char, index) => (

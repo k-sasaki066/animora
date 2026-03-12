@@ -44,7 +44,7 @@ export default function PressedText() {
         : 0;
 
     return (
-        <div ref={containerRef} className="w-full relative flex justify-center items-center">
+        <div ref={containerRef} className="relative w-full flex justify-center items-center">
             {/* Marker */}
             <motion.div
                 className="absolute -top-1 left-1/2 -translate-x-1/2 h-1 w-8 bg-black"

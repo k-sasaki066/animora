@@ -43,32 +43,31 @@ export default function CursorBlobText() {
     return (
         <>
             {/* ===== Blobエリア ===== */}
-            <div
-                ref={ref} className="relative h-23 w-full overflow-hidden bg-[#2128bd]">
-                    {/* blobs */}
-                    {blobs.map((blob, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute rounded-full"
-                            style={{
-                                width: blob.size,
-                                height: blob.size,
-                                backgroundColor: blob.color,
-                                x: blobSprings[i].x,
-                                y: blobSprings[i].y,
-                                left: `-${blob.size / 2}px`,
-                                top: `-${blob.size / 2}px`,
-                            }}
-                        />
-                    ))}
+            <div ref={ref} className="relative h-full w-full overflow-hidden bg-[#2128bd]">
+                {/* blobs */}
+                {blobs.map((blob, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute rounded-full"
+                        style={{
+                            width: blob.size,
+                            height: blob.size,
+                            backgroundColor: blob.color,
+                            x: blobSprings[i].x,
+                            y: blobSprings[i].y,
+                            left: `-${blob.size / 2}px`,
+                            top: `-${blob.size / 2}px`,
+                        }}
+                    />
+                ))}
 
-                    {/* Content */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-white mix-blend-screen">
-                        <h1 className="font-bold text-center" style={{ fontSize }}>
-                            HOVER ME!
-                        </h1>
-                    </div>
+                {/* Content */}
+                <div className="absolute inset-0 flex items-center justify-center bg-white mix-blend-screen">
+                    <h1 className="font-bold text-center" style={{ fontSize }}>
+                        HOVER ME!
+                    </h1>
                 </div>
+            </div>
             {/* Cursor */}
             <motion.div
                 className="fixed z-50 rounded-full pointer-events-none"

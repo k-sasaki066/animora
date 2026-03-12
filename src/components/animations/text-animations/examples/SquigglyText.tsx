@@ -15,9 +15,9 @@ export default function SquigglyText() {
     });
 
     return (
-        <div ref={ref} className="w-full">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.div
-                className="space-y-2 text-center"
+                className="space-y-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}

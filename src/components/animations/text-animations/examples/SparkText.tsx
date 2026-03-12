@@ -2,19 +2,17 @@ import { motion } from "framer-motion";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 import { useToggleHover } from "@/hooks/useToggleHover";
 
-interface SparkTextProps {
-    text?: string;
-}
-
 const random = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
 
-export default function SparkText({ text = "Spark" }: SparkTextProps) {
+const text = "Spark";
+
+export default function SparkText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
     const { active, bind } = useToggleHover();
 
     return (
-        <div ref={ref} className="w-full">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.p
                 {...bind}
                 className="relative inline-block font-bold uppercase cursor-pointer select-none"

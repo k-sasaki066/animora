@@ -4,9 +4,13 @@ import { useState } from "react";
 import { TextAnimationCard } from "./TextAnimationCard";
 import { TextAnimationModal } from "./TextAnimationModal";
 import { textAnimationData } from "./textAnimationData";
+import { useReducedMotion } from "framer-motion";
 
 export function TextAnimationList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -15,8 +19,9 @@ export function TextAnimationList() {
                     <TextAnimationCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>

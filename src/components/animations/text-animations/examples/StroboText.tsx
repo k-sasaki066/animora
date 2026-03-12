@@ -46,7 +46,7 @@ export default function StroboText() {
     const text = "STROBO";
 
     return (
-        <div ref={ref} className={`w-full p-4 bg-black ${orbitron.className}`}>
+        <div ref={ref} className={`w-full h-full flex justify-center items-center p-4 bg-black ${orbitron.className}`}>
             <motion.div
                 className="relative text-center font-extrabold uppercase text-white select-none"
                 style={{ fontSize }}

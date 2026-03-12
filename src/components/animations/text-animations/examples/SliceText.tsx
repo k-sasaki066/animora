@@ -40,7 +40,7 @@ export default function SliceText() {
     ];
 
     return (
-        <div ref={ref} className="w-full">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <div
                 className="relative font-bold leading-none overflow-hidden"
                 style={{ fontSize }}

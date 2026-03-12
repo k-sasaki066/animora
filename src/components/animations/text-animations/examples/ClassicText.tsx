@@ -60,7 +60,7 @@ export default function ClassicText() {
     }, []);
 
     return (
-        <section ref={ref} className={`w-full mx-auto p-3 bg-linear-to-b from-slate-700 to-slate-500 ${fjallaOne.className}`}>
+        <section ref={ref} className={`w-full h-full mx-auto flex justify-center items-center p-3 bg-linear-to-b from-slate-700 to-slate-500 ${fjallaOne.className}`}>
             <motion.h1
                 key={key}
                 className="uppercase font-bold text-center flex flex-col items-center"

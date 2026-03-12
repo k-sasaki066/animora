@@ -15,9 +15,9 @@ export default function VerticalRotationText() {
     const { active, bind } = useToggleHover();
 
     return (
-        <div ref={ref} className="w-full">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.div
-                className="justify-center items-center inline-flex cursor-pointer overflow-hidden"
+                className="inline-flex cursor-pointer overflow-hidden"
                 style={{ fontSize }}
                 initial="rest"
                 animate={active ? "hover" : "rest"}

@@ -5,7 +5,7 @@ import { explodeTextShapes } from "./explodeTextData";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export default function ExplodeText() {
-    const { ref, fontSize } = useResponsiveFontSize<SVGSVGElement>();
+    const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     const controls = useAnimation();
     const isMounted = useRef(true);
@@ -40,10 +40,10 @@ export default function ExplodeText() {
     }, [controls]);
 
     return (
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
         <motion.svg
-            ref={ref}
             viewBox="0 0 880 105.2"
-            className="w-full p-4 fill-black stroke-black text-center bg-[#FED75A]"
+            className="w-[80%] max-w-100 p-4 fill-black stroke-black text-center bg-[#FED75A]"
             style={{ fontSize }}
             initial="hidden"
             animate={controls}
@@ -70,7 +70,8 @@ export default function ExplodeText() {
                     )}
                 </SvgPiece>
             ))}
-        </motion.svg>
+            </motion.svg>
+        </div>
     );
 }
 

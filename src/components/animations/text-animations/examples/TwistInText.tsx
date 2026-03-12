@@ -19,13 +19,13 @@ export default function TwistInText() {
     }, []);
 
     return (
-        <div ref={ref} className="w-full overflow-hidden ">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             {/* アクセシビリティ用 */}
             <span className="sr-only">{text}</span>
 
             <div
                 aria-hidden
-                className="font-bold"
+                className="font-bold overflow-hidden"
                 style={{ fontSize }}
             >
                 {text.split("").map((char, index) =>

@@ -48,7 +48,7 @@ export default function LogoAnimation() {
     }, []);
 
     return (
-        <div ref={ref} className="w-full flex justify-center">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             {/* テキスト */}
             <motion.div
                 className="font-bold text-gray-600 text-center"
