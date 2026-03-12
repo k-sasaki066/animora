@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HEART_PATH } from "@/assets/svg/heartPath";

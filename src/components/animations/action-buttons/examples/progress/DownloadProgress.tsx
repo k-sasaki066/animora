@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -99,7 +97,7 @@ export default function DownloadProgress() {
                                 }}
                                 transition={{
                                     pathLength: { duration: 0.35, ease: "easeInOut" },
-                                    opacity: { duration: 0.15 },
+                                    opacity: { duration: 0.5 },
                                 }}
                             />
 
@@ -115,8 +113,7 @@ export default function DownloadProgress() {
                                     opacity: state === "success" ? 1 : 0,
                                 }}
                                 transition={{
-                                    duration: 0.5,
-                                    delay: 0.2
+                                    duration: 0.3
                                 }}
                             />
                         </svg>
