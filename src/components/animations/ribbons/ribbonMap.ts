@@ -1,24 +1,18 @@
-import type { ComponentType } from "react";
-import SimpleRibbon from "./examples/SimpleRibbon";
-import FoldedRibbon from "./examples/FoldedRibbon";
-import BookMarkRibbon from "./examples/BookMarkRibbon";
-import FoldedBookMarkRibbon from "./examples/FoldedBookMarkRibbon";
-import CornerRibbon from "./examples/CornerRibbon";
-import VerticalRibbon from "./examples/VerticalRibbon";
-import BadgeRibbon from "./examples/BadgeRibbon";
-import SoldOutRibbon from "./examples/SoldOutRibbon";
-import StarRibbon from "./examples/StarRibbon";
-import CrownRibbon from "./examples/CrownRibbon";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type RibbonComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const ribbonMap: Record<string, ComponentType> = {
-    simpleRibbon: SimpleRibbon,
-    foldedRibbon: FoldedRibbon,
-    bookMarkRibbon: BookMarkRibbon,
-    foldedBookMarkRibbon: FoldedBookMarkRibbon,
-    cornerRibbon: CornerRibbon,
-    verticalRibbon: VerticalRibbon,
-    badgeRibbon: BadgeRibbon,
-    soldOutRibbon: SoldOutRibbon,
-    starRibbon: StarRibbon,
-    crownRibbon: CrownRibbon,
+export const ribbonMap: Record<string, RibbonComponent> = {
+    simpleRibbon: lazy(() => import("./examples/SimpleRibbon")),
+    foldedRibbon: lazy(() => import("./examples/FoldedRibbon")),
+    bookMarkRibbon: lazy(() => import("./examples/BookMarkRibbon")),
+    foldedBookMarkRibbon: lazy(() => import("./examples/FoldedBookMarkRibbon")),
+    cornerRibbon: lazy(() => import("./examples/CornerRibbon")),
+    verticalRibbon: lazy(() => import("./examples/VerticalRibbon")),
+    badgeRibbon: lazy(() => import("./examples/BadgeRibbon")),
+    soldOutRibbon: lazy(() => import("./examples/SoldOutRibbon")),
+    starRibbon: lazy(() => import("./examples/StarRibbon")),
+    crownRibbon: lazy(() => import("./examples/CrownRibbon")),
 };

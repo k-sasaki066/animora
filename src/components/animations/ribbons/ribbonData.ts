@@ -1,58 +1,58 @@
 export interface RibbonItem {
     key: string;
     title: string;
-    previewText: string;
+    image: string;
 }
 
 export const ribbonData: RibbonItem[] = [
     {
         key: "simpleRibbon",
         title: "Simple Ribbon",
-        previewText: "Simple Ribbon Example",
+        image: "/images/ribbons/simple-ribbon.webp",
     },
     {
         key: "foldedRibbon",
         title: "Folded Ribbon",
-        previewText: "Folded Ribbon Example",
+        image: "/images/ribbons/folded-ribbon.webp",
     },
     {
         key: "bookMarkRibbon",
         title: "Book Mark Ribbon",
-        previewText: "Book Mark Ribbon Example",
+        image: "/images/ribbons/book-mark-ribbon.webp",
     },
     {
         key: "foldedBookMarkRibbon",
         title: "Folded Book Mark Ribbon",
-        previewText: "Folded Book Mark Ribbon Example",
+        image: "/images/ribbons/folded-book-mark-ribbon.webp",
     },
     {
         key: "cornerRibbon",
         title: "Corner Ribbon",
-        previewText: "Corner Ribbon Example",
+        image: "/images/ribbons/corner-ribbon.webp",
     },
     {
         key: "verticalRibbon",
         title: "Vertical Ribbon",
-        previewText: "Vertical Ribbon Example",
+        image: "/images/ribbons/vertical-ribbon.webp",
     },
     {
         key: "badgeRibbon",
         title: "Badge Ribbon",
-        previewText: "Badge Ribbon Example",
+        image: "/images/ribbons/badge-ribbon.webp",
     },
     {
         key: "soldOutRibbon",
         title: "Sold Out Ribbon",
-        previewText: "Sold Out Ribbon Example",
+        image: "/images/ribbons/sold-out-ribbon.webp",
     },
     {
         key: "starRibbon",
         title: "Star Ribbon",
-        previewText: "Star Ribbon Example",
+        image: "/images/ribbons/star-ribbon.webp",
     },
     {
         key: "crownRibbon",
         title: "Crown Ribbon",
-        previewText: "Crown Ribbon Example",
+        image: "/images/ribbons/crown-ribbon.webp",
     },
 ];
