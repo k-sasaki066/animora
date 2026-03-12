@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -32,7 +30,7 @@ export default function TypingText() {
     useEffect(() => {
         const interval = setInterval(() => {
         setActive((prev) => !prev);
-        }, 2200); // 表示 → 非表示の切り替え間隔
+        }, 2200);
 
         return () => clearInterval(interval);
     }, []);
@@ -47,15 +45,15 @@ export default function TypingText() {
                 animate={active ? "visible" : "hidden"}
             >
                 {text.split("").map((char, i) => (
-                <motion.span
-                    key={i}
-                    className="inline-block"
-                    style={{ fontSize }}
-                    variants={charVariants}
-                    custom={i}
-                >
-                    {char === " " ? "\u00A0" : char}
-                </motion.span>
+                    <motion.span
+                        key={i}
+                        className="inline-block"
+                        style={{ fontSize }}
+                        variants={charVariants}
+                        custom={i}
+                    >
+                        {char === " " ? "\u00A0" : char}
+                    </motion.span>
                 ))}
             </motion.div>
         </div>

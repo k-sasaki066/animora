@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -67,7 +65,7 @@ export default function ScaleStaggerText() {
                             className="inline-block"
                             variants={charVariants}
                         >
-                        {char}
+                            {char}
                         </motion.span>
                     )
                 )}

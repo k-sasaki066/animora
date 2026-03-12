@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Neonderthaw } from "next/font/google";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -20,7 +18,8 @@ export default function NeonText() {
         <div
             ref={ref}
             className="w-full p-4 bg-black flex justify-center items-center gap-2"
-            style={{ fontSize }}>
+            style={{ fontSize }}
+        >
             <motion.div
                 className={`leading-none ${neonderthaw.className}`}
                 animate={{

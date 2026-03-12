@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -18,17 +16,18 @@ export default function CursorBlobText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            if (!ref.current) return;
+        const handlePointerMove = (e: PointerEvent) => {
+            const element = ref.current;
+            if (!element) return;
 
-            const rect = ref.current.getBoundingClientRect();
+            const rect = element.getBoundingClientRect();
             mouseX.set(e.clientX - rect.left);
             mouseY.set(e.clientY - rect.top);
         };
 
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+        window.addEventListener("pointermove", handlePointerMove);
+        return () => window.removeEventListener("pointermove", handlePointerMove);
+    }, [mouseX, mouseY]);
 
     const blobSprings = blobs.map((blob) => ({
         x: useSpring(mouseX, {

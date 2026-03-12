@@ -1,7 +1,6 @@
-"use client";
-
 import { motion, Variants } from "framer-motion";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 const text = "HOVER ME!";
 
@@ -25,6 +24,7 @@ const letterVariants: Variants = {
 
 export default function SwayText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+    const { active, bind } = useToggleHover();
 
     return (
         <div ref={ref} className="w-full">
@@ -32,7 +32,8 @@ export default function SwayText() {
                 className="flex gap-1 justify-center font-bold cursor-pointer"
                 style={{ fontSize }}
                 initial="initial"
-                whileHover="hover"
+                animate={active ? "hover" : "initial"}
+                {...bind}
             >
                 {text.split("").map((char, index) => (
                     <motion.span

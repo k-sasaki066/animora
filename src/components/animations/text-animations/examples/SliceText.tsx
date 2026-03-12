@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Transition } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -23,6 +21,24 @@ export default function SliceText() {
         ease: [0.165, 0.84, 0.44, 1],
     };
 
+    const slices = [
+        {
+            mask: "linear-gradient(to bottom, black 33.3%, transparent 33.3%)",
+            startX: "-110%",
+            skew: 40,
+        },
+        {
+            mask: "linear-gradient(to bottom, transparent 33.3%, black 33.3%, black 66.6%, transparent 66.6%)",
+            startX: "110%",
+            skew: -40,
+        },
+        {
+            mask: "linear-gradient(to bottom, transparent 66.6%, black 66.6%)",
+            startX: "-110%",
+            skew: 40,
+        },
+    ];
+
     return (
         <div ref={ref} className="w-full">
             <div
@@ -35,53 +51,23 @@ export default function SliceText() {
                     {text}
                 </div>
 
-                {/* slice 1 */}
-                <motion.div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        WebkitMaskImage:
-                        "linear-gradient(to bottom, black 33.3%, transparent 33.3%)",
-                    }}
-                    animate={{
-                        x: active ? 0 : "-110%",
-                        skewX: active ? 0 : 40,
-                    }}
-                    transition={transition}
-                >
-                    {text}
-                </motion.div>
-
-                {/* slice 2 */}
-                <motion.div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        WebkitMaskImage:
-                        "linear-gradient(to bottom, transparent 33.3%, black 33.3%, black 66.6%, transparent 66.6%)",
-                    }}
-                    animate={{
-                        x: active ? 0 : "110%",
-                        skewX: active ? 0 : -40,
-                    }}
-                    transition={transition}
-                >
-                    {text}
-                </motion.div>
-
-                {/* slice 3 */}
-                <motion.div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        WebkitMaskImage:
-                        "linear-gradient(to bottom, transparent 66.6%, black 66.6%)",
-                    }}
-                    animate={{
-                        x: active ? 0 : "-110%",
-                        skewX: active ? 0 : 40,
-                    }}
-                    transition={transition}
-                >
-                    {text}
-                </motion.div>
+                {/* slices */}
+                {slices.map((slice, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            WebkitMaskImage: slice.mask,
+                        }}
+                        animate={{
+                            x: active ? 0 : slice.startX,
+                            skewX: active ? 0 : slice.skew,
+                        }}
+                        transition={transition}
+                    >
+                        {text}
+                    </motion.div>
+                ))}
             </div>
         </div>
     );

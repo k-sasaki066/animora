@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -52,6 +50,7 @@ export default function PressedText() {
                 className="absolute -top-1 left-1/2 -translate-x-1/2 h-1 w-8 bg-black"
                 {...markerAnim(travelX)}
             />
+
             {/* Letters */}
             <div ref={textRef} className="flex font-bold relative z-10" style={{ fontSize }}>
                 <h1>P</h1>

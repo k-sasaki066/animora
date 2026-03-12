@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, useMotionValue, animate } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -57,9 +55,7 @@ export default function MovingClippedText() {
             {/* クリッピングコンテナ */}
             <div
                 className="relative z-20 w-full h-full bg-cover bg-top overflow-hidden"
-                style={{
-                    backgroundImage:"url(/sea.jpg)",
-                }}
+                style={{ backgroundImage:"url(/sea.jpg)" }}
             >
                 {/* 前景テキスト */}
                 <motion.h1
