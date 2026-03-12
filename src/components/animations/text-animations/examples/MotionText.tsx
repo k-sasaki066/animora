@@ -47,10 +47,12 @@ export default function VerticalRotationText() {
                             {/* 上の文字 */}
                             <motion.span
                                 className="absolute inset-0 flex items-center justify-center font-bold"
+                                style={{ color: "#111827" }}
                                 variants={{
                                     rest: {
                                         y: "-1em",
                                         opacity: 0,
+                                        color: "#111827"
                                     },
                                     hover: {
                                         y: "0em",
@@ -71,7 +73,6 @@ export default function VerticalRotationText() {
                                         x: 0,
                                         y: 0,
                                         opacity: 1,
-                                        color: "#000000",
                                     },
                                     hover: {
                                         x: isEven ? "-1em" : 0,
