@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Variants } from "framer-motion";
 import { Orbitron } from "next/font/google";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";

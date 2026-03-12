@@ -1,7 +1,6 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 const text = "ANIMATION";
 
@@ -14,6 +13,7 @@ const getCharWidth = (char: string) => {
 
 export default function VerticalRotationText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
+    const { active, bind } = useToggleHover();
 
     return (
         <div ref={ref} className="w-full">
@@ -21,8 +21,7 @@ export default function VerticalRotationText() {
                 className="justify-center items-center inline-flex cursor-pointer overflow-hidden"
                 style={{ fontSize }}
                 initial="rest"
-                whileHover="hover"
-                animate="rest"
+                animate={active ? "hover" : "rest"}
                 variants={{
                     hover: {
                         transition: {
@@ -36,6 +35,7 @@ export default function VerticalRotationText() {
                         },
                     },
                 }}
+                {...bind}
             >
                 {text.split("").map((char, i) => (
                     <div

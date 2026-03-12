@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { random } from "@/utils/random";
 import { useMemo } from "react";

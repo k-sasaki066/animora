@@ -1,5 +1,3 @@
-"use client";
-
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
 export default function SvgGlitchText() {

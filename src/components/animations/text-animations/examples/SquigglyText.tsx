@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Amatic_SC } from "next/font/google";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -49,9 +47,7 @@ export default function SquigglyText() {
                 <div
                     contentEditable
                     suppressContentEditableWarning
-                    className={`squiggly inline-block font-bold leading-tight outline-none
-                    select-text ${amatic.className}
-                    `}
+                    className={`squiggly inline-block font-bold leading-tight outline-none select-text ${amatic.className}`}
                     style={{ fontSize }}
                 >
                     Squiggly Text

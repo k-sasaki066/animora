@@ -10,6 +10,8 @@ export function useToggleHover() {
             onClick: () => setActive(v => !v),
             onHoverStart: () => setActive(true),
             onHoverEnd: () => setActive(false),
+            onTapStart: () => setActive(true),
+            onTapCancel: () => setActive(false),
         }
     };
 }

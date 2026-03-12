@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -41,9 +39,9 @@ export default function TextSlideUp() {
     }, []);
 
     return (
-        <div ref={ref} className="w-full bg-neutral-700 overflow-hidden p-2">
+        <div ref={ref} className="w-full h-full overflow-hidden p-2">
             <motion.div
-                className="text-white font-bold uppercase"
+                className="text-black font-bold uppercase"
                 style={{ fontSize }}
                 variants={containerVariants}
                 initial="hidden"
@@ -65,7 +63,7 @@ export default function TextSlideUp() {
                             variants={charVariants}
                             custom={i}
                         >
-                        {char}
+                            {char}
                         </motion.span>
                     )
                 )}

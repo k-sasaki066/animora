@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -57,7 +55,7 @@ export default function TwistInText() {
                                 delay: index * 0.02,
                             }}
                         >
-                        {char}
+                            {char}
                         </motion.span>
                     )
                 )}

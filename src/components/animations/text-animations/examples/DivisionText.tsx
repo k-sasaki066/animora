@@ -1,13 +1,13 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 interface Props {
     text?: string;
 }
 
 export default function DivisionText({ text = "HOME" }: Props) {
+    const { active, bind } = useToggleHover();
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
         ratio: 0.06,
         min: 32,
@@ -20,8 +20,8 @@ export default function DivisionText({ text = "HOME" }: Props) {
                 className="relative inline-block cursor-pointer select-none leading-none"
                 style={{ fontSize }}
                 initial="rest"
-                whileHover="hover"
-                animate="rest"
+                animate={active ? "hover" : "rest"}
+                {...bind}
             >
                 {/* 上半分 */}
                 <motion.span

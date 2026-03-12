@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Fjalla_One } from "next/font/google";

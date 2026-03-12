@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
@@ -61,7 +59,9 @@ export default function RotatingWordsText() {
             className="w-full relative inline-flex justify-center  items-center gap-2 perspective-midrange leading-none"
             style={{ fontSize }}
         >
-            <span className="whitespace-nowrap leading-none">Nachos are</span>
+            <span className="whitespace-nowrap leading-none">
+                Nachos are
+            </span>
 
             <div className="relative inline-flex items-center w-[6ch] h-[1em]">
                 <AnimatePresence mode="wait">
@@ -79,9 +79,7 @@ export default function RotatingWordsText() {
                                 animate="animate"
                                 exit="exit"
                                 custom={i}
-                                style={{
-                                transformStyle: "preserve-3d",
-                                }}
+                                style={{ transformStyle: "preserve-3d" }}
                             >
                                 {char}
                             </motion.span>
