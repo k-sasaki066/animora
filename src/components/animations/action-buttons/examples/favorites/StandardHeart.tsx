@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, cubicBezier } from "framer-motion";
 import { useState } from "react";
 import { HEART_PATH } from "@/assets/svg/heartPath";

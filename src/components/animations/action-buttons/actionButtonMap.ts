@@ -1,62 +1,37 @@
-import type { ComponentType } from "react";
-import StandardHeart from "./examples/favorites/StandardHeart";
-import ParticlesHeart from "./examples/favorites/ParticlesHeart";
-import BubblyHeart from "./examples/favorites/BubblyHeart";
-import RotateHeart from "./examples/favorites/RotateHeart";
-import ReactionHeart from "./examples/favorites/ReactionHeart";
-import CircleHeart from "./examples/favorites/CircleHeart";
-import BurstCircleHeart from "./examples/favorites/burst/BurstCircleHeart";
-import PawsHeart from "./examples/favorites/paws/PawsHeart";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type ActionButtonComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+>;
 
-import UploadProgress from "./examples/progress/UploadProgress";
-import TruckProgress from "./examples/progress/truck/TruckProgress";
-import HoldDownProgress from "./examples/progress/HoldDownProgress";
-import DownloadProgress from "./examples/progress/DownloadProgress";
+export const actionButtonMap: Record<string, ActionButtonComponent> = {
+    particles: lazy(() => import("./examples/favorites/ParticlesHeart")),
+    bubbly: lazy(() => import("./examples/favorites/BubblyHeart")),
+    standard: lazy(() => import("./examples/favorites/StandardHeart")),
+    rotate: lazy(() => import("./examples/favorites/RotateHeart")),
+    reaction: lazy(() => import("./examples/favorites/ReactionHeart")),
+    circle: lazy(() => import("./examples/favorites/CircleHeart")),
+    burstCircle: lazy(() => import("./examples/favorites/burst/BurstCircleHeart")),
+    paws: lazy(() => import("./examples/favorites/paws/PawsHeart")),
 
-import SplatterButton from "./examples/splatter/SplatterButton";
-import AddMenuButton from "./examples/AddMenuButton";
-import NeumorphismButton from "./examples/NeumorphismButton";
+    upload: lazy(() => import("./examples/progress/UploadProgress")),
+    truck: lazy(() => import("./examples/progress/truck/TruckProgress")),
+    holdDown: lazy(() => import("./examples/progress/HoldDownProgress")),
+    download: lazy(() => import("./examples/progress/DownloadProgress")),
 
-import RotateToggle from "./examples/toggles/RotateToggle";
-import SlideToggle from "./examples/toggles/SlideToggle";
-import CircleExpandToggle from "./examples/toggles/CircleExpandToggle";
-import RockerToggle from "./examples/toggles/RockerToggle";
-import BlobToggle from "./examples/toggles/BlobToggle";
-import ColorShiftToggle from "./examples/toggles/ColorShiftToggle";
-import MonochromeToggle from "./examples/toggles/MonochromeToggle";
-import MorphingToggle from "./examples/toggles/MorphingToggle";
-import SunMoonToggle from "./examples/toggles/SunMoonToggle";
-import LightToggle from "./examples/toggles/LightToggle";
-import LockToggle from "./examples/toggles/LockToggle";
+    splatter: lazy(() => import("./examples/splatter/SplatterButton")),
+    addMenu: lazy(() => import("./examples/AddMenuButton")),
+    neumorphism: lazy(() => import("./examples/NeumorphismButton")),
 
-export const actionButtonMap: Record<string, ComponentType> = {
-    particles: ParticlesHeart,
-    bubbly: BubblyHeart,
-    standard: StandardHeart,
-    rotate: RotateHeart,
-    reaction: ReactionHeart,
-    circle: CircleHeart,
-    burstCircle: BurstCircleHeart,
-    paws: PawsHeart,
-
-    upload: UploadProgress,
-    truck: TruckProgress,
-    holdDown: HoldDownProgress,
-    download: DownloadProgress,
-
-    splatter: SplatterButton,
-    addMenu: AddMenuButton,
-    neumorphism: NeumorphismButton,
-
-    rotateToggle: RotateToggle,
-    slideToggle: SlideToggle,
-    circleExpandToggle: CircleExpandToggle,
-    rockerToggle: RockerToggle,
-    blobToggle: BlobToggle,
-    colorShiftToggle: ColorShiftToggle,
-    monochromeToggle: MonochromeToggle,
-    morphingToggle: MorphingToggle,
-    sunMoonToggle: SunMoonToggle,
-    lightToggle: LightToggle,
-    lockToggle: LockToggle,
+    rotateToggle: lazy(() => import("./examples/toggles/RotateToggle")),
+    slideToggle: lazy(() => import("./examples/toggles/SlideToggle")),
+    circleExpandToggle: lazy(() => import("./examples/toggles/CircleExpandToggle")),
+    rockerToggle: lazy(() => import("./examples/toggles/RockerToggle")),
+    blobToggle: lazy(() => import("./examples/toggles/BlobToggle")),
+    colorShiftToggle: lazy(() => import("./examples/toggles/ColorShiftToggle")),
+    monochromeToggle: lazy(() => import("./examples/toggles/MonochromeToggle")),
+    morphingToggle: lazy(() => import("./examples/toggles/MorphingToggle")),
+    sunMoonToggle: lazy(() => import("./examples/toggles/SunMoonToggle")),
+    lightToggle: lazy(() => import("./examples/toggles/LightToggle")),
+    lockToggle: lazy(() => import("./examples/toggles/LockToggle")),
 };

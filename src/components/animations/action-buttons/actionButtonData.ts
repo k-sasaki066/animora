@@ -1,144 +1,144 @@
 export interface ActionButtonItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const actionButtonData: ActionButtonItem[] = [
     {
         key: "standard",
         title: "Standard Heart",
-        previewText: "Standard Heart Example",
+        video: "/videos/action-buttons/standard-heart.mp4",
     },
     {
         key: "particles",
         title: "Particles Heart",
-        previewText: "Particles Heart Example",
+        video: "/videos/action-buttons/particles-heart.mp4",
     },
     {
         key: "bubbly",
         title: "Bubbly Heart",
-        previewText: "Bubbly Heart Example",
+        video: "/videos/action-buttons/bubbly-heart.mp4",
     },
     {
         key: "rotate",
         title: "Rotate Heart",
-        previewText: "Rotate Heart Example",
+        video: "/videos/action-buttons/rotate-heart.mp4",
     },
     {
         key: "reaction",
         title: "Reaction Heart",
-        previewText: "Reaction Heart Example",
+        video: "/videos/action-buttons/reaction-heart.mp4",
     },
     {
         key: "circle",
         title: "Circle Heart",
-        previewText: "Circle Heart Example",
+        video: "/videos/action-buttons/circle-heart.mp4",
     },
     {
         key: "burstCircle",
         title: "Burst Circle Heart",
-        previewText: "Burst Circle Heart Example",
+        video: "/videos/action-buttons/burst-circle-heart.mp4",
     },
     {
         key: "paws",
         title: "Paws Heart",
-        previewText: "Paws Heart Example",
+        video: "/videos/action-buttons/paws-heart.mp4",
     },
 
     // progress
     {
         key: "upload",
         title: "Upload Progress",
-        previewText: "Upload Progress Example",
+        video: "/videos/action-buttons/upload-progress.mp4",
     },
     {
         key: "truck",
         title: "Truck Progress",
-        previewText: "Truck Progress Example",
+        video: "/videos/action-buttons/truck-progress.mp4",
     },
     {
         key: "holdDown",
         title: "Hold Down Progress",
-        previewText: "Hold Down Progress Example",
+        video: "/videos/action-buttons/hold-down-progress.mp4",
     },
     {
         key: "download",
         title: "Download Progress",
-        previewText: "Download Progress Example",
+        video: "/videos/action-buttons/download-progress.mp4",
     },
 
     // other
     {
         key: "splatter",
         title: "Splatter Button",
-        previewText: "Splatter Button Example",
+        video: "/videos/action-buttons/splatter-button.mp4",
     },
     {
         key: "addMenu",
         title: "Add Menu Button",
-        previewText: "Add Menu Button Example",
+        video: "/videos/action-buttons/add-menu-button.mp4",
     },
     {
         key: "neumorphism",
         title: "Neumorphism Button",
-        previewText: "Neumorphism Button Example",
+        video: "/videos/action-buttons/neumorphism-button.mp4",
     },
 
     // toggles
     {
         key: "rotateToggle",
         title: "Rotate Toggle",
-        previewText: "Rotate Toggle Example",
+        video: "/videos/action-buttons/rotate-toggle.mp4",
     },
     {
         key: "slideToggle",
         title: "Slide Toggle",
-        previewText: "Slide Toggle Example",
+        video: "/videos/action-buttons/slide-toggle.mp4",
     },
     {
         key: "circleExpandToggle",
         title: "Circle Expand Toggle",
-        previewText: "Circle Expand Toggle Example",
+        video: "/videos/action-buttons/circle-expand-toggle.mp4",
     },
     {
         key: "rockerToggle",
         title: "Rocker Toggle",
-        previewText: "Rocker Toggle Example",
+        video: "/videos/action-buttons/rocker-toggle.mp4",
     },
     {
         key: "blobToggle",
         title: "Blob Toggle",
-        previewText: "Blob Toggle Example",
+        video: "/videos/action-buttons/blob-toggle.mp4",
     },
     {
         key: "colorShiftToggle",
         title: "Color Shift Toggle",
-        previewText: "Color Shift Toggle Example",
+        video: "/videos/action-buttons/color-shift-toggle.mp4",
     },
     {
         key: "monochromeToggle",
         title: "Monochrome Toggle",
-        previewText: "Monochrome Toggle Example",
+        video: "/videos/action-buttons/monochrome-toggle.mp4",
     },
     {
         key: "morphingToggle",
         title: "Morphing Toggle",
-        previewText: "Morphing Toggle Example",
+        video: "/videos/action-buttons/morphing-toggle.mp4",
     },
     {
         key: "sunMoonToggle",
         title: "Sun Moon Toggle",
-        previewText: "Sun Moon Toggle Example",
+        video: "/videos/action-buttons/sun-moon-toggle.mp4",
     },
     {
         key: "lightToggle",
         title: "Light Toggle",
-        previewText: "Light Toggle Example",
+        video: "/videos/action-buttons/light-toggle.mp4",
     },
     {
         key: "lockToggle",
         title: "Lock Toggle",
-        previewText: "Lock Toggle Example",
+        video: "/videos/action-buttons/lock-toggle.mp4",
     },
 ];
