@@ -8,7 +8,7 @@ export default function SvgGlitchText() {
     });
 
     return (
-        <div ref={ref} className="w-full font-bold cursor-pointer bg-black flex items-center justify-center p-2">
+        <div ref={ref} className="w-full h-full font-bold cursor-pointer bg-black flex items-center justify-center p-2">
             <svg
                 className="w-full h-auto"
                 viewBox="0 0 600 100"

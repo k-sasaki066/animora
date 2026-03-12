@@ -16,7 +16,7 @@ export default function TextAnimation07() {
     }, []);
 
     return (
-        <div ref={ref} className="w-full  overflow-hidden">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <div className="relative overflow-hidden">
                 {/* ワイプ背景 */}
                 <motion.div

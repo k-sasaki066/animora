@@ -7,11 +7,11 @@ export function useToggleHover() {
         active,
         setActive,
         bind: {
-            onClick: () => setActive(v => !v),
+            onPointerDown: () => setActive(v => !v),
             onHoverStart: () => setActive(true),
             onHoverEnd: () => setActive(false),
-            onTapStart: () => setActive(true),
-            onTapCancel: () => setActive(false),
+            // onTapStart: () => setActive(true),
+            // onTapCancel: () => setActive(false),
         }
     };
 }

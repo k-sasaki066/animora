@@ -2,22 +2,16 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useResponsiveFontSize } from "@/hooks/useResponsiveFontSize";
 
-interface TypingTextProps {
-    speed?: number;
-    pause?: number;
-}
-
 const containerVariants = {
     typing: {},
     clearing: {},
 };
 
 const text = "Typing Animation";
+const speed = 80;
+const pause = 1200;
 
-export default function TypingText({
-    speed = 80,
-    pause = 1200,
-}: TypingTextProps) {
+export default function TypingText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
     const [displayedText, setDisplayedText] = useState("");
     const [index, setIndex] = useState(0);
@@ -56,7 +50,7 @@ export default function TypingText({
     }, [displayedText, mode, speed]);
 
     return (
-        <div ref={ref} className="w-full">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.div
                 className="font-bold"
                 style={{ fontSize }}

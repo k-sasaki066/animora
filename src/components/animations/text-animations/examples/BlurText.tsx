@@ -33,7 +33,7 @@ export default function BlurTextAnimation() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>();
 
     return (
-        <div ref={ref} className="w-full overflow-hidden">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.div
                 className="font-bold"
                 style={{ fontSize }}

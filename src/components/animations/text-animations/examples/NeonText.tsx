@@ -9,15 +9,15 @@ const neonderthaw = Neonderthaw({
 
 export default function NeonText() {
     const { ref, fontSize } = useResponsiveFontSize<HTMLDivElement>({
-        ratio: 0.06,
-        min: 32,
+        ratio: 0.05,
+        min: 40,
         max: 72,
     });
 
     return (
         <div
             ref={ref}
-            className="w-full p-4 bg-black flex justify-center items-center gap-2"
+            className="w-full h-full p-4 bg-black flex justify-center items-center gap-2"
             style={{ fontSize }}
         >
             <motion.div

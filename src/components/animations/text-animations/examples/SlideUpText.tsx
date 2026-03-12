@@ -39,7 +39,7 @@ export default function TextSlideUp() {
     }, []);
 
     return (
-        <div ref={ref} className="w-full h-full overflow-hidden p-2">
+        <div ref={ref} className="w-full h-full flex justify-center items-center overflow-hidden p-2">
             <motion.div
                 className="text-black font-bold uppercase"
                 style={{ fontSize }}

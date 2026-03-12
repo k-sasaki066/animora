@@ -1,66 +1,39 @@
-import type { ComponentType } from "react";
-import TypingText from "./examples/TypingText";
-import SlideUpText from "./examples/SlideUpText";
-import FadeText from "./examples/FadeText";
-import TwistInText from "./examples/TwistInText";
-import ScaleStaggerText from "./examples/ScaleStaggerText";
-import SliceText from "./examples/SliceText";
-import WipeText from "./examples/WipeText";
-import ReductionText from "./examples/ReductionText";
-import BlurText from "./examples/BlurText";
-import PopRiseText from "./examples/PopRiseText";
-import ClassicText from "./examples/ClassicText";
-import LogoText from "./examples/LogoText";
-import ExplodeText from "./examples/explode/ExplodeText";
-import PressedText from "./examples/PressedText";
-import SparkText from "./examples/SparkText";
-import SquigglyText from "./examples/SquigglyText";
-import VerticalRotationText from "./examples/VerticalRotationText";
-import MotionText from "./examples/MotionText";
-import SwayText from "./examples/SwayText";
-import GlitchText from "./examples/GlitchText";
-import GifClipText from "./examples/GifClipText";
-import MovingClippedText from "./examples/MovingClippedText";
-import CursorBlobText from "./examples/CursorBlobText";
-import RotatingWordsText from "./examples/RotatingWordsText";
-import SvgText from "./examples/SvgText";
-import CircularText from "./examples/CircularText";
-import PopOutText from "./examples/PopOutText";
-import DivisionText from "./examples/DivisionText";
-import StroboText from "./examples/StroboText";
-import NeonText from "./examples/NeonText";
-import SvgGlitchText from "./examples/SvgGlitchText";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type TextComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const textAnimationMap: Record<string, ComponentType> = {
-    typing: TypingText,
-    slideUp: SlideUpText,
-    fade: FadeText,
-    twist: TwistInText,
-    scaleStagger: ScaleStaggerText,
-    slice: SliceText,
-    wipe: WipeText,
-    reduction: ReductionText,
-    blur: BlurText,
-    popRise: PopRiseText,
-    classic: ClassicText,
-    logo: LogoText,
-    explode: ExplodeText,
-    pressed: PressedText,
-    spark: SparkText,
-    squiggly: SquigglyText,
-    verticalRotation: VerticalRotationText,
-    motion: MotionText,
-    sway: SwayText,
-    glitch: GlitchText,
-    gifClip: GifClipText,
-    movingClipped: MovingClippedText,
-    cursorBlob: CursorBlobText,
-    rotatingWords: RotatingWordsText,
-    svgText: SvgText,
-    circularText: CircularText,
-    popOut: PopOutText,
-    division: DivisionText,
-    strobo: StroboText,
-    neon: NeonText,
-    svgGlitch: SvgGlitchText,
+export const textAnimationMap: Record<string, TextComponent> = {
+    typing: lazy(() => import("./examples/TypingText")),
+    slideUp: lazy(() => import("./examples/SlideUpText")),
+    fade: lazy(() => import("./examples/FadeText")),
+    twist: lazy(() => import("./examples/TwistInText")),
+    scaleStagger: lazy(() => import("./examples/ScaleStaggerText")),
+    slice: lazy(() => import("./examples/SliceText")),
+    wipe: lazy(() => import("./examples/WipeText")),
+    reduction: lazy(() => import("./examples/ReductionText")),
+    blur: lazy(() => import("./examples/BlurText")),
+    popRise: lazy(() => import("./examples/PopRiseText")),
+    classic: lazy(() => import("./examples/ClassicText")),
+    logo: lazy(() => import("./examples/LogoText")),
+    explode: lazy(() => import("./examples/explode/ExplodeText")),
+    pressed: lazy(() => import("./examples/PressedText")),
+    spark: lazy(() => import("./examples/SparkText")),
+    squiggly: lazy(() => import("./examples/SquigglyText")),
+    verticalRotation: lazy(() => import("./examples/VerticalRotationText")),
+    motion: lazy(() => import("./examples/MotionText")),
+    sway: lazy(() => import("./examples/SwayText")),
+    glitch: lazy(() => import("./examples/GlitchText")),
+    gifClip: lazy(() => import("./examples/GifClipText")),
+    movingClipped: lazy(() => import("./examples/MovingClippedText")),
+    cursorBlob: lazy(() => import("./examples/CursorBlobText")),
+    rotatingWords: lazy(() => import("./examples/RotatingWordsText")),
+    svgText: lazy(() => import("./examples/SvgText")),
+    circularText: lazy(() => import("./examples/CircularText")),
+    popOut: lazy(() => import("./examples/PopOutText")),
+    division: lazy(() => import("./examples/DivisionText")),
+    strobo: lazy(() => import("./examples/StroboText")),
+    neon: lazy(() => import("./examples/NeonText")),
+    svgGlitch: lazy(() => import("./examples/SvgGlitchText")),
 };

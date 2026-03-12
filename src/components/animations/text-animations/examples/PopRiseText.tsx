@@ -20,7 +20,7 @@ export default function PopRiseText() {
     }, []);
 
     return (
-        <div ref={ref} className="w-full">
+        <div ref={ref} className="w-full h-full flex justify-center items-center">
             <motion.div
                 className="font-bold uppercase origin-bottom"
                 style={{ fontSize }}
