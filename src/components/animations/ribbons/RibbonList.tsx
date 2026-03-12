@@ -15,7 +15,7 @@ export function RibbonList() {
                     <RibbonCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        image={item.image}
                         onClick={() => setActiveKey(item.key)}
                     />
                 ))}

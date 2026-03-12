@@ -1,27 +1,31 @@
-"use client";
-
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { RibbonPreview } from "./RibbonPreview";
+import { PlusButton } from "@/components/ui/PlusButton";
 
 interface Props {
     title: string;
-    animationKey: string;
+    image: string;
     onClick: () => void;
 }
 
-export function RibbonCard({ title, animationKey, onClick }: Props) {
+export function RibbonCard({ title, image, onClick }: Props) {
     return (
-        <Card
-            onClick={onClick}
-            className="cursor-pointer hover:shadow-lg transition w-70"
-        >
+        <Card className="relative w-70">
+            <PlusButton onClick={onClick} />
+
             <CardHeader>
-                <CardTitle className="text-center">{title}</CardTitle>
+                <CardTitle className="text-center">
+                    {title}
+                </CardTitle>
             </CardHeader>
 
             <CardContent className="px-2 w-full flex items-center justify-center overflow-hidden">
-                {/* 一覧でアニメーションを再生 */}
-                <RibbonPreview animationKey={animationKey} />
+                <picture className="w-full h-full">
+                    <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
             </CardContent>
         </Card>
     );

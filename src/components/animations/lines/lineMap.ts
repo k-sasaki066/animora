@@ -3,20 +3,6 @@ import { lazy } from "react";
 type LineComponent = LazyExoticComponent<
     ComponentType<{ paused?: boolean }>>;
 
-import SolidLine from "./examples/SolidLine";
-import DoubleLine from "./examples/DoubleLine";
-import DottedLine from "./examples/DottedLine";
-import CutLine from "./examples/CutLine";
-import VerticalStitchLine from "./examples/VerticalStitchLine";
-import HatchedStitchLine from "./examples/HatchedStitchLine";
-import StripeLine from "./examples/StripeLine";
-import CrayonLine from "./examples/CrayonLine";
-import DotSeparator from "./examples/DotSeparator";
-import SpiderSeparator from "./examples/spider/SpiderSeparator";
-import WaveLine from "./examples/WaveLine";
-import ShapeRunner from "./examples/shape-runner/ShapeRunner";
-import WaveHero from "./examples/wave-hero/WaveHero";
-
 export const lineMap: Record<string, LineComponent> = {
     solidLine: lazy(() => import("./examples/SolidLine")),
     doubleLine: lazy(() => import("./examples/DoubleLine")),
