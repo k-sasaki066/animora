@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function SubMenuImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -25,16 +24,19 @@ export default function SubMenuImage() {
         ratio: 0.05,
     });
 
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-black"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             <motion.img
-                src="/river.jpg"
+                src="/images/sample-28.webp"
+                alt=""
                 className="w-full h-full object-cover"
                 variants={{
                     rest: { opacity: 1 },

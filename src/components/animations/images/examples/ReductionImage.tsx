@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ReductionImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -25,20 +24,23 @@ export default function ReductionImage() {
         ratio: 0.05,
     });
 
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-gray-900 text-white"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
             variants={{
                 rest: {},
                 hover: {},
             }}
         >
             <motion.img
-                src="/fruits.jpg"
+                src="/images/sample-29.webp"
+                alt=""
                 className="absolute left-1/2 -translate-x-1/2"
                 variants={{
                     rest: {

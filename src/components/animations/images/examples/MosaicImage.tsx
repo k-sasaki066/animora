@@ -1,5 +1,4 @@
-"use client"
-
+import { useToggleHover } from "@/hooks/useToggleHover";
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -19,15 +18,21 @@ export default function MosaicImage() {
         ratio: 0.08,
     });
 
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden text-white font-sans"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
-            <img src="/river.jpg" className="w-full h-full object-cover" />
+            <img
+                src="/images/sample-22.webp"
+                alt=""
+                className="w-full h-full object-cover"
+            />
 
             {/* 上下の黒帯アニメーション */}
             <motion.div

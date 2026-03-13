@@ -1,24 +1,24 @@
-"use client"
-
+import { useToggleHover } from "@/hooks/useToggleHover";
 import { motion } from "framer-motion";
 
 export default function BorderImage() {
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
+            {...bind}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
             variants={{
                 rest: {},
                 hover: {},
             }}
         >
             <img
-                src="./hydrangea.jpg"
-                alt="border hover"
-                className="
-                w-full h-full object-cover"
+                src="./images/sample-03.webp"
+                alt=""
+                className="w-full h-full object-cover"
             />
 
             <motion.div

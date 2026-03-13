@@ -1,15 +1,30 @@
-"use client"
+import { useToggleHover } from "@/hooks/useToggleHover";
+import { motion } from "framer-motion";
 
 export default function ZoomImage() {
+    const { active, bind } = useToggleHover();
+
     return (
         <div className="w-full aspect-video max-w-sm mx-auto overflow-hidden">
-            <img
-                src="/flower.jpg"
-                alt="opacity hover"
-                className="
-                w-full h-full object-cover
-                hover:scale-110 transition-transform duration-300
-                "
+            <motion.img
+                {...bind}
+                src="./images/sample-02.webp"
+                alt=""
+                className="w-full h-full object-cover"
+                initial="rest"
+                animate={active ? "hover" : "rest"}
+                variants={{
+                    rest: {
+                        scale: 1,
+                    },
+                    hover: {
+                        scale: 1.1
+                    }
+                }}
+                transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                }}
             />
         </div>
     );

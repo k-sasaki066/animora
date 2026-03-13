@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function CaptionImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -24,16 +23,20 @@ export default function CaptionImage() {
         max: 32,
         ratio: 0.08,
     });
+
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.figure
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-[#0c1116] text-white"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             <motion.img
-                src="/leading.jpg"
+                src="/images/sample-31.webp"
+                alt=""
                 className="w-full h-full object-cover"
                 variants={{
                     rest: { opacity: 1 },

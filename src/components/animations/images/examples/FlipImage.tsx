@@ -1,15 +1,26 @@
-"use client"
-
+import { useToggleHover } from "@/hooks/useToggleHover";
 import { motion } from "framer-motion";
 
 export default function FlipImage() {
+    const { active, bind } = useToggleHover();
+
     return (
         <div className="w-full aspect-video max-w-sm mx-auto overflow-hidden">
             <motion.img
-                src="/sea.jpg"
+                {...bind}
+                src="/images/sample-08.webp"
+                alt=""
                 className="w-full h-full object-cover"
-                initial={{ rotateY: 0 }}
-                whileHover={{ rotateY: -180 }}
+                initial="rest"
+                animate={active ? "hover" : "rest"}
+                variants={{
+                    rest: {
+                        rotateY: 0
+                    },
+                    hover: {
+                        rotateY: -180
+                    }
+                }}
                 transition={{
                     duration: 0.3,
                     ease: "easeInOut"

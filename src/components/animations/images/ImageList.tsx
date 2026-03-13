@@ -4,9 +4,13 @@ import { useState } from "react";
 import { ImageCard } from "./ImageCard";
 import { ImageModal } from "./ImageModal";
 import { imageData } from "./imageData";
+import { useReducedMotion } from "framer-motion";
 
 export function ImageList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -15,8 +19,9 @@ export function ImageList() {
                     <ImageCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>

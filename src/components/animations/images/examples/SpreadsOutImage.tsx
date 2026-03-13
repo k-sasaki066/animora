@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function SpreadsOutImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -18,16 +17,20 @@ export default function SpreadsOutImage() {
         max: 20,
         ratio: 0.08,
     });
+
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.figure
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-black"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             <motion.img
-                src="/sea.jpg"
+                src="/images/sample-27.webp"
+                alt=""
                 className="w-full h-full object-cover"
                 variants={{
                     rest: {

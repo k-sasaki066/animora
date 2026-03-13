@@ -1,22 +1,23 @@
-"use client"
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function DashedBorderImage() {
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
-            <img src="/sea.jpg"
+            <img
+                src="/images/sample-19.webp"
+                alt=""
                 className="w-full h-full object-cover"
             />
 
-            <motion.svg
-            className="absolute inset-0 pointer-events-none w-full h-full"
-            >
+            <motion.svg className="absolute inset-0 pointer-events-none w-full h-full">
                 <motion.rect
                     x="2"
                     y="2"
