@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -56,7 +54,7 @@ export default function ScrollTab() {
 
     return (
         <div ref={ref} className="w-full h-full">
-            <div ref={containerRef} className="w-full h-full flex flex-col overflow-y-auto">
+            <div ref={containerRef} className="w-full h-full flex flex-col overflow-y-auto no-scrollbar">
                 {/* Sticky Tabs */}
                 <div className="sticky top-0 z-10 bg-white shadow shrink-0" style={{ height: tabHeight }}>
                     <div className="relative flex h-full" role="tablist">

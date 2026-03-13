@@ -1,7 +1,6 @@
-"use client";
-
 import { Dialog, DialogContent, DialogHeader,DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { TabPreview } from "./TabPreview";
+import { tabData } from "./tabData";
 
 interface Props {
     animationKey: string | null;
@@ -9,12 +8,14 @@ interface Props {
 }
 
 export function TabModal({ animationKey, onClose }: Props) {
+    const animationTitle = tabData.find((s) => s.key === animationKey)?.title ?? "Tab Preview";
+
     return (
         <Dialog open={!!animationKey} onOpenChange={onClose}>
             <DialogContent className="max-w-3xl w-[80%]">
                 <DialogHeader>
                     <DialogTitle>
-                        {animationKey ?? "LoadingPreview"}
+                        {animationTitle}
                     </DialogTitle>
                     <DialogDescription>
                         プレビューを確認できます
