@@ -1,11 +1,11 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleByBase } from "@/utils/scaleByBase";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function TileImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
+    const { active, bind } = useToggleHover();
 
     const figWidth = scaleByBase(width, { base: 98 });
     const slideTriTop = scaleByBase(width, { base: 96 });
@@ -22,11 +22,11 @@ export default function TileImage() {
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-black"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             <motion.img
-                src="/hydrangea.jpg"
+                src="/images/sample-30.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

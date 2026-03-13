@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ChangeTextImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -25,16 +24,19 @@ export default function ChangeTextImage() {
         ratio: 0.06,
     });
 
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.figure
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-black text-white"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             <motion.img
-                src="/flower.jpg"
+                src="/images/sample-13.webp"
+                alt=""
                 className="w-full h-full object-cover absolute inset-0"
                 variants={{
                     hover: {

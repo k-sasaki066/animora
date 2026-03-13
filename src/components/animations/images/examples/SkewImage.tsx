@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function SkewImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -18,13 +17,16 @@ export default function SkewImage() {
         max: 16,
         ratio: 0.08,
     });
+
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             {/* 背景レイヤー */}
             <motion.div
@@ -53,7 +55,8 @@ export default function SkewImage() {
             />
 
             <motion.img
-                src="/leading.jpg"
+                src="/images/sample-26.webp"
+                alt=""
                 className="w-full h-full object-cover"
                 variants={{
                     rest: { filter: "grayscale(0%)" },

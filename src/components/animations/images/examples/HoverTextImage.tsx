@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function HoverTextImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -18,20 +17,24 @@ export default function HoverTextImage() {
         max: 18,
         ratio: 0.05
     });
+
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden"
             initial="initial"
-            whileHover="hover"
-            animate="initial"
+            animate={active ? "hover" : "initial"}
             variants={{
                 initial: {},
                 hover: {},
             }}
+            {...bind}
         >
             <img
-                src="/hydrangea.jpg"
+                alt=""
+                src="/images/sample-10.webp"
                 className="w-full h-full object-cover"
             />
 

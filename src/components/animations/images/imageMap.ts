@@ -1,64 +1,39 @@
-import type { ComponentType } from "react";
-import OpacityImage from "./examples/OpacityImage";
-import ZoomImage from "./examples/ZoomImage";
-import BorderImage from "./examples/BorderImage";
-import FloatImage from "./examples/FloatImage";
-import GrayscaleImage from "./examples/GrayscaleImage";
-import BlurImage from "./examples/BlurImage";
-import FlipImage from "./examples/FlipImage";
-import OverlayImage from "./examples/OverlayImage";
-import BlinkImage from "./examples/BlinkImage";
-import HoverTextImage from "./examples/HoverTextImage";
-import ChangeImage from "./examples/ChangeImage";
-import ChangeTextImage from "./examples/ChangeTextImage";
-import HoverLineImage from "./examples/HoverLineImage";
-import SpinImage from "./examples/SpinImage";
-import SlideImage from "./examples/SlideImage";
-import Tilt3dImage from "./examples/Tilt3dImage";
-import HoverVideoImage from "./examples/HoverVideoImage";
-import DashedBorderImage from "./examples/DashedBorderImage";
-import FollowImage from "./examples/FollowImage";
-import MosaicImage from "./examples/MosaicImage";
-import LayerImage from "./examples/LayerImage";
-import StretchImage from "./examples/StretchImage";
-import HiddenTextImage from "./examples/HiddenTextImage";
-import SkewImage from "./examples/SkewImage";
-import SpreadsOutImage from "./examples/SpreadsOutImage";
-import SubMenuImage from "./examples/SubMenuImage";
-import ReductionImage from "./examples/ReductionImage";
-import TileImage from "./examples/TileImage";
-import CaptionImage from "./examples/CaptionImage";
-import GlitchImage from "./examples/glitch/GlitchImage";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type ImageComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const imageMap: Record<string, ComponentType> = {
-    opacity: OpacityImage,
-    zoom: ZoomImage,
-    border: BorderImage,
-    float: FloatImage,
-    gray: GrayscaleImage,
-    blur: BlurImage,
-    flip: FlipImage,
-    overlay: OverlayImage,
-    blink: BlinkImage,
-    hoverText: HoverTextImage,
-    change: ChangeImage,
-    changeText: ChangeTextImage,
-    hoverLine: HoverLineImage,
-    spin: SpinImage,
-    slide: SlideImage,
-    tilt3d: Tilt3dImage,
-    video: HoverVideoImage,
-    dashedBorder: DashedBorderImage,
-    follow: FollowImage,
-    mosaic: MosaicImage,
-    layer: LayerImage,
-    stretch: StretchImage,
-    hiddenText: HiddenTextImage,
-    skew: SkewImage,
-    spreads: SpreadsOutImage,
-    subMenu: SubMenuImage,
-    reduction: ReductionImage,
-    tile: TileImage,
-    caption: CaptionImage,
-    glitch: GlitchImage,
+
+export const imageMap: Record<string, ImageComponent> = {
+    opacity: lazy(() => import("./examples/OpacityImage")),
+    zoom: lazy(() => import("./examples/ZoomImage")),
+    border: lazy(() => import("./examples/BorderImage")),
+    float: lazy(() => import("./examples/FloatImage")),
+    gray: lazy(() => import("./examples/GrayscaleImage")),
+    blur: lazy(() => import("./examples/BlurImage")),
+    flip: lazy(() => import("./examples/FlipImage")),
+    overlay: lazy(() => import("./examples/OverlayImage")),
+    blink: lazy(() => import("./examples/BlinkImage")),
+    hoverText: lazy(() => import("./examples/HoverTextImage")),
+    change: lazy(() => import("./examples/ChangeImage")),
+    changeText: lazy(() => import("./examples/ChangeTextImage")),
+    hoverLine: lazy(() => import("./examples/HoverLineImage")),
+    spin: lazy(() => import("./examples/SpinImage")),
+    slide: lazy(() => import("./examples/SlideImage")),
+    tilt3d: lazy(() => import("./examples/Tilt3dImage")),
+    video: lazy(() => import("./examples/HoverVideoImage")),
+    dashedBorder: lazy(() => import("./examples/DashedBorderImage")),
+    follow: lazy(() => import("./examples/FollowImage")),
+    mosaic: lazy(() => import("./examples/MosaicImage")),
+    layer: lazy(() => import("./examples/LayerImage")),
+    stretch: lazy(() => import("./examples/StretchImage")),
+    hiddenText: lazy(() => import("./examples/HiddenTextImage")),
+    skew: lazy(() => import("./examples/SkewImage")),
+    spreads: lazy(() => import("./examples/SpreadsOutImage")),
+    subMenu: lazy(() => import("./examples/SubMenuImage")),
+    reduction: lazy(() => import("./examples/ReductionImage")),
+    tile: lazy(() => import("./examples/TileImage")),
+    caption: lazy(() => import("./examples/CaptionImage")),
+    glitch: lazy(() => import("./examples/glitch/GlitchImage")),
 };

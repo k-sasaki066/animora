@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import p5 from "p5";
 import { glitchSketch } from "./glitchSketch";

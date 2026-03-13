@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ChangeImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -25,16 +24,19 @@ export default function ChangeImage() {
         ratio: 0.05,
     });
 
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.figure
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-black text-white"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             <motion.img
-                src="/river.jpg"
+                src="/images/sample-14.webp"
+                alt=""
                 className="w-full h-full object-cover"
                 variants={{
                     hover: { opacity: 0.5 },
@@ -52,7 +54,7 @@ export default function ChangeImage() {
 
                 {/* 横ライン：上 */}
                 <motion.span
-                    className="absolute top-0 left-0 h-px w-[400px] bg-white"
+                    className="absolute top-0 left-0 h-px w-100 bg-white"
                     variants={{
                         rest: { x: "100%" },
                         hover: { x: "0%" },
@@ -62,7 +64,7 @@ export default function ChangeImage() {
 
                 {/* 横ライン：下 */}
                 <motion.span
-                    className="absolute bottom-0 right-0 h-px w-[400px] bg-white"
+                    className="absolute bottom-0 right-0 h-px w-100 bg-white"
                     variants={{
                         rest: { x: "-100%" },
                         hover: { x: "0%" },
@@ -72,7 +74,7 @@ export default function ChangeImage() {
 
                 {/* 縦ライン：左 */}
                 <motion.span
-                    className="absolute top-0 left-0 w-px h-[300px] bg-white"
+                    className="absolute top-0 left-0 w-px h-75 bg-white"
                     variants={{
                         rest: { y: "100%" },
                         hover: { y: "0%" },
@@ -82,7 +84,7 @@ export default function ChangeImage() {
 
                 {/* 縦ライン：右 */}
                 <motion.span
-                    className="absolute bottom-0 right-0 w-px h-[300px] bg-white"
+                    className="absolute bottom-0 right-0 w-px h-75 bg-white"
                     variants={{
                         rest: { y: "-100%" },
                         hover: { y: "0%" },

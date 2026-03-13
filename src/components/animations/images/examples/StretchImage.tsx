@@ -1,8 +1,7 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { scaleText } from "@/utils/scaleText";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function StretchImage() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
@@ -25,13 +24,15 @@ export default function StretchImage() {
         ratio: 0.24,
     });
 
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.figure
             ref={ref}
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden bg-black text-white shadow-md"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             <motion.div
                 className="absolute inset-0"
@@ -48,7 +49,8 @@ export default function StretchImage() {
                 transition={{ duration: 0.4 }}
                 >
                 <img
-                    src="/lavender.jpg"
+                    src="/images/sample-24.webp"
+                    alt=""
                     className="w-full h-full object-cover"
                 />
             </motion.div>
@@ -79,7 +81,7 @@ export default function StretchImage() {
                         style={{
                             width: `${lineWidth}px`,
                         }}
-                    ></span>
+                    />
 
                     <h3
                         className="absolute -top-2 font-light z-20"

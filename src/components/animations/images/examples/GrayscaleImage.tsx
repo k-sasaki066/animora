@@ -1,11 +1,30 @@
-"use client"
+import { useToggleHover } from "@/hooks/useToggleHover";
+import { motion } from "framer-motion";
 
 export default function GrayscaleImage() {
+    const { active, bind } = useToggleHover();
+
     return (
         <div className="w-full aspect-video max-w-sm mx-auto overflow-hidden">
-            <img
-                src="/leading.jpg"
-                className="w-full h-full object-cover hover:grayscale transition-all duration-300 ease-in-out" //グレースケールからホバー時にカラーにする場合はgrayscale hover:grayscale-0
+            <motion.img
+                {...bind}
+                src="./images/sample-06.webp"
+                alt=""
+                className="w-full h-full object-cover"
+                initial="rest"
+                animate={active ? "hover" : "rest"}
+                variants={{
+                    rest: {
+                        filter: "grayscale(0%)"
+                    },
+                    hover: {
+                        filter: "grayscale(80%)"
+                    }
+                }}
+                transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                }}
             />
         </div>
     );

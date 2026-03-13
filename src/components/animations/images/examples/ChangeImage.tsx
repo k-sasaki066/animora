@@ -1,18 +1,20 @@
-"use client"
-
 import { motion } from "framer-motion";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function ChangeImage() {
+    const { active, bind } = useToggleHover();
+
     return (
         <motion.div
             className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden"
             initial="rest"
-            whileHover="hover"
-            animate="rest"
+            animate={active ? "hover" : "rest"}
+            {...bind}
         >
             {/* 通常画像 */}
             <motion.img
-                src="/lavender.jpg"
+                src="/images/sample-11.webp"
+                alt=""
                 className="absolute inset-0 w-full h-full object-cover"
                 variants={{
                     rest: { opacity: 1 },
@@ -23,7 +25,8 @@ export default function ChangeImage() {
 
             {/* ホバー時像 */}
             <motion.img
-                src="/leading.jpg"
+                src="/images/sample-12.webp"
+                alt=""
                 className="absolute inset-0 w-full h-full object-cover"
                 variants={{
                     rest: { opacity: 0 },
