@@ -1,5 +1,3 @@
-"use client";
-
 import { Dialog, DialogContent, DialogHeader,DialogTitle, DialogDescription} from "@/components/ui/dialog";
 import { SliderPreview } from "./SliderPreview";
 import { sliderData } from "./sliderData";
@@ -14,7 +12,7 @@ export function SliderModal({ sliderKey, onClose }: SliderModalProps) {
 
     return (
         <Dialog open={!!sliderKey} onOpenChange={onClose}>
-            <DialogContent className="max-w-3xl w-[75%] max-h-[75vh] h-auto overflow-y-auto">
+            <DialogContent className="max-w-3xl w-[75%] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle>
                         {sliderTitle}

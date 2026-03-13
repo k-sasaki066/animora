@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react";
 import { SkewedPage } from "./SkewedPage";
 import { skewedPages } from "./data";
@@ -9,7 +7,7 @@ import { SwipeHint } from "@/components/ui/SwipeHint";
 
 const SWIPE_KEY = "skewed_slideshow_swiped";
 
-export function SkewedScrollSlider() {
+export default function SkewedScrollSlider() {
     const [page, setPage] = useState(0);
     const [locked, setLocked] = useState(false);
 
