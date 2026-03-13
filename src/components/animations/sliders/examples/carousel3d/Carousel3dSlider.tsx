@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import Carousel3dSlide from "./Carousel3dSlide";
 import { slides } from "./data";

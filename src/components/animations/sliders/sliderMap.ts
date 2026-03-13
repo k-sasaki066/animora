@@ -1,32 +1,22 @@
-import type { ComponentType } from "react";
-import BasicSlider from "./examples/BasicSlider";
-import FadeSlider from "./examples/FadeSlider";
-import AutoplaySlider from "./examples/AutoplaySlider";
-import SelectSlider from "./examples/SelectSlider";
-import VerticalSlider from "./examples/VerticalSlider";
-import CenterCarouselSlider from "./examples/CenterCarouselSlider";
-import CenterFocusSlider from "./examples/CenterFocusSlider";
-import HeroCarouselSlider from "./examples/hero-slider/HeroCarouselSlider";
-import Carousel3dSlider from "./examples/carousel3d/Carousel3dSlider";
-import SplitSlideshow from "./examples/split/SplitSlideshow";
-import { SkewedScrollSlider } from "./examples/skewed-scroll/SkewedScrollSlider";
-import ForestSlider from "./examples/forest-slider/ForestSlider";
-import AnimeSlider from "./examples/anime/AnimeSlider";
-import FancySlider from "./examples/fancy/FancySlider";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type SliderComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const sliderMap: Record<string, ComponentType> = {
-    basic: BasicSlider,
-    fade: FadeSlider,
-    autoplay: AutoplaySlider,
-    select: SelectSlider,
-    vertical: VerticalSlider,
-    centerCarousel: CenterCarouselSlider,
-    centerFocus: CenterFocusSlider,
-    heroCarousel: HeroCarouselSlider,
-    Carousel3D: Carousel3dSlider,
-    Split: SplitSlideshow,
-    SkewedScroll: SkewedScrollSlider,
-    ForestSlider: ForestSlider,
-    AnimeSlider: AnimeSlider,
-    Fancy: FancySlider,
+export const sliderMap: Record<string, SliderComponent> = {
+    basic: lazy(() => import("./examples/BasicSlider")),
+    fade: lazy(() => import("./examples/FadeSlider")),
+    autoplay: lazy(() => import("./examples/AutoplaySlider")),
+    select: lazy(() => import("./examples/SelectSlider")),
+    vertical: lazy(() => import("./examples/VerticalSlider")),
+    centerCarousel: lazy(() => import("./examples/CenterCarouselSlider")),
+    centerFocus: lazy(() => import("./examples/CenterFocusSlider")),
+    heroCarousel: lazy(() => import("./examples/hero-slider/HeroCarouselSlider")),
+    Carousel3D: lazy(() => import("./examples/carousel3d/Carousel3dSlider")),
+    Split: lazy(() => import("./examples/split/SplitSlideshow")),
+    SkewedScroll: lazy(() => import("./examples/skewed-scroll/SkewedScrollSlider")),
+    ForestSlider: lazy(() => import("./examples/forest-slider/ForestSlider")),
+    AnimeSlider: lazy(() => import("./examples/anime/AnimeSlider")),
+    Fancy: lazy(() => import("./examples/fancy/FancySlider")),
 };

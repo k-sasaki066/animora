@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { slides } from "./data";
@@ -74,7 +72,7 @@ export default function MotionSlider() {
     return (
         <section
             ref={ref}
-            className="relative w-full min-h-62.5 overflow-hidden text-white"
+            className="relative w-full min-h-58 overflow-hidden text-white"
             style={{ height: config?.height }}
         >
             {/* 背景スライド横並び */}

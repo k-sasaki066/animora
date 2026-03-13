@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import { getCarousel3dConfig } from "@/lib/responsive/carousel3dConfig";

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { FancySlide } from "./FancySlide";
 import { slides } from "./sliderData";
@@ -25,7 +23,7 @@ export default function FancySlider() {
     };
 
     return (
-        <div ref={ref} className="relative max-w-md aspect-square mx-auto overflow-hidden bg-neutral-800">
+        <div ref={ref} className="relative w-[90%] max-w-100 aspect-square mx-auto overflow-hidden bg-neutral-800">
             <AnimatePresence mode="wait">
                 <FancySlide
                     key={slides[index].id}
