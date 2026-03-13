@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -94,7 +92,7 @@ export default function SimpleTab() {
                                             {tab.label}
                                         </h3>
                                         <p className="text-xs text-gray-700">
-                                            {truncateText(tab.content, 180)}
+                                            {truncateText(tab.content, 170)}
                                         </p>
                                 </div>
                             ))}

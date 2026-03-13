@@ -1,24 +1,18 @@
-import type { ComponentType } from "react";
-import StandardTab from "./examples/StandardTab";
-import ModernTab from "./examples/ModernTab";
-import IndexTab from "./examples/IndexTab";
-import IconTab from "./examples/IconTab";
-import SimpleTab from "./examples/SimpleTab";
-import SlideTab from "./examples/SlideTab";
-import MotionTab from "./examples/MotionTab";
-import BubbleSlideTab from "./examples/BubbleSlideTab";
-import FileTab from "./examples/FileTab";
-import ScrollTab from "./examples/ScrollTab";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type TabComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const tabMap: Record<string, ComponentType> = {
-    standardTab: StandardTab,
-    modernTab: ModernTab,
-    indexTab: IndexTab,
-    iconTab: IconTab,
-    simpleTab: SimpleTab,
-    slideTab: SlideTab,
-    motionTab: MotionTab,
-    bubbleSlideTab: BubbleSlideTab,
-    fileTab: FileTab,
-    scrollTab: ScrollTab,
+export const tabMap: Record<string, TabComponent> = {
+    standardTab: lazy(() => import("./examples/StandardTab")),
+    modernTab: lazy(() => import("./examples/ModernTab")),
+    indexTab: lazy(() => import("./examples/IndexTab")),
+    iconTab: lazy(() => import("./examples/IconTab")),
+    simpleTab: lazy(() => import("./examples/SimpleTab")),
+    slideTab: lazy(() => import("./examples/SlideTab")),
+    motionTab: lazy(() => import("./examples/MotionTab")),
+    bubbleSlideTab: lazy(() => import("./examples/BubbleSlideTab")),
+    fileTab: lazy(() => import("./examples/FileTab")),
+    scrollTab: lazy(() => import("./examples/ScrollTab")),
 };

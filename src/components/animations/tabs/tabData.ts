@@ -1,58 +1,58 @@
 export interface TabItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const tabData: TabItem[] = [
     {
         key: "standardTab",
         title: "Standard Tab",
-        previewText: "Standard Tab Example",
+        video: "/videos/tabs/standard-tab.mp4",
     },
     {
         key: "modernTab",
         title: "Modern Tab",
-        previewText: "Modern Tab Example",
+        video: "/videos/tabs/modern-tab.mp4",
     },
     {
         key: "indexTab",
         title: "Index Tab",
-        previewText: "Index Tab Example",
+        video: "/videos/tabs/index-tab.mp4",
     },
     {
         key: "iconTab",
         title: "Icon Tab",
-        previewText: "Icon Tab Example",
+        video: "/videos/tabs/icon-tab.mp4",
     },
     {
         key: "simpleTab",
         title: "Simple Tab",
-        previewText: "Simple Tab Example",
+        video: "/videos/tabs/simple-tab.mp4",
     },
     {
         key: "slideTab",
         title: "Slide Tab",
-        previewText: "Slide Tab Example",
+        video: "/videos/tabs/slide-tab.mp4",
     },
     {
         key: "motionTab",
         title: "Motion Tab",
-        previewText: "Motion Tab Example",
+        video: "/videos/tabs/motion-tab.mp4",
     },
     {
         key: "bubbleSlideTab",
         title: "Bubble Slide Tab",
-        previewText: "Bubble Slide Tab Example",
+        video: "/videos/tabs/bubble-slide-tab.mp4",
     },
     {
         key: "fileTab",
         title: "File Tab",
-        previewText: "File Tab Example",
+        video: "/videos/tabs/file-tab.mp4",
     },
     {
         key: "scrollTab",
         title: "Scroll Tab",
-        previewText: "Scroll Tab Example",
+        video: "/videos/tabs/scroll-tab.mp4",
     },
 ];

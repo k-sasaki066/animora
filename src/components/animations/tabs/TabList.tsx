@@ -4,9 +4,13 @@ import { useState } from "react";
 import { TabCard } from "./TabCard";
 import { TabModal } from "./TabModal";
 import { tabData } from "./tabData";
+import { useReducedMotion } from "framer-motion";
 
 export function TabList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -15,8 +19,9 @@ export function TabList() {
                     <TabCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>
