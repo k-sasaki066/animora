@@ -4,9 +4,13 @@ import { useState } from "react";
 import { PartCard } from "./PartCard";
 import { PartModal } from "./PartModal";
 import { partData } from "./partData";
+import { useReducedMotion } from "framer-motion";
 
 export function PartList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -15,8 +19,9 @@ export function PartList() {
                     <PartCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>

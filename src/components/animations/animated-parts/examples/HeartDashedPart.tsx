@@ -1,12 +1,12 @@
-"use client"
-
 import { motion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 export default function HeartDashedPart() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
     const size = width ? Math.min(width * 0.26, 100) : 60;
     const heartSize = size * 0.5;
+    const { active, bind } = useToggleHover();
 
     return (
         <div ref={ref} className="flex items-center justify-center w-full h-full bg-linear-to-br from-[#ffc46e] to-[#f043bf]">
@@ -17,8 +17,9 @@ export default function HeartDashedPart() {
                     width: size,
                     height: size,
                 }}
-                whileHover="hover"
                 initial="rest"
+                animate={active ? "hover" : "rest"}
+                {...bind}
             >
                 {/* 回転する背景 */}
                 <motion.span

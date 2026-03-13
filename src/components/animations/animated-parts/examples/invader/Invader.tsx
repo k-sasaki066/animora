@@ -1,5 +1,3 @@
-"use client"
-
 import { motion, Transition } from "framer-motion";
 
 export function Invader() {

@@ -1,5 +1,3 @@
-"use client"
-
 import { Invader } from "./Invader";
 import { Text } from "./Text";
 import { useContainerSize } from "@/hooks/useContainerSize";
