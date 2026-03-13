@@ -58,43 +58,43 @@ export default function ChocolatePart() {
                     height: baseSize * 1.6,
                 }}
             >
-            {/* チョコのブロック */}
-            {[...Array(rows)].map((_, i) => (
-                <div key={i} className="flex">
-                    {[...Array(cols)].map((_, j) => (
-                        <motion.div
-                            key={j}
-                            custom={{ row: i, col: j }}
-                            animate={controls}
-                            className="border border-[#341612] box-border"
-                            style={{
-                                width: `${blockWidth}px`,
-                                height: `${blockHeight}px`,
-                                backgroundImage: `
-                                    conic-gradient(
-                                    from -90deg at calc(100% - ${corner}px) ${corner}px,
-                                    #7e3c26 135deg,
-                                    #341612 0 270deg,
-                                    transparent 0
-                                    ),
-                                    conic-gradient(
-                                    from 0deg at ${corner}px calc(100% - ${corner}px),
-                                    transparent 90deg,
-                                    #341612 0 225deg,
-                                    #7e3c26 0
-                                    )
-                                `,
-                                backgroundColor: "#54281f",
-                                backgroundSize: `${blockWidth}px ${blockHeight}px`,
-                                backgroundClip: "content-box",
-                            }}
-                        />
-                    ))}
-                </div>
-            ))}
+                {/* チョコのブロック */}
+                {[...Array(rows)].map((_, i) => (
+                    <div key={i} className="flex">
+                        {[...Array(cols)].map((_, j) => (
+                            <motion.div
+                                key={j}
+                                custom={{ row: i, col: j }}
+                                animate={controls}
+                                className="border border-[#341612] box-border"
+                                style={{
+                                    width: `${blockWidth}px`,
+                                    height: `${blockHeight}px`,
+                                    backgroundImage: `
+                                        conic-gradient(
+                                        from -90deg at calc(100% - ${corner}px) ${corner}px,
+                                        #7e3c26 135deg,
+                                        #341612 0 270deg,
+                                        transparent 0
+                                        ),
+                                        conic-gradient(
+                                        from 0deg at ${corner}px calc(100% - ${corner}px),
+                                        transparent 90deg,
+                                        #341612 0 225deg,
+                                        #7e3c26 0
+                                        )
+                                    `,
+                                    backgroundColor: "#54281f",
+                                    backgroundSize: `${blockWidth}px ${blockHeight}px`,
+                                    backgroundClip: "content-box",
+                                }}
+                            />
+                        ))}
+                    </div>
+                ))}
 
-            {/* 包み紙 */}
-            <div className="absolute bottom-0 w-full h-1/3 bg-red-600 border-t-2 border-gray-300" />
+                {/* 包み紙 */}
+                <div className="absolute bottom-0 w-full h-1/3 bg-red-600 border-t-2 border-gray-300" />
             </div>
         </div>
     );
