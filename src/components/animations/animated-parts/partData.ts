@@ -1,128 +1,128 @@
 export interface PartItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const partData: PartItem[] = [
     {
         key: "ninjaStar",
         title: "Ninja Star Loader",
-        previewText: "Ninja Star Loader Example",
+        video: "/videos/animated-parts/ninja-star.mp4",
     },
     {
         key: "predator",
         title: "Predator Loader",
-        previewText: "Predator Loader Example",
+        video: "/videos/animated-parts/predator.mp4",
     },
     {
         key: "juiceGauge",
         title: "Juice Gauge Loader",
-        previewText: "Juice Gauge Loader Example",
+        video: "/videos/animated-parts/juice-gauge.mp4",
     },
     {
         key: "icePop",
         title: "Ice Pop Loader",
-        previewText: "Ice Pop Loader Example",
+        video: "/videos/animated-parts/ice-pop.mp4",
     },
     {
         key: "pizza",
         title: "Pizza Loader",
-        previewText: "Pizza Loader Example",
+        video: "/videos/animated-parts/pizza.mp4",
     },
     {
         key: "cookie",
         title: "Cookie Loader",
-        previewText: "Cookie Loader Example",
+        video: "/videos/animated-parts/cookie.mp4",
     },
     {
         key: "chocolate",
         title: "Chocolate Loader",
-        previewText: "Chocolate Loader Example",
+        video: "/videos/animated-parts/chocolate.mp4",
     },
     {
         key: "sliceHam",
         title: "Slice Ham Loader",
-        previewText: "Slice Ham Loader Example",
+        video: "/videos/animated-parts/slice-ham.mp4",
     },
     {
         key: "quadSwap",
         title: "Quad Swap Loader",
-        previewText: "Quad Swap Loader Example",
+        video: "/videos/animated-parts/quad-swap.mp4",
     },
     {
         key: "quadCircle",
         title: "Quad Circle Loader",
-        previewText: "Quad Circle Loader Example",
+        video: "/videos/animated-parts/quad-circle.mp4",
     },
     {
         key: "sun",
         title: "Sun Loader",
-        previewText: "Sun Loader Example",
+        video: "/videos/animated-parts/sun.mp4",
     },
     {
         key: "moon",
         title: "Moon Loader",
-        previewText: "Moon Loader Example",
+        video: "/videos/animated-parts/moon.mp4",
     },
     {
         key: "rainbowArc",
         title: "RainbowArc Loader",
-        previewText: "RainbowArc Loader Example",
+        video: "/videos/animated-parts/rainbow-arc.mp4",
     },
     {
         key: "clock",
         title: "Clock Loader",
-        previewText: "Clock Loader Example",
+        video: "/videos/animated-parts/clock.mp4",
     },
     {
         key: "alarmClock",
         title: "Alarm Clock Loader",
-        previewText: "Alarm Clock Loader Example",
+        video: "/videos/animated-parts/alarm-clock.mp4",
     },
     {
         key: "footPrint",
         title: "Foot Print Loader",
-        previewText: "Foot Print Loader Example",
+        video: "/videos/animated-parts/foot-print.mp4",
     },
     {
         key: "tetrisBlock",
         title: "Tetris Block Loader",
-        previewText: "Tetris Block Loader Example",
+        video: "/videos/animated-parts/tetris-block.mp4",
     },
     {
         key: "collapse",
         title: "Collapse Loader",
-        previewText: "Collapse Loader Example",
+        video: "/videos/animated-parts/collapse.mp4",
     },
     {
         key: "invader",
         title: "Invader Loader",
-        previewText: "Invader Loader Example",
+        video: "/videos/animated-parts/invader.mp4",
     },
     {
         key: "lookAround",
         title: "Look Around Loader",
-        previewText: "Look Around Loader Example",
+        video: "/videos/animated-parts/look-around.mp4",
     },
     {
         key: "blinkEyes",
         title: "Blink Eyes Loader",
-        previewText: "Blink Eyes Loader Example",
+        video: "/videos/animated-parts/blink-eyes.mp4",
     },
     {
         key: "ECGLine",
         title: "ECG Line Loader",
-        previewText: "ECG Line Loader Example",
+        video: "/videos/animated-parts/ecg-line.mp4",
     },
     {
         key: "heartDashed",
         title: "Heart Dashed Loader",
-        previewText: "Heart Dashed Loader Example",
+        video: "/videos/animated-parts/heart-dashed.mp4",
     },
     {
         key: "checkCircle",
         title: "Check Circle Loader",
-        previewText: "Check Circle Loader Example",
+        video: "/videos/animated-parts/check-circle.mp4",
     },
 ]
