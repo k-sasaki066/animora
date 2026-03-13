@@ -10,6 +10,7 @@ export default function AlarmClockPart() {
     const footLength = clockWidth * 0.15; // 足の長さ
     const footBorder = Math.max(clockWidth * 0.03, 1); // 足の線の太さ
 
+    const sides = ["left", "right"] as const;
 
     return (
         <div ref={ref} className="w-full h-full flex justify-center items-center">
@@ -42,48 +43,34 @@ export default function AlarmClockPart() {
                 />
 
                 {/* ベル */}
-                <div
-                    className="absolute rounded-t-[20px] bg-red-500"
-                    style={{
-                        width: bellWidth,
-                        height: bellHeight,
-                        top: -bellHeight / 2,
-                        left: -bellWidth / 2,
-                        transform: "rotate(-42deg)",
-                    }}
-                />
-                <div
-                    className="absolute rounded-t-[20px] bg-red-500"
-                    style={{
-                        width: bellWidth,
-                        height: bellHeight,
-                        top: -bellHeight / 2,
-                        right: -bellWidth / 2,
-                        transform: "rotate(42deg)",
-                    }}
-                />
+                {sides.map((side) => (
+                    <div
+                        key={`bell-${side}`}
+                        className="absolute rounded-t-[20px] bg-red-500"
+                        style={{
+                            width: bellWidth,
+                            height: bellHeight,
+                            top: -bellHeight / 2,
+                            [side]: -bellWidth / 2,
+                            transform: `rotate(${side === "left" ? -42 : 42}deg)`,
+                        }}
+                    />
+                ))}
 
                 {/* 脚 */}
-                <div
-                    className="absolute border-red-500"
-                    style={{
-                        height: footLength,
-                        bottom: -footLength / 2,
-                        right: -footLength / 4,
-                        borderWidth: footBorder,
-                        transform: "rotate(-45deg)",
-                    }}
-                />
-                <div
-                    className="absolute border-red-500"
-                    style={{
-                        height: footLength,
-                        bottom: -footLength / 2,
-                        left: -footLength / 4,
-                        borderWidth: footBorder,
-                        transform: "rotate(45deg)",
-                    }}
-                />
+                {sides.map((side) => (
+                    <div
+                        key={`foot-${side}`}
+                        className="absolute border-red-500"
+                        style={{
+                            height: footLength,
+                            bottom: -footLength / 2,
+                            [side]: -footLength / 4,
+                            borderWidth: footBorder,
+                            transform: `rotate(${side === "left" ? 45 : -45}deg)`,
+                        }}
+                    />
+                ))}
             </motion.div>
         </div>
     );
