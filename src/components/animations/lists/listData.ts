@@ -1,63 +1,63 @@
 export interface ListItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const listData: ListItem[] = [
     {
         key: "softPastelList",
         title: "Soft Pastel List",
-        previewText: "Soft Pastel List Example",
+        video: "/videos/lists/soft-pastel-list.mp4",
     },
     {
         key: "colorfulList",
         title: "Colorful List",
-        previewText: "Colorful List Example",
+        video: "/videos/lists/colorful-list.mp4",
     },
     {
         key: "chatBubbleList",
         title: "Chat Bubble List",
-        previewText: "Chat Bubble List Example",
+        video: "/videos/lists/chat-bubble-list.mp4",
     },
     {
         key: "circleArrowList",
         title: "Circle Arrow List",
-        previewText: "Circle Arrow List Example",
+        video: "/videos/lists/circle-arrow-list.mp4",
     },
     {
         key: "stepsList",
         title: "Steps List",
-        previewText: "Steps List Example",
+        video: "/videos/lists/steps-list.mp4",
     },
     {
         key: "numberedTimelineList",
         title: "Numbered Timeline List",
-        previewText: "Numbered Timeline List Example",
+        video: "/videos/lists/numbered-timeline-list.mp4",
     },
     {
         key: "boxedList",
         title: "Boxed List",
-        previewText: "Boxed List Example",
+        video: "/videos/lists/boxed-list.mp4",
     },
     {
         key: "gradationNumberList",
         title: "Gradation Number List",
-        previewText: "Gradation Number List Example",
+        video: "/videos/lists/gradation-number-list.mp4",
     },
     {
         key: "stickyNoteList",
         title: "Sticky Note List",
-        previewText: "Sticky Note List Example",
+        video: "/videos/lists/sticky-note-list.mp4",
     },
     {
         key: "recipeTimelineList",
         title: "Recipe Timeline List",
-        previewText: "Recipe Timeline List Example",
+        video: "/videos/lists/recipe-timeline-list.mp4",
     },
     {
         key: "processFlowList",
         title: "Process Flow List",
-        previewText: "Process Flow List Example",
+        video: "/videos/lists/process-flow-list.mp4",
     },
 ];
