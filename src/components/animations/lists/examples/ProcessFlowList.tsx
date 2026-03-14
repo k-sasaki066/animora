@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Brain, Pencil, ThumbsUp, Wrench, CheckSquare } from "lucide-react";
 import { useContainerSize } from "@/hooks/useContainerSize";

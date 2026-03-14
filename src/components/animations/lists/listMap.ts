@@ -1,26 +1,19 @@
-import type { ComponentType } from "react";
-import SoftPastelList from "./examples/SoftPastelList";
-import ColorfulList from "./examples/ColorfulList";
-import ChatBubbleList from "./examples/ChatBubbleList";
-import CircleArrowList from "./examples/CircleArrowList";
-import StepsList from "./examples/StepsList";
-import NumberedTimelineList from "./examples/NumberedTimelineList";
-import BoxedList from "./examples/BoxedList";
-import GradationNumberList from "./examples/GradationNumberList";
-import StickyNoteList from "./examples/StickyNoteList";
-import RecipeTimelineList from "./examples/RecipeTimelineList";
-import ProcessFlowList from "./examples/ProcessFlowList";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type ListComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const listMap: Record<string, ComponentType> = {
-    softPastelList: SoftPastelList,
-    colorfulList: ColorfulList,
-    chatBubbleList: ChatBubbleList,
-    circleArrowList: CircleArrowList,
-    stepsList: StepsList,
-    numberedTimelineList: NumberedTimelineList,
-    boxedList: BoxedList,
-    gradationNumberList: GradationNumberList,
-    stickyNoteList: StickyNoteList,
-    recipeTimelineList: RecipeTimelineList,
-    processFlowList: ProcessFlowList,
+export const listMap: Record<string, ListComponent> = {
+    softPastelList: lazy(() => import("./examples/SoftPastelList")),
+    colorfulList: lazy(() => import("./examples/ColorfulList")),
+    chatBubbleList: lazy(() => import("./examples/ChatBubbleList")),
+    circleArrowList: lazy(() => import("./examples/CircleArrowList")),
+    stepsList: lazy(() => import("./examples/StepsList")),
+    numberedTimelineList: lazy(() => import("./examples/NumberedTimelineList")),
+    boxedList: lazy(() => import("./examples/BoxedList")),
+    gradationNumberList: lazy(() => import("./examples/GradationNumberList")),
+    stickyNoteList: lazy(() => import("./examples/StickyNoteList")),
+    recipeTimelineList: lazy(() => import("./examples/RecipeTimelineList")),
+    processFlowList: lazy(() => import("./examples/ProcessFlowList")),
 };
