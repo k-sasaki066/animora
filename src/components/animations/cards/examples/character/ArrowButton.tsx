@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 

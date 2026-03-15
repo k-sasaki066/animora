@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -54,7 +52,7 @@ export default function FlipCard() {
     };
 
     return (
-        <div ref={ref} className="h-full w-full bg-[#E6E5E1] flex flex-col items-center justify-start gap-4 overflow-y-auto no-scrollbar py-4">
+        <div ref={ref} className="h-full w-full bg-[#E6E5E1] flex flex-col items-center justify-start gap-6 overflow-y-auto no-scrollbar py-4">
             {profiles.map((profile) => {
                 const isFlip = activeId === profile.id;
 

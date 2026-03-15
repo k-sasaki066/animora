@@ -1,16 +1,7 @@
-"use client";
-
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { useContainerSize } from "@/hooks/useContainerSize";
-
-const BASE_WIDTH = 420;
 
 export default function FloatingTiltCard() {
-    const { ref, width } = useContainerSize<HTMLDivElement>();
-    const scale = width
-        ? Math.min(Math.max(width / BASE_WIDTH, 0.6), 1)
-        : 1;
 
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +48,7 @@ export default function FloatingTiltCard() {
     };
 
     return (
-        <div ref={ref} className="w-full h-full bg-[#b0976d] flex items-start justify-center overflow-y-auto no-scrollbar py-4">
+        <div className="w-full h-full bg-[#b0976d] flex items-start justify-center overflow-y-auto no-scrollbar py-4">
             <div className="perspective-[1000px] flex justify-center">
                 <motion.div
                     ref={cardRef}
