@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -24,7 +22,7 @@ const lines: LineConfig[] = [
         key: "top",
         className: "top-0",
         animate: (isOpen) => ({
-            width: isOpen ? 20 : 50,
+            width: isOpen ? 20 : 48,
             x: isOpen ? -1 : 0,
             y: isOpen ? 13 : 0,
             rotate: isOpen ? -45 : 0,
@@ -41,7 +39,7 @@ const lines: LineConfig[] = [
         key: "bottom",
         className: "bottom-0",
         animate: (isOpen) => ({
-            width: isOpen ? 20 : 50,
+            width: isOpen ? 20 : 48,
             x: isOpen ? -1 : 0,
             y: isOpen ? -13 : 0,
             rotate: isOpen ? 45 : 0,

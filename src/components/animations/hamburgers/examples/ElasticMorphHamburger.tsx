@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Transition } from "framer-motion";
 import { useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
