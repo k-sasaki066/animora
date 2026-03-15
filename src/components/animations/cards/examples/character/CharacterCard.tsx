@@ -1,8 +1,7 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import ArrowButton from "./ArrowButton";
 import useCharacterCard from "./useCharacterCard";
+import { useState, useEffect } from "react";
 
 export default function CharacterCard() {
     const {
@@ -20,8 +19,13 @@ export default function CharacterCard() {
         isMobile,
     } = useCharacterCard();
 
+    useEffect(() => {
+        const img = new Image();
+        img.src = current.image;
+    }, [current.image]);
+
     return (
-        <div ref={ref} className="w-full h-full flex items-start justify-center bg-[url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg')] bg-cover bg-center overflow-y-auto no-scrollbar p-4">
+        <div ref={ref} className="w-full h-full flex items-start justify-center bg-[url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/coc-background.jpg')] bg-cover bg-center overflow-y-auto no-scrollbar p-8">
             <div className="relative w-[70%] max-w-75">
 
                 {/* Card */}
@@ -38,18 +42,20 @@ export default function CharacterCard() {
                     >
                         {/* Image section */}
                         <div
-                            className={`relative w-full aspect-16/11 bg-cover bg-center`}
+                            className={`relative w-full aspect-video bg-cover bg-center`}
                             style={{ backgroundImage: `url(${current.bg})` }}
                         >
                             <motion.img
                                 key={current.image}
                                 src={current.image}
                                 alt={current.name}
+                                decoding="async"
+                                loading="eager"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: -20 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.5 }}
-                                className="absolute left-1/2 -translate-x-1/2 w-full"
+                                className="absolute left-1/2 -translate-x-1/2 w-[82%]"
                             />
                         </div>
 

@@ -1,11 +1,7 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaGithub, FaArrowRight } from "react-icons/fa";
 import { useContainerSize } from "@/hooks/useContainerSize";
-
-const BASE_WIDTH = 400;
 
 const cards = [
     {
@@ -26,9 +22,6 @@ const cards = [
 
 export default function TicketCard() {
     const { ref, width } = useContainerSize<HTMLDivElement>();
-    const scale = width
-        ? Math.min(Math.max(width / BASE_WIDTH, 0.8), 1)
-        : 1;
     const isVertical = width <= 480;
 
     return (

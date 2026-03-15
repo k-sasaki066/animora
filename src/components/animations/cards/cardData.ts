@@ -1,63 +1,63 @@
 export interface CardItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const cardData: CardItem[] = [
     {
         key: "dateBadgeCard",
         title: "Date Badge Card",
-        previewText: "Date Badge Card Example",
+        video: "/videos/cards/date-badge-card.mp4",
     },
     {
         key: "slideMetaCard",
         title: "Slide Meta Card",
-        previewText: "Slide Meta Card Example",
+        video: "/videos/cards/slide-meta-card.mp4",
     },
     {
         key: "opacityContentCard",
         title: "Opacity Content Card",
-        previewText: "Opacity Content Card Example",
+        video: "/videos/cards/opacity-content-card.mp4",
     },
     {
         key: "skewHeaderCard",
         title: "Skew Header Card",
-        previewText: "Skew Header Card Example",
+        video: "/videos/cards/skew-header-card.mp4",
     },
     {
         key: "ticketCard",
         title: "Ticket Card",
-        previewText: "Ticket Card Example",
+        video: "/videos/cards/ticket-card.mp4",
     },
     {
         key: "characterCard",
         title: "Character Card",
-        previewText: "Character Card Example",
+        video: "/videos/cards/character-card.mp4",
     },
     {
         key: "pastelBubbleCard",
         title: "Pastel Bubble Card",
-        previewText: "Pastel Bubble Card Example",
+        video: "/videos/cards/pastel-bubble-card.mp4",
     },
     {
         key: "floatingTiltCard",
         title: "Floating Tilt Card",
-        previewText: "Floating Tilt Card Example",
+        video: "/videos/cards/floating-tilt-card.mp4",
     },
     {
         key: "envelopeCard",
         title: "Envelope Card",
-        previewText: "Envelope Card Example",
+        video: "/videos/cards/envelope-card.mp4",
     },
     {
         key: "concaveCornerCard",
         title: "Concave Corner Card",
-        previewText: "Concave Corner Card Example",
+        video: "/videos/cards/concave-corner-card.mp4",
     },
     {
         key: "flipCard",
         title: "Flip Card",
-        previewText: "Flip Card Example",
+        video: "/videos/cards/flip-card.mp4",
     },
 ];
