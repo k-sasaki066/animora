@@ -1,5 +1,3 @@
-"use client";
-
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";

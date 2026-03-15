@@ -4,9 +4,13 @@ import { useState } from "react";
 import { FormPartCard } from "./FormPartCard";
 import { FormPartModal } from "./FormPartModal";
 import { formPartData } from "./formPartData";
+import { useReducedMotion } from "framer-motion";
 
 export function FormPartList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -15,8 +19,9 @@ export function FormPartList() {
                     <FormPartCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>

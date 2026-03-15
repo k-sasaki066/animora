@@ -1,5 +1,3 @@
-"use client";
-
 type ProgressBarProps = {
     total: number;
     currentStep: number;
