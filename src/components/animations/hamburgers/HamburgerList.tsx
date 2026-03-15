@@ -4,9 +4,13 @@ import { useState } from "react";
 import { HamburgerCard } from "./HamburgerCard";
 import { HamburgerModal } from "./HamburgerModal";
 import { hamburgerData } from "./hamburgerData";
+import { useReducedMotion } from "framer-motion";
 
 export function HamburgerList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -15,8 +19,9 @@ export function HamburgerList() {
                     <HamburgerCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>

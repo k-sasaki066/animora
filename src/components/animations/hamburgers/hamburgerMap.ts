@@ -1,30 +1,21 @@
-import type { ComponentType } from "react";
-import StandardHamburger from "./examples/StandardHamburger";
-import Rotate315Hamburger from "./examples/Rotate315Hamburger";
-import RotateHamburger from "./examples/RotateHamburger";
-import ExtractHamburger from "./examples/ExtractHamburger";
-import ResetCrossHamburger from "./examples/ResetCrossHamburger";
-import ArrowHamburger from "./examples/ArrowHamburger";
-import RotateArrowHamburger from "./examples/RotateArrowHamburger";
-import Rotate90Hamburger from "./examples/Rotate90Hamburger";
-import CircleAppearHamburger from "./examples/CircleAppearHamburger";
-import LabelHamburger from "./examples/LabelHamburger";
-import DotsHamburger from "./examples/DotsHamburger";
-import IconHamburger from "./examples/IconHamburger";
-import ElasticMorphHamburger from "./examples/ElasticMorphHamburger";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type HamburgerComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const hamburgerMap: Record<string, ComponentType> = {
-    standardHamburger: StandardHamburger,
-    rotate315Hamburger: Rotate315Hamburger,
-    rotateHamburger: RotateHamburger,
-    extractHamburger: ExtractHamburger,
-    resetCrossHamburger: ResetCrossHamburger,
-    arrowHamburger: ArrowHamburger,
-    rotateArrowHamburger: RotateArrowHamburger,
-    rotate90Hamburger: Rotate90Hamburger,
-    circleAppearHamburger: CircleAppearHamburger,
-    labelHamburger: LabelHamburger,
-    dotsHamburger: DotsHamburger,
-    iconHamburger: IconHamburger,
-    elasticMorphHamburger: ElasticMorphHamburger,
+export const hamburgerMap: Record<string, HamburgerComponent> = {
+    standardHamburger: lazy(() => import("./examples/StandardHamburger")),
+    rotate315Hamburger: lazy(() => import("./examples/Rotate315Hamburger")),
+    rotateHamburger: lazy(() => import("./examples/RotateHamburger")),
+    extractHamburger: lazy(() => import("./examples/ExtractHamburger")),
+    resetCrossHamburger: lazy(() => import("./examples/ResetCrossHamburger")),
+    arrowHamburger: lazy(() => import("./examples/ArrowHamburger")),
+    rotateArrowHamburger: lazy(() => import("./examples/RotateArrowHamburger")),
+    rotate90Hamburger: lazy(() => import("./examples/Rotate90Hamburger")),
+    circleAppearHamburger: lazy(() => import("./examples/CircleAppearHamburger")),
+    labelHamburger: lazy(() => import("./examples/LabelHamburger")),
+    dotsHamburger: lazy(() => import("./examples/DotsHamburger")),
+    iconHamburger: lazy(() => import("./examples/IconHamburger")),
+    elasticMorphHamburger: lazy(() => import("./examples/ElasticMorphHamburger")),
 };
