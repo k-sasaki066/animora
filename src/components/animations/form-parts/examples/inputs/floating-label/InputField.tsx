@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaInfoCircle, FaEye, FaEyeSlash } from "react-icons/fa";
