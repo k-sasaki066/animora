@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useId } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";

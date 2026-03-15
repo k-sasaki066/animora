@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
 import { categories, Category } from "./data";

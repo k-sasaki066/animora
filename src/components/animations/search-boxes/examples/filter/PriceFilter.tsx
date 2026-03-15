@@ -1,5 +1,3 @@
-"use client";
-
 import { useId } from "react";
 import { FaSearch } from "react-icons/fa";
 import { PRICE_MIN, PRICE_MAX, PRICE_STEP, PRICE_TICKS, COLORS,} from "./constants";

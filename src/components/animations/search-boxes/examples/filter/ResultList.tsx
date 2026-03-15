@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { COLORS } from "./constants";
 import { useRef } from "react";

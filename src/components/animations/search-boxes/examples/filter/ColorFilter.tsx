@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSearch, FaCheck } from "react-icons/fa";
 import { useRef } from "react";

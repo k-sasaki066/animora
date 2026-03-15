@@ -1,14 +1,13 @@
-import type { ComponentType } from "react";
-import ElasticFocusSearch from "./examples/ElasticFocusSearch";
-import ExpandSearch from "./examples/ExpandSearch";
-import ArcMotionSearch from "./examples/arc-motion/ArcMotionSearch";
-import CategorySearch from "./examples/category/CategorySearch";
-import FilterSearch from "./examples/filter/FilterSearch";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type SearchBoxComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const searchBoxMap: Record<string, ComponentType> = {
-    elasticFocusSearch: ElasticFocusSearch,
-    expandSearch: ExpandSearch,
-    arcMotionSearch: ArcMotionSearch,
-    categorySearch: CategorySearch,
-    filterSearch: FilterSearch,
+export const searchBoxMap: Record<string, SearchBoxComponent> = {
+    elasticFocusSearch: lazy(() => import("./examples/ElasticFocusSearch")),
+    expandSearch: lazy(() => import("./examples/ExpandSearch")),
+    arcMotionSearch: lazy(() => import("./examples/arc-motion/ArcMotionSearch")),
+    categorySearch: lazy(() => import("./examples/category/CategorySearch")),
+    filterSearch: lazy(() => import("./examples/filter/FilterSearch")),
 };
