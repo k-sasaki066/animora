@@ -1,33 +1,33 @@
 export interface SearchBoxItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const searchBoxData: SearchBoxItem[] = [
     {
         key: "elasticFocusSearch",
         title: "Elastic Focus Search",
-        previewText: "Elastic Focus Search Example",
+        video: "/videos/search-boxes/elastic-focus-search.mp4",
     },
     {
         key: "expandSearch",
         title: "Expand Search",
-        previewText: "Expand Search Example",
+        video: "/videos/search-boxes/expand-search.mp4",
     },
     {
         key: "arcMotionSearch",
         title: "Arc Motion Search",
-        previewText: "Arc Motion Search Example",
+        video: "/videos/search-boxes/arc-motion-search.mp4",
     },
     {
         key: "categorySearch",
         title: "Category Search",
-        previewText: "Category Search Example",
+        video: "/videos/search-boxes/category-search.mp4",
     },
     {
         key: "filterSearch",
         title: "Filter Search",
-        previewText: "Filter Search Example",
+        video: "/videos/search-boxes/filter-search.mp4",
     },
 ];
