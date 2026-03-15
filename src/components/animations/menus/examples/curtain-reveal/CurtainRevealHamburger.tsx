@@ -1,6 +1,4 @@
-"use client";
-
-import { motion, useReducedMotion, AnimatePresence, Variants } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { HamburgerButton } from "./HamburgerButton";
 import { CurtainRevealMenu } from "./CurtainRevealMenu";
 import { useCurtainRevealMenu } from "./useCurtainRevealMenu";
@@ -23,7 +21,7 @@ export default function CurtainRevealHamburger() {
         <div
             ref={ref}
             className="w-full h-full relative overflow-hidden z-0 bg-center bg-cover"
-            style={{ backgroundImage: "url('https://picsum.photos/id/154/684/370')" }}
+            style={{ backgroundImage: "url('/images/sample-06.webp')" }}
         >
             <HamburgerButton
                 ref={buttonRef}

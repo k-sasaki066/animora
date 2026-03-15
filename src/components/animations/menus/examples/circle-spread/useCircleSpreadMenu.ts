@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { NAV_MENUS, NavMenu } from "./constants";
 

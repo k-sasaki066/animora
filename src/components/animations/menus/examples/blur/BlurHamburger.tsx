@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { HamburgerButton } from "./HamburgerButton";
@@ -31,7 +29,7 @@ export default function BlurHamburger() {
                 className="relative w-full h-full z-10"
             >
                 <img
-                    src="https://images.unsplash.com/photo-1428930377079-45a584b6dd6b"
+                    src="/images/sample-27.webp"
                     alt=""
                     className="h-full w-full object-cover object-top"
                 />

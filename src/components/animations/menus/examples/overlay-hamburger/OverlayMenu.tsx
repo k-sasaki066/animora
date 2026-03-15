@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Variants, useReducedMotion } from "framer-motion";
 import { NAV_MENUS } from "./constants";
 import { forwardRef } from "react";

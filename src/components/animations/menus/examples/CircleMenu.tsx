@@ -1,8 +1,7 @@
-"use client";
-
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import { useToggleHover } from "@/hooks/useToggleHover";
 
 type LinkItem = {
     label: string;
@@ -19,7 +18,7 @@ const links: LinkItem[] = [
 ];
 
 export default function CircleMenu() {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const { activeIndex, bindIndex, setActiveIndex } = useToggleHover();
     const { ref, height } = useContainerSize<HTMLDivElement>();
     const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
     const reduce = useReducedMotion();
@@ -82,6 +81,14 @@ export default function CircleMenu() {
         }
     }, []);
 
+    useEffect(() => {
+        if (activeIndex === null) {
+            setBgColor("#110f3c");
+        } else {
+            setBgColor(links[activeIndex].bg);
+        }
+    }, [activeIndex]);
+
     return (
         <div ref={ref} className="relative w-full h-full">
             <div
@@ -109,14 +116,7 @@ export default function CircleMenu() {
                             <motion.div
                                 key={link.label}
                                 className="absolute"
-                                onHoverStart={() => {
-                                    setActiveIndex(i);
-                                    setBgColor(link.bg);
-                                }}
-                                onHoverEnd={() => {
-                                    setActiveIndex(null);
-                                    setBgColor("#110f3c");
-                                }}
+                                {...bindIndex(i)}
                             >
                                 <motion.a
                                     key={link.label}
@@ -131,14 +131,8 @@ export default function CircleMenu() {
                                     whileTap={{
                                         scale: 0.96,
                                     }}
-                                    onFocus={() => {
-                                        setActiveIndex(i);
-                                        setBgColor(link.bg);
-                                    }}
-                                    onBlur={() => {
-                                        setActiveIndex(null);
-                                        setBgColor("#110f3c");
-                                    }}
+                                    onFocus={() => setActiveIndex(i)}
+                                    onBlur={() => setActiveIndex(null)}
                                     whileHover={{ paddingLeft: radius * 1.25 }}
                                     transition={
                                         reduce

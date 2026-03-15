@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { MENUS, LINES } from "./constants";
 import { forwardRef } from "react";

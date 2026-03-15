@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, useReducedMotion } from "framer-motion";
 import { forwardRef } from "react";
 import { HAMBURGER_LINES } from "./constants";

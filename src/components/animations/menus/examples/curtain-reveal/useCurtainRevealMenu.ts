@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef, useState, useEffect } from "react";
 import { NAV_MENUS } from "./constants";
 import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";

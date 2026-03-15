@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { ChevronDown } from "lucide-react";
@@ -22,7 +20,7 @@ export default function CenterAccordionMenu() {
             className="w-full h-full overflow-y-scroll p-4 no-scrollbar bg-center bg-cover bg-no-repeat"
             style={{
                 backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('https://picsum.photos/id/163/684/370')",
+                "linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('/images/sample-05.webp')",
             }}
         >
             <motion.div className="w-full h-full origin-top" animate={{scale}}>

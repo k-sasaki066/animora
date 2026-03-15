@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { BASE_WIDTH, MENUS } from "./constants";
@@ -117,7 +115,7 @@ export default function FoldingMenu() {
                                         <motion.li
                                             key={item}
                                             role="none"
-                                            className="whitespace-nowrap cursor-pointer overflow-hidden"
+                                            className="whitespace-nowrap text-center cursor-pointer overflow-hidden"
                                             animate={{
                                                 height: open ? 30 : 0,
                                                 opacity: open ? 1 : 0,

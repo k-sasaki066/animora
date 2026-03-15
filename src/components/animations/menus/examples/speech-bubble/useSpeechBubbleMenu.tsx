@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
 import { useReducedMotion } from "framer-motion";
 import { MENU_ITEMS } from "./constants";

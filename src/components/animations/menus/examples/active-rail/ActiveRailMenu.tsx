@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_ITEMS } from "./constants";
 import { MobileNavToggle } from "./MobileNavToggle";
@@ -101,7 +99,7 @@ export default function ActiveRailMenu() {
                 </AnimatePresence>
 
                 {/* Right Content */}
-                <motion.div ref={contentRef} className="flex-1 p-8 overflow-y-auto relative">
+                <motion.div ref={contentRef} className="flex-1 p-8 overflow-y-auto no-scrollbar relative">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeItem.id}

@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
@@ -62,7 +60,7 @@ export default function CollapsibleMenu() {
             {/* 背景 */}
             <div
                 className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-                style={{ backgroundImage: "url('https://picsum.photos/id/130/684/370')" }}
+                style={{ backgroundImage: "url('images/sample-12.webp')" }}
             />
             <div
                 className="absolute inset-0 z-20"
