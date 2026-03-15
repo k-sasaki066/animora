@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useRef } from "react";
 import { MENU_ITEMS } from "./constants";
 

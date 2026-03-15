@@ -1,5 +1,3 @@
-"use client";
-
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { BASE_WIDTH } from "./constants";
 import { useSlideInMenu } from "./useSlideInMenu";

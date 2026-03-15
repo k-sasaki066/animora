@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { HAMBURGER_LINES, COLORS } from "./constants";

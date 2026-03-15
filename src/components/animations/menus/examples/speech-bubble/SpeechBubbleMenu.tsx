@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { BASE_WIDTH, MENU_ITEMS } from "./constants";

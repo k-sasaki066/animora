@@ -1,5 +1,3 @@
-"use client";
-
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { HamburgerButton } from "./HamburgerButton";
 import { SlideMenu } from "./SlideMenu";
@@ -16,7 +14,7 @@ export default function YellowSlideHamburger() {
         <div ref={ref} className="w-full h-full relative overflow-hidden z-0">
             <div
                 className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-                style={{ backgroundImage: "url('https://picsum.photos/id/155/684/370')" }}
+                style={{ backgroundImage: "url('/images/sample-03.webp')" }}
             />
             <div
                 className="absolute inset-0"

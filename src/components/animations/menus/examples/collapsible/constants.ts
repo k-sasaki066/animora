@@ -1,5 +1,3 @@
-"use client"
-
 import { IconType } from "react-icons";
 import { FaHome, FaGlobe, FaComments, FaCameraRetro, FaFilm, FaBook, FaCogs, FaMapMarkerAlt, FaInfoCircle } from "react-icons/fa";
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_MENUS, PARTICLE_COLORS } from "./constants";
 import { RefObject, forwardRef } from "react";

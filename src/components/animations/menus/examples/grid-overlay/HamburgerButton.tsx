@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, Variants, useReducedMotion } from "framer-motion";
 import { forwardRef } from "react";
 

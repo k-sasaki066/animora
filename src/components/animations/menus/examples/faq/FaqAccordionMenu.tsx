@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { BASE_WIDTH, COLORS, FAQ_DATA } from "./constants";

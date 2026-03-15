@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { HamburgerButton } from "./HamburgerButton";

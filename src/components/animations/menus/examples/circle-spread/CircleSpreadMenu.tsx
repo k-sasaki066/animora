@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { NAV_MENUS, NavMenu } from "./constants";
 import { useRovingTabFocus } from "@/hooks/useRovingTabFocus";

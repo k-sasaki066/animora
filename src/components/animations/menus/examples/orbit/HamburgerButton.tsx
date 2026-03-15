@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";

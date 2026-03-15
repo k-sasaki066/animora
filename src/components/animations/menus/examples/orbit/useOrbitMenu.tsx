@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef, useState, useEffect } from "react";
 import { useReducedMotion, useAnimation } from "framer-motion";
 import { NAV_MENUS, BUTTON_MOVE, ITEM_POSITIONS } from "./constants";

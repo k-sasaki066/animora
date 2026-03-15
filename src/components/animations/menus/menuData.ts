@@ -1,98 +1,157 @@
+export interface VideoSource {
+    pc: string;
+    mobile: string;
+}
+
 export interface MenuItem {
     key: string;
     title: string;
-    previewText: string;
+    video: VideoSource;
 }
 
 export const menuData: MenuItem[] = [
     {
         key: "centerAccordionMenu",
         title: "Center Accordion Menu",
-        previewText: "Center Accordion Menu Example",
+        video: {
+            pc: "/videos/menus/center-accordion-pc.mp4",
+            mobile: "/videos/menus/center-accordion-mobile.mp4",
+        },
     },
     {
         key: "faqAccordionMenu",
         title: "Faq Accordion Menu",
-        previewText: "Faq Accordion Menu Example",
+        video: {
+            pc: "/videos/menus/faq-accordion-pc.mp4",
+            mobile: "/videos/menus/faq-accordion-mobile.mp4",
+        },
     },
     {
         key: "circleMenu",
         title: "Circle Menu",
-        previewText: "Circle Menu Example",
+        video: {
+            pc: "/videos/menus/circle-menu.mp4",
+            mobile: "/videos/menus/circle-menu.mp4",
+        },
     },
     {
         key: "speechBubbleMenu",
         title: "Speech Bubble Menu",
-        previewText: "Speech Bubble Menu Example",
+        video: {
+            pc: "/videos/menus/speech-bubble-pc.mp4",
+            mobile: "/videos/menus/speech-bubble-mobile.mp4",
+        },
     },
     {
         key: "foldingMenu",
         title: "Folding Menu",
-        previewText: "Folding Menu Example",
+        video: {
+            pc: "/videos/menus/folding-pc.mp4",
+            mobile: "/videos/menus/folding-mobile.mp4",
+        },
     },
     {
         key: "collapsibleMenu",
         title: "Collapsible Menu",
-        previewText: "Collapsible Menu Example",
+        video: {
+            pc: "/videos/menus/collapsible-pc.mp4",
+            mobile: "/videos/menus/collapsible-mobile.mp4",
+        },
     },
     {
         key: "activeRailMenu",
         title: "Active Rail Menu",
-        previewText: "Active Rail Menu Example",
+        video: {
+            pc: "/videos/menus/active-rail-pc.mp4",
+            mobile: "/videos/menus/active-rail-mobile.mp4",
+        },
     },
     {
         key: "blurMenu",
         title: "Blur Menu",
-        previewText: "Blur Menu Example",
+        video: {
+            pc: "/videos/menus/blur-pc.mp4",
+            mobile: "/videos/menus/blur-mobile.mp4",
+        },
     },
     {
         key: "circleSpreadMenu",
         title: "Circle Spread Menu",
-        previewText: "Circle Spread Menu Example",
+        video: {
+            pc: "/videos/menus/circle-spread-pc.mp4",
+            mobile: "/videos/menus/circle-spread-mobile.mp4",
+        },
     },
     {
         key: "curtainRevealMenu",
         title: "Curtain Reveal Menu",
-        previewText: "Curtain Reveal Menu Example",
+        video: {
+            pc: "/videos/menus/curtain-reveal-pc.mp4",
+            mobile: "/videos/menus/curtain-reveal-mobile.mp4",
+        },
     },
     {
         key: "deepNaviMenu",
         title: "Deep Navi Menu",
-        previewText: "Deep Navi Menu Example",
+        video: {
+            pc: "/videos/menus/deep-navi-pc.mp4",
+            mobile: "/videos/menus/deep-navi-mobile.mp4",
+        },
     },
     {
         key: "explodingMenu",
         title: "Exploding Menu",
-        previewText: "Exploding Menu Example",
+        video: {
+            pc: "/videos/menus/exploding-pc.mp4",
+            mobile: "/videos/menus/exploding-mobile.mp4",
+        },
     },
     {
         key: "gridOverlayMenu",
         title: "Grid Overlay Menu",
-        previewText: "Grid Overlay Menu Example",
+        video: {
+            pc: "/videos/menus/grid-overlay-pc.mp4",
+            mobile: "/videos/menus/grid-overlay-mobile.mp4",
+        },
     },
     {
         key: "orbitMenu",
         title: "Orbit Menu",
-        previewText: "Orbit Menu Example",
+        video: {
+            pc: "/videos/menus/orbit-pc.mp4",
+            mobile: "/videos/menus/orbit-mobile.mp4",
+        },
     },
     {
         key: "overlayMenu",
         title: "Overlay Menu",
-        previewText: "Overlay Menu Example",
+        video: {
+            pc: "/videos/menus/overlay-pc.mp4",
+            mobile: "/videos/menus/overlay-mobile.mp4",
+        },
     },
     {
         key: "pushDownMenu",
         title: "Push Down Menu",
-        previewText: "Push Down Menu Example",
+        video: {
+            pc: "/videos/menus/push-down-pc.mp4",
+            mobile: "/videos/menus/push-down-mobile.mp4",
+        },
     },
     {
         key: "slideInMenu",
         title: "Slide In Menu",
-        previewText: "Slide In Menu Example",
+        video: {
+            pc: "/videos/menus/slide-in-pc.mp4",
+            mobile: "/videos/menus/slide-in-mobile.mp4",
+        },
     },
     {
         key: "yellowSlideMenu",
         title: "Yellow Slide Menu",
-        previewText: "Yellow Slide Menu Example",
+        video: {
+            pc: "/videos/menus/yellow-slide-pc.mp4",
+            mobile: "/videos/menus/yellow-slide-mobile.mp4",
+        },
     },
 ];

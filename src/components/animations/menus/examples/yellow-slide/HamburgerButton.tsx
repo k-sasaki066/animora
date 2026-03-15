@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import { motion, Variants, useReducedMotion } from "framer-motion";
 import { COLORS, DURATION } from "./constants";

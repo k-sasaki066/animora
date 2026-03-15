@@ -1,5 +1,3 @@
-"use client";
-
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { HamburgerButton } from "./HamburgerButton";
 import { PushDownMenu } from "./PushDownMenu";
