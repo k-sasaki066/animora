@@ -35,7 +35,7 @@ export default function ChangeTextImage() {
             {...bind}
         >
             <motion.img
-                src="/images/sample-13.webp"
+                src="/images/samples/sample-13.webp"
                 alt=""
                 className="w-full h-full object-cover absolute inset-0"
                 variants={{

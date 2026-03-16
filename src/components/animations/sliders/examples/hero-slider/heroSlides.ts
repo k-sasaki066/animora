@@ -5,7 +5,7 @@ export const heroSlides = [
         description:
         "Sample text.Animation details will appear here.",
         image:
-        "/sea.jpg",
+        "/images/samples/sample-06.webp",
         button: "Explore the tour",
     },
     {

@@ -48,7 +48,7 @@ export default function HoverVideoImage() {
         >
             {/* 静止画 */}
             <motion.img
-                src="/images/sample-18.webp"
+                src="/images/samples/sample-18.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

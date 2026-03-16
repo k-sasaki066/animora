@@ -49,7 +49,7 @@ export default function StretchImage() {
                 transition={{ duration: 0.4 }}
                 >
                 <img
-                    src="/images/sample-24.webp"
+                    src="/images/samples/sample-24.webp"
                     alt=""
                     className="w-full h-full object-cover"
                 />

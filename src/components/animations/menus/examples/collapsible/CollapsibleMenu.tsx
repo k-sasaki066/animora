@@ -60,7 +60,7 @@ export default function CollapsibleMenu() {
             {/* 背景 */}
             <div
                 className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-                style={{ backgroundImage: "url('images/sample-12.webp')" }}
+                style={{ backgroundImage: "url('images/samples/sample-12.webp')" }}
             />
             <div
                 className="absolute inset-0 z-20"

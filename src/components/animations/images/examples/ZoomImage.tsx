@@ -8,7 +8,7 @@ export default function ZoomImage() {
         <div className="w-full aspect-video max-w-sm mx-auto overflow-hidden">
             <motion.img
                 {...bind}
-                src="./images/sample-02.webp"
+                src="./images/samples/sample-02.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 initial="rest"

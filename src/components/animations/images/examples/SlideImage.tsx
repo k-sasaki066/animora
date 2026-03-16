@@ -17,7 +17,7 @@ export default function SlideImage() {
         >
             <motion.img
                 alt=""
-                src="/images/sample-16.webp"
+                src="/images/samples/sample-16.webp"
                 className="absolute top-0 left-0 min-w-[120%] h-full object-cover"
                 variants={{
                     rest: {

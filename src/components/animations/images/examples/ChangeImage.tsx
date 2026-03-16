@@ -13,7 +13,7 @@ export default function ChangeImage() {
         >
             {/* 通常画像 */}
             <motion.img
-                src="/images/sample-11.webp"
+                src="/images/samples/sample-11.webp"
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover"
                 variants={{
@@ -25,7 +25,7 @@ export default function ChangeImage() {
 
             {/* ホバー時像 */}
             <motion.img
-                src="/images/sample-12.webp"
+                src="/images/samples/sample-12.webp"
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover"
                 variants={{

@@ -55,7 +55,7 @@ export default function MovingClippedText() {
             {/* クリッピングコンテナ */}
             <div
                 className="relative z-20 w-full h-full bg-cover bg-top overflow-hidden"
-                style={{ backgroundImage:"url(/sea.jpg)" }}
+                style={{ backgroundImage:"url(/images/samples/sample-03.webp)" }}
             >
                 {/* 前景テキスト */}
                 <motion.h1

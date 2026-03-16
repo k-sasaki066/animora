@@ -35,7 +35,7 @@ export default function CaptionImage() {
             {...bind}
         >
             <motion.img
-                src="/images/sample-31.webp"
+                src="/images/samples/sample-31.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

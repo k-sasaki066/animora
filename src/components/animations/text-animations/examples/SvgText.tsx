@@ -6,7 +6,7 @@ export default function SvgText() {
             {/* 背景画像 */}
             <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/lavender.jpg')" }}
+                style={{ backgroundImage: "url('/images/samples/sample-13.webp')" }}
             />
 
             {/* 暗いオーバーレイ */}

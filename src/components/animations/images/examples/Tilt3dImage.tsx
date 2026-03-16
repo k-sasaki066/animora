@@ -32,7 +32,7 @@ export default function Tilt3dImage() {
             >
                 <motion.img
                     alt=""
-                    src="/images/sample-17.webp"
+                    src="/images/samples/sample-17.webp"
                     className="w-full h-full object-cover"
                 />
             </motion.div>

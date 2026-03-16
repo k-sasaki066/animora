@@ -29,7 +29,7 @@ export default function SpreadsOutImage() {
             {...bind}
         >
             <motion.img
-                src="/images/sample-27.webp"
+                src="/images/samples/sample-27.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

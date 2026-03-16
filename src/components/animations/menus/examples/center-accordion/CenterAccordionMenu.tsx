@@ -20,7 +20,7 @@ export default function CenterAccordionMenu() {
             className="w-full h-full overflow-y-scroll p-4 no-scrollbar bg-center bg-cover bg-no-repeat"
             style={{
                 backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('/images/sample-05.webp')",
+                "linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('/images/samples/sample-05.webp')",
             }}
         >
             <motion.div className="w-full h-full origin-top" animate={{scale}}>

@@ -34,7 +34,7 @@ export default function HoverTextImage() {
         >
             <img
                 alt=""
-                src="/images/sample-10.webp"
+                src="/images/samples/sample-10.webp"
                 className="w-full h-full object-cover"
             />
 

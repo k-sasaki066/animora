@@ -7,7 +7,7 @@ export default function BlinkImage() {
     return (
         <div className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden">
             <img
-                src="/images/sample-32.webp"
+                src="/images/samples/sample-32.webp"
                 alt=""
                 className="w-full h-full object-cover"
             />

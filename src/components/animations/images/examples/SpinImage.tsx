@@ -13,7 +13,7 @@ export default function SpinImage() {
             variants={{ rest: {}, hover: {} }}
         >
             <motion.img
-                src="/images/sample-15.webp"
+                src="/images/samples/sample-15.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

@@ -35,7 +35,7 @@ export default function SubMenuImage() {
             {...bind}
         >
             <motion.img
-                src="/images/sample-28.webp"
+                src="/images/samples/sample-28.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

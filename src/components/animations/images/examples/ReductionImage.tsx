@@ -39,7 +39,7 @@ export default function ReductionImage() {
             }}
         >
             <motion.img
-                src="/images/sample-29.webp"
+                src="/images/samples/sample-29.webp"
                 alt=""
                 className="absolute left-1/2 -translate-x-1/2"
                 variants={{

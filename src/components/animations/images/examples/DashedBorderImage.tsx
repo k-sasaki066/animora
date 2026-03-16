@@ -12,7 +12,7 @@ export default function DashedBorderImage() {
             {...bind}
         >
             <img
-                src="/images/sample-19.webp"
+                src="/images/samples/sample-19.webp"
                 alt=""
                 className="w-full h-full object-cover"
             />

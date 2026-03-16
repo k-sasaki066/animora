@@ -26,7 +26,7 @@ export default function TileImage() {
             {...bind}
         >
             <motion.img
-                src="/images/sample-30.webp"
+                src="/images/samples/sample-30.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{
