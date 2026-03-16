@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { PieChart, Pie, ResponsiveContainer } from "recharts";
 import { AnimatePresence, motion } from "framer-motion";

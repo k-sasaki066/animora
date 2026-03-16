@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { BarChart, Bar, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend } from "recharts";
 
@@ -21,7 +19,7 @@ export default function SalesBarGraph() {
             transition={{ duration: 0.6 }}
             className="w-full h-full max-w-150 overflow-auto no-scrollbar **:focus:outline-none"
         >
-            <h2 className="text-xl font-bold mb-4">
+            <h2 className="text-xl text-center font-bold mb-4">
                 売上比較
             </h2>
 

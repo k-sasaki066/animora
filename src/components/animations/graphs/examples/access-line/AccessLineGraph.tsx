@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { LineChart, Line, CartesianGrid, Tooltip, XAxis, YAxis, ResponsiveContainer, ReferenceLine, Legend } from "recharts";
 import { useContainerSize } from "@/hooks/useContainerSize";

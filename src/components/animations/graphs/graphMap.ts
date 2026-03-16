@@ -1,18 +1,15 @@
-import type { ComponentType } from "react";
-import SalesBarGraph from "./examples/SalesBarGraph";
-import AccessLineGraph from "./examples/access-line/AccessLineGraph";
-import GoodsSalesDonutGraph from "./examples/goods-sales/GoodsSalesDonutGraph";
-import StudyTimeGraph from "./examples/study-time/StudyTimeGraph";
-import HeatmapGraph from "./examples/heat-map/HeatmapGraph";
-import EvaluationRadarGraph from "./examples/radar/EvaluationRadarGraph";
-import IceCreamScatterGraph from "./examples/scatter/IceCreamScatterGraph";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type GraphComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const graphMap: Record<string, ComponentType> = {
-    salesBarGraph: SalesBarGraph,
-    accessLineGraph: AccessLineGraph,
-    goodsSalesDonutGraph: GoodsSalesDonutGraph,
-    studyTimeGraph: StudyTimeGraph,
-    heatmapGraph: HeatmapGraph,
-    evaluationRadarGraph: EvaluationRadarGraph,
-    iceCreamScatterGraph: IceCreamScatterGraph,
+export const graphMap: Record<string, GraphComponent> = {
+    salesBarGraph: lazy(() => import("./examples/SalesBarGraph")),
+    accessLineGraph: lazy(() => import("./examples/access-line/AccessLineGraph")),
+    goodsSalesDonutGraph: lazy(() => import("./examples/goods-sales/GoodsSalesDonutGraph")),
+    studyTimeGraph: lazy(() => import("./examples/study-time/StudyTimeGraph")),
+    heatmapGraph: lazy(() => import("./examples/heat-map/HeatmapGraph")),
+    evaluationRadarGraph: lazy(() => import("./examples/radar/EvaluationRadarGraph")),
+    iceCreamScatterGraph: lazy(() => import("./examples/scatter/IceCreamScatterGraph")),
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import { ScatterChart, Scatter, XAxis, YAxis, Tooltip } from "recharts";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { Data, colors } from "./heatmapUtils";

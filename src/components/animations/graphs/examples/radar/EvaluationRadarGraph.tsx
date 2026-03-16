@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip, Legend } from "recharts";
 import { motion } from "framer-motion";

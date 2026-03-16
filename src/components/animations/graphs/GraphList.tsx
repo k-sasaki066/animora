@@ -4,9 +4,13 @@ import { useState } from "react";
 import { GraphCard } from "./GraphCard";
 import { GraphModal } from "./GraphModal";
 import { graphData } from "./graphData";
+import { useReducedMotion } from "framer-motion";
 
 export function GraphList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -15,8 +19,9 @@ export function GraphList() {
                     <GraphCard
                         key={item.key}
                         title={item.title}
-                        image={item.image}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>
