@@ -26,7 +26,7 @@ export default function FloatImage() {
             }}
         >
             <img
-                src="./images/sample-05.webp"
+                src="./images/samples/sample-05.webp"
                 alt=""
                 className="w-full h-full object-cover"
             />

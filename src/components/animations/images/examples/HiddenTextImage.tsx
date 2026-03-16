@@ -39,7 +39,7 @@ export default function HiddenTextImage() {
             }}
         >
             <motion.img
-                src="/images/sample-25.webp"
+                src="/images/samples/sample-25.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

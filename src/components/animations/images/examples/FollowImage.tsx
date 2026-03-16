@@ -46,7 +46,7 @@ export default function FollowImage() {
             onPointerLeave={resetPosition}
         >
             <motion.img
-                src="/images/sample-20.webp"
+                src="/images/samples/sample-20.webp"
                 alt=""
                 className="absolute inset-0 min-w-[150%] h-[120%] object-cover scale-110"
                 style={{

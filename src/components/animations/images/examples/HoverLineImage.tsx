@@ -35,7 +35,7 @@ export default function ChangeImage() {
             {...bind}
         >
             <motion.img
-                src="/images/sample-14.webp"
+                src="/images/samples/sample-14.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

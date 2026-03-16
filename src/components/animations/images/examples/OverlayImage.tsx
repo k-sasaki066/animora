@@ -8,7 +8,7 @@ export default function OverlayImage() {
         <div className="relative w-full aspect-video max-w-sm mx-auto overflow-hidden">
             <img
                 alt=""
-                src="/images/sample-09.webp"
+                src="/images/samples/sample-09.webp"
                 className="w-full h-full object-cover"
             />
 

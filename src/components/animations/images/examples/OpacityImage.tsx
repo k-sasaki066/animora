@@ -8,7 +8,7 @@ export default function OpacityImage() {
         <div className="w-full aspect-video max-w-md mx-auto overflow-hidden">
             <motion.img
                 {...bind}
-                src="./images/sample-01.webp"
+                src="./images/samples/sample-01.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 initial="rest"

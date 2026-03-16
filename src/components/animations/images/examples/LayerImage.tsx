@@ -36,7 +36,7 @@ export default function LayerImage() {
         >
             <motion.img
                 alt=""
-                src="/images/sample-23.webp"
+                src="/images/samples/sample-23.webp"
                 className="w-full h-full object-cover"
                 variants={{
                     hover: {

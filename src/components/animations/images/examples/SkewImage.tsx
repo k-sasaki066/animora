@@ -55,7 +55,7 @@ export default function SkewImage() {
             />
 
             <motion.img
-                src="/images/sample-26.webp"
+                src="/images/samples/sample-26.webp"
                 alt=""
                 className="w-full h-full object-cover"
                 variants={{

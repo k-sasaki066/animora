@@ -21,7 +21,7 @@ export default function CurtainRevealHamburger() {
         <div
             ref={ref}
             className="w-full h-full relative overflow-hidden z-0 bg-center bg-cover"
-            style={{ backgroundImage: "url('/images/sample-06.webp')" }}
+            style={{ backgroundImage: "url('/images/samples/sample-06.webp')" }}
         >
             <HamburgerButton
                 ref={buttonRef}

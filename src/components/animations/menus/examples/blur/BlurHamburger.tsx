@@ -29,7 +29,7 @@ export default function BlurHamburger() {
                 className="relative w-full h-full z-10"
             >
                 <img
-                    src="/images/sample-27.webp"
+                    src="/images/samples/sample-27.webp"
                     alt=""
                     className="h-full w-full object-cover object-top"
                 />

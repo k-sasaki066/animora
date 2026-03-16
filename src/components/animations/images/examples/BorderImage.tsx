@@ -16,7 +16,7 @@ export default function BorderImage() {
             }}
         >
             <img
-                src="./images/sample-03.webp"
+                src="./images/samples/sample-03.webp"
                 alt=""
                 className="w-full h-full object-cover"
             />

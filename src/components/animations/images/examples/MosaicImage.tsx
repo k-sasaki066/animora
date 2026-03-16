@@ -29,7 +29,7 @@ export default function MosaicImage() {
             {...bind}
         >
             <img
-                src="/images/sample-22.webp"
+                src="/images/samples/sample-22.webp"
                 alt=""
                 className="w-full h-full object-cover"
             />

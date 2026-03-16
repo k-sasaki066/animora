@@ -7,9 +7,9 @@ import { getSplitConfig } from "@/lib/responsive/splitConfig";
 import { SwipeHint } from "@/components/ui/SwipeHint";
 
 const images = [
-    "/images/sample-02.webp",
-    "/images/sample-14.webp",
-    "/images/sample-27.webp"
+    "/images/samples/sample-02.webp",
+    "/images/samples/sample-14.webp",
+    "/images/samples/sample-27.webp"
 ];
 
 const colors = [
