@@ -1,43 +1,43 @@
 export interface PaginationItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const paginationData: PaginationItem[] = [
     {
         key: "simplePagination",
         title: "Simple Pagination",
-        previewText: "Simple Pagination Example",
+        video: "/videos/pagination/simple-pagination.mp4",
     },
     {
         key: "circlePagination",
         title: "Circle Pagination",
-        previewText: "Circle Pagination Example",
+        video: "/videos/pagination/circle-pagination.mp4",
     },
     {
         key: "capsulePagination",
         title: "Capsule Pagination",
-        previewText: "Capsule Pagination Example",
+        video: "/videos/pagination/capsule-pagination.mp4",
     },
     {
         key: "ellipsisPagination",
         title: "Ellipsis Pagination",
-        previewText: "Ellipsis Pagination Example",
+        video: "/videos/pagination/ellipsis-pagination.mp4",
     },
     {
         key: "loadMoreList",
         title: "Load More List",
-        previewText: "Load More List Example",
+        video: "/videos/pagination/load-more-pagination.mp4",
     },
     {
         key: "dropDownPagination",
         title: "Drop Down Pagination",
-        previewText: "Drop Down Pagination Example",
+        video: "/videos/pagination/drop-down-pagination.mp4",
     },
     {
         key: "infiniteScrollList",
         title: "Infinite Scroll List",
-        previewText: "Infinite Scroll List Example",
+        video: "/videos/pagination/infinite-scroll-pagination.mp4",
     },
 ];

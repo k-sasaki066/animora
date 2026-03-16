@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
 import { useReducedMotion } from "framer-motion";
 
