@@ -1,5 +1,3 @@
-"use client"
-
 import CloudLayer from "./CloudLayer";
 
 export default function SunsetSkyBackground() {

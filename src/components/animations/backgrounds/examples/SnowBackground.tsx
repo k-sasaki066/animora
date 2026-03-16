@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 
@@ -12,15 +10,10 @@ interface Particle {
     sway: number;
 }
 
-interface SnowBackgroundProps {
-    count?: number;
-    height?: number;
-}
+const count = 40;
+const height = 500;
 
-export default function SnowBackground({
-    count = 40,
-    height = 500,
-}: SnowBackgroundProps) {
+export default function SnowBackground() {
     const particles: Particle[] = useMemo(() => {
         return Array.from({ length: count }, (_, i) => {
             const size = Math.random() + 1;

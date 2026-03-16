@@ -1,13 +1,9 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { bubbles } from "./bubbles";
 
 export default function FloatingBubblesBackground() {
     return (
-        <div className="relative w-full aspect-video overflow-hidden rounded-lg
-        bg-linear-to-l from-[#8f94fb] to-[#4e54c8]"
-        >
+        <div className="relative w-full aspect-video overflow-hidden rounded-lg bg-linear-to-l from-[#8f94fb] to-[#4e54c8]">
             {bubbles.map((bubble, index) => (
                 <motion.span
                     key={index}

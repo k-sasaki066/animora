@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Montserrat } from "next/font/google";
@@ -23,7 +21,7 @@ export default function ShineTextBackground() {
             <motion.h1
                 className={`
                 ${montserrat.className}
-                text-[4vw] font-black tracking-[1vw]
+                text-[5vw] font-black tracking-[1vw]
                 text-transparent bg-clip-text
                 `}
                 style={{

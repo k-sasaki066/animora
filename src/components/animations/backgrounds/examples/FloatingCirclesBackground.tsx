@@ -1,7 +1,5 @@
-"use client";
-
 import { motion } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
 
 type Circle = {

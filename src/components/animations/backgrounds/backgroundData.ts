@@ -1,7 +1,7 @@
 export interface BackgroundItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 
@@ -9,126 +9,126 @@ export const backgroundData: BackgroundItem[] = [
     {
         key: "wave",
         title: "Wave Background",
-        previewText: "Wave Background Example",
+        video: "/videos/backgrounds/wave-background.mp4",
     },
     {
         key: "shine",
         title: "Shine Text Background",
-        previewText: "Shine Text Background Example",
+        video: "/videos/backgrounds/shine-text-background.mp4",
     },
     {
         key: "floating",
         title: "Floating Bubbles Background",
-        previewText: "Floating Bubbles Background Example",
+        video: "/videos/backgrounds/floating-bubbles-background.mp4",
     },
     {
         key: "hex",
         title: "Hex Background",
-        previewText: "Hex Background Example",
+        video: "/videos/backgrounds/hex-background.mp4",
     },
     {
         key: "plane",
         title: "Paper Plane Background",
-        previewText: "Paper Plane Background Example",
+        video: "/videos/backgrounds/paper-plane-background.mp4",
     },
     {
         key: "path",
         title: "Plane Path Background",
-        previewText: "Plane Path Background Example",
+        video: "/videos/backgrounds/plane-path-background.mp4",
     },
     {
         key: "particles",
         title: "Particles Background",
-        previewText: "Particles Background Example",
+        video: "/videos/backgrounds/particles-background.mp4",
     },
     {
         key: "magic",
         title: "Magic Background",
-        previewText: "Magic Background Example",
+        video: "/videos/backgrounds/magic-background.mp4",
     },
     {
         key: "snow",
         title: "Snow Background",
-        previewText: "Snow Background Example",
+        video: "/videos/backgrounds/snow-background.mp4",
     },
     {
         key: "diagonal",
         title: "Diagonal Background",
-        previewText: "Diagonal Background Example",
+        video: "/videos/backgrounds/diagonal-background.mp4",
     },
     {
         key: "cloud",
         title: "Cloud Background",
-        previewText: "Cloud Background Example",
+        video: "/videos/backgrounds/cloud-background.mp4",
     },
     {
         key: "grid",
         title: "Grid Background",
-        previewText: "Grid Background Example",
+        video: "/videos/backgrounds/grid-background.mp4",
     },
     {
         key: "fireflies",
         title: "Fireflies Background",
-        previewText: "Fireflies Background Example",
+        video: "/videos/backgrounds/fireflies-background.mp4",
     },
     {
         key: "color",
         title: "Color Diagonal Background",
-        previewText: "Color Diagonal Background Example",
+        video: "/videos/backgrounds/color-diagonal-background.mp4",
     },
     {
         key: "lines",
         title: "Lines Background",
-        previewText: "Lines Background Example",
+        video: "/videos/backgrounds/lines-background.mp4",
     },
     {
         key: "ripple",
         title: "Ripple Background",
-        previewText: "Ripple Background Example",
+        video: "/videos/backgrounds/ripple-background.mp4",
     },
     {
         key: "streamlines",
         title: "Streamlines Background",
-        previewText: "Streamlines Background Example",
+        video: "/videos/backgrounds/streamlines-background.mp4",
     },
     {
         key: "rain",
         title: "Rain Background",
-        previewText: "Rain Background Example",
+        video: "/videos/backgrounds/rain-background.mp4",
     },
     {
         key: "circles",
         title: "Floating Circles Background",
-        previewText: "Floating Circles Background Example",
+        video: "/videos/backgrounds/floating-circles-background.mp4",
     },
     {
         key: "starfield",
-        title: "Starfields Background",
-        previewText: "Starfield Background Example",
+        title: "Starfield Background",
+        video: "/videos/backgrounds/starfield-background.mp4",
     },
     {
         key: "static",
         title: "Static Noise Background",
-        previewText: "Static Noise Background Example",
+        video: "/videos/backgrounds/Static-noise-background.mp4",
     },
     {
         key: "shapes",
         title: "Drifting Shapes Background",
-        previewText: "Drifting Shapes Background Example",
+        video: "/videos/backgrounds/drifting-shapes-background.mp4",
     },
     {
         key: "sunsetSky",
         title: "Sunset Sky Background",
-        previewText: "Sunset Sky Background Example",
+        video: "/videos/backgrounds/sunset-sky-background.mp4",
     },
     {
         key: "bubble",
         title: "Bubble Background",
-        previewText: "Bubble Background Example",
+        video: "/videos/backgrounds/bubble-background.mp4",
     },
     {
         key: "confetti",
         title: "Confetti Background",
-        previewText: "Confetti Background Example",
+        video: "/videos/backgrounds/confetti-background.mp4",
     },
 ];

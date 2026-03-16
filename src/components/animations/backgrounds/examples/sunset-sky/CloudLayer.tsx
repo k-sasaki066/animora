@@ -1,5 +1,3 @@
-"use client";
-
 import Cloud, { CloudProps } from "./Cloud";
 import { useContainerSize } from "@/hooks/useContainerSize";
 

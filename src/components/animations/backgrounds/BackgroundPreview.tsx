@@ -1,22 +1,19 @@
 import { backgroundMap } from "./backgroundMap";
+import { Suspense } from "react";
+import { PageLoader } from "@/components/ui/PageLoader";
 
 interface Props {
     animationKey: string;
-    showTitle?: boolean;
 }
 
-export function BackgroundPreview({ animationKey, showTitle = false, }: Props) {
+export function BackgroundPreview({ animationKey }: Props) {
     const AnimationComponent = backgroundMap[animationKey];
 
     return (
-        <div className="w-full space-y-6 text-center">
-            {showTitle && (
-                <h2 className="text-2xl font-bold mb-4">{animationKey}</h2>
-            )}
-
-            <div className="w-full border rounded-lg overflow-hidden">
+        <div className="w-full aspect-video border rounded-lg p-4 overflow-hidden flex justify-center items-center">
+            <Suspense fallback={<PageLoader />}>
                 <AnimationComponent />
-            </div>
+            </Suspense>
         </div>
     );
 }

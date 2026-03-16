@@ -1,54 +1,51 @@
-import type { ComponentType } from "react";
-import WaveBackground from "./examples/WaveBackground";
-import ShineTextBackground from "./examples/ShineTextBackground";
-import FloatingBubblesBackground from "./examples/floating-bubbles/FloatingBubblesBackground";
-import HexBackground from "./examples/HexBackground";
-import PaperPlaneBackground from "./examples/paper-plane/PaperPlaneBackground";
-import PlanePathBackground from "./examples/PlanePathBackground";
-import ParticlesBackground from "./examples/particles/ParticlesBackground";
-import MagicBackground from "./examples/MagicBackground";
-import SnowBackground from "./examples/SnowBackground";
-import DiagonalBackground from "./examples/DiagonalBackground";
-import CloudBackground from "./examples/CloudBackground";
-import GridBackground from "./examples/GridBackground";
-import FirefliesBackground from "./examples/fireflies/FirefliesBackground";
-import ColorDiagonalBackground from "./examples/ColorDiagonalBackground";
-import LinesBackground from "./examples/lines/LinesBackground";
-import RippleBackground from "./examples/RippleBackground";
-import StreamlinesBackground from "./examples/StreamlinesBackground";
-import RainBackground from "./examples/rain/RainBackground";
-import FloatingCirclesBackground from "./examples/FloatingCirclesBackground";
-import StarfieldBackground from "./examples/StarfieldBackground";
-import StaticNoiseBackground from "./examples/StaticNoiseBackground";
-import DriftingShapesBackground from "./examples/drifting-shapes/DriftingShapesBackground";
-import SunsetSkyBackground from "./examples/sunset-sky/SunsetSkyBackground";
-import BubbleBackground from "./examples/BubbleBackground";
-import ConfettiBackground from "./examples/ConfettiBackground";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type BackgroundComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const backgroundMap: Record<string, ComponentType> = {
-    wave: WaveBackground,
-    shine: ShineTextBackground,
-    floating: FloatingBubblesBackground,
-    hex: HexBackground,
-    plane: PaperPlaneBackground,
-    path: PlanePathBackground,
-    particles: ParticlesBackground,
-    magic: MagicBackground,
-    snow: SnowBackground,
-    diagonal: DiagonalBackground,
-    cloud: CloudBackground,
-    grid: GridBackground,
-    fireflies: FirefliesBackground,
-    color: ColorDiagonalBackground,
-    lines: LinesBackground,
-    ripple: RippleBackground,
-    streamlines: StreamlinesBackground,
-    rain: RainBackground,
-    circles: FloatingCirclesBackground,
-    starfield: StarfieldBackground,
-    static: StaticNoiseBackground,
-    shapes: DriftingShapesBackground,
-    sunsetSky: SunsetSkyBackground,
-    bubble: BubbleBackground,
-    confetti: ConfettiBackground,
+export const backgroundMap: Record<string, BackgroundComponent> = {
+    wave: lazy(() => import("./examples/WaveBackground")),
+    shine: lazy(() => import("./examples/ShineTextBackground")),
+    floating: lazy(() =>
+        import("./examples/floating-bubbles/FloatingBubblesBackground")
+    ),
+    hex: lazy(() => import("./examples/HexBackground")),
+    plane: lazy(() => import("./examples/paper-plane/PaperPlaneBackground")),
+    path: lazy(() => import("./examples/PlanePathBackground")),
+    particles: lazy(() =>
+        import("./examples/particles/ParticlesBackground")
+    ),
+    magic: lazy(() => import("./examples/MagicBackground")),
+    snow: lazy(() => import("./examples/SnowBackground")),
+    diagonal: lazy(() => import("./examples/DiagonalBackground")),
+    cloud: lazy(() => import("./examples/CloudBackground")),
+    grid: lazy(() => import("./examples/GridBackground")),
+    fireflies: lazy(() =>
+        import("./examples/fireflies/FirefliesBackground")
+    ),
+    color: lazy(() => import("./examples/ColorDiagonalBackground")),
+    lines: lazy(() => import("./examples/lines/LinesBackground")),
+    ripple: lazy(() => import("./examples/RippleBackground")),
+    streamlines: lazy(() =>
+        import("./examples/StreamlinesBackground")
+    ),
+    rain: lazy(() => import("./examples/rain/RainBackground")),
+    circles: lazy(() =>
+        import("./examples/FloatingCirclesBackground")
+    ),
+    starfield: lazy(() =>
+        import("./examples/StarfieldBackground")
+    ),
+    static: lazy(() =>
+        import("./examples/StaticNoiseBackground")
+    ),
+    shapes: lazy(() =>
+        import("./examples/drifting-shapes/DriftingShapesBackground")
+    ),
+    sunsetSky: lazy(() =>
+        import("./examples/sunset-sky/SunsetSkyBackground")
+    ),
+    bubble: lazy(() => import("./examples/BubbleBackground")),
+    confetti: lazy(() => import("./examples/ConfettiBackground")),
 };
