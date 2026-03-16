@@ -1,215 +1,215 @@
 export interface LoadingItem {
     key: string;
     title: string;
-    previewText: string;
+    video: string;
 }
 
 export const loadingData: LoadingItem[] = [
     {
         key: "dots",
         title: "Dots Loader",
-        previewText: "Dots Loader Example",
+        video: "/videos/loading/dots-loader.mp4",
     },
     {
         key: "waveDots",
         title: "Wave Dots Loader",
-        previewText: "Wave Dots Loader Example",
+        video: "/videos/loading/wave-dots-loader.mp4",
     },
     {
         key: "pulse",
         title: "Pulse Loader",
-        previewText: "Pulse Loader Example",
+        video: "/videos/loading/pulse-loader.mp4",
     },
     {
         key: "bounce",
         title: "Bounce Loader",
-        previewText: "Bounce Loader Example",
+        video: "/videos/loading/bounce-loader.mp4",
     },
     {
         key: "cloud",
         title: "Cloud Loader",
-        previewText: "Cloud Loader Example",
+        video: "/videos/loading/cloud-loader.mp4",
     },
     {
         key: "ballsScale",
-        title: "BallsScale Loader",
-        previewText: "BallsScale Loader Example",
+        title: "Balls Scale Loader",
+        video: "/videos/loading/balls-scale-loader.mp4",
     },
     {
         key: "cubeMetronome",
-        title: "CubeMetronome Loader",
-        previewText: "CubeMetronome Loader Example",
+        title: "Cube Metronome Loader",
+        video: "/videos/loading/cube-metronome-loader.mp4",
     },
     {
         key: "newtonCradle",
         title: "Newton Cradle Loader",
-        previewText: "Newton Cradle Loader Example",
+        video: "/videos/loading/newton-cradle-loader.mp4",
     },
     {
         key: "marchingDots",
         title: "Marching Dots Loader",
-        previewText: "Marching Dots Loader Example",
+        video: "/videos/loading/marching-dots-loader.mp4",
     },
     {
         key: "cornerDots",
         title: "Corner Dots Loader",
-        previewText: "Corner Dots Loader Example",
+        video: "/videos/loading/corner-dots-loader.mp4",
     },
     {
         key: "hoppingDots",
         title: "Hopping Dots Loader",
-        previewText: "Hopping Dots Loader Example",
+        video: "/videos/loading/hopping-dots-loader.mp4",
     },
     {
         key: "hopperBars",
         title: "Hopper Bars Loader",
-        previewText: "Hopper Bars Loader Example",
+        video: "/videos/loading/hopper-bars-loader.mp4",
     },
     {
         key: "bouncy",
         title: "Bouncy Loader",
-        previewText: "Bouncy Loader Example",
+        video: "/videos/loading/bouncy-loader.mp4",
     },
     {
         key: "growBars",
         title: "Grow Bars Loader",
-        previewText: "Grow Bars Loader Example",
+        video: "/videos/loading/grow-bars-loader.mp4",
     },
     {
         key: "gridBuildup",
         title: "Grid Buildup Loader",
-        previewText: "Grid Buildup Loader Example",
+        video: "/videos/loading/grid-buildup-loader.mp4",
     },
     {
         key: "barProgress",
         title: "Bar Progress Loader",
-        previewText: "Bar Progress Loader Example",
+        video: "/videos/loading/bar-progress-loader.mp4",
     },
     {
         key: "stepBar",
         title: "Step Bar Loader",
-        previewText: "Step Bar Loader Example",
+        video: "/videos/loading/step-bar-loader.mp4",
     },
     {
         key: "stepCircle",
         title: "Step Circle Loader",
-        previewText: "Step Circle Loader Example",
+        video: "/videos/loading/step-circle-loader.mp4",
     },
     {
         key: "rhombusGradient",
         title: "Rhombus Gradient Loader",
-        previewText: "Rhombus Gradient Loader Example",
+        video: "/videos/loading/rhombus-gradient-loader.mp4",
     },
     {
         key: "stripeSlide",
         title: "Stripe Slide Loader",
-        previewText: "Stripe Slide Loader Example",
+        video: "/videos/loading/stripe-slide-loader.mp4",
     },
 
     {
         key: "default",
         title: "Default Loader",
-        previewText: "Default Loader Example",
+        video: "/videos/loading/default-loader.mp4",
     },
     {
         key: "starRotate",
         title: "Star Rotate Loader",
-        previewText: "Star Rotate Loader Example",
+        video: "/videos/loading/star-rotate-loader.mp4",
     },
     {
         key: "fade",
         title: "Fade Loader",
-        previewText: "Fade Loader Example",
+        video: "/videos/loading/fade-loader.mp4",
     },
     {
         key: "rotateScale",
         title: "Rotate Scale Loader",
-        previewText: "Rotate Scale Loader Example",
+        video: "/videos/loading/rotate-scale-loader.mp4",
     },
     {
         key: "slices",
         title: "Slices Loader",
-        previewText: "Slices Loader Example",
+        video: "/videos/loading/slices-loader.mp4",
     },
     {
         key: "clock",
         title: "Clock Loader",
-        previewText: "Clock Loader Example",
+        video: "/videos/loading/clock-loader.mp4",
     },
     {
         key: "waves",
         title: "Waves Loader",
-        previewText: "Waves Loader Example",
+        video: "/videos/loading/waves-loader.mp4",
     },
     {
         key: "square",
         title: "Square Loader",
-        previewText: "Square Loader Example",
+        video: "/videos/loading/square-loader.mp4",
     },
     {
         key: "easeSpin",
         title: "Ease Spin Loader",
-        previewText: "Ease Spin Loader Example",
+        video: "/videos/loading/ease-spin-loader.mp4",
     },
     {
         key: "hourglass",
         title: "Hourglass Loader",
-        previewText: "Hourglass Loader Example",
+        video: "/videos/loading/hourglass-loader.mp4",
     },
     {
         key: "orbitSpin",
         title: "Orbit Spin Loader",
-        previewText: "Orbit Spin Loader Example",
+        video: "/videos/loading/orbit-spin-loader.mp4",
     },
     {
         key: "stepRotate",
         title: "Step Rotate Loader",
-        previewText: "Step Rotate Loader Example",
+        video: "/videos/loading/step-rotate-loader.mp4",
     },
     {
         key: "arrowRotate",
         title: "Arrow Rotate Loader",
-        previewText: "Arrow Rotate Loader Example",
+        video: "/videos/loading/arrow-rotate-loader.mp4",
     },
     {
         key: "quadSpin",
         title: "Quad Spin Loader",
-        previewText: "Quad Spin Loader Example",
+        video: "/videos/loading/quad-spin-loader.mp4",
     },
     {
         key: "scaleDotsSpin",
         title: "Scale Dots Spin Loader",
-        previewText: "Scale Dots Spin Loader Example",
+        video: "/videos/loading/scale-dots-spin-loader.mp4",
     },
     {
         key: "weaveCircle",
         title: "Weave Circle Loader",
-        previewText: "Weave Circle Loader Example",
+        video: "/videos/loading/weave-circle-loader.mp4",
     },
 
     {
         key: "text",
         title: "Text Loader",
-        previewText: "Text Loader Example",
+        video: "/videos/loading/text-loader.mp4",
     },
     {
         key: "slideText",
-        title: "SlideText Loader",
-        previewText: "SlideText Loader Example",
+        title: "Slide Text Loader",
+        video: "/videos/loading/slide-text-loader.mp4",
     },
     {
         key: "barcode",
         title: "Barcode Loader",
-        previewText: "Barcode Loader Example",
+        video: "/videos/loading/barcode-loader.mp4",
     },
     {
         key: "waveFill",
         title: "Wave Fill Loader",
-        previewText: "Wave Fill Loader Example",
+        video: "/videos/loading/wave-fill-loader.mp4",
     },
     {
         key: "shutter",
         title: "Shutter Loader",
-        previewText: "Shutter Loader Example",
+        video: "/videos/loading/shutter-loader.mp4",
     },
 ];
