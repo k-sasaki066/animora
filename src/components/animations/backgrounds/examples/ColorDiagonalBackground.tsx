@@ -1,43 +1,28 @@
 import { motion } from "framer-motion";
 
 export default function ColorDiagonalBackground() {
+    const layers = [
+        { duration: 3, from: "-25%", to: "25%" },
+        { duration: 4, from: "25%", to: "-25%" },
+        { duration: 5, from: "-25%", to: "25%" },
+    ];
+
     return (
         <div className="relative w-full aspect-video overflow-hidden rounded-lg">
-            {/* layer 1 */}
-            <motion.div
-                className="absolute inset-0 -left-1/2 -right-1/2 opacity-50 bg-[linear-gradient(-60deg,#6c3_50%,#09f_50%)]"
-                animate={{ x: ["-25%", "25%"] }}
-                transition={{
-                    duration: 3,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                }}
-            />
-
-            {/* layer 2 */}
-            <motion.div
-                className="absolute inset-0 -left-1/2 -right-1/2 opacity-50 bg-[linear-gradient(-60deg,#6c3_50%,#09f_50%)]"
-                animate={{ x: ["25%", "-25%"] }}
-                transition={{
-                    duration: 4,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                }}
-            />
-
-            {/* layer 3 */}
-            <motion.div
-                className="absolute inset-0 -left-1/2 -right-1/2 opacity-50 bg-[linear-gradient(-60deg,#6c3_50%,#09f_50%)]"
-                animate={{ x: ["-25%", "25%"] }}
-                transition={{
-                    duration: 5,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                }}
-            />
+            {/* layer */}
+            {layers.map((layer, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute inset-0 -left-1/2 -right-1/2 opacity-50 bg-[linear-gradient(-60deg,#6c3_50%,#09f_50%)]"
+                    animate={{ x: [layer.from, layer.to] }}
+                    transition={{
+                        duration: layer.duration,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                    }}
+                />
+            ))}
 
             {/* optional center content */}
             <div className="relative z-10 flex items-center justify-center h-full">

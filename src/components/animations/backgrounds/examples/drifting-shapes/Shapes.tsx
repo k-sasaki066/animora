@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 
 const Point = () => (
     <svg viewBox="0 0 12 12" className="w-3 h-3">

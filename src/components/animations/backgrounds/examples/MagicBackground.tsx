@@ -33,9 +33,7 @@ export default function MagicBackground() {
                 backgroundPosition: "center",
             }}
         >
-            <h2
-                className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-[4vw] font-bold text-white z-10"
-            >
+            <h2 className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-[4vw] font-bold text-white z-10">
                 SEARCH
             </h2>
 

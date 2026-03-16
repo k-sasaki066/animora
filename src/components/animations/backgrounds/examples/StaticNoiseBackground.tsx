@@ -47,7 +47,10 @@ export default function StaticNoiseBackground() {
     }, [intensity, color]);
 
     return (
-        <div className="w-full aspect-video relative overflow-hidden" onClick={() => setActive(!active)}>
+        <div
+            className="w-full aspect-video relative overflow-hidden"
+            onClick={() => setActive(!active)}
+        >
             <motion.div
                 className="absolute inset-0"
                 initial={{ scaleX: 1, scaleY: 1 }}

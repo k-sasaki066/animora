@@ -17,7 +17,7 @@ export default function PlanePathBackground() {
         if (!path) return 0;
         return path.getPointAtLength(t * path.getTotalLength()).y;
     });
-    
+
     /** ★ 進行方向の角度を計算 */
     const rotate = useTransform(progress, (t) => {
         const path = pathRef.current;
@@ -58,9 +58,7 @@ export default function PlanePathBackground() {
             />
 
             {/* Plane */}
-            <motion.g
-                style={{ x, y, rotate, transformOrigin: "center", }}
-            >
+            <motion.g style={{ x, y, rotate, transformOrigin: "center", }}>
                 <polygon className="fill-gray-300" points="-141,-10 199,0 -198,-72" />
                 <polygon className="fill-gray-400" points="199,0 -141,-10 -163,63" />
                 <polygon className="fill-gray-500" points="-95,39 -113,32 -123,9" />
