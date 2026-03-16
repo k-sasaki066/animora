@@ -1,18 +1,15 @@
-import type { ComponentType } from "react";
-import SimplePagination from "./examples/simple/SimplePagination";
-import CirclePagination from "./examples/circle/CirclePagination";
-import CapsulePagination from "./examples/capsule/CapsulePagination";
-import EllipsisPagination from "./examples/ellipsis/EllipsisPagination";
-import LoadMoreList from "./examples/load-more/LoadMoreList";
-import DropDownPagination from "./examples/drop-down/DropDownPagination";
-import InfiniteScrollList from "./examples/infinite-scroll/InfiniteScrollList";
+import type { LazyExoticComponent, ComponentType } from "react";
+import { lazy } from "react";
+type PaginationComponent = LazyExoticComponent<
+    ComponentType<{ paused?: boolean }>
+    >;
 
-export const paginationMap: Record<string, ComponentType> = {
-    simplePagination: SimplePagination,
-    circlePagination: CirclePagination,
-    capsulePagination: CapsulePagination,
-    ellipsisPagination: EllipsisPagination,
-    loadMoreList: LoadMoreList,
-    dropDownPagination: DropDownPagination,
-    infiniteScrollList: InfiniteScrollList,
+export const paginationMap: Record<string, PaginationComponent> = {
+    simplePagination: lazy(() => import("./examples/simple/SimplePagination")),
+    circlePagination: lazy(() => import("./examples/circle/CirclePagination")),
+    capsulePagination: lazy(() => import("./examples/capsule/CapsulePagination")),
+    ellipsisPagination: lazy(() => import("./examples/ellipsis/EllipsisPagination")),
+    loadMoreList: lazy(() => import("./examples/load-more/LoadMoreList")),
+    dropDownPagination: lazy(() => import("./examples/drop-down/DropDownPagination")),
+    infiniteScrollList: lazy(() => import("./examples/infinite-scroll/InfiniteScrollList")),
 };

@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { useContainerSize } from "@/hooks/useContainerSize";
 import { useLoadMoreList } from "./useLoadMoreList";
