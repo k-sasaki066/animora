@@ -1,5 +1,3 @@
-"use client";
-
 import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, Legend, ResponsiveContainer, ReferenceLine } from "recharts";
 import { StudySummary } from "./StudySummary";
 import { SubjectCards } from "./SubjectCards";

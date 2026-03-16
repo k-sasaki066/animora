@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useMemo, Fragment } from "react";
 import { Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea, ReferenceLine, Line, ComposedChart } from "recharts";
 import { motion } from "framer-motion";

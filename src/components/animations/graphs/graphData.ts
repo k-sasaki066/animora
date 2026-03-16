@@ -1,51 +1,43 @@
 export interface GraphItem {
     key: string;
     title: string;
-    previewText: string;
-    image: string;
+    video: string;
 }
 
 export const graphData: GraphItem[] = [
     {
         key: "salesBarGraph",
         title: "Sales Bar Graph",
-        previewText: "Sales Bar Graph Example",
-        image: "/images/graphs/sales-bar.webp",
+        video: "/videos/graphs/sales-bar-graph.mp4",
     },
     {
         key: "accessLineGraph",
         title: "Access Line Graph",
-        previewText: "Access Line Graph Example",
-        image: "/images/graphs/access-line.webp",
+        video: "/videos/graphs/access-line-graph.mp4",
     },
     {
         key: "goodsSalesDonutGraph",
         title: "Goods Sales Donut Graph",
-        previewText: "Goods Sales Donut Graph Example",
-        image: "/images/graphs/goods-sales.webp",
+        video: "/videos/graphs/goods-sales-donut-graph.mp4",
     },
     {
         key: "studyTimeGraph",
         title: "Study Time Graph",
-        previewText: "Study Time Graph Example",
-        image: "/images/graphs/study-time.webp",
+        video: "/videos/graphs/study-time-graph.mp4",
     },
     {
         key: "heatmapGraph",
         title: "Heatmap Graph",
-        previewText: "Heatmap Graph Example",
-        image: "/images/graphs/heat-map.webp",
+        video: "/videos/graphs/heatmap-graph.mp4",
     },
     {
         key: "evaluationRadarGraph",
         title: "Evaluation Radar Graph",
-        previewText: "Evaluation Radar Graph Example",
-        image: "/images/graphs/radar.webp",
+        video: "/videos/graphs/evaluation-radar-graph.mp4",
     },
     {
         key: "iceCreamScatterGraph",
         title: "IceCream Scatter Graph",
-        previewText: "IceCream Scatter Graph Example",
-        image: "/images/graphs/scatter.webp",
+        video: "/videos/graphs/scatter-graph.mp4",
     },
 ];
