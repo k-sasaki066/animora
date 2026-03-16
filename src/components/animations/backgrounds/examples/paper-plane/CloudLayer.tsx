@@ -1,5 +1,3 @@
-"use client";
-
 import Cloud from "./Cloud";
 
 export default function CloudLayer() {

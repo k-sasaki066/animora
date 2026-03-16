@@ -4,10 +4,13 @@ import { useState } from "react";
 import { BackgroundCard } from "./BackgroundCard";
 import { BackgroundModal } from "./BackgroundModal";
 import { backgroundData } from "./backgroundData";
-
+import { useReducedMotion } from "framer-motion";
 
 export function BackgroundList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
+    const prefersReducedMotion = useReducedMotion();
+    const reduceMotion = prefersReducedMotion ?? false;
+    const paused = !!activeKey || reduceMotion;
 
     return (
         <>
@@ -16,8 +19,9 @@ export function BackgroundList() {
                     <BackgroundCard
                         key={item.key}
                         title={item.title}
-                        animationKey={item.key}
+                        video={item.video}
                         onClick={() => setActiveKey(item.key)}
+                        paused={paused}
                     />
                 ))}
             </div>

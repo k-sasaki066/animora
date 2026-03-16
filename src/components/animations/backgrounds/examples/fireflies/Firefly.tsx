@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 
 function random(min: number, max: number) {

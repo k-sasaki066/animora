@@ -1,5 +1,3 @@
-"use client";
-
 import CloudLayer from "./CloudLayer";
 import Plane from "./Plane";
 

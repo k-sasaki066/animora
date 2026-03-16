@@ -1,5 +1,3 @@
-"use client";
-
 import Firefly from "./Firefly";
 
 const FIREFLY_COUNT = 8;

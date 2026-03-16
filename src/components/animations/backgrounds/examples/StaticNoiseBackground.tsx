@@ -1,23 +1,16 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Nosifer } from "next/font/google";
-
-interface TVNoiseProps {
-    intensity?: number;
-    color?: string;
-}
 
 export const nosifer = Nosifer({
     weight: "400",
     subsets: ["latin"],
 });
 
-export default function StaticNoiseBackground({
-    intensity = 0.2, //点の割合
-    color = "hsla(0, 0%, 10%, 1)",
-}: TVNoiseProps) {
+const intensity = 0.2;
+const color = "hsla(0, 0%, 10%, 1)";
+
+export default function StaticNoiseBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [active, setActive] = useState(false);
 

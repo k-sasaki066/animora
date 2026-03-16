@@ -1,13 +1,9 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-interface HexBackgroundProps {
-    color?: "red" | "gray";
-}
+const color: "red" | "gray" = "red";
 
-export default function HexBackground({ color = "red" }: HexBackgroundProps) {
+export default function HexBackground() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     useEffect(() => {
