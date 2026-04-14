@@ -1,16 +1,24 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
+export default function HopperBarsLoader({
+    paused = false,
+    speed = 2,
+    size = 40,
+    color = "#fb7185",
+}: LoaderProps) {
 
-export default function HopperBarsLoader({ paused = false }: Props) {
-
-    const containerWidth = 40;
     const leftOffset = 16;
 
-    const landings = [-8, 2, 12, 22]; // 着地位置
-    const bounceHeights = [26, 22, 18, 14]; // バウンドの高さ
+    // 着地位置
+    const landingRatios = [-0.2, 0.05, 0.3, 0.55];
+
+    // バウンド高さ
+    const bounceRatios = [0.65, 0.55, 0.45, 0.35];
+
+    // 実値に変換
+    const landings = landingRatios.map(r => r * size);
+    const bounceHeights = bounceRatios.map(r => r * size);
 
     const yKeyframes: number[] = [];
     landings.forEach((landing, i) => {
@@ -24,17 +32,35 @@ export default function HopperBarsLoader({ paused = false }: Props) {
 
     const yTimes = yKeyframes.map((_, i) => i / (yKeyframes.length - 1));
 
+    const barHeights = [0.75, 0.5, 0.25];
+    const barWidth = size * 0.2;
+
     return (
-        <div className="relative w-10 h-7.5 flex items-end justify-between">
+        <div
+            className="relative flex items-end justify-between"
+            style={{
+                width: size,
+                height: size * 0.75,
+            }}
+        >
             {/* bars */}
-            <div className="w-2 h-7.5 bg-rose-400/80" />
-            <div className="w-2 h-5 bg-rose-400/80" />
-            <div className="w-2 h-2.5 bg-rose-400/80" />
+            {barHeights.map((h, i) => (
+                <div
+                    key={i}
+                    style={{
+                        width: barWidth,
+                        height: size * h,
+                        backgroundColor: color,
+                    }}
+                />
+            ))}
 
             {/* hopping dot */}
             <motion.div
-                className="absolute w-2 h-2 rounded-full bg-amber-500/70 overflow-hidden"
+                className="absolute rounded-full bg-amber-500/70 overflow-hidden"
                 style={{
+                    width: size / 5,
+                    height: size / 5,
                     left: -leftOffset,
                     top: 0,
                 }}
@@ -42,7 +68,7 @@ export default function HopperBarsLoader({ paused = false }: Props) {
                     paused
                         ? { x: 5, y: -10}
                         : {
-                            x: [0, containerWidth + leftOffset * 2],
+                            x: [0, size + leftOffset * 2],
                             y: yKeyframes,
                         }
                 }
@@ -51,12 +77,12 @@ export default function HopperBarsLoader({ paused = false }: Props) {
                         ? { duration: 0 }
                         : {
                             x: {
-                                duration: 2,
+                                duration: speed,
                                 repeat: Infinity,
                                 ease: "linear",
                             },
                             y: {
-                                duration: 2,
+                                duration: speed,
                                 repeat: Infinity,
                                 ease: "easeIn",
                                 times: yTimes,

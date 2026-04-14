@@ -1,15 +1,23 @@
-interface Props {
-    paused?: boolean;
-}
+import type { LoaderProps } from "../../loader";
 
-export default function EaseSpinLoader({ paused = false }: Props) {
+export default function EaseSpinLoader({
+    paused = false,
+    speed = 1.5,
+    size = 40,
+    color = "#fb7185",
+}: LoaderProps) {
+    const strokeWidth = size * 0.12;
 
     return (
         <svg
-            className="w-12 h-12 text-rose-400"
             viewBox="0 0 40 40"
-            width="40"
-            height="40"
+            width={size}
+            height={size}
+            style={{
+                color,
+                width: size * 1.2,
+                height: size * 1.2,
+            }}
         >
             <circle
                 className="track"
@@ -17,11 +25,10 @@ export default function EaseSpinLoader({ paused = false }: Props) {
                 cy="20"
                 r="17.5"
                 pathLength="100"
-                strokeWidth="5px"
                 fill="none"
-                style={{
-                    stroke: "currentColor", opacity: 0.2
-                }}
+                stroke="currentColor"
+                strokeWidth={strokeWidth}
+                opacity={0.2}
             />
             <circle
                 className="car"
@@ -29,7 +36,7 @@ export default function EaseSpinLoader({ paused = false }: Props) {
                 cy="20"
                 r="17.5"
                 pathLength="100"
-                strokeWidth="5px"
+                strokeWidth={strokeWidth}
                 fill="none"
                 style={{
                     stroke: "currentColor", strokeLinecap: "round",
@@ -41,7 +48,7 @@ export default function EaseSpinLoader({ paused = false }: Props) {
                     stroke-dasharray: 1, 200;
                     stroke-dashoffset: 0;
                     transform-origin: 50% 50%; /* 中心を軸に回転 */
-                    animation: stretch 1.5s ease-in-out infinite, rotate 2s linear infinite;
+                    animation: stretch ${speed}s ease-in-out infinite, rotate ${speed * 1.2}s linear infinite;
                 }
                 @keyframes rotate {
                     100% {

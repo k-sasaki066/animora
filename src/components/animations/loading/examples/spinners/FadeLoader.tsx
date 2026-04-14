@@ -1,14 +1,21 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function FadeLoader({ paused = false }: Props) {
+export default function FadeLoader({
+    paused = false,
+    speed = 1.5,
+    size = 48,
+    color = "#66a6ff",
+}: LoaderProps) {
 
     return (
         <motion.div
-            className="w-12 h-12 bg-[#66a6ff] rounded-full"
+            className="rounded-full"
+            style={{
+                width: size,
+                height: size,
+                backgroundColor: color,
+            }}
             animate={
                 paused
                     ? { opacity: 0.6 }
@@ -19,7 +26,7 @@ export default function FadeLoader({ paused = false }: Props) {
                     ? { duration: 0 }
                     : {
                         repeat: Infinity,
-                        duration: 1.5
+                        duration: speed
                     }
             }
         />

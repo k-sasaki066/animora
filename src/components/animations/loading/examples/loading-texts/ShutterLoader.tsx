@@ -1,17 +1,25 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function ShutterLoader({ paused = false }: Props) {
+export default function ShutterLoader({
+    paused = false,
+    speed = 2,
+    size = 20,
+    color = "#3f3f46",
+}: LoaderProps) {
     const letters = ["L", "O", "A", "D", "I", "N", "G"];
     const boxCount = letters.length;
 
     const pausedProgress = 1;
 
     return (
-        <div className="relative flex aspect-7/2 overflow-hidden bg-zinc-700 text-white font-semibold text-3xl">
+        <div
+            className="relative flex aspect-7/2 overflow-hidden text-white font-semibold"
+            style={{
+                fontSize: size,
+                backgroundColor: color,
+            }}
+        >
             {/* 文字 */}
             {letters.map((letter, i) => {
                 const delay = i / boxCount;
@@ -20,7 +28,10 @@ export default function ShutterLoader({ paused = false }: Props) {
                 return (
                     <div
                         key={i}
-                        className="relative w-12 h-full flex items-center justify-center"
+                        className="relative h-full flex items-center justify-center"
+                        style={{
+                            width: size * 1.6,
+                        }}
                     >
                         <motion.span
                             className="absolute z-10 select-none"
@@ -34,7 +45,7 @@ export default function ShutterLoader({ paused = false }: Props) {
                                 paused
                                     ? { duration: 0 }
                                     : {
-                                        duration: 2,
+                                        duration: speed,
                                         times: [0, 0.16, 0.5, 1],
                                         ease: "easeInOut",
                                         repeat: Infinity,
@@ -64,7 +75,7 @@ export default function ShutterLoader({ paused = false }: Props) {
                                 paused
                                     ? { duration: 0 }
                                     : {
-                                        duration: 2,
+                                        duration: speed,
                                         times: [0, 0.16, 0.5, 1],
                                         ease: "easeInOut",
                                         repeat: Infinity,

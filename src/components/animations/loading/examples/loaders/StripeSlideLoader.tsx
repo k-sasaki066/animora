@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
+export default function StripeSlideLoader({
+    paused = false,
+    speed = 2,
+    size = 80,
+    color = "#6f86d6",
+}: LoaderProps) {
 
-export default function StripeSlideLoader({ paused = false }: Props) {
+    const width = size * 1.4;
 
     return (
         <motion.div
-            className="w-[calc(80px/cos(45deg))] h-3 rounded"
+            className="rounded"
             style={{
-                background: `repeating-linear-gradient(-45deg, #6f86d6 0 15px, transparent 0 20px)`,
+                width,
+                height: size * 0.15,
+                background: `repeating-linear-gradient(-45deg, ${color} 0 15px, transparent 0 20px)`,
                 backgroundSize: "200% 100%",
             }}
             animate={
@@ -23,7 +29,7 @@ export default function StripeSlideLoader({ paused = false }: Props) {
                     ? { duration: 0 }
                     : {
                         repeat: Infinity,
-                        duration: 2,
+                        duration: speed,
                         ease: "linear",
                     }
             }

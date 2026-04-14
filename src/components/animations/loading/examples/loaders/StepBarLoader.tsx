@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function StepBarLoader({ paused = false }: Props) {
-    const boxCount = 5;
+export default function StepBarLoader({
+    paused = false,
+    speed = 0.2,
+    size = 12,
+    color = "#2b9a23",
+    boxCount = 5,
+}: LoaderProps) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
@@ -14,10 +16,10 @@ export default function StepBarLoader({ paused = false }: Props) {
 
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1 > boxCount ? 0 : prev + 1));
-        }, 350);
+        }, 500);
 
         return () => clearInterval(interval);
-    }, [paused]);
+    }, [paused, boxCount]);
 
     const pausedIndex = Math.floor(boxCount / 2);
 
@@ -31,10 +33,14 @@ export default function StepBarLoader({ paused = false }: Props) {
                 return (
                     <motion.div
                         key={i}
-                        className="w-3 h-4 rounded bg-gray-300"
-                        animate={{ backgroundColor: isActive ? "#2b9a23" : "#e5e7eb" }}
+                        className="rounded"
+                        style={{
+                            width: size,
+                            height: size * 1.33,
+                        }}
+                        animate={{ backgroundColor: isActive ? color : "#e5e7eb" }}
                         transition={{
-                            duration: paused ? 0 : 0.2,
+                            duration: paused ? 0 : speed,
                             ease: "easeIn"
                         }}
                     />

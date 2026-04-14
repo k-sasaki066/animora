@@ -1,11 +1,13 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function SquareLoader({ paused = false }: Props) {
+export default function SquareLoader({
+    paused = false,
+    speed = 1.2,
+    size = 36,
+    color = "#22c55e",
+}: LoaderProps) {
     const controls = useAnimation();
 
     useEffect(() => {
@@ -14,21 +16,21 @@ export default function SquareLoader({ paused = false }: Props) {
                 strokeDashoffset: [-0, -100],
                 transition: {
                     repeat: Infinity,
-                    duration: 1.2,
+                    duration: speed,
                     ease: "linear",
                 },
             });
         } else {
             controls.stop();
         }
-    }, [paused, controls]);
+    }, [paused, controls, speed]);
 
     return (
         <svg
-            className="w-12 h-12 text-green-500"
             viewBox="0 0 36 36"
-            height="36"
-            width="36"
+            height={size}
+            width={size}
+            style={{ color }}
         >
             <rect
                 x="3"
@@ -39,7 +41,7 @@ export default function SquareLoader({ paused = false }: Props) {
                 ry="2"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="4"
+                strokeWidth={Math.max(1, size * 0.15)}
                 opacity="0.15"
             />
 
@@ -53,7 +55,7 @@ export default function SquareLoader({ paused = false }: Props) {
                 ry="2"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="4"
+                strokeWidth={Math.max(1, size * 0.15)}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 pathLength="100"

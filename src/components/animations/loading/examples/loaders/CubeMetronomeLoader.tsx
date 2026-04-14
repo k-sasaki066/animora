@@ -1,26 +1,33 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function CubeMetronomeLoader({ paused = false }: Props) {
+export default function CubeMetronomeLoader({
+    paused = false,
+    speed = 2,
+    size = 14,
+    color = "#ec6ead",
+    xRange = 8,
+}: LoaderProps) {
 
     return (
-        <div className="relative flex items-center justify-center w-12 h-12">
+        <div className="relative flex items-center justify-center">
             <motion.div
-                className="absolute bg-[#ec6ead] rounded-sm"
-                style={{ width: 14, height: 14 }}
+                className="absolute rounded-sm"
+                style={{
+                    width: size,
+                    height: size,
+                    backgroundColor: color,
+                }}
                 animate={
                     paused
                         ? { x: 0 }
-                        : { x: [-8, 0, 8, 0, -8] }
+                        : { x: [-xRange, 0, xRange, 0, -xRange] }
                 }
                 transition={
                     paused
                         ? { duration: 0 }
                         : {
-                            duration: 2,
+                            duration: speed,
                             repeat: Infinity,
                             ease: "easeInOut",
                         }

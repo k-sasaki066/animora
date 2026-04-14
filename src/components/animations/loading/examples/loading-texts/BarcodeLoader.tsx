@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { useContainerSize } from "@/hooks/useContainerSize";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function BarcodeLoader({ paused = false }: Props) {
+export default function BarcodeLoader({
+    paused = false,
+    speed = 2.6,
+    size = 30,
+    color = "#9810fa",
+}: LoaderProps) {
     const text = "Loading";
     const { ref, width } = useContainerSize<HTMLDivElement>();
 
@@ -32,7 +34,11 @@ export default function BarcodeLoader({ paused = false }: Props) {
     return (
         <div
             ref={ref}
-            className="relative text-3xl font-medium text-purple-600 select-none whitespace-nowrap"
+            className="relative font-medium select-none whitespace-nowrap"
+            style={{
+                fontSize: size,
+                color: color,
+            }}
         >
             {/* 元文字（幅測定用・見えない） */}
             <span className="opacity-0">{text}</span>
@@ -59,7 +65,7 @@ export default function BarcodeLoader({ paused = false }: Props) {
                             paused
                                 ? { duration: 0 }
                                 : {
-                                    duration: 2.6,
+                                    duration: speed,
                                     times: [0, 0.3, 0.6, 0.85, 1],
                                     ease: "easeInOut",
                                     delay: Math.max(0, bar.delay),

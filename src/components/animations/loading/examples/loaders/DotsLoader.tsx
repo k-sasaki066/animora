@@ -1,17 +1,25 @@
-interface Props {
-    paused?: boolean;
-}
+import type { LoaderProps } from "../../loader";
 
-export default function DotsLoader({ paused = false }: Props) {
+export default function DotsLoader({
+    paused = false,
+    speed = 0.6,
+    size = 12,
+    color = "#7c3aed",
+    delayStep = 0.16
+}: LoaderProps) {
 
     return (
-        <div className="flex items-center space-x-2 w-12 h-12 text-purple-600">
-            {[0, 160, 320].map((delay, i) => (
+        <div className="flex items-center space-x-2">
+            {[0, 1, 2].map((i) => (
                 <div
                     key={i}
-                    className="w-3 h-3 bg-purple-600 rounded-full animate-bounce"
+                    className="rounded-full animate-bounce"
                     style={{
-                        animationDelay: `${delay}ms`,
+                        width: size,
+                        height: size,
+                        backgroundColor: color,
+                        animationDelay: `${i * delayStep}s`,
+                        animationDuration: `${speed}s`,
                         animationPlayState: paused ? "paused" : "running"
                     }}
                 />

@@ -1,19 +1,22 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function HourglassLoader({ paused = false }: Props) {
-    const fill = "#08b7c8";
+export default function HourglassLoader({
+    paused = false,
+    speed = 1,
+    size = 40,
+    color = "#08b7c8",
+}: LoaderProps) {
     const bg = "#fff";
+    const width = size;
+    const height = size * 2;
 
     return (
         <motion.div
             className="relative mx-auto"
             style={{
-                width: "2em",
-                height: "4em",
+                width,
+                height,
                 background: bg,
             }}
             animate={
@@ -22,16 +25,16 @@ export default function HourglassLoader({ paused = false }: Props) {
                     : {
                         rotate: [0, 0, 180],
                         boxShadow: [
-                            `inset ${fill} 0 -0em 0 0,inset ${bg} 0 -2em 0 0,
-                            inset ${fill} 0 -4em 0 0`,
+                            `inset ${color} 0 -0em 0 0,inset ${bg} 0 -2em 0 0,
+                            inset ${color} 0 -4em 0 0`,
 
-                            `inset ${fill} 0 -2em 0 0,
+                            `inset ${color} 0 -2em 0 0,
                             inset ${bg} 0 -2em 0 0,
-                            inset ${fill} 0 -2em 0 0`,
+                            inset ${color} 0 -2em 0 0`,
 
-                            `inset ${fill} 0 -2em 0 0,
+                            `inset ${color} 0 -2em 0 0,
                             inset ${bg} 0 -2em 0 0,
-                            inset ${fill} 0 -2em 0 0`,
+                            inset ${color} 0 -2em 0 0`,
                         ],
                     }
             }
@@ -39,7 +42,7 @@ export default function HourglassLoader({ paused = false }: Props) {
                 paused
                     ? { duration: 0 }
                     : {
-                        duration: 1,
+                        duration: speed,
                         repeat: Infinity,
                         ease: "linear",
                         times: [0, 0.8, 1],
@@ -59,7 +62,7 @@ export default function HourglassLoader({ paused = false }: Props) {
                 />
                 <path
                     className="outer"
-                    fill={fill}
+                    fill={color}
                     d="M93.7 95.3c10.5-7.7 26.3-19.4 26.3-41.9V0H0v53.4c0 22.5 15.8 34.2 26.3 41.9 3 2.2 7.9 5.8 9 7.7-1.1 1.9-6 5.5-9 7.7C15.8 118.4 0 130.1 0 152.6V206h120v-53.4c0-22.5-15.8-34.2-26.3-41.9-3-2.2-7.9-5.8-9-7.7 1.1-2 6-5.5 9-7.7zM70.6 103c0 18 35.4 21.8 35.4 49.6V192H14v-39.4c0-27.9 35.4-31.6 35.4-49.6S14 81.2 14 53.4V14h92v39.4C106 81.2 70.6 85 70.6 103z"
                 />
             </svg>

@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function RhombusGradientLoader({ paused = false }: Props) {
+export default function RhombusGradientLoader({
+    paused = false,
+    speed = 2.5,
+    size = 112,
+    color = "#05df72",
+}: LoaderProps) {
 
     const maskSvg = encodeURIComponent(`
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -14,8 +16,10 @@ export default function RhombusGradientLoader({ paused = false }: Props) {
 
     return (
         <div
-            className="relative w-28 h-6 overflow-hidden bg-gray-200/50"
+            className="relative overflow-hidden bg-gray-200/50"
             style={{
+                width: size,
+                height: size * 0.21,
                 WebkitMaskImage: `url("data:image/svg+xml;utf8,${maskSvg}")`,
                 WebkitMaskRepeat: "repeat-x",
                 WebkitMaskSize: "25% 100%",
@@ -23,7 +27,10 @@ export default function RhombusGradientLoader({ paused = false }: Props) {
             }}
         >
             <motion.div
-                className="absolute w-full h-full top-0 left-0 bg-green-400"
+                className="absolute w-full h-full top-0 left-0"
+                style={{
+                    backgroundColor: color,
+                }}
                 animate={
                     paused
                         ? { x: "-50%" }
@@ -33,7 +40,7 @@ export default function RhombusGradientLoader({ paused = false }: Props) {
                     paused
                         ? { duration: 0 }
                         : {
-                            duration: 2.5,
+                            duration: speed,
                             repeat: Infinity,
                             ease: "linear",
                         }

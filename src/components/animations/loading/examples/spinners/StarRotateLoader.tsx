@@ -1,15 +1,20 @@
-interface Props {
-    paused?: boolean;
-}
+import type { LoaderProps } from "../../loader";
 
-export default function StarRotateLoader({ paused = false }: Props) {
+export default function StarRotateLoader({
+    paused = false,
+    speed = 3,
+    size = 48,
+    color = "#70e1f5",
+}: LoaderProps) {
 
     return (
         <svg
-            width="48"
-            height="48"
+            width={size}
+            height={size}
             viewBox="0 0 100 100"
-            className="text-[#70e1f5]"
+            style={{
+                color: color,
+            }}
         >
             <polygon
                 points="
@@ -31,7 +36,7 @@ export default function StarRotateLoader({ paused = false }: Props) {
                 strokeLinecap="round"
                 style={{
                     transformOrigin: "50% 50%",
-                    animation: "spin-pause 3s infinite",
+                    animation: `spin-pause ${speed}s infinite`,
                     animationPlayState: paused ? "paused" : "running"
                 }}
             />

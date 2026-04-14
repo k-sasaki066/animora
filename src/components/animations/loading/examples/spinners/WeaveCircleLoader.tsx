@@ -1,34 +1,30 @@
 import { motion } from "framer-motion";
-import { useContainerSize } from "@/hooks/useContainerSize";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function WeaveCircleLoader({ paused = false }: Props) {
-    const { ref, width } = useContainerSize<HTMLDivElement>();
-
-    const circleSize = width ? Math.min(width * 0.35, 150) : 80; // 最大150px
-    const textSize = Math.min(circleSize / 6, 24);
+export default function WeaveCircleLoader({
+    paused = false,
+    speed = 3,
+    size = 120,
+}: LoaderProps) {
+    const textSize = Math.min(size / 6, 24);
 
     const circles = [
-        { color: "bg-blue-400", opacity: 0.4, duration: 3 },
-        { color: "bg-yellow-400", opacity: 0.2, duration: 5 },
-        { color: "bg-purple-400", opacity: 0.4, duration: 2.5 },
+        { color: "bg-blue-400", opacity: 0.4, duration: speed },
+        { color: "bg-yellow-400", opacity: 0.2, duration: speed * 1.6 },
+        { color: "bg-purple-400", opacity: 0.4, duration: speed * 0.83 },
     ];
 
     const pausedRotations = [30, 120, 210];
 
     return (
         <div
-            ref={ref}
             className="flex items-center justify-center w-full h-full bg-gray-50"
         >
             <div
                 className="relative select-none"
                 style={{
-                    width: circleSize,
-                    height: circleSize
+                    width: size,
+                    height: size
                 }}
             >
                 {/* 背景グラデーション */}
@@ -37,7 +33,7 @@ export default function WeaveCircleLoader({ paused = false }: Props) {
                     animate={{ opacity: [0.9, 0.6, 0.9] }}
                     transition={{
                         repeat: Infinity,
-                        duration: 3,
+                        duration: speed,
                         ease: "linear"
                     }}
                 />

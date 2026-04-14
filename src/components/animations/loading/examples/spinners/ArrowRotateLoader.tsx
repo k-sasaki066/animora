@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function ArrowRotateLoader({ paused = false }: Props) {
-    const size = 50;
+export default function ArrowRotateLoader({
+    paused = false,
+    speed = 1,
+    size = 50,
+    color = "#8b5cf6",
+}: LoaderProps) {
 
     return (
         <motion.div
@@ -20,7 +21,7 @@ export default function ArrowRotateLoader({ paused = false }: Props) {
                     radial-gradient(farthest-side at top,#0000 calc(100% - 6px), currentColor calc(100% - 5px) 99%, #0000) bottom/100% 50% content-box content-box
                 `,
                 backgroundRepeat: "no-repeat",
-                color: "#8b5cf6",
+                color: color,
             }}
             animate={
                 paused
@@ -30,7 +31,7 @@ export default function ArrowRotateLoader({ paused = false }: Props) {
             transition={
                 paused
                     ? { duration: 0 }
-                    : { repeat: Infinity, ease: "linear", duration: 1 }
+                    : { repeat: Infinity, ease: "linear", duration: speed }
             }
         />
     );

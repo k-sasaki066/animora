@@ -1,28 +1,41 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
+export default function MarchingDotsLoader({
+    paused = false,
+    speed = 1,
+    size = 12,
+    color = "#77db9a",
+}: LoaderProps) {
+    const range = size * 1.5;
 
-export default function MarchingDotsLoader({ paused = false }: Props) {
     return (
-        <div className="relative w-3 aspect-square">
+        <div
+            className="relative"
+            style={{
+                width: size,
+                height: size,
+            }}
+        >
             {/* 水平移動 */}
             <motion.div
-                className="absolute inset-0 rounded-full bg-[#77db9a]"
+                className="absolute rounded-full"
                 style={{
-                    boxShadow: "-20px 0 0 #77db9a",
+                    width: size,
+                    height: size,
+                    boxShadow: `${-range}px 0 0 ${color}`,
+                    backgroundColor: color,
                 }}
                 animate={
                     paused
                         ? { x: 0 }
-                        : { x: [0, 20] }
+                        : { x: [0, range] }
                 }
                 transition={
                     paused
                         ? { duration: 0 }
                         : {
-                            duration: 1,
+                            duration: speed,
                             repeat: Infinity,
                             ease: "linear",
                         }
@@ -31,9 +44,14 @@ export default function MarchingDotsLoader({ paused = false }: Props) {
 
             {/* 飛び越えるドット */}
             <motion.div
-                className="absolute inset-0 rounded-full bg-[#77db9a]"
+                className="absolute rounded-full"
+                style={{
+                    width: size,
+                    height: size,
+                    backgroundColor: color,
+                }}
                 transformTemplate={({ rotate }) =>
-                    `rotate(${rotate}) translateX(20px)`
+                    `rotate(${rotate}) translateX(${range}px)`
                 }
                 animate={
                     paused
@@ -44,7 +62,7 @@ export default function MarchingDotsLoader({ paused = false }: Props) {
                     paused
                         ? { duration: 0 }
                         : {
-                            duration: 1,
+                            duration: speed,
                             repeat: Infinity,
                             ease: "linear",
                         }
