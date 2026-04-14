@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function SideBracketsButton() {
+export default function SideBracketsButton({
+    speed = 0.25,
+    size = 24,
+    color = "#FACC15",
+    xRange = 10,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -14,12 +20,16 @@ export default function SideBracketsButton() {
 
             {/* 左 bracket */}
             <motion.span
-                className="absolute left-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl pb-1"
+                className="absolute left-6 top-1/2 -translate-y-1/2 pb-1"
+                style={{
+                    color: color,
+                    fontSize: size,
+                }}
                 variants={{
-                    rest: { opacity: 0, x: -10 },
+                    rest: { opacity: 0, x: -xRange },
                     hover: { opacity: 1, x: -2 }
                 }}
-                transition={{ duration: 0.25 }}
+                transition={{ duration: speed }}
             >
                 [
             </motion.span>
@@ -31,12 +41,16 @@ export default function SideBracketsButton() {
 
             {/* 右 bracket */}
             <motion.span
-                className="absolute right-6 top-1/2 -translate-y-1/2 text-yellow-400 text-2xl pb-1"
+                className="absolute right-6 top-1/2 -translate-y-1/2 pb-1"
+                style={{
+                    color: color,
+                    fontSize: size,
+                }}
                 variants={{
-                    rest: { opacity: 0, x: 10 },
+                    rest: { opacity: 0, x: xRange },
                     hover: { opacity: 1, x: 2 }
                 }}
-                transition={{ duration: 0.25 }}
+                transition={{ duration: speed }}
             >
                 ]
             </motion.span>

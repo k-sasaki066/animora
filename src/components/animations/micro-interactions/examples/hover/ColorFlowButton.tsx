@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function ColorFlowButton() {
+export default function ColorFlowButton({
+    speed = 0.3,
+    color = "#fb2c36",
+    xRange = -10,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -14,18 +19,18 @@ export default function ColorFlowButton() {
                 rest: { boxShadow: "0px 0px 0px rgba(0,0,0,0)" },
                 hover: { boxShadow: "0px 8px 20px rgba(0,0,0,0.25)" },
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: speed }}
         >
             <div className="relative w-full flex justify-center items-center">
                 <motion.span
                     className="relative"
                     variants={{
                         rest: { x: 0 },
-                        hover: { x: -10 },
+                        hover: { x: xRange },
                     }}
                     transition={{
                         type: "tween",
-                        duration: 0.3
+                        duration: speed
                     }}
                 >
                     BUTTON
@@ -33,13 +38,16 @@ export default function ColorFlowButton() {
 
                 {/* Hover Arrow */}
                 <motion.span
-                    className="absolute right-2 text-xl text-red-500 pb-1"
+                    className="absolute right-2 text-xl pb-1"
+                    style={{
+                        color: color,
+                    }}
                     initial={{ opacity: 0 }}
                     variants={{
                         rest: { opacity: 0 },
                         hover: { opacity: 1 },
                     }}
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: speed * 1.1 }}
                 >
                     &raquo;
                 </motion.span>

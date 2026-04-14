@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function HiddenTextButton() {
+export default function HiddenTextButton({
+    speed = 0.4,
+    color = "#fda5d5",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -13,13 +17,16 @@ export default function HiddenTextButton() {
         >
             {/* 背景 */}
             <motion.div
-                className="absolute left-0 w-full h-full bg-pink-300 flex justify-center items-center"
+                className="absolute left-0 w-full h-full flex justify-center items-center"
+                style={{
+                    backgroundColor: color,
+                }}
                 variants={{
                     initial: { bottom: "-100%" },
                     hovered: { bottom: 0 }
                 }}
                 transition={{
-                    duration: 0.4,
+                    duration: speed,
                     ease: "easeInOut"
                 }}
             >
@@ -30,17 +37,25 @@ export default function HiddenTextButton() {
 
             {/* テキスト */}
             <motion.div
-                className="absolute w-full h-full left-0 border border-pink-300 flex justify-center items-center"
+                className="absolute w-full h-full left-0 border flex justify-center items-center"
+                style={{
+                    borderColor: color,
+                }}
                 variants={{
                     initial: { top: 0 },
                     hovered: { top: "-100%" }
                 }}
                 transition={{
-                    duration: 0.4,
+                    duration: speed,
                     ease: "easeInOut"
                 }}
             >
-                <span className="text-center text-pink-500">
+                <span
+                    className="text-center"
+                    style={{
+                        color: color,
+                    }}
+                >
                     BUTTON
                 </span>
             </motion.div>

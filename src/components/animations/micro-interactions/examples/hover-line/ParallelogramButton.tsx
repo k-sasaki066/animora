@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function ParallelogramButton() {
+export default function ParallelogramButton({
+    size = 30,
+    color = "#FB923C",
+    rotate = -40,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -15,7 +20,7 @@ export default function ParallelogramButton() {
             <motion.div
                 className="absolute inset-0 pointer-events-none"
                 variants={{
-                    rest: { skewX: -40 },
+                    rest: { skewX: rotate },
                     hover: { skewX: 0 },
                 }}
                 transition={{
@@ -25,9 +30,12 @@ export default function ParallelogramButton() {
             >
                 {/* bottom-right horizontal */}
                 <motion.span
-                    className="absolute bottom-0 right-0 h-0.5 bg-orange-400"
+                    className="absolute bottom-0 right-0 h-0.5"
+                    style={{
+                        backgroundColor: color,
+                    }}
                     variants={{
-                        rest: { width: 30 },
+                        rest: { width: size },
                         hover: { width: "100%" },
                     }}
                     transition={{
@@ -39,9 +47,12 @@ export default function ParallelogramButton() {
 
                 {/* bottom-right vertical */}
                 <motion.span
-                    className="absolute bottom-0 right-0 w-0.5 bg-orange-400"
+                    className="absolute bottom-0 right-0 w-0.5"
+                    style={{
+                        backgroundColor: color,
+                    }}
                     variants={{
-                        rest: { height: 30 },
+                        rest: { height: size },
                         hover: { height: "100%" },
                     }}
                     transition={{
@@ -53,9 +64,12 @@ export default function ParallelogramButton() {
 
                 {/* top-left horizontal */}
                 <motion.span
-                    className="absolute top-0 left-0 h-0.5 bg-orange-400"
+                    className="absolute top-0 left-0 h-0.5"
+                    style={{
+                        backgroundColor: color,
+                    }}
                     variants={{
-                        rest: { width: 30 },
+                        rest: { width: size },
                         hover: { width: "100%" },
                     }}
                     transition={{
@@ -67,13 +81,16 @@ export default function ParallelogramButton() {
 
                 {/* top-left vertical */}
                 <motion.span
-                    className="absolute top-0 left-0 w-0.5 bg-orange-400"
+                    className="absolute top-0 left-0 w-0.5"
+                    style={{
+                        backgroundColor: color,
+                    }}
                     variants={{
-                        rest: { height: 30 },
+                        rest: { height: size },
                         hover: { height: "100%" },
                     }}
                     transition={{
-                        duration: 0.6,
+                        duration: 0.3,
                         ease: "easeInOut",
                         delay: 0.45,
                     }}
@@ -82,7 +99,7 @@ export default function ParallelogramButton() {
 
             {/* --- 背景・文字 --- */}
             <div className="absolute inset-1 z-0 flex justify-center items-center">
-                <span className="z-10 text-orange-600">
+                <span className="z-10" style={{color: color}}>
                     BUTTON
                 </span>
             </div>

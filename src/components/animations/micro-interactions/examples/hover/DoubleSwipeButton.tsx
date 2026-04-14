@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function DoubleSwipeButton() {
+export default function DoubleSwipeButton({
+    speed = 0.5,
+    color = "#05df72",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     const swipes = [
@@ -21,7 +25,11 @@ export default function DoubleSwipeButton() {
 
     return (
         <motion.div
-            className="relative rounded-sm border border-green-400  overflow-hidden w-40 h-12 cursor-pointer"
+            className="relative rounded-sm border overflow-hidden w-40 h-12 cursor-pointer"
+            style={{
+                borderColor: color,
+                opacity: 0.8,
+            }}
             initial="initial"
             animate={active ? "hovered" : "initial"}
             {...bind}
@@ -30,19 +38,20 @@ export default function DoubleSwipeButton() {
             {swipes.map((bg, i) => (
                 <motion.div
                     key={i}
-                    className={`absolute ${bg.className} h-full bg-green-400`}
+                    className={`absolute ${bg.className} h-full`}
                     style={{
                         width: "200%",
                         height: "350%",
                         rotate: bg.rotate,
                         transformOrigin: "left center",
+                        backgroundColor: color,
                     }}
                     variants={{
                         initial: { left: bg.initial },
                         hovered: { left: bg.hover },
                     }}
                     transition={{
-                        duration: 0.5,
+                        duration: speed,
                         ease: "easeInOut",
                     }}
                 />
@@ -52,11 +61,11 @@ export default function DoubleSwipeButton() {
             <motion.span
                 className="absolute inset-0 z-10 flex justify-center items-center"
                 variants={{
-                    initial: { color: "#22c55e" },
+                    initial: { color: color },
                     hovered: { color: "#fff" },
                 }}
                 transition={{
-                    duration: 0.6,
+                    duration: speed * 1.1,
                     ease: "easeInOut"
                 }}
             >

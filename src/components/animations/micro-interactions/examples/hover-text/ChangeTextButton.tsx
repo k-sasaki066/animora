@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function ChangeTextButton() {
+export default function ChangeTextButton({
+    speed = 0.3,
+    color = "#f59e0b",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
         <motion.button
-            className="relative rounded-sm bg-amber-500 overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
+            className="relative rounded-sm overflow-hidden w-40 h-12 cursor-pointer flex justify-center items-center"
+            style={{
+                backgroundColor: color,
+            }}
             initial="rest"
             animate={active ? "hover" : "rest"}
             {...bind}
@@ -26,8 +33,9 @@ export default function ChangeTextButton() {
                     },
                     hover: {
                         y: 20,
-                        opacity: 0, transition: {
-                            duration: 0.3
+                        opacity: 0,
+                        transition: {
+                            duration: speed
                         }
                     },
                 }}
@@ -54,7 +62,7 @@ export default function ChangeTextButton() {
                                 opacity: 1,
                                 y: 0,
                                 transition: {
-                                    duration: 0.25,
+                                    duration: speed * 0.9,
                                     delay: i * 0.025,
                                     ease: [0.5, -1, 0.5, 2],
                                 },

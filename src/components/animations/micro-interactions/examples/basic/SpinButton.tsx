@@ -1,21 +1,33 @@
-"use client";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import type { ButtonParams } from "../../button-animation";
 
-import { motion } from "framer-motion";
+export default function SpinButton({
+    speed = 1,
+    color = "#71717b",
+    rotate = 180,
+}: ButtonParams) {
+    const controls = useAnimation();
 
-export default function SpinButton() {
+        useEffect(() => {
+            controls.start({
+                rotateX: [0, 0, rotate],
+                scale: [1, 1, 1],
+                transition: {
+                    duration: speed,
+                    repeat: Infinity,
+                    ease: "linear"
+                }
+            });
+        }, [speed, rotate]);
 
     return (
         <motion.div
-            className="bg-zinc-500 w-40 h-12 cursor-pointer px-8 py-4"
-            animate={{
-                rotateX: [0, 0, 180,],
-                scale: [1, 1, 1],
+            className="w-40 h-12 cursor-pointer px-8 py-4"
+            style={{
+                backgroundColor: color,
             }}
-            transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "linear",
-            }}
+            animate={controls}
         />
     );
 }

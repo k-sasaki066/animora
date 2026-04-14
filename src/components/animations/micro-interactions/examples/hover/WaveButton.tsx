@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import GooeyFilter from "@/components/ui/GooeyFilter";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function WaneButton() {
+export default function WaneButton({
+    speed = 0.8,
+    color = "#3B82F6",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -21,14 +25,17 @@ export default function WaneButton() {
                 {[0, 1, 2, 3].map((i) => (
                     <motion.span
                         key={i}
-                        className="flex-1 bg-blue-500 rounded-full"
-                        style={{ height: "180%" }}
+                        className="flex-1 rounded-full"
+                        style={{
+                            height: "180%",
+                            backgroundColor: color,
+                        }}
                         variants={{
                             rest: {
                                 y: "100%",
                                 scale: 1.3,
                                 transition: {
-                                    duration: 0.8,
+                                    duration: speed,
                                     delay: i * 0.1,
                                     ease: "easeOut",
                                 },
@@ -37,7 +44,7 @@ export default function WaneButton() {
                                 y: -8,
                                 scale: 1.3,
                                 transition: {
-                                    duration: 0.8,
+                                    duration: speed,
                                     delay: i * 0.08,
                                     ease: "easeOut",
                                 },
@@ -51,7 +58,7 @@ export default function WaneButton() {
                 <motion.span
                     className="z-2 flex justify-center items-center"
                     variants={{
-                        rest: { color: "#3B82F6" },
+                        rest: { color: color },
                         hover: { color: "#fff" },
                     }}
                 >
@@ -65,13 +72,14 @@ export default function WaneButton() {
                         rest: {
                             scale: 1,
                             transition: {
-                                duration: 0.5, ease: "easeInOut"
+                                duration: speed * 0.8,
+                                ease: "easeInOut"
                             }
                         },
                         hover: {
                             scale: 0.9,
                             transition: {
-                                duration: 0.5,
+                                duration: speed * 0.8,
                                 ease: "easeInOut"
                             }
                         },

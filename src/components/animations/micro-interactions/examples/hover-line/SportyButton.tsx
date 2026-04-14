@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function SportyButton() {
+export default function SportyButton({
+    speed = 0.6,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -42,7 +45,7 @@ export default function SportyButton() {
                             strokeDasharray: "220 0",
                             strokeDashoffset: 0,
                             transition: {
-                                duration: 0.6,
+                                duration: speed,
                                 ease: "easeInOut"
                             },
                         },
@@ -50,7 +53,7 @@ export default function SportyButton() {
                             strokeDasharray: "120 320",
                             strokeDashoffset: 260,
                             transition: {
-                                duration: 0.6,
+                                duration: speed,
                                 ease: "easeInOut"
                             },
                         },

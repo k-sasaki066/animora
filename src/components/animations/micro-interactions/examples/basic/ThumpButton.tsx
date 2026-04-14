@@ -1,20 +1,32 @@
-"use client";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import type { ButtonParams } from "../../button-animation";
 
-import { motion } from "framer-motion";
+export default function ThumpButton({
+    speed = 1.3,
+    color = "#e879f9",
+    scale = 1.1,
+}: ButtonParams) {
+    const controls = useAnimation();
 
-export default function ThumpButton() {
+    useEffect(() => {
+        controls.start({
+            scale: [1, scale, 1, 1, scale, 1],
+            transition: {
+                duration: speed,
+                repeat: Infinity,
+                ease: "easeInOut"
+            }
+        });
+    }, [speed, scale]);
 
     return (
         <motion.div
-            className="rounded-full bg-fuchsia-400 w-40 h-12 cursor-pointer px-8 py-4"
-            animate={{
-                scale: [1, 1.1, 1, 1, 1.1, 1]
+            className="rounded-full w-40 h-12 cursor-pointer px-8 py-4"
+            style={{
+                backgroundColor: color,
             }}
-            transition={{
-                duration: 1.3,
-                repeat: Infinity,
-                ease: "easeInOut"
-            }}
+            animate={controls}
         >
         </motion.div>
     );

@@ -1,21 +1,34 @@
-"use client";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import type { ButtonParams } from "../../button-animation";
 
-import { motion } from "framer-motion";
+export default function ShakyButton({
+    speed = 0.1,
+    color = "#38BDF8",
+    yRange = 2,
+    rotate = 1,
+}: ButtonParams) {
+    const controls = useAnimation();
 
-export default function ShakyButton() {
+    useEffect(() => {
+        controls.start({
+            y: [0, yRange, yRange, yRange, 0],
+            rotate: [0, rotate, 0, -rotate, 0],
+            transition: {
+                duration: speed,
+                repeat: Infinity,
+                ease: "linear"
+            }
+        });
+    }, [speed, yRange, rotate]);
 
     return (
         <motion.div
-            className="rounded-full bg-sky-400 w-40 h-12 cursor-pointer px-8 py-4"
-            animate={{
-                y: [0, 2, 2, 2, 0],
-                rotate: [0, 1, 0, -1, 0]
+            className="rounded-full w-40 h-12 cursor-pointer px-8 py-4"
+            style={{
+                backgroundColor: color,
             }}
-            transition={{
-                duration: 0.1,
-                repeat: Infinity,
-                ease: "linear"
-            }}
+            animate={controls}
         >
         </motion.div>
     );

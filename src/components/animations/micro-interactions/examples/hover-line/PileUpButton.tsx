@@ -1,12 +1,17 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function PileUpButton() {
+export default function PileUpButton({
+    speed = 0.2,
+    color = "#000000",
+    xRange = 3,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     const borders = [
-        { top: -3, left: -3 },
-        { top: 3, left: 3 }
+        { top: -xRange, left: -xRange },
+        { top: xRange, left: xRange }
     ];
 
     return (
@@ -20,7 +25,10 @@ export default function PileUpButton() {
             {borders.map((pos, i) => (
                 <motion.div
                     key={i}
-                    className="absolute border border-black z-20"
+                    className="absolute border z-20"
+                    style={{
+                        borderColor: color,
+                    }}
                     variants={{
                         rest: {
                             top: pos.top,
@@ -36,7 +44,7 @@ export default function PileUpButton() {
                         },
                     }}
                     transition={{
-                        duration: 0.2,
+                        duration: speed,
                         ease: "easeInOut"
                     }}
                 />

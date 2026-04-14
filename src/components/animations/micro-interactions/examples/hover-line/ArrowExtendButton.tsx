@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function ArrowExtendButton() {
+export default function ArrowExtendButton({
+    speed = 0.4,
+    color = "#FACC15",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -13,13 +17,16 @@ export default function ArrowExtendButton() {
         >
             {/* 背景丸 */}
             <motion.div
-                className="absolute top-0 w-full h-full bg-yellow-400 z-0 rounded-full"
+                className="absolute top-0 w-full h-full z-0 rounded-full"
+                style={{
+                    backgroundColor: color,
+                }}
                 variants={{
                     initial: { left: "-72%" },
                     hovered: { left: 0 }
                 }}
                 transition={{
-                    duration: 0.4,
+                    duration: speed,
                     ease: "easeInOut"
                 }}
             />
@@ -27,9 +34,7 @@ export default function ArrowExtendButton() {
             {/* 矢印 + テキスト */}
             <div className="relative z-10 flex items-center space-x-8 px-4 py-3 w-full h-full">
                 {/* 矢印を左 */}
-                <motion.div
-                    className="w-2 h-2 border-r-2 border-b-2 border-black -rotate-45"
-                />
+                <motion.div className="w-2 h-2 border-r-2 border-b-2 border-black -rotate-45"/>
                 <span className="font-semibold">
                     BUTTON
                 </span>

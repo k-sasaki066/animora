@@ -1,20 +1,32 @@
-"use client";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import type { ButtonParams } from "../../button-animation";
 
-import { motion } from "framer-motion";
+export default function SwayingButton({
+    speed = 2,
+    color = "#818CF8",
+    rotate = 2,
+}: ButtonParams) {
+    const controls = useAnimation();
 
-export default function SwayingButton() {
+    useEffect(() => {
+        controls.start({
+            rotate: [0, -rotate, 0, rotate, 0],
+            transition: {
+                duration: speed,
+                repeat: Infinity,
+                ease: "linear"
+            }
+        });
+    }, [speed, rotate]);
 
     return (
         <motion.div
-            className="rounded-full bg-indigo-400 w-40 h-12 cursor-pointer px-8 py-4"
-            animate={{
-                rotate: [0, -2, 0, 2, 0]
+            className="rounded-full w-40 h-12 cursor-pointer px-8 py-4"
+            style={{
+                backgroundColor: color,
             }}
-            transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "linear"
-            }}
+            animate={controls}
         />
     );
 }

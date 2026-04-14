@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function PixelHoverButton() {
+export default function PixelHoverButton({
+    speed = 0.8,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative border border-red-500 text-black uppercase bg-position-[180px] w-40 h-12 cursor-pointer flex justify-center items-center"
+            className="relative border text-black uppercase bg-position-[180px] w-40 h-12 cursor-pointer flex justify-center items-center"
             style={{
                 backgroundSize: "180px",
             }}
@@ -30,7 +33,7 @@ export default function PixelHoverButton() {
                         "-480px",
                     ], //コマ送りで背景画像をずらす
                     transition: {
-                        duration: 0.8,
+                        duration: speed,
                         ease: "linear",
                         times: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
                     },

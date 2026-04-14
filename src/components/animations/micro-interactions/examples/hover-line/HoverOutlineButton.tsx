@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function HoverOutlineButton() {
+export default function HoverOutlineButton({
+    speed = 1,
+    color = "#06D6A0",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -34,8 +38,8 @@ export default function HoverOutlineButton() {
                         hover: {
                             strokeDasharray: "50 0",
                             strokeDashoffset: 0,
-                            stroke: "#06D6A0",
-                            transition: { duration: 1, ease: "easeInOut" },
+                            stroke: color,
+                            transition: { duration: speed, ease: "easeInOut" },
                         },
                     }}
                     className="hover:stroke-1"
