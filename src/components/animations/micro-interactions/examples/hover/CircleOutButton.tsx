@@ -1,19 +1,33 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function CircleOutButton() {
+export default function CircleOutButton({
+    size = 20,
+    speed = 0.3,
+    color = "#99a1af",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative rounded-sm border border-gray-300  overflow-hidden w-40 h-12 cursor-pointer"
+            className="relative rounded-sm border overflow-hidden w-40 h-12 cursor-pointer"
+            style={{
+                borderColor: color,
+                opacity: 0.8,
+            }}
             initial="initial"
             animate={active ? "hover" : "initial"}
             {...bind}
         >
             {/* 円エフェクト */}
             <motion.div
-                className="absolute bg-gray-400 rounded-full w-5 h-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                className="absolute rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                style={{
+                    width: size,
+                    height: size,
+                    backgroundColor: color,
+                }}
                 variants={{
                     initial: {
                         scale: 0,
@@ -25,7 +39,7 @@ export default function CircleOutButton() {
                     },
                 }}
                 transition={{
-                    duration: 0.3,
+                    duration: speed,
                     ease: "easeOut",
                 }}
             />
@@ -34,11 +48,11 @@ export default function CircleOutButton() {
             <motion.span
                 className="absolute inset-0 z-10 flex justify-center items-center"
                 variants={{
-                    initial: { color: "#4a5565" },
+                    initial: { color: color },
                     hover: { color: "#fff" },
                 }}
                 transition={{
-                    duration: 0.3,
+                    duration: speed,
                     ease: "easeInOut"
                 }}
             >

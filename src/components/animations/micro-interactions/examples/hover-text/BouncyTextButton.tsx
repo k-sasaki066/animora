@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function BouncyTextButton() {
+export default function BouncyTextButton({
+    speed = 0.7,
+    color = "#155dfc",
+    yRange = 3,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
     const label = "bouncy";
     const letters = label.split('');
@@ -11,7 +16,10 @@ export default function BouncyTextButton() {
             initial="rest"
             animate={active ? "hover" : "leave"}
             {...bind}
-            className="relative overflow-hidden flex justify-center items-center rounded-full cursor-pointer w-40 h-12 font-semi tracking-wide text-white bg-blue-600 hover:bg-blue transition-colors"
+            className="relative overflow-hidden flex justify-center items-center rounded-full cursor-pointer w-40 h-12 font-semi tracking-wide text-white transition-colors"
+            style={{
+                backgroundColor: color,
+            }}
         >
             <span className="relative z-10 flex">
                 {letters.map((char, i) => {
@@ -28,24 +36,24 @@ export default function BouncyTextButton() {
                                 hover: {
                                     y: [
                                         0,
-                                        -6 * curve,
-                                        3 * curve,
-                                        -3 * curve,
+                                        -yRange * 2 * curve,
+                                        yRange * curve,
+                                        -yRange * curve,
                                         0,
                                     ],
                                 },
                                 leave: {
                                     y: [
                                         0,
-                                        6 * curve,
-                                        -3 * curve,
-                                        3 * curve,
+                                        yRange * 2 * curve,
+                                        -yRange * curve,
+                                        yRange * curve,
                                         0,
                                     ],
                                 },
                             }}
                             transition={{
-                                duration: 0.7,
+                                duration: speed,
                                 times: [0, 0.35, 0.5, 0.75, 1],
                                 ease: "linear",
                                 delay: 0.18,

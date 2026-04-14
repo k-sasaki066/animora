@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function FlipButton() {
+export default function FlipButton({
+    speed = 0.5,
+    color = "#9810fa",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -11,7 +15,7 @@ export default function FlipButton() {
                 rotateX: active ? 180 : 0
             }}
             transition={{
-                duration: 0.5,
+                duration: speed,
                 ease: "easeInOut"
             }}
             style={{
@@ -21,7 +25,12 @@ export default function FlipButton() {
             {...bind}
         >
             {/* 前面 */}
-            <div className="absolute inset-0  bg-purple-600 text-white rounded-lg flex justify-center items-center">
+            <div
+                className="absolute inset-0 text-white rounded-lg flex justify-center items-center"
+                style={{
+                    backgroundColor: color,
+                }}
+            >
                 BUTTON
             </div>
 

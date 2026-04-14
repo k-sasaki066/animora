@@ -1,33 +1,38 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function HoverSurroundButton() {
+export default function HoverSurroundButton({
+    speed = 0.6,
+    size = 24,
+    color = "#FB923C",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     const lines = [
         {
-            className: "absolute bottom-0 right-0 h-0.5 bg-orange-400 z-20",
-            rest: { width: 24 },
+            className: "absolute bottom-0 right-0 h-0.5 z-20",
+            rest: { width: size },
             hover: { width: "100%" },
-            duration: 0.5,
+            duration: speed * 0.85,
         },
         {
-            className: "absolute bottom-0 right-0 w-0.5 bg-orange-400 z-20",
-            rest: { height: 24 },
+            className: "absolute bottom-0 right-0 w-0.5 z-20",
+            rest: { height: size },
             hover: { height: "100%" },
-            duration: 0.6,
+            duration: speed,
         },
         {
-            className: "absolute top-0 left-0 h-0.5 bg-orange-400 z-20",
-            rest: { width: 24 },
+            className: "absolute top-0 left-0 h-0.5 z-20",
+            rest: { width: size },
             hover: { width: "100%" },
-            duration: 0.5,
+            duration: speed * 0.85,
         },
         {
-            className: "absolute top-0 left-0 w-0.5 bg-orange-400 z-20",
-            rest: { height: 24 },
+            className: "absolute top-0 left-0 w-0.5 z-20",
+            rest: { height: size },
             hover: { height: "100%" },
-            duration: 0.6,
+            duration: speed,
         },
     ];
 
@@ -42,6 +47,9 @@ export default function HoverSurroundButton() {
                 <motion.span
                     key={i}
                     className={line.className}
+                    style={{
+                        backgroundColor: color,
+                    }}
                     variants={{
                         rest: line.rest,
                         hover: line.hover,
@@ -58,10 +66,10 @@ export default function HoverSurroundButton() {
                 className="absolute w-38 h-10 top-1 left-1 z-0 flex justify-center items-center"
                 variants={{
                     rest: { backgroundColor: "#e5e7eb" },
-                    hover: { backgroundColor: "#fb923c" },
+                    hover: { backgroundColor: color },
                 }}
                 transition={{
-                    duration: 0.4,
+                    duration: speed * 0.7,
                     ease: "easeInOut"
                 }}
             >
@@ -72,7 +80,7 @@ export default function HoverSurroundButton() {
                         hover: { color: "#fff" },
                     }}
                     transition={{
-                        duration: 0.4,
+                        duration: speed * 0.7,
                         ease: "easeInOut"
                     }}
                 >

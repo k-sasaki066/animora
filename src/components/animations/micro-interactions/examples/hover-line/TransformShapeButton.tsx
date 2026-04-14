@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function TransformShapeButton() {
+export default function TransformShapeButton({
+    speed = 0.5,
+    color = "#d1d5dc",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -17,11 +21,11 @@ export default function TransformShapeButton() {
                 },
                 hover: {
                     borderRadius: "999px",
-                    border: "2px solid #d1d5dc",
+                    border: `2px solid ${color}`,
                 },
             }}
             transition={{
-                duration: 0.5,
+                duration: speed,
                 ease: "easeInOut"
             }}
         >
@@ -29,7 +33,10 @@ export default function TransformShapeButton() {
 
             {/* 短い下線 */}
             <motion.span
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-2/3 h-0.5 bg-[#d1d5dc]"
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-2/3 h-0.5"
+                style={{
+                    backgroundColor: color,
+                }}
                 variants={{
                     rest: {
                         width: "40%",
@@ -41,7 +48,7 @@ export default function TransformShapeButton() {
                     },
                 }}
                 transition={{
-                    duration: 0.5,
+                    duration: speed,
                     ease: "easeInOut"
                 }}
             />

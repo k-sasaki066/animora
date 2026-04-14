@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function LineSurroundButton() {
+export default function LineSurroundButton({
+    speed = 0.8,
+    color = "#000000",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -21,7 +25,7 @@ export default function LineSurroundButton() {
                     hover: {
                         y: 0, // ホバーで中央に戻る
                         transition: {
-                            duration: 0.3,
+                            duration: speed * 0.3,
                             ease: "easeOut",
                             delay: 0.3,
                         },
@@ -41,7 +45,7 @@ export default function LineSurroundButton() {
                 {/* 右側（左右対称） */}
                 <motion.path
                     d="M100 0 H200 V60 H0 V0 H100"
-                    stroke="black"
+                    stroke={color}
                     strokeWidth="2"
                     variants={{
                         rest: {
@@ -52,7 +56,7 @@ export default function LineSurroundButton() {
                             pathLength: 0.5,
                             pathOffset: 0.5,
                             transition: {
-                                duration: 0.8,
+                                duration: speed,
                                 ease: "easeInOut",
                             },
                         },
@@ -61,7 +65,7 @@ export default function LineSurroundButton() {
                 {/* 左側 */}
                 <motion.path
                     d="M100 0 H0 V60 H200 V0 H100"
-                    stroke="black"
+                    stroke={color}
                     strokeWidth="2"
                     variants={{
                         rest: {
@@ -72,7 +76,7 @@ export default function LineSurroundButton() {
                             pathLength: 0.5, // 図形の半分まで描画
                             pathOffset: 0.5,
                             transition: {
-                                duration: 0.8,
+                                duration: speed,
                                 ease: "easeInOut",
                             },
                         },

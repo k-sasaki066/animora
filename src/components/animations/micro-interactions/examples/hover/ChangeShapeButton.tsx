@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function ChangeShapeButton() {
+export default function ChangeShapeButton({
+    speed = 0.6,
+    color = "#ffc800",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -20,17 +24,17 @@ export default function ChangeShapeButton() {
                         borderRadius: "4px",
                     },
                     hover: {
-                        backgroundColor: "rgba(255, 200, 0, 1)",
+                        backgroundColor: color,
                         borderRadius: "999px",
                     },
                 }}
                 transition={{
                     backgroundColor: {
-                        duration: 0.6,
+                        duration: speed,
                         ease: "easeInOut",
                     },
                     borderRadius: {
-                        duration: 1,
+                        duration: speed * 1.5,
                         ease: "easeInOut",
                         delay: 0.3,
                     },

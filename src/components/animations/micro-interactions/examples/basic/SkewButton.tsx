@@ -1,20 +1,32 @@
-"use client";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import type { ButtonParams } from "../../button-animation";
 
-import { motion } from "framer-motion";
+export default function SkewButton({
+    speed = 2,
+    color = "#fda5d5",
+    rotate = 20,
+}: ButtonParams) {
+    const controls = useAnimation();
 
-export default function SkewButton() {
+    useEffect(() => {
+        controls.start({
+            skewX: [-rotate, rotate, -rotate],
+            transition: {
+                duration: speed,
+                repeat: Infinity,
+                ease: "linear"
+            }
+        });
+    }, [speed, rotate]);
 
     return (
         <motion.div
-            className="rounded-full bg-pink-300 w-40 h-12 cursor-pointer px-8 py-4"
-            animate={{
-                skewX: [-20, 20, -20]
+            className="rounded-full w-40 h-12 cursor-pointer px-8 py-4"
+            style={{
+                backgroundColor: color,
             }}
-            transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "linear"
-            }}
+            animate={controls}
         />
     );
 }

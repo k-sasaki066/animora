@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
 import { useIsHoverDevice } from "@/hooks/useIsHoverDevice";
+import type { ButtonParams } from "../../button-animation";
 
-export default function FancyTextButton() {
+export default function FancyTextButton({
+    speed = 0.4,
+    color = "#000000",
+    yRange = -4,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
     const isDesktop = useIsHoverDevice();
 
@@ -13,14 +18,17 @@ export default function FancyTextButton() {
         >
             {/* 背景 */}
             <motion.div
-                className="absolute left-0 w-full h-full bg-black"
+                className="absolute left-0 w-full h-full"
+                style={{
+                    backgroundColor: color,
+                }}
                 animate={
                     active
                         ? { bottom: 0 }
                         : { bottom: "-100%" }
                 }
                 transition={{
-                    duration: 0.4,
+                    duration: speed,
                     ease: "easeInOut"
                 }}
             />
@@ -34,11 +42,11 @@ export default function FancyTextButton() {
                         initial={{ color: "#000", y: 0 }}
                         animate={{
                             color: active ? "#fff" : "#000",
-                            y: active && !isDesktop ? [0, -6, 0] : 0
+                            y: active && !isDesktop ? [0, yRange, 0] : 0
                         }}
                         transition={{
                             color: {
-                                duration: 0.25,
+                                duration: speed * 0.55,
                                 ease: [0.19, 1, 0.22, 1]
                             },
                             y: {
@@ -47,7 +55,7 @@ export default function FancyTextButton() {
                                 ease: "easeOut"
                             }
                         }}
-                        whileHover={{ y: -4 }}
+                        whileHover={{ y: yRange }}
                     >
                         {char}
                     </motion.span>

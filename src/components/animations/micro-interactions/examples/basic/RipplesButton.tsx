@@ -1,30 +1,44 @@
-"use client";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import type { ButtonParams } from "../../button-animation";
 
-import { motion } from "framer-motion";
+export default function RipplesButton({
+    speed = 1.5,
+    color = "#C084FC",
+    scale = 1.3,
+}: ButtonParams) {
+    const controls = useAnimation();
 
-export default function RipplesButton() {
+    useEffect(() => {
+        controls.start({
+            scale: [1.1, scale],
+            opacity: [0.5, 0],
+            transition: {
+                duration: speed,
+                repeat: Infinity,
+                ease: "easeOut"
+            }
+        });
+    }, [speed, scale]);
 
     return (
         <motion.div
-            className="relative flex justify-center items-center rounded-full bg-purple-400 w-40 h-12 cursor-pointer px-8 py-4"
+            className="relative flex justify-center items-center rounded-full w-40 h-12 cursor-pointer px-8 py-4"
+            style={{
+                backgroundColor: color,
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
         >
             <motion.div
-                className="absolute rounded-full border  bg-purple-300"
+                className="absolute rounded-full border"
                 style={{
                     width: "100%",
                     height: "100%",
+                    backgroundColor: color,
+                    opacity: 0.4,
                 }}
-                animate={{
-                    scale: [1.1, 1.3],
-                    opacity: [0.5, 0],
-                }}
-                transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeOut",
-                }}
+                animate={controls}
             />
         </motion.div>
     );

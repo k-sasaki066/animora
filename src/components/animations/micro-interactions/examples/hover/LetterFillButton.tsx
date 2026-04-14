@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
 function hslToRgb(h: number, s: number, l: number): [number, number, number] {
     s /= 100;
@@ -17,7 +18,10 @@ function hslToRgb(h: number, s: number, l: number): [number, number, number] {
     ];
 }
 
-export default function LetterFillButton() {
+export default function LetterFillButton({
+    speed = 0.2,
+    color = "#1e3a8a",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -44,7 +48,7 @@ export default function LetterFillButton() {
                         className="w-[2em] h-[2em] grid place-content-center text-sm font-bold"
                         variants={{
                             initial: {
-                                backgroundColor: "rgba(30, 58, 138, 1)",
+                                backgroundColor: color,
                                 color: "#ffffff",
                             },
                             hovered: {
@@ -52,7 +56,7 @@ export default function LetterFillButton() {
                                 color: "#ffffff",
                             },
                         }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: speed }}
                     >
                         {char}
                     </motion.span>

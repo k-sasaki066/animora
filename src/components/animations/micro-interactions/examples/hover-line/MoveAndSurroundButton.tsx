@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function MoveAndSurroundButton() {
+export default function MoveAndSurroundButton({
+    speed = 0.8,
+    color = "#a855f7",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -28,7 +32,7 @@ export default function MoveAndSurroundButton() {
                     x="0"
                     y="0"
                     rx="0"
-                    stroke="purple"
+                    stroke={color}
                     strokeWidth="2"
                     strokeDasharray="60 460"
                     strokeDashoffset={60}
@@ -37,7 +41,7 @@ export default function MoveAndSurroundButton() {
                             strokeDashoffset: [60, -201],
                             strokeDasharray: ["60 460", "520 0"], //ここで枠線を伸ばす
                             transition: {
-                                duration: 0.8,
+                                duration: speed,
                                 ease: [0.1, 0.8, 0.3, 1], //徐々に減速
                                 strokeDasharray: {
                                     delay: 0.5,

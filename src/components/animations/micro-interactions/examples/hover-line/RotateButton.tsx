@@ -1,21 +1,29 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function RotateButton() {
+export default function RotateButton({
+    speed = 1.6,
+    color = "#D8B4FE",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
         <motion.div
-            className="relative px-8 py-4 bg-transparent text-purple-600 w-40 h-12 cursor-pointer flex justify-center items-center"
+            className="relative px-8 py-4 bg-transparent w-40 h-12 cursor-pointer flex justify-center items-center"
+            style={{
+                color: color,
+            }}
             initial="initial"
             animate={active ? "hover" : "initial"}
             {...bind}
         >
             {/* 外枠（時計回り） */}
             <motion.div
-                className="absolute inset-0 border border-purple-300 pointer-events-none"
+                className="absolute inset-0 border pointer-events-none"
                 style={{
                     margin: "auto",
+                    borderColor: color,
                 }}
                 variants={{
                     initial: {
@@ -36,7 +44,7 @@ export default function RotateButton() {
                             width: { duration: 0.25, ease: "easeOut" },
                             height: { duration: 0.25, ease: "easeOut" },
                             rotate: {
-                                duration: 1.6,
+                                duration: speed,
                                 repeat: Infinity,
                                 ease: "linear",
                             },
@@ -47,9 +55,10 @@ export default function RotateButton() {
 
             {/* 内枠（反時計回り） */}
             <motion.div
-                className="absolute inset-0 border border-purple-300 pointer-events-none"
+                className="absolute inset-0 border pointer-events-none"
                 style={{
                     margin: "auto",
+                    borderColor: color,
                 }}
                 variants={{
                     initial: {
@@ -70,7 +79,7 @@ export default function RotateButton() {
                             width: { duration: 0.25, ease: "easeOut" },
                             height: { duration: 0.25, ease: "easeOut" },
                             rotate: {
-                                duration: 2,
+                                duration: speed * 1.2,
                                 repeat: Infinity,
                                 ease: "linear",
                             },

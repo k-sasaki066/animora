@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function BackgroundMovesButton() {
+export default function BackgroundMovesButton({
+    speed = 5,
+    color = "#e5e5e5",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
         <motion.button
-            className="flex justify-center items-center w-40 h-12 rounded-sm border-3 font-bold bg-transparent border-[#e5e5e5] text-[#9ca3af] transition-all duration-300 cursor-pointer"
+            className="flex justify-center items-center w-40 h-12 rounded-sm border-3 font-bold bg-transparent text-[#9ca3af] transition-all duration-300 cursor-pointer"
+            style={{
+                borderColor: color,
+            }}
             initial="rest"
             animate={active ? "hover" : "rest"}
             {...bind}
@@ -22,13 +29,13 @@ export default function BackgroundMovesButton() {
                     borderColor: "#50514f",
                     color: "#50514f",
                     backgroundPosition: ["0px 0px", "400px 0px"],
-                    backgroundImage: "repeating-linear-gradient(-25deg, #e5e5e5, #e5e5e5 3px, transparent 4px, transparent 7px)"
+                    backgroundImage: `repeating-linear-gradient(-25deg, ${color}, ${color} 3px, transparent 4px, transparent 7px)`
                 }
             }}
             transition={{
                 backgroundPosition: {
                     repeat: Infinity,
-                    duration: 5,
+                    duration: speed,
                     ease: "linear",
                 },
                 duration: 0.8,

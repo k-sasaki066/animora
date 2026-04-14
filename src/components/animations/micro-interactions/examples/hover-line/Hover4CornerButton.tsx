@@ -1,33 +1,37 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function Hover4CornerButton() {
+export default function Hover4CornerButton({
+    speed = 0.4,
+    color = "#059669",
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     const lines = [
         {
-            className: "absolute top-0 left-0 h-0.5 bg-emerald-600 z-20",
+            className: "absolute top-0 left-0 h-0.5 z-20",
             rest: { width: 0 },
             hover: { width: "100%" },
-            duration: 0.4,
+            duration: speed,
         },
         {
-            className: "absolute top-0 right-0 w-0.5 bg-emerald-600 z-20",
+            className: "absolute top-0 right-0 w-0.5 z-20",
             rest: { height: 0 },
             hover: { height: "100%" },
-            duration: 0.5,
+            duration: speed * 1.2,
         },
         {
-            className: "absolute bottom-0 right-0 h-0.5 bg-emerald-600 z-20",
+            className: "absolute bottom-0 right-0 h-0.5 z-20",
             rest: { width: 0 },
             hover: { width: "100%" },
-            duration: 0.4,
+            duration: speed,
         },
         {
-            className: "absolute bottom-0 left-0 w-0.5 bg-emerald-600 z-20",
+            className: "absolute bottom-0 left-0 w-0.5 z-20",
             rest: { height: 0 },
             hover: { height: "100%" },
-            duration: 0.5,
+            duration: speed * 1.2,
         },
     ];
 
@@ -42,6 +46,9 @@ export default function Hover4CornerButton() {
                 <motion.span
                     key={i}
                     className={line.className}
+                    style={{
+                        backgroundColor: color,
+                    }}
                     variants={{
                         rest: line.rest,
                         hover: line.hover,
@@ -61,7 +68,7 @@ export default function Hover4CornerButton() {
                     hover: { backgroundColor: "#ffffff" },
                     }}
                 transition={{
-                    duration: 0.4,
+                    duration: speed,
                     ease: "easeInOut"
                 }}
             >
@@ -69,10 +76,10 @@ export default function Hover4CornerButton() {
                     className="z-10"
                     variants={{
                         rest: { color: "#99a1af" },
-                        hover: { color: "#00c48d" },
+                        hover: { color: color },
                     }}
                     transition={{
-                        duration: 0.4,
+                        duration: speed,
                         ease: "easeInOut"
                     }}
                 >

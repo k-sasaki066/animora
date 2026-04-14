@@ -1,5 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
 const innerVariants: Variants = {
     initial: {
@@ -13,7 +14,10 @@ const innerVariants: Variants = {
     },
 };
 
-export default function Gradient3DButton() {
+export default function Gradient3DButton({
+    speed = 0.2,
+    yRange = 8,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -33,10 +37,10 @@ export default function Gradient3DButton() {
                 {...bind}
                 variants={{
                     initial: { x: 0, y: 0 },
-                    hover: { x: 8, y: -8 },
+                    hover: { x: yRange, y: -yRange },
                 }}
                 transition={{
-                    duration: 0.2,
+                    duration: speed,
                     ease: "easeInOut",
                 }}
             >
@@ -44,7 +48,7 @@ export default function Gradient3DButton() {
                 <motion.span
                     className="absolute inset-0 flex items-center justify-center bg-linear-to-tr from-[#15b8dd] to-[#fb03fe] text-white"
                     variants={innerVariants}
-                    transition={{ duration: 0.1 }}
+                    transition={{ duration: speed * 0.5 }}
                 >
                     BUTTON
                 </motion.span>

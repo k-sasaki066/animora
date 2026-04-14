@@ -2,14 +2,18 @@ import { motion } from "framer-motion";
 import GooeyFilter from "@/components/ui/GooeyFilter";
 import { useMemo } from "react";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function BubbleButton() {
+export default function BubbleButton({
+    speed = 1.5,
+    color = "#A855F7",
+}: ButtonParams) {
     const bubbles = useMemo(() => {
         return [...Array(4)].map(() => ({
             size: 20 + Math.random() * 20,
             left: 1 + Math.random() * 70 ,
             rise: 60 + Math.random() * 40,
-            duration: 1.5 + Math.random() * 1.5,
+            duration: speed + Math.random() * 1.5,
         }));
     }, []);
 
@@ -25,8 +29,11 @@ export default function BubbleButton() {
 
                 {/* Main Button */}
                 <motion.button
-                    className="relative px-6 py-3 rounded-xl text-white bg-purple-500 w-40 h-12 cursor-pointer"
-                    style={{ filter: "url(#goo)" }}
+                    className="relative px-6 py-3 rounded-xl text-white w-40 h-12 cursor-pointer"
+                    style={{
+                        filter: "url(#goo)",
+                        backgroundColor: color
+                    }}
                     whileHover={{ scale: 1.05 }}
                     transition={{
                         type: "spring",
@@ -41,12 +48,13 @@ export default function BubbleButton() {
                         {bubbles.map((b, i) => (
                             <motion.div
                                 key={i}
-                                className="absolute bg-purple-500 rounded-full"
+                                className="absolute rounded-full"
                                 style={{
                                     width: b.size,
                                     height: b.size,
                                     left: `${b.left}%`,
                                     bottom: 0,
+                                    backgroundColor: color,
                                 }}
                                 animate={active ? "hover" : "rest"}
                                 variants={{

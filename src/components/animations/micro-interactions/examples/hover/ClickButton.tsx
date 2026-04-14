@@ -1,16 +1,25 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function ClickButton() {
+export default function ClickButton({
+    color = "#7DD3FC",
+    xRange = 3,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
         <div className="relative bg-gray-400 z-5 w-40 h-12 cursor-pointer">
             <motion.div
-                className="absolute -top-1 -left-1 bg-sky-300 w-full h-full"
+                className="absolute w-full h-full"
+                style={{
+                    backgroundColor: color,
+                    top: -xRange,
+                    left: -xRange,
+                }}
                 animate={{
-                    x: active ? 3 : 0,
-                    y: active ? 3 : 0
+                    x: active ? xRange : 0,
+                    y: active ? xRange : 0
                 }}
                 transition={{
                     type: "spring",

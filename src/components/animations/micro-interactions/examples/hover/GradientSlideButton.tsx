@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function GradientSlideButton() {
+export default function GradientSlideButton({
+    speed = 0.5,
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -15,7 +18,7 @@ export default function GradientSlideButton() {
                 backgroundPosition: active ? "100% center" : "0% center"
             }}
             transition={{
-                duration: 0.5,
+                duration: speed,
                 ease: "easeInOut"
             }}
         >

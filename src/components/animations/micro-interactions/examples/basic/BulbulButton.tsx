@@ -1,20 +1,32 @@
-"use client";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import type { ButtonParams } from "../../button-animation";
 
-import { motion } from "framer-motion";
+export default function BulbulButton({
+    speed = 0.8,
+    color = "#84cc16",
+    xRange = 8,
+}: ButtonParams) {
+    const controls = useAnimation();
 
-export default function BulbulButton() {
+    useEffect(() => {
+        controls.start({
+            x: [0, 0, -6, xRange, -2, xRange, 0],
+            transition: {
+                duration: speed,
+                repeat: Infinity,
+                ease: "linear"
+            }
+        });
+    }, [speed, xRange]);
 
     return (
         <motion.div
-            className="text-white rounded-full bg-lime-500 w-40 h-12 cursor-pointer px-8 py-4"
-            animate={{
-                x: [0, 0, -6, 8, -2, 8, 0],
+            className="text-white rounded-full w-40 h-12 cursor-pointer px-8 py-4"
+            style={{
+                backgroundColor: color,
             }}
-            transition={{
-                duration: 0.8,
-                repeat: Infinity,
-                ease: "linear",
-            }}
+            animate={controls}
         >
         </motion.div>
     );

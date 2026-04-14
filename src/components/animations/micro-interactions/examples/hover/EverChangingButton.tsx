@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
+import type { ButtonParams } from "../../button-animation";
 
-export default function EverChangingButton() {
+export default function EverChangingButton({
+    speed = 2,
+    color = "#ffc3a0",
+    rotate = 5
+}: ButtonParams) {
     const { active, bind } = useToggleHover();
 
     return (
@@ -27,7 +32,7 @@ export default function EverChangingButton() {
                 <motion.path
                     {...bind}
                     mask="url(#knockout-text)"
-                    fill="#ffc3a0"
+                    fill={color}
                     className="cursor-pointer"
                     initial="rest"
                     animate={active ? "hover" : "rest"}
@@ -55,9 +60,9 @@ export default function EverChangingButton() {
                                 "M 90 210 C 90 180 90 150 90 150 C 150 150 180 150 180 150 C 180 150 300 150 300 150 C 300 150 330 150 390 150 C 390 150 390 180 390 210 C 390 240 390 270 390 270 C 330 270 300 270 300 270 C 300 270 180 270 180 270 C 180 270 150 270 90 270 C 90 270 90 240 90 210",
                             ],
 
-                            rotate: [0, -5, 0, 5, 0],
+                            rotate: [0, -rotate, 0, rotate, 0],
                             transition: {
-                                duration: 2,
+                                duration: speed,
                                 ease: "easeInOut",
                                 repeat: Infinity
                             }
