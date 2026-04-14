@@ -1,20 +1,29 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function SlideTextLoader({ paused = false }: Props) {
+export default function SlideTextLoader({
+    paused = false,
+    speed = 4,
+    size = 30,
+    color = "#be7cba",
+}: LoaderProps) {
     const text = ["L", "o", "a", "d", "i", "n", "g"];
 
     return (
-        <div className="relative text-3xl font-bold uppercase tracking-[5px]">
+        <div
+            className="relative font-bold uppercase tracking-[5px]"
+            style={{ fontSize: size }}
+        >
             <span className="text-black">
                 {text}
             </span>
 
             <motion.span
-                className="absolute top-0 left-0 text-[#be7cba] border-r-4 border-[#be7cba] whitespace-nowrap overflow-hidden"
+                className="absolute top-0 left-0 border-r-4 whitespace-nowrap overflow-hidden"
+                style={{
+                    color: color,
+                    borderColor: color
+                }}
                 initial={{
                     width: 0
                 }}
@@ -27,7 +36,7 @@ export default function SlideTextLoader({ paused = false }: Props) {
                     paused
                         ? { duration: 0 }
                         : {
-                            duration: 4,
+                            duration: speed,
                             repeat: Infinity,
                             ease: "linear",
                         }

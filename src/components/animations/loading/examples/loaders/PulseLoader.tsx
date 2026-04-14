@@ -1,13 +1,22 @@
-interface Props {
-    paused?: boolean;
-}
+import type { LoaderProps } from "../../loader";
 
-export default function PulseLoader({ paused = false }: Props) {
+export default function PulseLoader({
+    paused = false,
+    speed = 2,
+    size = 48,
+    color = "#43c6ac",
+}: LoaderProps) {
 
     return (
         <div
-            className="w-12 h-12 bg-[#43c6ac] rounded-full animate-pulse"
-            style={{ animationPlayState: paused ? "paused" : "running" }}
+            className="rounded-full animate-pulse"
+            style={{
+                width: size,
+                height: size,
+                backgroundColor: color,
+                animationDuration: `${speed}s`,
+                animationPlayState: paused ? "paused" : "running"
+            }}
         />
     );
 }

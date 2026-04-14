@@ -1,55 +1,58 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
+function hexToRgb(hex: string) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return { r, g, b };
 }
 
-export default function SlicesLoader({ paused = false }: Props) {
+export default function SlicesLoader({
+    paused = false,
+    speed = 1.5,
+    size = 48,
+    color = "#800080",
+}: LoaderProps) {
+    const { r, g, b } = hexToRgb(color);
+
+    const active = `rgba(${r}, ${g}, ${b}, 0.75)`;
+    const inactive = `rgba(${r}, ${g}, ${b}, 0.25)`;
+
+    const frames = {
+        top: [
+            active, inactive, inactive, inactive, active
+        ],
+        right: [
+            inactive, active, inactive, inactive, inactive
+        ],
+        bottom: [
+            inactive, inactive, active, inactive, inactive
+        ],
+        left: [
+            inactive, inactive, inactive, active, inactive
+        ],
+    };
 
     return (
         <motion.div
-            className="w-12 h-12 border-20 rounded-full"
+            className="border-20 rounded-full"
+            style={{
+                width: size,
+                height: size,
+                borderColor: inactive,
+            }}
             animate={
                 paused
                     ? {
-                        borderTopColor: [
-                            "rgba(128,0,128,0.75)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.75)"
-                        ],
+                        borderTopColor: frames.top,
                     }
                     : {
-                        borderTopColor: [
-                            "rgba(128,0,128,0.75)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.75)"
-                        ],
-                        borderRightColor: [
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.75)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)"
-                        ],
-                        borderBottomColor: [
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.75)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)"
-                        ],
-                        borderLeftColor: [
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.25)",
-                            "rgba(128,0,128,0.75)",
-                            "rgba(128,0,128,0.25)"
-                        ],
-                        rotate: [0, 90, 180, 270, 360]
+                        borderTopColor: frames.top,
+                        borderRightColor: frames.right,
+                        borderBottomColor: frames.bottom,
+                        borderLeftColor: frames.left,
+                        rotate: [0, 90, 180, 270, 360],
                     }
             }
             transition={
@@ -57,7 +60,7 @@ export default function SlicesLoader({ paused = false }: Props) {
                     ? { duration: 0 }
                     : {
                         repeat: Infinity,
-                        duration: 1,
+                        duration: speed,
                         ease: "linear",
                     }
             }

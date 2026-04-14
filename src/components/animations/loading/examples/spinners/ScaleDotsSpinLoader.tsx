@@ -1,16 +1,17 @@
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect } from "react";
+import { motion, useTransform, useTime } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
+export default function ScaleDotsSpinLoader({
+    paused = false,
+    speed = 1,
+    size = 20,
+    color = "#3393dd",
+    scale = 3,
+}: LoaderProps) {
 
-export default function ScaleDotsSpinLoader({ paused = false }: Props) {
-
-    const baseSize = 4;
-    const maxScale = 3;
-    const distance = 22;
-    const color = "#3393dd";
+    const baseSize = size / 5;
+    const maxScale = scale;
+    const distance = size;
     const steps = 8;
     const positions = [
         [1, 0],
@@ -23,19 +24,14 @@ export default function ScaleDotsSpinLoader({ paused = false }: Props) {
         [0.707, -0.707],
     ];
 
-    const rotate = useMotionValue(0);
+    const time = useTime();
 
-    useEffect(() => {
-        const controls = animate(rotate, 360, {
-            repeat: Infinity,
-            duration: 1,
-            ease: "linear",
-        });
-        return () => controls.stop();
-    }, [rotate]);
+    const angle = useTransform(
+        time,
+        (t) => (paused ? 0 : (t / (speed * 1000)) * 360)
+    );
 
-    // paused のときは途中のステップで止める
-    const stepIndex = useTransform(rotate, (r) => {
+    const stepIndex = useTransform(angle, (r) => {
         const step = Math.floor((r / 360) * steps) % steps;
         return paused ? Math.floor(steps / 2) : step;
     });

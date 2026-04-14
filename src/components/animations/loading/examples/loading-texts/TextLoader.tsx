@@ -1,15 +1,26 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function TextLoader({ paused = false }: Props) {
+export default function TextLoader({
+    paused = false,
+    speed = 0.8,
+    size = 30,
+    color = "#9810fa",
+    yRange = -4,
+}: LoaderProps) {
     const text = ["L", "o", "a", "d", "i", "n", "g"];
     const waveY = [0, -4, 0];
 
     return (
-        <div className="flex justify-center items-center space-x-1 text-3xl font-bold w-12 h-12 text-purple-600">
+        <div
+            className="flex justify-center items-center space-x-1 text-3xl font-bold"
+            style={{
+                width: size,
+                height: size,
+                color: color,
+                fontSize: size,
+            }}
+        >
             {text.map((char, index) => {
                 const delay = index * 0.1;
 
@@ -20,20 +31,20 @@ export default function TextLoader({ paused = false }: Props) {
                         animate={
                             paused
                                 ? { y: waveY[index % waveY.length] }
-                                : { y: [0, -8, 0] }
+                                : { y: [0, yRange, 0] }
                         }
                         transition={
                             paused
                                 ? { duration: 0 }
                                 : {
-                                    duration: 0.8,
+                                    duration: speed,
                                     repeat: Infinity,
                                     delay,
                                     ease: "easeInOut",
                                 }
                         }
                         className={
-                            index === 2 ? "text-purple-500" : "text-black"
+                            index === 2 ? color : "text-black"
                         }
                     >
                         {char}

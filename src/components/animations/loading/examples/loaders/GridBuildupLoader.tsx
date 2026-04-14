@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
+import type { LoaderProps } from "../../loader";
 
-interface Props {
-    paused?: boolean;
-}
-
-export default function GridBuildupLoader({ paused = false }: Props) {
+export default function GridBuildupLoader({
+    paused = false,
+    speed = 2.4,
+    size = 48,
+    color = "#6f86d6",
+}: LoaderProps) {
     const gridOrder = [...Array(9).keys()];
     const animateState = paused ? "hidden" : "visible";
     const totalCells = gridOrder.length;
@@ -12,7 +14,11 @@ export default function GridBuildupLoader({ paused = false }: Props) {
 
     return (
         <motion.div
-            className="grid grid-cols-3 gap-1 w-12 h-12"
+            className="grid grid-cols-3 gap-1"
+            style={{
+                width: size,
+                height: size,
+            }}
             initial="hidden"
             animate={animateState}
             variants={{
@@ -31,7 +37,11 @@ export default function GridBuildupLoader({ paused = false }: Props) {
                 return (
                     <motion.div
                         key={index}
-                        className="w-3 h-3 bg-[#6f86d6]"
+                        style={{
+                            width: size / 4,
+                            height: size / 4 ,
+                            backgroundColor: color,
+                        }}
                         variants={{
                             hidden: {
                                 opacity: isActive ? 1 : 0.2,
@@ -43,7 +53,7 @@ export default function GridBuildupLoader({ paused = false }: Props) {
                                 scale: [0.4, 1, 1, 0.4],
                                 transition: {
                                     times: [0, 0.4, 0.6, 1],
-                                    duration: 2.4,
+                                    duration: speed,
                                     repeat: Infinity,
                                     repeatType: "loop",
                                     delay: (index * 0.1),
