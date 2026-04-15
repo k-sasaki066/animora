@@ -1,20 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import type { LoaderProps } from "../../loader";
-
-function adjustColor(hex: string, percent: number) {
-    const num = parseInt(hex.replace("#", ""), 16);
-
-    let r = (num >> 16) + percent;
-    let g = ((num >> 8) & 0x00ff) + percent;
-    let b = (num & 0x0000ff) + percent;
-
-    r = Math.max(Math.min(255, r), 0);
-    g = Math.max(Math.min(255, g), 0);
-    b = Math.max(Math.min(255, b), 0);
-
-    return `rgb(${r}, ${g}, ${b})`;
-}
+import { darken } from "@/utils/color";
 
 export default function WaveFillLoader({
     paused = false,
@@ -38,7 +25,7 @@ export default function WaveFillLoader({
 
     const baseColor = color || "#326384";
     const gradientTop = baseColor;
-    const gradientBottom = adjustColor(baseColor, -30);
+    const gradientBottom = darken(baseColor, 0.3);
     const scale = size / 20;
 
     return (

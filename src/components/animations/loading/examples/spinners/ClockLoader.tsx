@@ -1,15 +1,6 @@
 import { motion } from "framer-motion";
 import type { LoaderProps } from "../../loader";
-
-function adjustBrightness(hex: string, amount: number) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-
-    return `rgb(${Math.min(255, r + amount)},
-                ${Math.min(255, g + amount)},
-                ${Math.min(255, b + amount)})`;
-}
+import { darken } from "@/utils/color";
 
 export default function ClockLoader({
     paused = false,
@@ -18,7 +9,7 @@ export default function ClockLoader({
     color = "#f7b2e1",
 }: LoaderProps) {
     const handHeight = size * 0.5;
-    const handColor = adjustBrightness(color, -60);
+    const handColor = darken(color, 0.4);
 
     return (
         <div
