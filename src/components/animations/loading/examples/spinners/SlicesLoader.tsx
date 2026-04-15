@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import type { LoaderProps } from "../../loader";
-
-function hexToRgb(hex: string) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return { r, g, b };
-}
+import { withOpacity } from "@/utils/color";
 
 export default function SlicesLoader({
     paused = false,
@@ -14,10 +8,9 @@ export default function SlicesLoader({
     size = 48,
     color = "#800080",
 }: LoaderProps) {
-    const { r, g, b } = hexToRgb(color);
 
-    const active = `rgba(${r}, ${g}, ${b}, 0.75)`;
-    const inactive = `rgba(${r}, ${g}, ${b}, 0.25)`;
+    const active = withOpacity(color, 0.75);
+    const inactive = withOpacity(color, 0.25);
 
     const frames = {
         top: [

@@ -1,21 +1,7 @@
 import { motion } from "framer-motion";
 import { useToggleHover } from "@/hooks/useToggleHover";
 import type { ButtonParams } from "../../button-animation";
-
-function lighten(hex: string, amount = 0.2) {
-    hex = hex.replace("#", "");
-
-    const num = parseInt(hex, 16);
-    let r = (num >> 16) + 255 * amount;
-    let g = ((num >> 8) & 0x00ff) + 255 * amount;
-    let b = (num & 0x0000ff) + 255 * amount;
-
-    r = Math.min(255, Math.floor(r));
-    g = Math.min(255, Math.floor(g));
-    b = Math.min(255, Math.floor(b));
-
-    return `rgb(${r}, ${g}, ${b})`;
-}
+import { lighten } from "@/utils/color";
 
 export default function FlowTextButton({
     speed = 0.3,
