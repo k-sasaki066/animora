@@ -1,6 +1,7 @@
 import type { LazyExoticComponent, ComponentType } from "react";
 import { lazy } from "react";
 import type { ButtonParams } from "./button-animation";
+import type { SliderField } from "@/components/animations/core/sliderField";
 
 type ButtonComponent = LazyExoticComponent<
     ComponentType<ButtonParams>
@@ -9,6 +10,7 @@ type ButtonComponent = LazyExoticComponent<
 type ButtonMeta = {
     component: ButtonComponent;
     defaultParams: ButtonParams;
+    sliders?: SliderField<keyof ButtonParams>[];
 };
 
 export const buttonAnimationMap: Record<string, ButtonMeta> = {
