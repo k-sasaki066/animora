@@ -49,7 +49,7 @@ export const accordionData: AccordionCategory[] = [
     {
         title: "HTML",
         items: [
-        { title: "Tags", key: "Tags", content: "div, section, header, footer..." },
+        { title: "Entity", key: "Entity", content: "文字参照" },
         { title: "Forms", key: "Forms",content: "input, select, textarea..." },
         { title: "Media", key: "Media",content: "img, video, audio..." },
         ],
