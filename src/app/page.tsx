@@ -25,6 +25,9 @@ import { CardList } from "@/components/animations/cards/CardList";
 import { TableList } from "@/components/animations/tables/TableList";
 import { GraphList } from "@/components/animations/graphs/GraphList";
 
+import { MDXWrapper } from "@/components/docs/MDXWrapper";
+import HtmlEntities from "@/components/docs/entities/html-entities.mdx";
+
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
     const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -151,6 +154,11 @@ export default function HomePage() {
                                     {selectedItem === "Card" && <CardList />}
                                     {selectedItem === "Table" && <TableList />}
                                     {selectedItem === "Graph" && <GraphList />}
+                                    {selectedItem === "Entity" && (
+                                        <MDXWrapper>
+                                            <HtmlEntities />
+                                        </MDXWrapper>
+                                    )}
                                 </div>
                             )}
                         </main>
