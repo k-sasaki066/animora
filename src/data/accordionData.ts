@@ -43,7 +43,7 @@ export const accordionData: AccordionCategory[] = [
         items: [
             { title: "DOM Manipulation", key: "DOM", content: "Element selection, event handling" },
             { title: "Animations", key: "Animations", content: "JS-driven animations using requestAnimationFrame" },
-            { title: "Utilities", key: "Utilities", content: "Debounce, throttle, etc." },
+            { title: "Helpers", key: "Helpers", content: "" },
         ],
     },
     {
