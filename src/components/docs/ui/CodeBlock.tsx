@@ -24,7 +24,7 @@ export default function CodeBlock({ code }: Props) {
 
             <button
                 onClick={handleCopy}
-                className="absolute top-2 right-2 text-xs bg-zinc-700 hover:bg-zinc-600 text-white px-2 py-1 rounded transition"
+                className="absolute top-2 right-2 text-xs hover:bg-zinc-600 text-white px-2 py-1 rounded transition"
             >
                 {copied ? (
                     <Check size={16} className="text-green-400" />
