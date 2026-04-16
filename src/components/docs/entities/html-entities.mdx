@@ -1,4 +1,5 @@
-import HtmlEntitiesTable from "@/components/docs/entities/HtmlEntitiesTable";
+import Table from "@/components/docs/ui/Table";
+import { entityColumns, entityData } from "@/components/docs/entities/entity-data";
 
 ## HTML文字参照とは？
 
@@ -7,4 +8,7 @@ HTMLでは、特定の文字をそのまま書くと**タグとして解釈さ�
 
 [HTML特殊文字変換ツール](https://tech-unlimited.com/escape.html)
 
-<HtmlEntitiesTable />
+<Table
+    data={entityData}
+    columns={entityColumns}
+/>

@@ -30,6 +30,8 @@ import HtmlEntities from "@/components/docs/entities/html-entities.mdx";
 import Image from "@/components/docs/media/image.mdx";
 import Video from "@/components/docs/media/video.mdx";
 import Source from "@/components/docs/media/source.mdx";
+import ColorModel from "@/components/docs/colors/color-model.mdx";
+import ColorComparison from "@/components/docs/colors/color-comparison.mdx";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -175,6 +177,16 @@ export default function HomePage() {
                                     {selectedItem === "SourceTag" && (
                                         <MDXWrapper>
                                             <Source />
+                                        </MDXWrapper>
+                                    )}
+                                    {selectedItem === "ColorModel" && (
+                                        <MDXWrapper>
+                                            <ColorModel />
+                                        </MDXWrapper>
+                                    )}
+                                    {selectedItem === "ColorComparison" && (
+                                        <MDXWrapper>
+                                            <ColorComparison />
                                         </MDXWrapper>
                                     )}
                                 </div>

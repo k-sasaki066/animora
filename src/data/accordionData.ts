@@ -52,7 +52,9 @@ export const accordionData: AccordionCategory[] = [
             { title: "Entity", key: "Entity", content: "文字参照" },
             { title: "ImageTag", key: "ImageTag", content: "" },
             { title: "VideoTag", key: "VideoTag", content: "" },
-            { title: "SourceTag", key: "SourceTag",content: "" },
+            { title: "SourceTag", key: "SourceTag", content: "" },
+            { title: "ColorModel", key: "ColorModel", content: "" },
+            { title: "ColorComparison", key: "ColorComparison",content: "" },
         ],
     },
     {
