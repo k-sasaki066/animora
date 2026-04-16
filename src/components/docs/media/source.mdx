@@ -1,0 +1,122 @@
+## sourceタグとは？
+
+動画・音声・画像の複数フォーマットを指定するためのタグ(空要素)<br />
+ブラウザごとに対応形式が違うため、代替ファイルを用意するときに使う
+
+
+### 基本構造
+`<source>`は単体では使えず、必ず`<video>`や`<audio>`の中で使う<br />
+⚠️source単体では意味を持たない
+
+<br />
+**videoでの使い方**
+
+```html
+<video controls width="600">
+    <source src="/videos/sample.mp4" type="video/mp4" />
+    <source src="/videos/sample.webm" type="video/webm" />
+    お使いのブラウザは動画タグに対応していません。
+</video>
+```
+
+<br />
+**audioでの使い方**
+```html
+<audio controls>
+    <source src="/audio/sample.mp3" type="audio/mpeg" />
+    <source src="/audio/sample.ogg" type="audio/ogg" />
+    お使いのブラウザは音声タグに対応していません。
+</audio>
+```
+
+上から順に再生可能な形式を探す<br />
+対応している最初のsourceが使われる<br />
+
+<br />
+**type属性の意味**
+
+ブラウザに「このファイル形式です」と伝えるためのもの<br />
+
+type属性を指定しないと...<br />
+①ブラウザは「再生できるか不明」なので一度読み込んでから判断<br />
+②再生できなければ次のsourceへ<br />
+⚠️無駄な通信が発生する可能性あり<br />
+
+type属性を指定することで、ブラウザは読み込み前に判定できる<br />
+
+<table className="min-w-50 max-w-100 table-auto border-collapse text-center">
+    <thead className="text-white">
+        <tr>
+        <th className="px-3 py-2">ファイル</th>
+        <th className="px-3 py-2">type</th>
+        <th className="px-3 py-2">用途</th>
+        </tr>
+    </thead>
+
+    <tbody className="divide-y divide-zinc-700">
+        <tr>
+            <td className="px-3 py-2 font-mono">.mp4</td>
+            <td className="px-3 py-2 font-mono">video/mp4</td>
+            <td className="px-3 py-2">動画（最も一般的）</td>
+        </tr>
+
+        <tr>
+            <td className="px-3 py-2 font-mono">.webm</td>
+            <td className="px-3 py-2 font-mono">video/webm</td>
+            <td className="px-3 py-2">軽量・Web最適化動画</td>
+        </tr>
+
+        <tr>
+            <td className="px-3 py-2 font-mono">.mp3</td>
+            <td className="px-3 py-2 font-mono">audio/mpeg</td>
+            <td className="px-3 py-2">音声（標準形式）</td>
+        </tr>
+
+        <tr>
+            <td className="px-3 py-2 font-mono">.ogg</td>
+            <td className="px-3 py-2 font-mono">audio/ogg</td>
+            <td className="px-3 py-2">オープン形式音声</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+**画像での使い方（pictureタグ）**
+```html
+<picture>
+    <source srcSet="/images/sample.webp" type="image/webp" />
+    <source srcSet="/images/sample.jpg" type="image/jpeg" />
+
+    <img src="/images/sample.jpg" alt="サンプル画像" />
+</picture>
+```
+上から順に使えるものが選ばれる<br />
+WebP → 軽い（優先）<br />
+JPEG → 互換性（フォールバック）
+
+<br />
+**レスポンシブ対応**
+
+画面サイズや解像度に応じて画像を切り替えるために使う
+
+```html
+<picture>
+  <source srcSet="/images/large.jpg" media="(min-width: 1024px)" />
+  <source srcSet="/images/medium.jpg" media="(min-width: 768px)" />
+
+  <img src="/images/small.jpg" alt="レスポンシブ画像" />
+</picture>
+```
+
+上から順番に条件をチェック<br />
+条件に合う最初のsourceが採用される<br />
+どのsourceタグの条件に合致しない場合はimgが表示される（フォールバック）<br />
+🗒️sourceタグに指定した画像のaltはimgタグの内容になる<br />
+
+⚠️imgは必ず最後に書く<br />
+　→条件を持つsourceタグを先に検証して、どれにも合致しない場合はimgタグの内容を用いる仕組みのため
+
+### pictureタグとは?
+pictureタグは画像要素の一つで、子要素にはimgタグ（必須）とsourceタグ（任意）を持つ<br />
+ページが読み込まれた際に、子要素のsourceタグを検証してメディアクエリーなどの条件に合致する画像を表示<br />
+

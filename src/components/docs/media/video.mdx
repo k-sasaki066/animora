@@ -1,0 +1,105 @@
+## videoタグとは？
+
+HTMLで動画を再生するための要素<br />
+直接動画ファイルを再生する場合に使う
+
+動画自体の容量は、少なくとも1~5MB程度まで抑える<br />
+動画の容量が重いと、動画がいつまでも再生されないことがあるため
+
+### 基本構文
+
+```html
+<video src="/videos/sample.mp4" controls />
+```
+
+**src（必須）**
+画像のURLを指定(相対パスもURLも指定可能)して動画の場所を決める
+
+
+<br />
+### よく使う属性
+```html
+controls        // コントロールパネルを表示(再生ボタン、音量調整、シークバー)
+autoPlay        // 動画の自動再生を有効
+muted           // 動画に含まれる音声を消す。autoPlayとセットで使う
+loop            // ループ再生
+playsInline     // 動画のインライン再生を有効(全画面表示をさせずに動画を再生させたい場合)
+width & height  //横幅と高さを指定する
+poster="/images/poster.jpg"  // 動画が読み込まれている間に表示する画像を指定
+
+preload             // 動画ファイルを事前に読み込むかどうかを設定する
+preload="none"     ：事前読み込み禁止
+preload="metadata" ：長さやファイルサイズのようなメタ情報のみ読み込む
+preload="auto"     ：初期値　動画ファイルを事前読み込みする
+*autoPlay属性が指定されている場合は、無視される
+```
+
+<br />
+```html
+<video
+    src="/videos/sample.mp4"
+    controls
+/>
+```
+<video
+    src="/videos/river.mp4"
+    controls
+    className="w-full max-w-lg mx-auto"
+/>
+
+
+<br />
+```html
+<div className="w-full max-w-lg mx-auto aspect-video">
+    <video
+        src="/videos/river.mp4"
+        poster="/images/samples/sample-02.webp"
+        controls
+        playsInline
+        className="w-full h-full object-cover"
+    />
+</div>
+```
+<div className="w-full max-w-lg mx-auto aspect-video">
+    <video
+        src="/videos/river.mp4"
+        poster="/images/samples/sample-02.webp"
+        controls
+        playsInline
+        className="w-full h-full object-cover"
+    />
+</div>
+
+
+<br />
+```html
+<div className="relative w-full max-w-lg mx-auto aspect-video overflow-hidden">
+    <video
+        src="/videos/hero.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute w-full h-full object-cover"
+    />
+
+    <p className="relative w-full h-full text-white/75 text-4xl font-bold">
+      sample
+    </p>
+</div>
+```
+
+<div className="relative w-full max-w-lg mx-auto aspect-video overflow-hidden">
+    <video
+        src="/videos/river.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute w-full h-full object-cover"
+    />
+
+    <p className="relative w-full h-full text-white/75 text-4xl font-bold">
+      sample
+    </p>
+</div>

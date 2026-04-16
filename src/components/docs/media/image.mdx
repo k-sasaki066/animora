@@ -1,0 +1,229 @@
+## imgタグとは？
+
+HTMLで画像を表示するための要素<br />
+テキストのように閉じタグは必要ない（空要素）
+
+### 基本構文
+
+```html
+<img src="画像のURL" alt="代替テキスト" />
+```
+
+**① src（必須）**<br />
+画像のURLを指定(相対パスもURLも指定可能)して画像の場所を決める
+
+**② alt（必須）**<br />
+画像が表示できない場合の代替テキスト
+アクセシビリティ対応（スクリーンリーダー）
+SEO対策
+
+<br />
+### よく使う属性
+
+**width / height (画像サイズ指定)**
+```html
+<img src="/images/sample.jpg" alt="サンプル" width="300" height="200" />
+```
+
+
+<br />
+**loading（遅延読み込み）**
+```html
+<img src="/images/sample.jpg" alt="サンプル" loading="lazy" />
+```
+lazy：必要になるまで読み込まない（推奨）<br />
+eager：すぐ読み込む（デフォルト）
+
+
+<br />
+**decoding（デコード方法）**
+```html
+<img src="/images/sample.jpg" alt="サンプル" decoding="async" />
+```
+
+<br />
+**Next.jsの場合**<br />
+Next.jsでは通常のimgではなくnext/imageを使うことが推奨されている。
+```html
+import Image from "next/image";
+
+export default function Page() {
+    return (
+        <Image
+            src="/images/sample.jpg"
+            alt="サンプル画像"
+            width={500}
+            height={300}
+        />
+    );
+}
+```
+
+<br />
+### よく使うプロパティ
+
+```html
+<img
+    src="/images/sample.jpg"
+    alt="サンプル"
+    className="w-full max-w-sm aspect-square mx-auto object-cover"
+/>
+```
+**object-cover**<br />
+画像の表示方法を決めるプロパティ<br />
+画像を「枠いっぱい」に表示し、はみ出した部分はトリミングされる
+<img
+    src="/images/samples/sample-03.webp"
+    alt="サンプル"
+    className="w-full max-w-sm aspect-square mx-auto object-cover"
+/>
+
+
+<br />
+**object-contain**<br />
+画像を切らずに全部表示、余白ができることがある
+
+<img
+    src="/images/samples/sample-03.webp"
+    alt="サンプル"
+    className="w-full max-w-sm aspect-square mx-auto object-contain"
+/>
+
+
+<br />
+**object-fill**<br />
+枠に強制的に引き伸ばす。比率が崩れる可能性あり
+
+<img
+    src="/images/samples/sample-03.webp"
+    alt="サンプル"
+    className="w-full max-w-sm aspect-square mx-auto object-fill"
+/>
+
+
+<br />
+**object-none**<br />
+元サイズのまま表示。はみ出す可能性あり
+<img
+    src="/images/samples/sample-03.webp"
+    alt="サンプル"
+    className="w-full max-w-sm aspect-square mx-auto object-none"
+/>
+
+
+<br />
+### position
+画像のどの部分を表示するかを決めるプロパティ
+
+```html
+object-center //デフォルト 画像の中央を基準に表示
+object-top
+object-bottom
+object-left
+object-right
+object-[50%_10%] //上寄せよりさらに上
+object-[20%_50%] //左寄せ + 中央
+```
+**object-center**
+<img
+    src="/images/samples/sample-03.webp"
+    alt="サンプル"
+    className="w-full max-w-sm aspect-square mx-auto object-cover object-center"
+/>
+
+<br />
+**object-[50%_100%]**
+<img
+    src="/images/samples/sample-03.webp"
+    alt="サンプル"
+    className="w-full max-w-sm aspect-square mx-auto object-cover object-[50%_100%]"
+/>
+
+
+<br />
+### よく使う組み合わせ
+**① サムネイル**
+```html
+<img
+    src="/images/sample.jpg"
+    alt="サムネイル"
+    className="w-full h-48 object-cover rounded-lg"
+/>
+```
+
+
+<br />
+**② レスポンシブ画像**
+```html
+<img
+    src="/images/sample.jpg"
+    alt="レスポンシブ画像"
+    className="w-full h-auto object-contain"
+/>
+```
+
+
+<br />
+**③ 丸いアイコン**
+```html
+<img
+  src="/images/avatar.jpg"
+  alt="アバター"
+  className="w-16 h-16 object-cover rounded-full"
+/>
+```
+
+
+<br />
+### divタグに背景画像を設定する方法
+
+```html
+<div className="bg-[url('/images/sample.jpg')]"></div>
+```
+
+
+<br />
+**サイズ指定**
+
+```html
+bg-cover    //枠いっぱいに表示し、はみ出しはトリミング
+bg-contain  //画像全体を表示。余白ができる
+```
+
+
+<br />
+**表示位置**
+
+```html
+bg-center   //中央デフォルト
+bg-top
+bg-bottom
+```
+
+
+<br />
+**繰り返し制御**
+```html
+bg-no-repeat  //デフォルト
+bg-repeat     //タイル表示
+```
+
+
+<br />
+**テキスト重ね**
+```html
+<div className="relative w-full max-w-sm aspect-video mx-auto bg-[url('/images/sample.jpg')] bg-cover bg-center rounded-lg">
+    <div className="absolute inset-0 bg-black/50"></div>
+
+    <div className="relative z-10 text-white font-bold p-4">
+        sample
+    </div>
+</div>
+```
+<div className="relative w-full max-w-sm aspect-video mx-auto bg-[url('/images/samples/sample-04.webp')] bg-cover bg-center rounded-lg">
+    <div className="absolute inset-0 bg-black/50"></div>
+
+    <div className="relative z-10 text-4xl text-white/75 font-bold p-4">
+        sample
+    </div>
+</div>

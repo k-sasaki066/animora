@@ -27,6 +27,9 @@ import { GraphList } from "@/components/animations/graphs/GraphList";
 
 import { MDXWrapper } from "@/components/docs/MDXWrapper";
 import HtmlEntities from "@/components/docs/entities/html-entities.mdx";
+import Image from "@/components/docs/media/image.mdx";
+import Video from "@/components/docs/media/video.mdx";
+import Source from "@/components/docs/media/source.mdx";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -157,6 +160,21 @@ export default function HomePage() {
                                     {selectedItem === "Entity" && (
                                         <MDXWrapper>
                                             <HtmlEntities />
+                                        </MDXWrapper>
+                                    )}
+                                    {selectedItem === "ImageTag" && (
+                                        <MDXWrapper>
+                                            <Image />
+                                        </MDXWrapper>
+                                    )}
+                                    {selectedItem === "VideoTag" && (
+                                        <MDXWrapper>
+                                            <Video />
+                                        </MDXWrapper>
+                                    )}
+                                    {selectedItem === "SourceTag" && (
+                                        <MDXWrapper>
+                                            <Source />
                                         </MDXWrapper>
                                     )}
                                 </div>
