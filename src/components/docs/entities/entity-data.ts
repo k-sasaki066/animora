@@ -4,7 +4,25 @@ type Entity = {
     note?: string;
 };
 
-const entities: Entity[] = [
+export const entityColumns = [
+    {
+        key: "char",
+        label: "表示",
+        className: "text-left font-mono w-[25%]"
+    },
+    {
+        key: "entity",
+        label: "文字参照",
+        className: "text-left font-mono w-[25%]"
+    },
+    {
+        key: "note",
+        label: "備考",
+        className: "text-left text-sm text-zinc-400 w-[50%]"
+    },
+];
+
+export const entityData: Entity[] = [
     { char: "<", entity: "&lt;", note: "HTMLタグ開始" },
     { char: ">", entity: "&gt;", note: "HTMLタグ終了" },
     { char: "&", entity: "&amp;", note: "エスケープ必須文字" },
@@ -29,43 +47,3 @@ const entities: Entity[] = [
     { char: "n幅スペース", entity: "&ensp;", note: "半角より広い空白" },
     { char: "m幅スペース", entity: "&emsp;", note: "全角より広い空白" },
 ];
-
-export default function HtmlEntitiesTable() {
-    const padding = "px-3 py-2";
-
-    return (
-        <div className="overflow-x-auto">
-            <table className="w-full table-auto border-collapse text-center mx-auto">
-                <thead>
-                    <tr>
-                        <th className={`${padding} text-left w-[25%]`}>
-                            表示
-                        </th>
-                        <th className={`${padding} text-left w-[25%]`}>
-                            文字参照
-                        </th>
-                        <th className={`${padding} text-left w-[50%]`}>
-                            備考
-                        </th>
-                    </tr>
-                </thead>
-
-                <tbody className="">
-                    {entities.map((item, i) => (
-                        <tr key={i}>
-                            <td className={`${padding} text-left font-mono`}>
-                                {item.char}
-                            </td>
-                            <td className={`${padding} text-left font-mono`}>
-                                {item.entity}
-                            </td>
-                            <td className={`${padding} text-left text-sm text-zinc-400`}>
-                                {item.note}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
-}
