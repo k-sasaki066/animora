@@ -41,31 +41,32 @@ export const accordionData: AccordionCategory[] = [
     {
         title: "JavaScript",
         items: [
-        { title: "DOM Manipulation", key: "DOM", content: "Element selection, event handling" },
-        { title: "Animations", key: "Animations", content: "JS-driven animations using requestAnimationFrame" },
-        { title: "Utilities", key: "Utilities", content: "Debounce, throttle, etc." },
+            { title: "DOM Manipulation", key: "DOM", content: "Element selection, event handling" },
+            { title: "Animations", key: "Animations", content: "JS-driven animations using requestAnimationFrame" },
+            { title: "Utilities", key: "Utilities", content: "Debounce, throttle, etc." },
         ],
     },
     {
         title: "HTML",
         items: [
-        { title: "Entity", key: "Entity", content: "文字参照" },
-        { title: "Forms", key: "Forms",content: "input, select, textarea..." },
-        { title: "Media", key: "Media",content: "img, video, audio..." },
+            { title: "Entity", key: "Entity", content: "文字参照" },
+            { title: "ImageTag", key: "ImageTag", content: "" },
+            { title: "VideoTag", key: "VideoTag", content: "" },
+            { title: "SourceTag", key: "SourceTag",content: "" },
         ],
     },
     {
         title: "Class Names",
         items: [
-        { title: "Tailwind Classes", key: "Classes", content: "bg-, text-, flex-, grid-" },
-        { title: "Custom CSS Classes", key: "Custom CSS", content: "自作クラスの使い方" },
+            { title: "Tailwind Classes", key: "Classes", content: "bg-, text-, flex-, grid-" },
+            { title: "Custom CSS Classes", key: "Custom CSS", content: "自作クラスの使い方" },
         ],
     },
     {
         title: "Notes",
         items: [
-        { title: "Personal Notes", key: "Personal Notes", content: "自分用メモ" },
-        { title: "Tips", key: "Tips", content: "便利な小技集" },
+            { title: "Personal Notes", key: "Personal Notes", content: "自分用メモ" },
+            { title: "Tips", key: "Tips", content: "便利な小技集" },
         ],
     },
 ];
