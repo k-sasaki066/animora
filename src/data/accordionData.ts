@@ -49,12 +49,12 @@ export const accordionData: AccordionCategory[] = [
     {
         title: "HTML",
         items: [
-            { title: "Entity", key: "Entity", content: "文字参照" },
-            { title: "ImageTag", key: "ImageTag", content: "" },
-            { title: "VideoTag", key: "VideoTag", content: "" },
-            { title: "SourceTag", key: "SourceTag", content: "" },
-            { title: "ColorModel", key: "ColorModel", content: "" },
-            { title: "ColorComparison", key: "ColorComparison",content: "" },
+            { title: "Entity", key: "Entity", content: "" },
+            { title: "imgタグ", key: "ImageTag", content: "" },
+            { title: "Videoタグ", key: "VideoTag", content: "" },
+            { title: "Sourceタグ", key: "SourceTag", content: "" },
+            { title: "colorモデル", key: "ColorModel", content: "" },
+            { title: "color比較", key: "ColorComparison",content: "" },
         ],
     },
     {
