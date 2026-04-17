@@ -1,0 +1,118 @@
+import Table from "@/components/docs/ui/Table";
+import { networkColumns, networkData } from "./lazy-data";
+
+## lazyとは？
+**必要になった時だけコンポーネントを読み込む仕組み**
+
+通常はページ表示時にすべてのコンポーネントを読み込むが<br />
+`lazy()` を使うと後から必要な時だけ読み込める<br />
+
+**⭐︎初期表示の高速化**<br />
+最小限のコードだけでページを表示でき、初期ロード時間が短縮される
+
+
+**⭐︎読み込み待機の制御**<br />
+SuspenseによってローディングUIが明示できる
+
+
+**⭐︎簡単な導入**<br />
+importをReact.lazyに置き換えるだけで導入可能
+
+<br />
+**基本構文**<br />
+React.lazy() + Suspenseを使う
+```jsx
+import { lazy, Suspense } from "react";
+
+const UserProfile = lazy(() => import("./UserProfile"));
+
+export default function App() {
+    return (
+        <Suspense fallback={<p>読み込み中...</p>}>
+            <UserProfile />
+        </Suspense>
+    );
+}
+```
+
+**⚠️この書き方で読み込めるのはdefault exportされたコンポーネントだけ**
+```js
+const LoginModal = lazy(() => import("./LoginModal"));
+
+
+↓  lazy() は内部的に、読み込んだファイルの default を探すため、このような形を期待している
+
+
+⭕️ export default function LoginModal() {
+    return <div>Modal</div>;
+}
+
+
+❌ export function LoginModal() {
+    return <div>Modal</div>;
+}
+lazy() は default を探すため、名前付きexportでは見つからずエラーになる
+```
+
+<br />
+### Suspense
+**React の機能で「読み込みが終わるまで代替UI（fallback）を表示する仕組み**
+
+<div className="w-100 aspect-16/11 mx-auto">
+    <img src="/images/docs/react/Suspense.png" className="w-full h-full object-cover"/>
+</div>
+
+```jsx
+fallback={<div>Loading...</div>}
+fallback={<Spinner />}
+fallback={<Skeleton className="w-full h-40" />}
+
+などfallbackには読み込み中の表示を入れる
+```
+⚠️ SuspenseがないとError<br />
+A component suspended while rendering, but no fallback UI was specified
+
+
+<br />
+### lazyの確認方法(Network)
+```js
+export const animationMap = {
+    Loading: lazy(() => import("@/components/animations/loading/LoadingList")),
+}
+```
+<br />
+①devツールの『Network』タブを開き、ページを再読み込み
+```
+js.jsのみが表示
+
+⭕️ LoginList_tsx.jsがまだ出ない
+```
+<img src="/images/docs/react/lazy-network-1.png" className="shadow-lg"/>
+
+<br />
+②lazy対象を表示する
+```
+⭕️ クリックした瞬間 LoginList_tsx.jsが追加で出る
+```
+<img src="/images/docs/react/lazy-network-2.png" className="shadow-lg"/>
+
+③Networkタブの通信詳細
+<img src="/images/docs/react/lazy-network-result.png" className="shadow-lg"/>
+<Table
+    data={networkData}
+    columns={networkColumns}
+/>
+
+#### 失敗した場合によく出る表示
+
+**① 404 Not Found (ファイルが存在しない)**
+
+**② Failed / net::ERR_ABORTED**
+- 通信失敗
+- 途中キャンセル
+- ネット接続問題
+
+**③ 500 Internal Server Error**
+- サーバー側エラー
+- Next.js build失敗
+- chunk生成ミス
