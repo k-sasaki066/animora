@@ -58,10 +58,9 @@ export const accordionData: AccordionCategory[] = [
         ],
     },
     {
-        title: "Class Names",
+        title: "CLI",
         items: [
-            { title: "Tailwind Classes", key: "Classes", content: "bg-, text-, flex-, grid-" },
-            { title: "Custom CSS Classes", key: "Custom CSS", content: "自作クラスの使い方" },
+            { title: "CLI", key: "CLI", content: "" },
         ],
     },
     {
