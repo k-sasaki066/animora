@@ -56,6 +56,12 @@ export const commandData: CommandItem[] = [
         example: "touch index.html style.css",
     },
     {
+        command: "mv",
+        description: "移動 / 名前変更",
+        options: "ファイル移動・リネーム可能",
+        example: "mv old.txt new.txt",
+    },
+    {
         command: "open",
         description: "ファイル/フォルダを開く（Mac）",
         options: "-R（Finderで表示）",
