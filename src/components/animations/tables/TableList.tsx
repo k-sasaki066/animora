@@ -5,7 +5,7 @@ import { TableCard } from "./TableCard";
 import { TableModal } from "./TableModal";
 import { tableData } from "./tableData";
 
-export function TableList() {
+export default function TableList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
 
     return (

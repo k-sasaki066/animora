@@ -6,7 +6,7 @@ import { TabModal } from "./TabModal";
 import { tabData } from "./tabData";
 import { useReducedMotion } from "framer-motion";
 
-export function TabList() {
+export default function TabList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

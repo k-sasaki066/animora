@@ -6,7 +6,7 @@ import { ListModal } from "./ListModal";
 import { listData } from "./listData";
 import { useReducedMotion } from "framer-motion";
 
-export function ListList() {
+export default function ListList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

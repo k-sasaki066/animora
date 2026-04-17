@@ -6,7 +6,7 @@ import { FormPartModal } from "./FormPartModal";
 import { formPartData } from "./formPartData";
 import { useReducedMotion } from "framer-motion";
 
-export function FormPartList() {
+export default function FormPartList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

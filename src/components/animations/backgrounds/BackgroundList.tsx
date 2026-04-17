@@ -6,7 +6,7 @@ import { BackgroundModal } from "./BackgroundModal";
 import { backgroundData } from "./backgroundData";
 import { useReducedMotion } from "framer-motion";
 
-export function BackgroundList() {
+export default function BackgroundList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

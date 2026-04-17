@@ -6,7 +6,7 @@ import { MenuModal } from "./MenuModal";
 import { menuData } from "./menuData";
 import { useReducedMotion } from "framer-motion";
 
-export function MenuList() {
+export default function MenuList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

@@ -1,0 +1,35 @@
+import { lazy } from "react";
+
+export const animationMap = {
+    Loading: lazy(() => import("@/components/animations/loading/LoadingList")),
+    Micro: lazy(() => import("@/components/animations/micro-interactions/ButtonAnimationList")),
+    Image: lazy(() => import("@/components/animations/images/ImageList")),
+    Slider: lazy(() => import("@/components/animations/sliders/SliderList")),
+    Text: lazy(() => import("@/components/animations/text-animations/TextAnimationList")),
+    Background: lazy(() => import("@/components/animations/backgrounds/BackgroundList")),
+    "Animated-parts": lazy(() => import("@/components/animations/animated-parts/PartList")),
+    "Action-buttons": lazy(() => import("@/components/animations/action-buttons/ActionButtonList")),
+    Tab: lazy(() => import("@/components/animations/tabs/TabList")),
+    Hamburger: lazy(() => import("@/components/animations/hamburgers/HamburgerList")),
+    Menu: lazy(() => import("@/components/animations/menus/MenuList")),
+    "Form-Parts": lazy(() => import("@/components/animations/form-parts/FormPartList")),
+    "Search-Box": lazy(() => import("@/components/animations/search-boxes/SearchBoxList")),
+    Line: lazy(() => import("@/components/animations/lines/LineList")),
+    Pagination: lazy(() => import("@/components/animations/pagination/PaginationList")),
+    Ribbon: lazy(() => import("@/components/animations/ribbons/RibbonList")),
+    List: lazy(() => import("@/components/animations/lists/ListList")),
+    Card: lazy(() => import("@/components/animations/cards/CardList")),
+    Table: lazy(() => import("@/components/animations/tables/TableList")),
+    Graph: lazy(() => import("@/components/animations/graphs/GraphList")),
+};
+
+export const mdxMap = {
+    Entity: lazy(() => import("@/components/docs/entities/html-entities.mdx")),
+    ImageTag: lazy(() => import("@/components/docs/media/image.mdx")),
+    VideoTag: lazy(() => import("@/components/docs/media/video.mdx")),
+    SourceTag: lazy(() => import("@/components/docs/media/source.mdx")),
+    ColorModel: lazy(() => import("@/components/docs/colors/color-model.mdx")),
+    ColorComparison: lazy(() => import("@/components/docs/colors/color-comparison.mdx")),
+    Helpers: lazy(() => import("@/components/docs/js/helpers/js-helper.mdx")),
+    CLI: lazy(() => import("@/components/docs/cli/cli.mdx")),
+};

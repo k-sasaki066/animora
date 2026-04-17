@@ -6,7 +6,7 @@ import { ActionButtonModal } from "./ActionButtonModal";
 import { actionButtonData } from "./actionButtonData";
 import { useReducedMotion } from "framer-motion";
 
-export function ActionButtonList() {
+export default function ActionButtonList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

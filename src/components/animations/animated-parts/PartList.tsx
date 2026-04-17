@@ -6,7 +6,7 @@ import { PartModal } from "./PartModal";
 import { partData } from "./partData";
 import { useReducedMotion } from "framer-motion";
 
-export function PartList() {
+export default function PartList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

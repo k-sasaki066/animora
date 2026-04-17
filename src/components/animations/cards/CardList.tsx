@@ -6,7 +6,7 @@ import { CardModal } from "./CardModal";
 import { cardData } from "./cardData";
 import { useReducedMotion } from "framer-motion";
 
-export function CardList() {
+export default function CardList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;
