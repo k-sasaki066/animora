@@ -64,10 +64,9 @@ export const accordionData: AccordionCategory[] = [
         ],
     },
     {
-        title: "Notes",
+        title: "React",
         items: [
-            { title: "Personal Notes", key: "Personal Notes", content: "自分用メモ" },
-            { title: "Tips", key: "Tips", content: "便利な小技集" },
+            { title: "Lazy", key: "Lazy", content: "" },
         ],
     },
 ];

@@ -32,4 +32,5 @@ export const mdxMap = {
     ColorComparison: lazy(() => import("@/components/docs/colors/color-comparison.mdx")),
     Helpers: lazy(() => import("@/components/docs/js/helpers/js-helper.mdx")),
     CLI: lazy(() => import("@/components/docs/cli/cli.mdx")),
+    Lazy: lazy(() => import("@/components/docs/react/lazy/lazy.mdx")),
 };
