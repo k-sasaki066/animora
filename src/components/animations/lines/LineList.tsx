@@ -6,7 +6,7 @@ import { LineModal } from "./LineModal";
 import { lineData } from "./lineData";
 import { useReducedMotion } from "framer-motion";
 
-export function LineList() {
+export default function LineList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

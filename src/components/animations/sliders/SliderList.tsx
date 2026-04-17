@@ -5,7 +5,7 @@ import { SliderCard } from "./SliderCard";
 import { SliderModal } from "./SliderModal";
 import { sliderData } from "./sliderData";
 
-export function SliderList() {
+export default function SliderList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
 
     return (

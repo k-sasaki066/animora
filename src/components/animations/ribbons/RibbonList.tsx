@@ -5,7 +5,7 @@ import { RibbonCard } from "./RibbonCard";
 import { RibbonModal } from "./RibbonModal";
 import { ribbonData } from "./ribbonData";
 
-export function RibbonList() {
+export default function RibbonList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
 
     return (

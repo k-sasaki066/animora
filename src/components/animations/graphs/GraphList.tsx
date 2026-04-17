@@ -6,7 +6,7 @@ import { GraphModal } from "./GraphModal";
 import { graphData } from "./graphData";
 import { useReducedMotion } from "framer-motion";
 
-export function GraphList() {
+export default function GraphList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

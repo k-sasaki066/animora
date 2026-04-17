@@ -1,39 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import NavMenu from "@/components/NavMenu";
-import { LoadingList } from "@/components/animations/loading/LoadingList";
-import { ButtonAnimationList } from "@/components/animations/micro-interactions/ButtonAnimationList";
-import { ImageList } from "@/components/animations/images/ImageList";
-import { SliderList } from "@/components/animations/sliders/SliderList";
-import { TextAnimationList } from "@/components/animations/text-animations/TextAnimationList";
-import { BackgroundList } from "@/components/animations/backgrounds/BackgroundList";
-import { PartList } from "@/components/animations/animated-parts/PartList";
-import { ActionButtonList } from "@/components/animations/action-buttons/ActionButtonList";
-import { TabList } from "@/components/animations/tabs/TabList";
-import { HamburgerList } from "@/components/animations/hamburgers/HamburgerList";
-import { MenuList } from "@/components/animations/menus/MenuList";
-import { FormPartList } from "@/components/animations/form-parts/FormPartList";
-import { SearchBoxList } from "@/components/animations/search-boxes/SearchBoxList";
-import { LineList } from "@/components/animations/lines/LineList";
-import { PaginationList } from "@/components/animations/pagination/PaginationList";
-import { RibbonList } from "@/components/animations/ribbons/RibbonList";
-import { ListList } from "@/components/animations/lists/ListList";
-import { CardList } from "@/components/animations/cards/CardList";
-import { TableList } from "@/components/animations/tables/TableList";
-import { GraphList } from "@/components/animations/graphs/GraphList";
-
+import { animationMap, mdxMap } from "@/data/content-map";
+import { PageLoader } from "@/components/ui/PageLoader";
 import { MDXWrapper } from "@/components/docs/MDXWrapper";
-import HtmlEntities from "@/components/docs/entities/html-entities.mdx";
-import Image from "@/components/docs/media/image.mdx";
-import Video from "@/components/docs/media/video.mdx";
-import Source from "@/components/docs/media/source.mdx";
-import ColorModel from "@/components/docs/colors/color-model.mdx";
-import ColorComparison from "@/components/docs/colors/color-comparison.mdx";
-import Helper from "@/components/docs/js/helpers/js-helper.mdx";
-import CLI from "@/components/docs/cli/cli.mdx";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -44,6 +17,14 @@ export default function HomePage() {
         const timer = setTimeout(() => setShowSplash(false), 4000); // 4秒でトップ画面に切替
         return () => clearTimeout(timer);
     }, []);
+
+    const AnimationComponent =
+        selectedItem &&
+        animationMap[selectedItem as keyof typeof animationMap];
+
+    const MdxComponent =
+        selectedItem &&
+        mdxMap[selectedItem as keyof typeof mdxMap];
 
     return (
         <AnimatePresence>
@@ -137,71 +118,21 @@ export default function HomePage() {
                             )}
 
                             {selectedItem && (
-                                <div>
-                                    <h2 className="text-3xl font-bold mb-4">
-                                        {selectedItem}
-                                    </h2>
-                                    {selectedItem === "Loading" && <LoadingList />}
-                                    {selectedItem === "Micro" && <ButtonAnimationList />}
-                                    {selectedItem === "Image" && <ImageList />}
-                                    {selectedItem === "Slider" && <SliderList />}
-                                    {selectedItem === "Text" && <TextAnimationList />}
-                                    {selectedItem === "Background" && <BackgroundList />}
-                                    {selectedItem === "Animated-parts" && <PartList />}
-                                    {selectedItem === "Action-buttons" && <ActionButtonList />}
-                                    {selectedItem === "Tab" && <TabList />}
-                                    {selectedItem === "Hamburger" && <HamburgerList />}
-                                    {selectedItem === "Menu" && <MenuList />}
-                                    {selectedItem === "Form-Parts" && <FormPartList />}
-                                    {selectedItem === "Search-Box" && <SearchBoxList />}
-                                    {selectedItem === "Line" && <LineList />}
-                                    {selectedItem === "Pagination" && <PaginationList />}
-                                    {selectedItem === "Ribbon" && <RibbonList />}
-                                    {selectedItem === "List" && <ListList />}
-                                    {selectedItem === "Card" && <CardList />}
-                                    {selectedItem === "Table" && <TableList />}
-                                    {selectedItem === "Graph" && <GraphList />}
-                                    {selectedItem === "Entity" && (
+                                <>
+                                    {AnimationComponent && (
+                                        <Suspense fallback={<PageLoader />}>
+                                            <AnimationComponent />
+                                        </Suspense>
+                                    )}
+
+                                    {MdxComponent && (
                                         <MDXWrapper>
-                                            <HtmlEntities />
+                                            <Suspense fallback={<PageLoader />}>
+                                                <MdxComponent />
+                                            </Suspense>
                                         </MDXWrapper>
                                     )}
-                                    {selectedItem === "ImageTag" && (
-                                        <MDXWrapper>
-                                            <Image />
-                                        </MDXWrapper>
-                                    )}
-                                    {selectedItem === "VideoTag" && (
-                                        <MDXWrapper>
-                                            <Video />
-                                        </MDXWrapper>
-                                    )}
-                                    {selectedItem === "SourceTag" && (
-                                        <MDXWrapper>
-                                            <Source />
-                                        </MDXWrapper>
-                                    )}
-                                    {selectedItem === "ColorModel" && (
-                                        <MDXWrapper>
-                                            <ColorModel />
-                                        </MDXWrapper>
-                                    )}
-                                    {selectedItem === "ColorComparison" && (
-                                        <MDXWrapper>
-                                            <ColorComparison />
-                                        </MDXWrapper>
-                                    )}
-                                    {selectedItem === "Helpers" && (
-                                        <MDXWrapper>
-                                            <Helper />
-                                        </MDXWrapper>
-                                    )}
-                                    {selectedItem === "CLI" && (
-                                        <MDXWrapper>
-                                            <CLI />
-                                        </MDXWrapper>
-                                    )}
-                                </div>
+                                </>
                             )}
                         </main>
                     </div>

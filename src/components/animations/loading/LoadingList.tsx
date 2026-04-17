@@ -6,7 +6,7 @@ import { LoadingModal } from "./LoadingModal";
 import { loadingData } from "./loadingData";
 import { useReducedMotion } from "framer-motion";
 
-export function LoadingList() {
+export default function LoadingList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

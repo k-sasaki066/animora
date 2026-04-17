@@ -6,7 +6,7 @@ import { HamburgerModal } from "./HamburgerModal";
 import { hamburgerData } from "./hamburgerData";
 import { useReducedMotion } from "framer-motion";
 
-export function HamburgerList() {
+export default function HamburgerList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

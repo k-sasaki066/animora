@@ -6,7 +6,7 @@ import { SearchBoxModal } from "./SearchBoxModal";
 import { searchBoxData } from "./searchBoxData";
 import { useReducedMotion } from "framer-motion";
 
-export function SearchBoxList() {
+export default function SearchBoxList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

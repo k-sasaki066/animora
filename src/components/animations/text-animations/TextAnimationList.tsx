@@ -6,7 +6,7 @@ import { TextAnimationModal } from "./TextAnimationModal";
 import { textAnimationData } from "./textAnimationData";
 import { useReducedMotion } from "framer-motion";
 
-export function TextAnimationList() {
+export default function TextAnimationList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

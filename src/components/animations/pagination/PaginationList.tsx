@@ -6,7 +6,7 @@ import { PaginationModal } from "./PaginationModal";
 import { paginationData } from "./paginationData";
 import { useReducedMotion } from "framer-motion";
 
-export function PaginationList() {
+export default function PaginationList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;

@@ -6,7 +6,7 @@ import { ImageModal } from "./ImageModal";
 import { imageData } from "./imageData";
 import { useReducedMotion } from "framer-motion";
 
-export function ImageList() {
+export default function ImageList() {
     const [activeKey, setActiveKey] = useState<string | null>(null);
     const prefersReducedMotion = useReducedMotion();
     const reduceMotion = prefersReducedMotion ?? false;
