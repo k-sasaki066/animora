@@ -33,6 +33,7 @@ import Source from "@/components/docs/media/source.mdx";
 import ColorModel from "@/components/docs/colors/color-model.mdx";
 import ColorComparison from "@/components/docs/colors/color-comparison.mdx";
 import Helper from "@/components/docs/js/helpers/js-helper.mdx";
+import CLI from "@/components/docs/cli/cli.mdx";
 
 export default function HomePage() {
     const [showSplash, setShowSplash] = useState(true);
@@ -193,6 +194,11 @@ export default function HomePage() {
                                     {selectedItem === "Helpers" && (
                                         <MDXWrapper>
                                             <Helper />
+                                        </MDXWrapper>
+                                    )}
+                                    {selectedItem === "CLI" && (
+                                        <MDXWrapper>
+                                            <CLI />
                                         </MDXWrapper>
                                     )}
                                 </div>
