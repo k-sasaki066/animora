@@ -1,0 +1,30 @@
+# dependencies
+node_modules
+
+# next.js build
+.next
+out
+build
+
+# logs
+*.log
+
+# env
+.env*
+
+# git
+.git
+
+# vscode
+.vscode
+
+# mac
+.DS_Store
+
+# videos（ここが重要）
+public/videos
+
+# optional heavy assets
+**/*.mp4
+**/*.mov
+**/*.webm

@@ -1,3 +1,6 @@
+import Table from "@/components/docs/ui/Table";
+import { videoEventColumns, videoEventData } from "./video-data";
+
 ## videoタグとは？
 
 HTMLで動画を再生するための要素<br />
@@ -103,3 +106,39 @@ preload="auto"     ：初期値　動画ファイルを事前読み込みする
       sample
     </p>
 </div>
+
+<br />
+### Videoイベント
+再生中にさまざまな「状態変化」が発生し、それに応じてイベントが発火する
+
+<Table
+    data={videoEventData}
+    columns={videoEventColumns}
+/>
+
+**再生回数カウントの使用例**
+```html
+import { useRef, useState } from "react";
+
+export default function VideoPlayer() {
+    const [playCount, setPlayCount] = useState(0);
+    const hasPlayed = useRef(false);
+
+    return (
+        <div>
+            <video
+                src="/sample.mp4"
+                controls
+                onPlay={() => {
+                    if (hasPlayed.current) return;
+
+                    hasPlayed.current = true;
+                    setPlayCount((prev) => prev + 1);
+                }}
+            />
+
+            <p>初回再生回数: {playCount}</p>
+        </div>
+    );
+}
+```

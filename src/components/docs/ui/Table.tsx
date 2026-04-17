@@ -32,7 +32,7 @@ export default function Table<T>({ data, columns }: Props<T>) {
                             {columns.map((col, j) => {
                                 const value = row[col.key];
                                 return (
-                                    <td key={j} className={`${padding} ${col.className ?? ""} align-middle`}>
+                                    <td key={j} className={`${padding} ${col.className ?? ""} align-middle whitespace-pre-line`}>
                                         {col.render ? col.render(value, row) : (value as React.ReactNode)}
                                     </td>
                                 );
