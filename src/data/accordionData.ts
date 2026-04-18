@@ -67,6 +67,7 @@ export const accordionData: AccordionCategory[] = [
         title: "React",
         items: [
             { title: "Lazy", key: "Lazy", content: "" },
+            { title: "Intersection-Observer", key: "IntersectionObserver", content: "" },
         ],
     },
 ];

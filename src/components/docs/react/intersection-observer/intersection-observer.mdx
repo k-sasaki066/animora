@@ -1,0 +1,328 @@
+import Table from "@/components/docs/ui/Table";
+import { thresholdColumns, thresholdData } from "./intersection-observer-data";
+
+### IntersectionObserver とは？
+
+**要素が画面に見えているかどうかをブラウザが監視してくれるAPI**
+
+```txt
+スクロールすると
+
+Card1 ❌ out
+Card2 ❌ out
+Card3 ❌ out
+Card4 👀 visible
+Card5 👀 visible
+Card6 👀 visible
+Card7 👀 visible
+
+のように変化を検知する
+```
+
+#### よく使う場面
+- スクロールアニメーション
+- lazy load（画像後読み込み）
+- 無限スクロール
+- 現在表示中セクションのナビ強調
+- 広告表示計測
+- 動画自動再生 / 停止
+
+#### 基本構文
+```jsx
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            console.log("見えた");
+        }
+    });
+});
+
+observer.observe(targetElement);
+
+---解説---
+new IntersectionObserver(...) // observer作成(監視役を作る)
+entries                       // 監視している要素の情報一覧
+entry.isIntersecting          // true = 画面内に入った  false = 画面外に出た
+```
+
+#### オプション① rootMargin
+画面の判定範囲を広げたり縮めたりする設定
+```jsx
+rootMargin: "100px"
+```
+
+<figure>
+  <img
+    src="/images/docs/react/root-margin-1.webp"
+    alt="宮崎クリエイターズブログ"
+    width="400"
+    className="border mb-10"
+  />
+  <img 
+    src="/images/docs/react/root-margin-2.webp"
+    alt="宮崎クリエイターズブログ"
+    width="400"
+    className="border"
+  />
+
+  <figcaption>
+    出典：[宮崎クリエイターズブログ](https://gmo-miyazaki-creators.com/coding/intersectionobserver/)
+  </figcaption>
+</figure>
+
+#### オプション② threshold
+要素が何%見えたら発火するか<br />
+要素が見える少し前にイベントを発火させたい場合などに有効
+
+```jsx
+threshold: 0
+```
+
+<Table
+    data={thresholdData}
+    columns={thresholdColumns}
+/>
+
+<figure>
+  <img
+    src="/images/docs/react/threshold-1.webp"
+    alt="ICS MEDIA"
+    width="400"
+    className="border mb-10"
+  />
+  <img 
+    src="/images/docs/react/threshold-2.webp"
+    alt="ICS MEDIA"
+    width="400"
+    className="border"
+  />
+
+  <figcaption>
+    出典：[ICS MEDIA](https://ics.media/entry/190902/)
+  </figcaption>
+</figure>
+
+#### 使用例① スクロールでフェードイン
+```jsx
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+export default function FadeInBox() {
+    const ref = useRef(null);
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setShow(true);
+            } // 一度だけ表示したい場合
+        });
+
+        if (ref.current) observer.observe(ref.current);
+        // ref.current に入っているHTML要素を監視(この要素が画面に入ったら教えて)
+
+        return () => observer.disconnect();
+        // useEffect の後片付け(監視を全部解除)
+    }, []);
+
+    return (
+        <div className="min-h-screen flex items-center justify-center">
+            <div
+                ref={ref}
+                className={`
+                    transition-all duration-500
+                    ${show
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-8"}
+                `}
+            >
+                フェードイン表示
+            </div>
+        </div>
+    );
+}
+```
+
+#### 使用例② 無限スクロール
+```jsx
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+
+const listRef = useRef<HTMLUListElement | null>(null);
+const observerRef = useRef<HTMLDivElement | null>(null);
+
+useEffect(() => {
+    const target = observerRef.current; // 監視対象
+    const root = listRef.current;       // 監視基準となるスクロールエリア
+    if (!target || !root) return;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries[0].isIntersecting) {
+                loadMore();
+            } // 見えたら追加読み込み
+        },
+        {
+            root,           // listRef のスクロール領域内で判定
+            threshold: 0.5, //targetが半分見えたらcallbackを実行
+        }
+    );
+
+    observer.observe(target);            // target の監視スタート
+    return () => observer.disconnect();  // コンポーネント終了時に監視解除
+}, [loadMore]);
+
+// コンポーネント表示時、または loadMore が変わった時に実行
+```
+
+#### 使用例③ 動画カード (スクロールして見えてるカードだけ動画が動く仕組み)
+```jsx
+import { useEffect, useRef, useState } from "react";
+
+export function useInView<T extends HTMLElement>() {
+    const ref = useRef<T | null>(null);
+    const [inView, setInView] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setInView(entry.isIntersecting); // 見えたらtrue, 消えたら false state更新
+            },
+            {
+                rootMargin: "100px", // 画面に入る少し前から再生
+                threshold: 0.1,      // 10%見えたら inView = true
+            }
+        );
+
+        if (ref.current) observer.observe(ref.current);
+
+        return () => observer.disconnect();  // 画面離脱時に監視解除
+    }, []);
+
+    return { ref, inView };
+}
+
+
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { PlusButton } from "@/components/ui/PlusButton";
+import { useInView } from "@/hooks/useInView";
+import { useEffect, useRef } from "react";
+
+interface Props {
+    title: string;
+    video: string;
+    onClick: () => void;
+    paused?: boolean;
+}
+
+-----------------------
+
+export function PaginationCard({ title, video, onClick, paused }: Props) {
+    const { ref, inView } = useInView<HTMLDivElement>();     // カード自体が見えているか取得
+    const videoRef = useRef<HTMLVideoElement | null>(null);  // video要素を直接操作するためのref
+    const shouldPause = paused || !inView;                   // paused=true なら停止 画面外でも停止
+
+    useEffect(() => {
+        const v = videoRef.current;
+        if (!v) return;
+
+        if (shouldPause) {
+            v.pause();
+        } else {
+            v.play().catch(() => {});
+        }
+    }, [shouldPause]); // paused または inView が変わるたび実行
+
+    return (
+        <Card ref={ref} className="relative"> // このカード全体が監視対象
+            <PlusButton onClick={onClick} />
+
+            <CardHeader>
+                <CardTitle className="text-center">
+                    {title}
+                </CardTitle>
+            </CardHeader>
+
+            <CardContent className="px-2 w-full flex items-center justify-center overflow-hidden">
+                <video
+                    ref={videoRef}
+                    src={video}
+                    muted
+                    loop
+                    playsInline
+                    preload={paused ? "metadata" : "none"}
+                    className="w-full aspect-video object-cover"
+                />
+            </CardContent>
+        </Card>
+    );
+}
+```
+
+<br />
+### IntersectionObserver が効いているか確認方法
+
+#### ①console.log を入れる (スクロールして対象が画面内に入ると true)
+
+```jsx id="7p1k5n"
+useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            console.log(entry.isIntersecting);
+
+            if (entry.isIntersecting) {
+                console.log("見えた");
+            }
+        });
+    });
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+}, []);
+```
+
+
+#### ②state変更して画面表示
+```jsx
+const [visible, setVisible] = useState(false);
+
+useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+        setVisible(entry.isIntersecting);
+    });
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+}, []);
+
+----------------------------
+
+<div ref={ref}>
+    {visible ? "visible" : "hidden"}
+</div>
+```
+
+#### 効かない原因チェック
+- ref が取れていない
+```js
+console.log(ref.current);
+```
+
+- observeしていない
+```js
+observer.observe(ref.current);
+```
+
+- 要素が最初から見えている<br />
+```txt
+最初から画面内にあると即発火してしまう
+```
+
+- threshold高すぎる
+```js
+threshold: 1
+```
