@@ -1,0 +1,128 @@
+### Reduced Motion とは？
+
+アニメーションによって画面酔いしてしまったり、動きがつくと内容が理解できなくなるという人向けの、OS 側で視覚効果を弱める設定
+
+#### OSやブラウザでの設定方法
+Mac
+```txt
+システム設定
+→ アクセシビリティ
+→ ディスプレイ
+→ 動きを減らす
+```
+
+iPhone / iPad
+```txt
+設定
+→ アクセシビリティ
+→ 動作
+→ 視差効果を減らす
+```
+
+Windows 11
+```txt
+設定
+→ アクセシビリティ
+→ 視覚効果
+→ アニメーション効果 OFF
+```
+
+Android
+```txt
+設定
+→ ユーザー補助
+→ アニメーションの削除 / 動きを減らす
+
+*機種差あり
+```
+<br />
+#### 実装例
+css
+```css
+.box {
+  animation: slideIn 1s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box {
+    animation: none;
+  }
+}
+```
+
+Tailwind CSS
+```html
+<div className="motion-safe:animate-bounce motion-reduce:animate-none">
+
+motion-safe:	動きOKの人だけ適用
+motion-reduce:	動きを減らす人向け
+```
+
+Javascript
+```js
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (reduceMotion) {
+  // アニメーションしない
+} else {
+  // 通常アニメーション
+}
+```
+
+Framer Motion
+```jsx
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+
+export default function Card() {
+    const shouldReduceMotion = useReducedMotion();
+
+    return (
+        <motion.div
+            initial={{
+                opacity: 0,
+                y: shouldReduceMotion ? 0 : 50,
+            }}
+            animate={{
+                opacity: 1,
+                y: 0,
+            }}
+            transition={{ duration: 0.5 }}
+            className="p-6 rounded-xl bg-zinc-800"
+        >
+            Card
+        </motion.div>
+    );
+}
+```
+
+<br />
+#### devツールでの確認方法
+Rendering 内の『Emulate CSS media feature prefers-reduced-motion』<br />
+→ reduceに変更し、リロード
+
+<img src="/images/docs/react/reduce-1.webp" className="shadow-lg"/>
+
+このようなメッセージが表示される(Reduced Motion有効)
+```txt
+You have Reduced Motion enabled on your device. Animations may not appear as expected.. For more information and steps for solving, visit
+```
+あなたの端末で Reduced Motion（動きを減らす設定）が有効です。
+そのためアニメーションが期待通り表示されない可能性があります。
+
+→ 実際のアニメーションがreduceの設定通りに動いていれば⭕️
+
+<img src="/images/docs/react/reduce-2.webp" className="shadow-lg"/>
+
+<br />
+console.logでの確認
+```js
+const reduce = useReducedMotion();
+console.log(reduce);
+
+DevToolsで切り替えると false → true になる ⭕️
+```
+⚠️確認後はreduceをOFFにしてリロードするのを忘れずに！
