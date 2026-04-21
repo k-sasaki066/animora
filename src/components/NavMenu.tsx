@@ -20,7 +20,7 @@ export default function NavMenu({
     if (!isMobile) {
         /* PC用ナビ */
         return (
-            <nav className="hidden md:flex flex-col w-60 h-screen overflow-y-scroll">
+            <nav className="hidden md:flex flex-col w-60 h-[calc(100vh-72px)] overflow-y-scroll pb-10">
                 {accordionData.map((category) => (
                     <Accordion
                         key={category.title}
@@ -39,10 +39,11 @@ export default function NavMenu({
         <AnimatePresence>
             {isOpen && (
                 <motion.nav
-                    className="flex flex-col p-4 space-y-2 bg-white shadow-md md:hidden"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    className="flex flex-col p-4 pb-10 space-y-2 bg-gray-200 md:hidden"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.4 }}
                 >
                     {accordionData.map((category) => (
                         <Accordion
