@@ -1,0 +1,22 @@
+import Table from "@/components/docs/ui/Table";
+import { dockerCommandColumns, dockerCommandData } from "./docker-data";
+
+### Dockerでよく使うコマンドまとめ
+Docker は、どのPCでも全く同じように動く魔法の箱（コンテナ）を作って、その中でアプリケーションを動かすためのコンテナ管理ツール
+
+#### Dockerの基本イメージ
+
+```txt
+Image      = 設計図
+Container  = 実際に動いているアプリ(実行に必要な全てのライブラリや設定ファイルなどとひとまとめにパッケージングしたもの)
+Volume     = データ保存場所
+Compose    = 複数コンテナ管理
+Network.   = コンテナ同士の通信設定
+```
+
+<Table
+    data={dockerCommandData}
+    columns={dockerCommandColumns}
+    accordion
+    detailKey="detail"
+/>
