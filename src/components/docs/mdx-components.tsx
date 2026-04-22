@@ -1,19 +1,15 @@
 import CodeBlock from "@/components/docs/ui/CodeBlock";
-import type { MDXComponents } from "mdx/types";
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
-    return {
-        wrapper: ({ children }) => (
-            <article className="prose prose-invert max-w-none">
-                {children}
-            </article>
-        ),
+export const markdownComponents = {
+    pre({ children }: any) {
+        return <>{children}</>;
+    },
 
-        pre: (props: any) => {
-            const code = props.children?.props?.children ?? "";
-            return <CodeBlock code={code} />;
-        },
+    code({ inline, children }: any) {
+        if (!inline) {
+            return <CodeBlock code={String(children).replace(/\n$/, "")} />;
+        }
 
-        ...components,
-    };
-}
+        return <code>{children}</code>;
+    },
+};

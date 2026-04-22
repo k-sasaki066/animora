@@ -1,0 +1,14 @@
+import Table from "@/components/docs/ui/Table";
+import { dockerComposeColumns, dockerComposeData } from "./docker-compose-data";
+
+### Docker Composeでよく使うコマンドまとめ
+Docker Composeとは、複数のコンテナを定義し、実行する、Dockerアプリケーションのためのツール<br />
+docker-compose.ymlファイルを使って、アプリケーションのサービス（コンテナ）群を設定でき、<br />
+たった一つのコマンドで、設定ファイルから全てのサービスを一度に作成、起動できる
+
+<Table
+    data={dockerComposeData}
+    columns={dockerComposeColumns}
+    accordion
+    detailKey="detail"
+/>
