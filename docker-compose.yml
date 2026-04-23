@@ -16,4 +16,5 @@ services:
       - /app/.next
     environment:
       NODE_ENV: development
+      NODE_OPTIONS: --max-old-space-size=2048
     command: npm run dev
