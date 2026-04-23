@@ -1,0 +1,20 @@
+import Table from "@/components/docs/ui/Table";
+import { commandColumns, commandData } from "./cli-data";
+
+
+### CLIとは？
+= Command Line Interface<br />
+キーボードで命令を入力してPCを操作する方法<br />
+アプリをクリックする代わりに、文字で指示する
+
+**基本構造**
+```bash
+コマンド [オプション] [引数]
+```
+
+<Table
+    data={commandData}
+    columns={commandColumns}
+    accordion
+    detailKey="detail"
+/>

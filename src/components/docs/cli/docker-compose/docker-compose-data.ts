@@ -4,24 +4,18 @@ import dedent from "dedent";
 export type CommandItem = {
     command: string;
     description: string;
-    options: string;
-    example: string;
     detail?: string;
 };
 
 export const dockerComposeColumns = [
     { key: "command", label: "コマンド", className: "font-mono" },
     { key: "description", label: "説明" },
-    { key: "options", label: "主なオプション" },
-    { key: "example", label: "使用例", className: "font-mono text-xs" },
 ];
 
 export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose up",
         description: "compose.yml からコンテナ作成・起動",
-        options: "-d（バックグラウンド）\n--build（再buildして起動）",
-        example: "docker compose up -d",
         detail: dedent(`
             ### docker compose up
             docker-compose.ymlファイルに基づいて複数のコンテナを一括で作成・起動・ネットワーク接続<br />
@@ -44,8 +38,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose down",
         description: "compose環境停止・削除",
-        options: "-v（volume削除）\n--rmi all（image削除）",
-        example: "docker compose down -v",
         detail:dedent(`
             ### docker compose down
             Docker Composeで起動したコンテナ、ネットワークを停止・削除し、環境をクリーンにする<br />
@@ -68,8 +60,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose ps",
         description: "compose管理コンテナ一覧表示",
-        options: "-a（停止中も表示）",
-        example: "docker compose ps",
         detail: dedent(`
             ### docker compose ps
             docker-compose.ymlファイルで定義されたサービス（コンテナ）の現在の状態、コマンド、ポートマッピングを一覧表示する<br />
@@ -111,8 +101,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose logs",
         description: "全サービスのログ表示",
-        options: "-f（リアルタイム）\n--tail=100（末尾100行）",
-        example: "docker compose logs -f",
         detail: dedent(`
             ### docker compose logs
             Docker Compose で起動している各サービスのログ（出力内容）を見る<br />
@@ -151,8 +139,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose exec",
         description: "起動中コンテナ内でコマンド実行",
-        options: "-it（対話モード）",
-        example: "docker compose exec app bash",
         detail: dedent(`
             ### docker compose exec
             起動中コンテナ内でコマンド実行
@@ -182,8 +168,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose run",
         description: "一時コンテナ起動してコマンド実行",
-        options: "--rm（終了後削除）",
-        example: "docker compose run --rm app npm install",
         detail: dedent(`
             ### docker compose run
             一時的なコンテナを起動して指定コマンドを実行する
@@ -230,8 +214,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose start",
         description: "停止中サービス起動",
-        options: "サービス名指定可能",
-        example: "docker compose start app",
         detail: dedent(`
             ### docker compose start
             停止しているコンテナを再起動する
@@ -289,8 +271,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose stop",
         description: "サービス停止",
-        options: "サービス名指定可能",
-        example: "docker compose stop app",
         detail: dedent(`
             ### docker compose stop
             Docker Compose で起動中のサービス（コンテナ）を停止する
@@ -329,8 +309,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose restart",
         description: "サービス再起動",
-        options: "サービス名指定可能",
-        example: "docker compose restart app",
         detail: dedent(`
             ### docker compose restart
             Docker Compose で管理しているサービス（コンテナ）を再起動する<br />
@@ -370,8 +348,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose build",
         description: "Dockerfile から image 作成",
-        options: "--no-cache（キャッシュ無効）",
-        example: "docker compose build",
         detail: dedent(`
             ### docker compose build
             Dockerfile をもとに image（イメージ）を作成する<br />
@@ -434,8 +410,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose pull",
         description: "image 最新取得",
-        options: "サービス名指定可能",
-        example: "docker compose pull",
         detail: dedent(`
             ### docker compose pull
             compose.ymlに書かれている 各サービスのDocker imageを取得・更新する<br />
@@ -481,8 +455,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose config",
         description: "compose設定確認（展開済み表示）",
-        options: "構文確認にも便利",
-        example: "docker compose config",
         detail: dedent(`
             ### docker compose config
             Docker Compose が実際に読み込んだ完成形として表示する
@@ -575,8 +547,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose top",
         description: "コンテナ内プロセス表示",
-        options: "サービス名指定可能",
-        example: "docker compose top",
         detail: dedent(`
             ### docker compose top
             Composeで起動しているコンテナ内のプロセス一覧を見る<br />
@@ -613,8 +583,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose rm",
         description: "停止中サービス削除",
-        options: "-f（確認なし）",
-        example: "docker compose rm -f",
         detail: dedent(`
             ### docker compose rm
             停止中の compose コンテナを削除する
@@ -673,8 +641,6 @@ export const dockerComposeData: CommandItem[] = [
     {
         command: "docker compose version",
         description: "Docker Compose バージョン情報を表示",
-        options: "-f（出力フォーマット）\n--short（Compose のバージョン番号のみ表示）",
-        example: "docker compose version -v",
         detail: dedent(`
             ### docker compose version
             Docker Compose バージョン情報を表示<br />

@@ -3,24 +3,18 @@ import dedent from "dedent";
 export type CommandItem = {
     command: string;
     description: string;
-    options: string;
-    example: string;
     detail?: string;
 };
 
 export const dockerCommandColumns = [
     { key: "command", label: "コマンド", className: "font-mono" },
     { key: "description", label: "説明" },
-    { key: "options", label: "主なオプション" },
-    { key: "example", label: "使用例", className: "font-mono text-xs" },
 ];
 
 export const dockerCommandData: CommandItem[] = [
     {
         command: "docker ps",
         description: "起動中コンテナ一覧表示",
-        options: "-a（停止中も含め全件表示）",
-        example: "docker ps -a",
         detail: dedent(`
             ### docker ps
             現在実行中のDockerコンテナ一覧を表示する
@@ -64,8 +58,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker images",
         description: "イメージ一覧表示",
-        options: "image ls でも可",
-        example: "docker images",
         detail: dedent(`
             ### docker images
             イメージ一覧表示
@@ -123,8 +115,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker exec",
         description: "起動中コンテナ内でコマンド実行",
-        options: "-it（対話モード + ターミナル）",
-        example: "docker exec -it my-nginx /bin/sh",
         detail: dedent(`
             ### docker exec
             実行中のコンテナ内で新しいコマンドを実行する<br />
@@ -153,8 +143,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker logs",
         description: "コンテナログ表示",
-        options: "-f（リアルタイム監視）",
-        example: "docker logs -f my-app",
         detail: dedent(`
             ### docker logs
             コンテナログ表示
@@ -181,8 +169,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker stop",
         description: "コンテナ停止",
-        options: "複数指定可能",
-        example: "docker stop my-nginx",
         detail: dedent(`
             ### docker stop
             コンテナ停止
@@ -211,8 +197,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker start",
         description: "停止中コンテナ起動",
-        options: "複数指定可能",
-        example: "docker start my-nginx",
         detail: dedent(`
             ### docker start
             停止中コンテナ起動
@@ -241,8 +225,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker run",
         description: "新しいコンテナ作成して起動",
-        options: "-d（バックグラウンド）\n-p（ポート公開）\n--name（名前指定）",
-        example: "docker run -d -p 8080:80 --name my-nginx nginx",
         detail: dedent(`
             ### docker run
             新しいコンテナ作成して起動<br />
@@ -271,8 +253,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker restart",
         description: "コンテナ再起動",
-        options: "停止→起動を自動実行",
-        example: "docker restart my-nginx",
         detail: dedent(`
             ### docker restart
             コンテナを再起動 (停止→起動を自動実行)
@@ -301,8 +281,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker rm",
         description: "コンテナ削除",
-        options: "-f（起動中でも強制削除）",
-        example: "docker rm -f my-nginx",
         detail: dedent(`
             ### docker rm
             停止中のDockerコンテナを削除
@@ -337,8 +315,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker rmi",
         description: "イメージ削除",
-        options: "-f（強制削除）",
-        example: "docker rmi nginx",
         detail: dedent(`
             ### docker rmi
             ローカルのDockerホストから1つまたは複数のイメージを削除
@@ -382,8 +358,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker system df",
         description: "Docker使用容量確認",
-        options: "Images / Containers / Volumes",
-        example: "docker system df",
         detail: dedent(`
             ### docker system df
             Dockerデーモンが使用しているディスク容量（イメージ、コンテナ、ボリューム、ビルドキャッシュ）の総計を表示する
@@ -417,8 +391,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker system prune",
         description: "不要データ削除",
-        options: "-a（未使用imageも削除）",
-        example: "docker system prune -a",
         detail: dedent(`
             ### docker system prune
             不要データ(停止中のコンテナ、未使用のネットワーク、タグ無し（dangling）のイメージ、およびビルドキャッシュ)を安全に一括削除<br />
@@ -455,8 +427,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker volume ls",
         description: "Volume一覧表示",
-        options: "保存データ確認",
-        example: "docker volume ls",
         detail: dedent(`
             ### docker volume ls
             Dockerホスト上で作成・管理されているすべてのボリュームを一覧表示
@@ -490,8 +460,6 @@ export const dockerCommandData: CommandItem[] = [
     {
         command: "docker network ls",
         description: "Network一覧表示",
-        options: "通信設定確認",
-        example: "docker network ls",
         detail: dedent(`
             ### docker network ls
             Dockerデーモンが管理するネットワークを一覧表示
