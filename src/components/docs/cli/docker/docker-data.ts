@@ -135,6 +135,16 @@ export const dockerCommandData: CommandItem[] = [
             \`\`\`bash
             docker exec -it container-name /bin/sh
                 → /app # 実行したいコマンドを入力
+
+            docker exec -it コンテナ名 sh -c 'du -sh /app/* | sort -hr'
+            Dockerコンテナ内の /appフォルダ配下の容量を、大きい順に確認
+                892M /app/node_modules
+                4.7M /app/public
+                3.8M /app/src
+
+            docker exec -it コンテナ名 sh -c "find /app/src -name '*.tsx' -type f -exec du -ch {} + | tail -1"
+            Dockerコンテナ内の /app フォルダ配下の.tsxファイルの容量を確認
+                2.8M    total
             \`\`\`
             ⚠️ コンテナが起動している必要がある<br />
             対話型シェルを開く場合は -it を忘れずに
@@ -420,6 +430,7 @@ export const dockerCommandData: CommandItem[] = [
             docker volume prune -f                       未使用のボリューム削除
             docker builder prune -a -f                   dockerのキャッシュを削除
             docker network prune -f                      未使用のネットワークを削除
+            docker builder prune -a -f                   dockerのキャッシュを削除
             \`\`\`
             ⚠️ 削除されたデータは復元できない。必要なイメージや、停止中だけど後で使いたいコンテナが削除されないよう、使用前にdocker ps -aやdocker imagesで状況を確認
         `),
