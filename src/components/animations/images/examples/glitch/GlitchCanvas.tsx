@@ -12,7 +12,7 @@ export default function GlitchCanvas() {
 
         if (!p5Ref.current) {
             p5Ref.current = new p5(
-                glitchSketch({ width, height, imgSrc: "/underpass.jpg" }),
+                glitchSketch({ width, height, imgSrc: `/underpass.jpg` }),
                 ref.current
             );
             return;
