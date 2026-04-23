@@ -13,6 +13,7 @@ services:
       - .:/app
       # ホスト側の node_modules を上書きしないようにする
       - /app/node_modules
+      - /app/.next
     environment:
       NODE_ENV: development
     command: npm run dev
