@@ -72,7 +72,7 @@ export default function CalendarGrid({
                         <motion.div
                             key={i}
                             whileTap={{ scale: 0.95 }}
-                            className={`flex flex-col item justify-between h-14 md:h-16 s cursor-pointer ${weekendBg} ${!item.currentMonth && "text-gray-300 bg-gray-50"} ${isToday ? "border-2 border-blue-400" : "border-b border-r border-gray-300"}`}
+                            className={`flex flex-col item justify-between h-14 md:h-16 s cursor-pointer text-center ${weekendBg} ${!item.currentMonth && "text-gray-300 bg-gray-50"} ${isToday ? "border-2 border-blue-400" : "border-b border-r border-gray-300"}`}
                         >
                             <span className={textSize}>
                                 {item.day}
