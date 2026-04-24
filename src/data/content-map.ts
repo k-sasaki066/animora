@@ -34,6 +34,7 @@ export const mdxMap = {
     CLI: lazy(() => import("@/components/docs/cli/cli/cli.mdx")),
     Docker: lazy(() => import("@/components/docs/cli/docker/docker.mdx")),
     DockerCompose: lazy(() => import("@/components/docs/cli/docker-compose/docker-compose.mdx")),
+    Git: lazy(() => import("@/components/docs/cli/git/git.mdx")),
     Lazy: lazy(() => import("@/components/docs/react/lazy/lazy.mdx")),
     IntersectionObserver: lazy(() => import("@/components/docs/react/intersection-observer/intersection-observer.mdx")),
     ReducedMotion: lazy(() => import("@/components/docs/react/reduced-motion/reduced-motion.mdx")),

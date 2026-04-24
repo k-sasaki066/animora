@@ -63,6 +63,7 @@ export const accordionData: AccordionCategory[] = [
             { title: "CLI", key: "CLI", content: "" },
             { title: "Docker", key: "Docker", content: "" },
             { title: "Docker Compose", key: "DockerCompose", content: "" },
+            { title: "Git", key: "Git", content: "" },
         ],
     },
     {
