@@ -74,4 +74,10 @@ export const accordionData: AccordionCategory[] = [
             { title: "Reduced Motion", key: "ReducedMotion", content: "" },
         ],
     },
+    {
+        title: "Other",
+        items: [
+            { title: "Mark Down", key: "MarkDown", content: "" },
+        ],
+    },
 ];

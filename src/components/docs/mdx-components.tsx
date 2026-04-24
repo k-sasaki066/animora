@@ -5,11 +5,21 @@ export const markdownComponents = {
         return <>{children}</>;
     },
 
-    code({ inline, children }: any) {
-        if (!inline) {
-            return <CodeBlock code={String(children).replace(/\n$/, "")} />;
+    code({ className, children }: any) {
+        const text = String(children);
+
+        const isBlock =
+            className?.startsWith("language-") ||
+            text.includes("\n");
+
+        if (isBlock) {
+            return <CodeBlock code={text.replace(/\n$/, "")} />;
         }
 
-        return <code>{children}</code>;
+        return (
+            <code className="px-1 py-0.5 rounded bg-zinc-700 text-red-400">
+                {children}
+            </code>
+        );
     },
 };

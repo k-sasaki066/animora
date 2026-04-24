@@ -38,4 +38,5 @@ export const mdxMap = {
     Lazy: lazy(() => import("@/components/docs/react/lazy/lazy.mdx")),
     IntersectionObserver: lazy(() => import("@/components/docs/react/intersection-observer/intersection-observer.mdx")),
     ReducedMotion: lazy(() => import("@/components/docs/react/reduced-motion/reduced-motion.mdx")),
+    MarkDown: lazy(() => import("@/components/docs/other/mark-down/mark-down.mdx")),
 };
