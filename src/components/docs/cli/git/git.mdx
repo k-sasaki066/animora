@@ -1,0 +1,28 @@
+import Table from "@/components/docs/ui/Table";
+import { gitCommandColumns, gitCommandData } from "./git-data";
+
+### GitとGitHubの違い
+Git: バージョン管理を行うための「道具（コマンドラインツール）」
+
+GitHub: Gitのリポジトリをインターネット上でホスティング（預かって公開）してくれる「Webサービス（作業場所）」
+
+### GitHubの主要な機能
+#### リモートリポジトリ (Remote Repository)
+インターネット上にあるGitの共有保管庫
+    - コード共有: ローカルリポジトリで行った変更（コミット）をリモートリポジトリにアップロードやダウンロードしてチームに共有する。
+    - バックアップ: クラウド上の安全な保管場所のためコードが残る
+
+#### プルリクエスト (Pull Request, PR)
+変更内容レビュー機能
+
+#### Issues (イシューズ)
+プロジェクトに関するタスク管理や、バグ報告、機能の提案などを行うための掲示板
+
+### Gitでよく使うコマンドまとめ
+
+<Table
+    data={gitCommandData}
+    columns={gitCommandColumns}
+    accordion
+    detailKey="detail"
+/>
