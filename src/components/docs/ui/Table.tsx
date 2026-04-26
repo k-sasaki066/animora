@@ -60,19 +60,25 @@ export default function Table<T>({
 
                 <tbody>
                     {data.map((row, i) => {
-                        const isOpen = openIndex === i;
+                        // const isOpen = openIndex === i;
 
                         const detail =
                             accordion && detailKey
                                 ? row[detailKey]
                                 : null;
 
+                        const hasDetail =
+                            detail && String(detail).trim() !== "";
+
+                        const isOpen =
+                            hasDetail && openIndex === i;
+
                         return (
                             <Fragment key={i}>
                                 {/* 通常行 */}
                                 <motion.tr
                                     onClick={() => {
-                                        if (!accordion) return;
+                                        if (!accordion || !hasDetail) return;
 
                                         setOpenIndex(isOpen ? null : i);
                                     }}
@@ -83,7 +89,7 @@ export default function Table<T>({
                                             : "rgba(0,0,0,0)",
                                     }}
                                     whileHover={
-                                        accordion
+                                        accordion && hasDetail
                                             ? { backgroundColor: "rgba(24,24,27,1)" }
                                             : {}
                                     }
@@ -92,7 +98,7 @@ export default function Table<T>({
                                         ease: "easeInOut",
                                     }}
                                     className={
-                                        accordion
+                                        accordion && hasDetail
                                             ? "cursor-pointer"
                                             : ""
                                     }
@@ -118,20 +124,22 @@ export default function Table<T>({
 
                                     {accordion && (
                                         <td className={`${padding} align-middle text-center`}>
-                                            <span className="relative flex items-center justify-center w-6 h-6 mx-auto">
-                                                <span className="absolute w-4 h-px bg-white rounded" />
+                                            {hasDetail && (
+                                                <span className="relative flex items-center justify-center w-6 h-6 mx-auto">
+                                                    <span className="absolute w-4 h-px bg-white rounded" />
 
-                                                <motion.span
-                                                    animate={{
-                                                        scaleY: isOpen ? 0 : 1,
-                                                        opacity: isOpen ? 0 : 1,
-                                                    }}
-                                                    transition={{
-                                                        duration: 0.25,
-                                                    }}
-                                                    className="absolute h-4 w-px bg-white rounded"
-                                                />
-                                            </span>
+                                                    <motion.span
+                                                        animate={{
+                                                            scaleY: isOpen ? 0 : 1,
+                                                            opacity: isOpen ? 0 : 1,
+                                                        }}
+                                                        transition={{
+                                                            duration: 0.25,
+                                                        }}
+                                                        className="absolute h-4 w-px bg-white rounded"
+                                                    />
+                                                </span>
+                                            )}
                                         </td>
                                     )}
                                 </motion.tr>

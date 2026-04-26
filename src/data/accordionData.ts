@@ -78,6 +78,7 @@ export const accordionData: AccordionCategory[] = [
         title: "Other",
         items: [
             { title: "Mark Down", key: "MarkDown", content: "" },
+            { title: "Linux", key: "Linux", content: "" },
         ],
     },
 ];

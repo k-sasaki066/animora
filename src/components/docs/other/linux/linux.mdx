@@ -1,0 +1,114 @@
+import Table from "@/components/docs/ui/Table";
+import { linuxColumns, linuxData, linuxReactData, linuxLaravelData, linuxNginxData, linuxMysqlData } from "./linux-data";
+
+### Linuxとは？
+無料で使える、パソコンやサーバーを動かすOS（基本ソフト）の一種
+
+#### OS (Operating System)
+パソコン全体を管理する土台ソフト
+
+- アプリを起動する
+- ファイルを保存する
+- メモリを管理する
+- ネット接続する
+- キーボード入力を受け取る
+
+> Windows,<br />
+> macOS,<br />
+> Linux,<br />
+> Android（Linuxベース）,<br />
+> iPhoneのiOS（別系統） ...
+
+```txt
+例 : FROM node:20-alpine
+
+Linux（Alpine）
+Node.js
+npm
+
+が入った環境
+```
+
+---
+
+`Dockerコンテナの中身は小さなLinux環境`<br />
+Dockerの中に入ると、Linuxと同じようなディレクトリ構成になっている
+
+```bash
+docker exec -it コンテナ名 sh
+ls /
+
+bin  boot  dev  etc  home  lib  lib64  media  mnt
+opt  proc  root run  srv   sys  tmp    usr    var
+```
+
+#### 各ファイルの説明
+<Table
+    data={linuxData}
+    columns={linuxColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+**React**
+<Table
+    data={linuxReactData}
+    columns={linuxColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+**Laravel / PHP**
+<Table
+    data={linuxLaravelData}
+    columns={linuxColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+**Nginx**
+<Table
+    data={linuxNginxData}
+    columns={linuxColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+**Mysql**
+<Table
+    data={linuxMysqlData}
+    columns={linuxColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+#### よく使う確認コマンド
+- サイズ確認
+```bash
+du -sh /var/*
+du -sh /app/*
+    4.0K    /app/next.config.js
+    892.2M  /app/node_modules
+    352.0K  /app/package-lock.json
+```
+
+- OS情報
+```bash
+cat /etc/os-release
+    NAME="Alpine Linux"
+    ID=alpine
+    VERSION_ID=3.23.4
+    PRETTY_NAME="Alpine Linux v3.23"
+    HOME_URL="https://alpinelinux.org/"
+    BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+```
