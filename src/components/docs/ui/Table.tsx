@@ -60,8 +60,6 @@ export default function Table<T>({
 
                 <tbody>
                     {data.map((row, i) => {
-                        // const isOpen = openIndex === i;
-
                         const detail =
                             accordion && detailKey
                                 ? row[detailKey]
