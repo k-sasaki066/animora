@@ -64,23 +64,63 @@ export const markdownData: CommandItem[] = [
         `),
     },
     {
-        command: "*文字*",
-        description: "文字を斜体にする",
+        command: "~~文字~~",
+        description: "文字に打ち消し線を引く",
         detail: dedent(`
-            少しだけ目立たせたい語句 に斜体を使う
+            文章の修正、非推奨表現、比較などで使う
 
             \`\`\`markdown
-            *斜体です*
-            _斜体です_ (単語内で崩れる可能性があるため非推奨)
-            ***かなり強調***     太字 + 斜体
+            ~~この文字は打ち消し線~~
             \`\`\`
 
-            私は *Harry Potter* が好きです。
+            ~~この文字は打ち消し線~~
 
-            ⚠️ 前後にスペースが必要な場合がある
+            料金は ~~¥9,800~~ ¥4,980 です
+
+            - 旧コマンド: ~~docker-compose up~~
+            - 新コマンド: docker compose up
+
+            ⚠️ 前後のスペース不要
+        `),
+    },
+    {
+        command: "下線・ハイライト",
+        description: "文字に下線やハイライトをつける",
+        detail: dedent(`
+
             \`\`\`markdown
-            ⭕️ これは *重要* です
-            ❌ これは*重要*です
+            文字に<u>下線</u>を引いています
+            markタグで囲むと<mark>ハイライト/mark>になります
+            \`\`\`
+
+            文字に<u>下線</u>を引いています<br />
+            markタグで囲むと<mark>ハイライト</mark>になります
+        `),
+    },
+    {
+        command: "見出し",
+        description: "h1~h6の見出しを表示",
+        detail: dedent(`
+            文章のタイトル・章・項目を整理するための構造タグ
+
+            \`\`\`markdown
+            # 見出し1
+            ## 見出し2
+            ### 見出し3
+            #### 見出し4
+            ##### 見出し5
+            ###### 見出し6
+            \`\`\`
+
+            # ページタイトル（1回）
+            ## セクション
+            ### 詳細項目
+            #### 補足
+
+            <br />
+            ⚠️ 空白なしにすると見出しだと認識されない
+            \`\`\`markdown
+            #見出し → #見出し(文字列として表示されてしまう)
             \`\`\`
         `),
     },
@@ -601,8 +641,11 @@ export const markdownData: CommandItem[] = [
             文字色
             \`\`\`markdown
             <span style="color:red;">赤文字</span>
+            <span style="font-size:150%;">文字サイズ大</span>
             \`\`\`
             <span style="color:red;">赤文字</span>
+
+            <span style="font-size:150%;">文字サイズ大</span>
 
             ---
 
@@ -626,7 +669,16 @@ export const markdownData: CommandItem[] = [
 
             折りたたみUI
             \`\`\`markdown
+            初期表示は折り畳まれた状態
             <details>
+            <summary>クリックで開く</summary>
+
+            中身です
+
+            </details>
+
+            初期表示は開かれた状態
+            <details open>
             <summary>クリックで開く</summary>
 
             中身です
@@ -637,6 +689,13 @@ export const markdownData: CommandItem[] = [
             <summary>クリックで開く</summary>
 
             中身です
+
+            </details>
+
+            <details open>
+            <summary>クリックで開く(open属性)</summary>
+
+            open属性を追加しています
 
             </details>
 
