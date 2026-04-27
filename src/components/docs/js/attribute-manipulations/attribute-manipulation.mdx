@@ -1,0 +1,54 @@
+import Table from "@/components/docs/ui/Table";
+import {attributeColumns, attributeData } from "./attribute-manipulation-data";
+import {relColumns, relData } from "./rel-data";
+
+### 属性操作
+HTMLタグに設定されている情報（属性）をJavaScriptで変更・取得・削除すること
+
+```html
+<a href="/about">会社概要</a>
+<img src="/cat.jpg" alt="猫">
+<input type="text" placeholder="名前を入力">
+<button disabled>送信</button>
+```
+→ この href src alt placeholder disabled などが 属性（attribute）
+
+#### 使用場面
+- 画像を切り替える
+- リンク先を変更する
+- ボタンを押せなくする
+- 入力欄の案内文を変える
+- チェックボックスをONにする
+
+<Table
+    data={attributeData}
+    columns={attributeColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+#### relとは？
+rel は relationship（関係性） の略<br />
+主に aタグで使う、リンク先ページと現在のページの関係をブラウザや検索エンジンに伝える属性
+
+```html
+<a href="https://example.com" rel="noopener">
+  外部サイト
+</a>
+```
+
+**なぜ target="_blank" に rel が必要？**
+```html
+target="_blank"
+```
+だけだと、新タブ側が元ページへアクセスできる場合があるため
+
+<Table
+    data={relData}
+    columns={relColumns}
+    accordion
+    detailKey="detail"
+/>
+
