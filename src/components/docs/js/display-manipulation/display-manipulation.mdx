@@ -1,0 +1,34 @@
+import Table from "@/components/docs/ui/Table";
+import { textContentColumns, textContentData } from "./text-content-update-data";
+
+### 表示操作
+画面に見えている内容をJavaScriptで動的に変更する処理
+
+1. **文字変更 (textContent)**
+
+使用場面
+- 多言語切替
+- ステータス変更
+
+<Table
+    data={textContentData}
+    columns={textContentColumns}
+    accordion
+    detailKey="detail"
+/>
+
+2. HTMLごと変更
+
+使用場面
+- お知らせ表示
+- アイコン付き文言
+- リッチテキスト表示
+
+3. style（見た目変更）
+CSSを直接変更する
+
+使用場面
+- エラー時に赤文字
+- モーダル表示
+- ローディング非表示
+- 注意文の色変更

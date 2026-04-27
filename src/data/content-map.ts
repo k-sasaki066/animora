@@ -30,6 +30,9 @@ export const mdxMap = {
     SourceTag: lazy(() => import("@/components/docs/media/source.mdx")),
     ColorModel: lazy(() => import("@/components/docs/colors/color-model.mdx")),
     ColorComparison: lazy(() => import("@/components/docs/colors/color-comparison.mdx")),
+
+    DomManipulation: lazy(() => import("@/components/docs/js/dom-manipulation/dom-manipulation.mdx")),
+    DisplayManipulation: lazy(() => import("@/components/docs/js/display-manipulation/display-manipulation.mdx")),
     Helpers: lazy(() => import("@/components/docs/js/helpers/js-helper.mdx")),
     CLI: lazy(() => import("@/components/docs/cli/cli/cli.mdx")),
     Docker: lazy(() => import("@/components/docs/cli/docker/docker.mdx")),
