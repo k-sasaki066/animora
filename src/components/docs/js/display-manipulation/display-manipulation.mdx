@@ -1,15 +1,12 @@
 import Table from "@/components/docs/ui/Table";
 import { textContentColumns, textContentData } from "./text-content-update-data";
+import { htmlContentColumns, htmlContentData } from "./html-content-update-data";
+import { styleColumns, styleData } from "./style-update-data";
 
 ### 表示操作
 画面に見えている内容をJavaScriptで動的に変更する処理
 
-1. **文字変更 (textContent)**
-
-使用場面
-- 多言語切替
-- ステータス変更
-
+### 1. 文字変更 (textContent)
 <Table
     data={textContentData}
     columns={textContentColumns}
@@ -17,18 +14,45 @@ import { textContentColumns, textContentData } from "./text-content-update-data"
     detailKey="detail"
 />
 
-2. HTMLごと変更
+### 2. HTMLごと変更 (innerHTML)
+#### textContentとの違い
 
-使用場面
-- お知らせ表示
-- アイコン付き文言
-- リッチテキスト表示
+```txt
+notice.textContent = "<strong>重要</strong>";
 
-3. style（見た目変更）
-CSSを直接変更する
+表示結果
+<strong>重要</strong>
+```
+HTMLタグは`文字として表示`される
 
-使用場面
-- エラー時に赤文字
-- モーダル表示
-- ローディング非表示
-- 注意文の色変更
+
+<br />
+#### innerHTMLなら
+```txt
+notice.innerHTML = "<strong>重要</strong>";
+
+表示結果
+重要（太字）
+```
+
+⚠️ 外部入力値をそのまま \`innerHTML\` に入れると危険<br />
+XSS（悪意あるscript埋め込み）の原因になる
+```js
+❌ notice.innerHTML = userInput;
+```
+
+<Table
+    data={htmlContentData}
+    columns={htmlContentColumns}
+    accordion
+    detailKey="detail"
+/>
+
+### 3. class切り替えによるstyle変更
+
+<Table
+    data={styleData}
+    columns={styleColumns}
+    accordion
+    detailKey="detail"
+/>
