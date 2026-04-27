@@ -33,6 +33,7 @@ export const mdxMap = {
 
     DomManipulation: lazy(() => import("@/components/docs/js/dom-manipulations/dom-manipulation.mdx")),
     DisplayManipulation: lazy(() => import("@/components/docs/js/display-manipulations/display-manipulation.mdx")),
+    Event: lazy(() => import("@/components/docs/js/events/js-event.mdx")),
     Helpers: lazy(() => import("@/components/docs/js/helpers/js-helper.mdx")),
 
     CLI: lazy(() => import("@/components/docs/cli/cli/cli.mdx")),

@@ -1,0 +1,71 @@
+import Table from "@/components/docs/ui/Table";
+import { jsEventObjectColumns, jsEventObjectData } from "./js-event-object-data";
+import { jsEventColumns, jsEventData } from "./js-event-data";
+
+### Eventとは？
+ユーザーの操作やブラウザの変化をきっかけに発生する出来事
+
+- ボタンがクリックされる
+- 文字が入力される
+- 画面がスクロールされる
+- ページが読み込まれる
+
+こうした「きっかけ」を イベント と呼ぶ
+
+### イベントの基本構造
+```txt
+要素.addEventListener("イベント名", 処理);
+```
+
+---
+
+#### addEventListenerとは...
+イベントが起きたときに実行する処理を登録する仕組み
+
+例：クリックイベント
+```html
+<button id="btn">クリック</button>
+```
+
+```js
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", () => {
+    console.log("クリックされた");
+});
+```
+**ボタンが押されたときだけ実行される**
+
+---
+
+#### e（イベントオブジェクト）とは...
+```txt
+クリックされた！
+↓
+誰が？どこで？何が？
+↓
+その情報が入っているのが『 e 』
+```
+
+```js
+element.addEventListener("click", (e) => {
+    console.log(e);
+});
+```
+
+<Table
+    data={jsEventObjectData}
+    columns={jsEventObjectColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+#### 各イベント
+<Table
+    data={jsEventData}
+    columns={jsEventColumns}
+    accordion
+    detailKey="detail"
+/>
