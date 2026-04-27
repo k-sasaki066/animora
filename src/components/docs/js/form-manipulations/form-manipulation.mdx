@@ -1,0 +1,13 @@
+import Table from "@/components/docs/ui/Table";
+import {formColumns, formData } from "./form-manipulation-data";
+
+### フォーム操作
+入力フォーム（input / textarea / select）をJavaScriptで取得・変更・制御する<br />
+ユーザーが入力した情報を扱ったり、送信前にチェックしたりするために使う
+
+<Table
+    data={formData}
+    columns={formColumns}
+    accordion
+    detailKey="detail"
+/>
