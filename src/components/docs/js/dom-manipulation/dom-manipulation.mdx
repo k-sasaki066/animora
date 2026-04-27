@@ -1,0 +1,25 @@
+import Table from "@/components/docs/ui/Table";
+import { returnValueColumns, returnValueData } from "./return-value-data";
+import { selectorColumns, selectorData } from "./dom-manipulation-data";
+
+### JavaScriptのセレクター
+JavaScriptでは **HTML要素を取得して操作すること** を「セレクター」と呼ぶ<br />
+ボタン・入力欄・画像・リストなどを取得し、表示変更やイベントを追加できる
+
+#### 基本セレクター
+<Table
+    data={selectorData}
+    columns={selectorColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+#### 返り値
+<Table
+    data={returnValueData}
+    columns={returnValueColumns}
+    accordion
+    detailKey="detail"
+/>
