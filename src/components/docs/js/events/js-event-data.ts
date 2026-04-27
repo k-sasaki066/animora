@@ -55,6 +55,8 @@ export const jsEventData: EventItem[] = [
             - 検索フォーム（サジェスト）
             - リアルタイムバリデーション
             - フィルタリング
+            - 入力内容の確認表示
+            - チャット入力補助
 
             #### 実行例
             \`\`\`html
@@ -66,6 +68,17 @@ export const jsEventData: EventItem[] = [
 
             input.addEventListener("input", (e) => {
                 console.log(e.target.value);
+            });
+            \`\`\`
+
+            #### API連携はdebounceと組み合わせる
+            \`\`\`js
+            const handler = debounce((value) => {
+                fetch(\`/api/search?q=\\\${value}\`);
+            }, 300);
+
+            input.addEventListener("input", (e) => {
+                handler(e.target.value);
             });
             \`\`\`
         `),
