@@ -31,16 +31,19 @@ export const mdxMap = {
     ColorModel: lazy(() => import("@/components/docs/colors/color-model.mdx")),
     ColorComparison: lazy(() => import("@/components/docs/colors/color-comparison.mdx")),
 
-    DomManipulation: lazy(() => import("@/components/docs/js/dom-manipulation/dom-manipulation.mdx")),
-    DisplayManipulation: lazy(() => import("@/components/docs/js/display-manipulation/display-manipulation.mdx")),
+    DomManipulation: lazy(() => import("@/components/docs/js/dom-manipulations/dom-manipulation.mdx")),
+    DisplayManipulation: lazy(() => import("@/components/docs/js/display-manipulations/display-manipulation.mdx")),
     Helpers: lazy(() => import("@/components/docs/js/helpers/js-helper.mdx")),
+
     CLI: lazy(() => import("@/components/docs/cli/cli/cli.mdx")),
     Docker: lazy(() => import("@/components/docs/cli/docker/docker.mdx")),
     DockerCompose: lazy(() => import("@/components/docs/cli/docker-compose/docker-compose.mdx")),
     Git: lazy(() => import("@/components/docs/cli/git/git.mdx")),
+
     Lazy: lazy(() => import("@/components/docs/react/lazy/lazy.mdx")),
     IntersectionObserver: lazy(() => import("@/components/docs/react/intersection-observer/intersection-observer.mdx")),
     ReducedMotion: lazy(() => import("@/components/docs/react/reduced-motion/reduced-motion.mdx")),
-    MarkDown: lazy(() => import("@/components/docs/other/mark-down/mark-down.mdx")),
-    Linux: lazy(() => import("@/components/docs/other/linux/linux.mdx")),
+
+    MarkDown: lazy(() => import("@/components/docs/others/mark-down/mark-down.mdx")),
+    Linux: lazy(() => import("@/components/docs/others/linux/linux.mdx")),
 };
