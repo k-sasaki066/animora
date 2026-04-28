@@ -1,0 +1,59 @@
+import Table from "@/components/docs/ui/Table";
+import { elementColumns, elementData } from "./element-manipulation-data";
+
+### 要素操作
+**JavaScriptでHTML要素を取得し、追加・削除・移動・変更する処理**
+
+- ボタンを追加する
+- Todoを削除する
+- モーダルを表示する
+- カードを並び替える
+- リストを更新する
+
+など、画面の構造そのものを変える操作
+
+---
+
+#### 要素ノードとは?
+HTMLタグそのものをJavaScriptから扱えるオブジェクト
+
+JavaScriptはHTMLをそのまま文字列として見ているのではなく、
+`ノード（部品）として管理`している
+
+```js
+const title = document.querySelector("h1");
+```
+```html
+<h1>こんにちは</h1>
+```
+title の中身は文字列ではなく、h1要素ノード
+
+---
+
+#### テキストノードとは？
+HTMLタグの中にある文字そのもの を表すノード
+
+```html
+<div>
+  <h1>タイトル</h1>
+  <p>説明</p>
+</div>
+```
+```txt
+div
+├─ h1
+│  └─ テキスト: タイトル
+└─ p
+   └─ テキスト: 説明
+```
+『 div 』, 『 h1 』,  『 p 』は`要素ノード`<br />
+『タイトル』,『説明』は`テキストノード`
+
+
+<Table
+    data={elementData}
+    columns={elementColumns}
+    accordion
+    detailKey="detail"
+/>
+

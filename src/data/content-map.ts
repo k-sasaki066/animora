@@ -35,6 +35,7 @@ export const mdxMap = {
     DisplayManipulation: lazy(() => import("@/components/docs/js/display-manipulations/display-manipulation.mdx")),
     FormManipulation: lazy(() => import("@/components/docs/js/form-manipulations/form-manipulation.mdx")),
     AttributeManipulation: lazy(() => import("@/components/docs/js/attribute-manipulations/attribute-manipulation.mdx")),
+    ElementManipulation: lazy(() => import("@/components/docs/js/element-manipulations/element-manipulation.mdx")),
     Event: lazy(() => import("@/components/docs/js/events/js-event.mdx")),
     Helpers: lazy(() => import("@/components/docs/js/helpers/js-helper.mdx")),
 
