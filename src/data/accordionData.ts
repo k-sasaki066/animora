@@ -45,6 +45,7 @@ export const accordionData: AccordionCategory[] = [
             { title: "Display Manipulation", key: "DisplayManipulation", content: "" },
             { title: "Form Manipulation", key: "FormManipulation", content: "" },
             { title: "Attribute Manipulation", key: "AttributeManipulation", content: "" },
+            { title: "Element Manipulation", key: "ElementManipulation", content: "" },
             { title: "Event", key: "Event", content: "" },
             { title: "Animations", key: "Animations", content: "JS-driven animations using requestAnimationFrame" },
             { title: "Helpers", key: "Helpers", content: "" },
