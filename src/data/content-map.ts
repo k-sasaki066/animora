@@ -31,6 +31,8 @@ export const mdxMap = {
     ColorModel: lazy(() => import("@/components/docs/colors/color-model.mdx")),
     ColorComparison: lazy(() => import("@/components/docs/colors/color-comparison.mdx")),
 
+    CSSAnimation: lazy(() => import("@/components/docs/animation-guides/css-animations/css-animation.mdx")),
+
     DomManipulation: lazy(() => import("@/components/docs/js/dom-manipulations/dom-manipulation.mdx")),
     DisplayManipulation: lazy(() => import("@/components/docs/js/display-manipulations/display-manipulation.mdx")),
     FormManipulation: lazy(() => import("@/components/docs/js/form-manipulations/form-manipulation.mdx")),
