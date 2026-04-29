@@ -1,6 +1,5 @@
 import dedent from "dedent";
 
-
 export type ElementManipulationItem = {
     process: string;
     detail?: string;

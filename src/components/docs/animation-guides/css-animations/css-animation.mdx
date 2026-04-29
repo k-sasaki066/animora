@@ -1,0 +1,35 @@
+import Table from "@/components/docs/ui/Table";
+import { animationColumns, animationData } from "./css-animation-data";
+import { keyframesColumns, keyframesData } from "./keyframes-data";
+
+### CSSアニメーションとは
+要素を動かしたり、色を変えたり、回転させたりする機能
+
+`animationプロパティ`と`@keyframes`を組み合わせることで高度なアニメーションを実装できる
+
+```txt
+animationプロパティ   → アニメーションの秒数や回数を指定
+@keyframes.          → アニメーションがどのように変化するか、途中経過を指定
+```
+
+---
+
+#### animation プロパティの指定
+CSSで要素を動かすための命令
+<Table
+    data={animationData}
+    columns={animationColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+#### @keyframesの指定
+どこから始まり、途中でどう変化し、最後にどうなるかを指定
+<Table
+    data={keyframesData}
+    columns={keyframesColumns}
+    accordion
+    detailKey="detail"
+/>

@@ -13,7 +13,7 @@ export interface AccordionCategory {
 
 export const accordionData: AccordionCategory[] = [
     {
-        title: "CSS Animations",
+        title: "Animations",
         items: [
             { title: "Basic", key: "Basic", content: "Fade / Slide / Rotate / Scale"},
             { title: "Loading", key: "Loading", content: "Spinner / Pulse / Bounce" },
@@ -60,6 +60,12 @@ export const accordionData: AccordionCategory[] = [
             { title: "Sourceタグ", key: "SourceTag", content: "" },
             { title: "colorモデル", key: "ColorModel", content: "" },
             { title: "color比較", key: "ColorComparison",content: "" },
+        ],
+    },
+    {
+        title: "Animation Guide",
+        items: [
+            { title: "CSS Animation", key: "CSSAnimation", content: "" },
         ],
     },
     {
