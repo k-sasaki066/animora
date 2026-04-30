@@ -1,0 +1,28 @@
+import Table from "@/components/docs/ui/Table";
+import { animationUseColumns, animationUseData } from "./js-animation-data";
+
+### JSアニメーションとは
+JavaScriptで画面の動きを制御すること
+
+CSSアニメーションは「決まった動き」が得意だが、<br />
+JavaScriptは **条件に応じて動かす・ユーザー操作に反応して動かす** のが得意
+
+- ボタンを押したら開く
+- スクロールしたら表示
+- 数字が0→100まで増える
+- ドラッグで動かす
+- ゲームのキャラクター移動
+
+#### 基本の考え方
+JavaScriptアニメーションは主にこの2つ
+```txt
+① class を付け替える
+② requestAnimationFrame で毎フレーム動かす
+```
+
+<Table
+    data={animationUseData}
+    columns={animationUseColumns}
+    accordion
+    detailKey="detail"
+/>

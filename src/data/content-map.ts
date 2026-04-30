@@ -32,6 +32,7 @@ export const mdxMap = {
     ColorComparison: lazy(() => import("@/components/docs/colors/color-comparison.mdx")),
 
     CSSAnimation: lazy(() => import("@/components/docs/animation-guides/css-animations/css-animation.mdx")),
+    JSAnimation: lazy(() => import("@/components/docs/animation-guides/js-animations/js-animation.mdx")),
 
     DomManipulation: lazy(() => import("@/components/docs/js/dom-manipulations/dom-manipulation.mdx")),
     DisplayManipulation: lazy(() => import("@/components/docs/js/display-manipulations/display-manipulation.mdx")),
@@ -40,6 +41,7 @@ export const mdxMap = {
     ElementManipulation: lazy(() => import("@/components/docs/js/element-manipulations/element-manipulation.mdx")),
     Event: lazy(() => import("@/components/docs/js/events/js-event.mdx")),
     Helpers: lazy(() => import("@/components/docs/js/helpers/js-helper.mdx")),
+    XMLHttpRequest: lazy(() => import("@/components/docs/js/xml-http-requests/xml-http-request.mdx")),
 
     CLI: lazy(() => import("@/components/docs/cli/cli/cli.mdx")),
     Docker: lazy(() => import("@/components/docs/cli/docker/docker.mdx")),
