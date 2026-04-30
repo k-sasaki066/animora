@@ -47,8 +47,8 @@ export const accordionData: AccordionCategory[] = [
             { title: "Attribute Manipulation", key: "AttributeManipulation", content: "" },
             { title: "Element Manipulation", key: "ElementManipulation", content: "" },
             { title: "Event", key: "Event", content: "" },
-            { title: "Animations", key: "Animations", content: "JS-driven animations using requestAnimationFrame" },
             { title: "Helpers", key: "Helpers", content: "" },
+            { title: "XMLHttpRequest", key: "XMLHttpRequest", content: "" },
         ],
     },
     {
@@ -66,6 +66,7 @@ export const accordionData: AccordionCategory[] = [
         title: "Animation Guide",
         items: [
             { title: "CSS Animation", key: "CSSAnimation", content: "" },
+            { title: "JS Animation", key: "JSAnimation", content: "" },
         ],
     },
     {

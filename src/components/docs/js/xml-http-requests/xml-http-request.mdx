@@ -1,0 +1,94 @@
+import Table from "@/components/docs/ui/Table";
+import { xhrEventColumns, xhrEventData } from "./xhr-event-data";
+import { xmlHttpRequestColumns, xmlHttpRequestData } from "./xml-http-request-data";
+
+#### XMLHttpRequest（XHR）とは？
+JavaScriptからサーバーにデータを送受信するための仕組み
+
+#### できること
+<Table
+    data={xmlHttpRequestData}
+    columns={xmlHttpRequestColumns}
+    accordion
+    detailKey="detail"
+/>
+
+---
+
+#### 基本の流れ
+```txt
+ 1. インスタンス作成
+ 2. 通信設定（open）
+ 3. イベント設定
+ 4. 送信（send）
+ ```
+
+**1. インスタンス作成**
+```js
+const xhr = new XMLHttpRequest();
+```
+👉 通信の箱を作るイメージ
+<br />
+
+**2. open（通信の準備）**
+```js
+xhr.open("POST", "/upload");
+```
+```txt
+第1引数：メソッド（GET / POST）
+第2引数：URL
+
+```
+<br />
+
+**3. イベント設定**<br />
+通信の途中や完了で処理を書く
+
+```js
+xhr.onload = () => {
+  console.log("成功");
+};
+
+xhr.onerror = () => {
+  console.log("失敗");
+};
+```
+<br />
+
+**4. send（実行）**
+```js
+xhr.send();
+```
+
+POSTの場合：
+```js
+xhr.send(formData);
+```
+
+---
+
+**アップロード進捗 (XHR最大の特徴)**
+```js
+xhr.upload.onprogress = (event) => {
+  const percent = (event.loaded / event.total) * 100;
+
+  console.log(percent);
+};
+```
+
+仕組み
+```txt
+loaded = 送信済み
+total  = 全体サイズ
+進捗 = loaded / total
+```
+
+---
+
+#### よく使うイベント一覧
+<Table
+    data={xhrEventData}
+    columns={xhrEventColumns}
+    accordion
+    detailKey="detail"
+/>
