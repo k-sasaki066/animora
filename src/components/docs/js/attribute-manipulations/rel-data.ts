@@ -1,17 +1,17 @@
-import dedent from "dedent";
+import type { DetailKey } from "./rel-details/detail-map";
 
 export type RelColumn = {
     key: string;
     label: string;
     className?: string;
-    detail?: string;
+    detailKey?: DetailKey;
 };
 
 export type RelRow = {
     value: string;
     meaning: string;
     usage: string;
-    detail?: string;
+    detailKey?: DetailKey;
 };
 
 export const relColumns: RelColumn[] = [
@@ -25,61 +25,36 @@ export const relData: RelRow[] = [
         value: "noopener",
         meaning: "新しいタブから元ページを操作できなくする",
         usage: "target=_blank時",
-        detail: dedent(`
-
-            \`\`\`html
-            <a href="https://example.com" target="_blank" rel="noopener">
-            \`\`\`
-            新しいタブで開いたページから\`window.opener\`経由で元ページを操作されるのを防ぐ
-
-            **セキュリティ対策として重要**
-        `),
+        detailKey: "relNoopener",
     },
     {
         value: "noreferrer",
         meaning: "遷移元URLを送らない",
         usage: "外部リンク",
-        detail: dedent(`
-
-            \`\`\`html
-            <a href="https://example.com" target="_blank" rel="noreferrer">
-            \`\`\`
-            リンク先に どこから来たか（Referer） を送らなくなる
-
-            使用場面
-            - 外部サービス
-            - アフィリエイト
-            - プライバシー配慮
-
-            \`\`\`html
-            <a
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                外部リンク
-            </a>
-            \`\`\`
-        `),
+        detailKey: "relNoreferrer",
     },
     {
         value: "nofollow",
         meaning: "SEO評価を渡さない",
         usage: "広告リンク",
+        detailKey: "relNofollow",
     },
     {
         value: "prev",
         meaning: "前ページ",
         usage: "ページネーション",
+        detailKey: "relPrev",
     },
     {
         value: "next",
         meaning: "次ページ",
         usage: "ページネーション",
+        detailKey: "relNext",
     },
     {
         value: "stylesheet",
         meaning: "CSS読み込み",
         usage: "<link>タグ",
+        detailKey: "relStylesheet",
     },
 ];
