@@ -1,11 +1,12 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { markdownComponents } from "../mdx-components";
+import { detailMap, type DetailKey } from "@/components/docs/detail-map";
 
 type Column<T> = {
     key: keyof T;
@@ -19,19 +20,34 @@ type Props<T> = {
     columns: Column<T>[];
 
     accordion?: boolean;
-    detailKey?: keyof T;
+    // detailKey?: keyof T;
     defaultOpenIndex?: number | null;
 };
 
-export default function Table<T>({
+export default function Table<T extends { detailKey?: DetailKey }>({
     data,
     columns,
     accordion = false,
-    detailKey,
+    // detailKey,
     defaultOpenIndex = null,
 }: Props<T>) {
     const [openIndex, setOpenIndex] =
         useState<number | null>(defaultOpenIndex);
+    const [detail, setDetail] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (openIndex === null) return;
+
+        const key = data[openIndex]?.detailKey;
+        if (!key) return;
+
+        setDetail(null);
+
+        (async () => {
+            const module = await detailMap[key]();
+            setDetail(module.detail);
+        })();
+    }, [openIndex, data]);
 
     const padding = "px-3 py-2";
     const totalCols = accordion
@@ -60,16 +76,13 @@ export default function Table<T>({
 
                 <tbody>
                     {data.map((row, i) => {
-                        const detail =
-                            accordion && detailKey
-                                ? row[detailKey]
-                                : null;
+                        // const detail =
+                        //     accordion && detailKey
+                        //         ? row[detailKey]
+                        //         : null;
 
-                        const hasDetail =
-                            detail && String(detail).trim() !== "";
-
-                        const isOpen =
-                            hasDetail && openIndex === i;
+                        const hasDetail = !!row.detailKey;
+                        const isOpen = hasDetail && openIndex === i;
 
                         return (
                             <Fragment key={i}>
@@ -175,13 +188,17 @@ export default function Table<T>({
                                                     >
                                                         <div className="max-h-96 overflow-y-auto no-scrollbar p-5 text-left bg-zinc-800">
                                                             <article className="prose prose-invert max-w-none">
-                                                                <ReactMarkdown
-                                                                    remarkPlugins={[remarkGfm]}
-                                                                    rehypePlugins={[rehypeRaw]}
-                                                                    components={markdownComponents}
-                                                                >
-                                                                    {String(detail).trim()}
-                                                                </ReactMarkdown>
+                                                                {detail ? (
+                                                                    <ReactMarkdown
+                                                                        remarkPlugins={[remarkGfm]}
+                                                                        rehypePlugins={[rehypeRaw]}
+                                                                        components={markdownComponents}
+                                                                    >
+                                                                        {detail}
+                                                                    </ReactMarkdown>
+                                                                ) : (
+                                                                    <p className="text-center py-8">読み込み中...</p>
+                                                                )}
                                                             </article>
                                                         </div>
                                                     </motion.div>
