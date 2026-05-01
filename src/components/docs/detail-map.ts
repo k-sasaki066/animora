@@ -9,6 +9,7 @@ import { detailMap as elementManipulationMap } from "./js/element-manipulations/
 import { detailMap as returnValueMap } from "./js/dom-manipulations/return-value-details/detail-map";
 import { detailMap as jsEventMap } from "./js/events/js-event-details/detail-map";
 import { detailMap as jsEventObjectMap } from "./js/events/js-event-object-details/detail-map";
+import { detailMap as jsHelperMap } from "./js/helpers/helper-details/detail-map";
 import { detailMap as xhrMap } from "./js/xml-http-requests/xml-http-request-details/detail-map";
 import { detailMap as xhrEventMap } from "./js/xml-http-requests/xhr-event-details/detail-map";
 
@@ -24,6 +25,7 @@ export const detailMap = {
     ...returnValueMap,
     ...jsEventMap,
     ...jsEventObjectMap,
+    ...jsHelperMap,
     ...xhrMap,
     ...xhrEventMap,
 } as const;
