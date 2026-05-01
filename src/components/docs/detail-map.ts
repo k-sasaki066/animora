@@ -1,5 +1,6 @@
 // animation-guide
 import { detailMap as cssAnimationMap } from "./animation-guides/css-animations/css-animation-details/detail-map";
+import { detailMap as keyframesMap } from "./animation-guides/css-animations/keyframes-details/detail-map";
 
 // js
 import { detailMap as domManipulationMap } from "./js/dom-manipulations/dom-manipulation-details/detail-map";
@@ -19,6 +20,7 @@ import { detailMap as xhrEventMap } from "./js/xml-http-requests/xhr-event-detai
 
 export const detailMap = {
     ...cssAnimationMap,
+    ...keyframesMap,
     ...domManipulationMap,
     ...displayTextContentUpdateMap,
     ...displayHtmlContentUpdateMap,
