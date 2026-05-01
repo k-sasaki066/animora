@@ -1,3 +1,7 @@
+// animation-guide
+import { detailMap as cssAnimationMap } from "./animation-guides/css-animations/css-animation-details/detail-map";
+
+// js
 import { detailMap as domManipulationMap } from "./js/dom-manipulations/dom-manipulation-details/detail-map";
 import { detailMap as displayTextContentUpdateMap } from "./js/display-manipulations/text-content-update-details/detail-map";
 import { detailMap as displayHtmlContentUpdateMap } from "./js/display-manipulations/html-content-update-details/detail-map";
@@ -14,6 +18,7 @@ import { detailMap as xhrMap } from "./js/xml-http-requests/xml-http-request-det
 import { detailMap as xhrEventMap } from "./js/xml-http-requests/xhr-event-details/detail-map";
 
 export const detailMap = {
+    ...cssAnimationMap,
     ...domManipulationMap,
     ...displayTextContentUpdateMap,
     ...displayHtmlContentUpdateMap,
