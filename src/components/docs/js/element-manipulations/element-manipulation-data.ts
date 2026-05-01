@@ -1,5 +1,4 @@
 import type { DetailKey } from "./element-manipulation-details/detail-map";
-import dedent from "dedent";
 
 export type ElementManipulationItem = {
     process: string;
