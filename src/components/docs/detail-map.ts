@@ -2,6 +2,7 @@ import { detailMap as domManipulationMap } from "./js/dom-manipulations/dom-mani
 import { detailMap as displayTextContentUpdateMap } from "./js/display-manipulations/text-content-update-details/detail-map";
 import { detailMap as displayHtmlContentUpdateMap } from "./js/display-manipulations/html-content-update-details/detail-map";
 import { detailMap as displayStyleUpdateMap } from "./js/display-manipulations/style-update-details/detail-map";
+import { detailMap as formManipulationMap } from "./js/form-manipulations/form-manipulation-details/detail-map";
 import { detailMap as returnValueMap } from "./js/dom-manipulations/return-value-details/detail-map";
 import { detailMap as xhrMap } from "./js/xml-http-requests/xml-http-request-details/detail-map";
 import { detailMap as eventMap } from "./js/xml-http-requests/xhr-event-details/detail-map";
@@ -11,6 +12,7 @@ export const detailMap = {
     ...displayTextContentUpdateMap,
     ...displayHtmlContentUpdateMap,
     ...displayStyleUpdateMap,
+    ...formManipulationMap,
     ...returnValueMap,
     ...xhrMap,
     ...eventMap,
