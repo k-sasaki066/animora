@@ -28,7 +28,6 @@ export const mdxMap = {
     ImageTag: lazy(() => import("@/components/docs/media/image.mdx")),
     VideoTag: lazy(() => import("@/components/docs/media/video.mdx")),
     SourceTag: lazy(() => import("@/components/docs/media/source.mdx")),
-    ColorModel: lazy(() => import("@/components/docs/colors/color-model.mdx")),
     ColorComparison: lazy(() => import("@/components/docs/colors/color-comparison.mdx")),
 
     CSSAnimation: lazy(() => import("@/components/docs/animation-guides/css-animations/css-animation.mdx")),

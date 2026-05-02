@@ -58,8 +58,7 @@ export const accordionData: AccordionCategory[] = [
             { title: "imgタグ", key: "ImageTag", content: "" },
             { title: "Videoタグ", key: "VideoTag", content: "" },
             { title: "Sourceタグ", key: "SourceTag", content: "" },
-            { title: "colorモデル", key: "ColorModel", content: "" },
-            { title: "color比較", key: "ColorComparison",content: "" },
+            { title: "カラーフォーマット", key: "ColorComparison",content: "" },
         ],
     },
     {
