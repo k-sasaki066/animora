@@ -1,5 +1,5 @@
 export const detailMap = {
-    cliList: () => import("./cli-li"),
+    cliList: () => import("./cli-ls"),
     cliChangeDirectory: () => import("./cli-cd"),
     cliPrintWorkingDirectory: () => import("./cli-pwd"),
     cliMakeDirectory: () => import("./cli-mkdir"),
