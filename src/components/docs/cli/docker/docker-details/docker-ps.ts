@@ -9,6 +9,7 @@ export const detail = dedent(`
     \`\`\`
 
     #### 出力項目
+    \`\`\`txt
     - CONTAINER ID   : コンテナの固有ID
     - IMAGE          : 使用しているイメージ
     - COMMAND        : コンテナ起動時に実行されたコマンド
@@ -16,6 +17,7 @@ export const detail = dedent(`
     - STATUS         : コンテナの状態（Up: 稼働中, Exited: 停止中）
     - PORTS          : 公開されているポート
     - NAMES          : コンテナ名
+    \`\`\`
 
     #### オプション
     \`\`\`bash

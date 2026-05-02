@@ -17,17 +17,20 @@ export const detail = dedent(`
 
     ---
     #### 表示される主な項目
-    - name : プロジェクト名
-    - services : コンテナ設定
-    - build : Dockerfile build設定
-    - image : 使用image
-    - ports : ポート公開
-    - volumes : データ保存設定
-    - environment : 環境変数
-    - depends_on : 起動順依存
-    - networks : 通信設定
+    \`\`\`txt
+    name          : プロジェクト名
+    services      : コンテナ設定
+    build         : Dockerfile build設定
+    image         : 使用image
+    ports         : ポート公開
+    volumes       : データ保存設定
+    environment   : 環境変数
+    depends_on    : 起動順依存
+    networks      : 通信設定
+    \`\`\`
 
     ---
+
     #### 実行例
     \`\`\`bash
     docker compose config

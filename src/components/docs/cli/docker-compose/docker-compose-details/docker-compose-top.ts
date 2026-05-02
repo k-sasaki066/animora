@@ -10,16 +10,18 @@ export const detail = dedent(`
     \`\`\`
 
     #### 表示される項目
-    - SERVICE : composeのサービス名
-    - "#" : コンテナ番号
-    - UID : 実行ユーザー
-    - PID : プロセスID
-    - PPID : 親プロセスID
-    - C : CPU使用率目安
-    - STIME	: 起動時刻
-    - TTY : ターミナル有無(?はDockerバックグラウンド起動)
-    - TIME : 累積CPU時間
-    - CMD : 実行コマンド
+    \`\`\`txt
+    SERVICE    : composeのサービス名
+    "#"        : コンテナ番号
+    UID        : 実行ユーザー
+    PID        : プロセスID
+    PPID       : 親プロセスID
+    C          : CPU使用率目安
+    STIME	   : 起動時刻
+    TTY        : ターミナル有無(?はDockerバックグラウンド起動)
+    TIME       : 累積CPU時間
+    CMD        : 実行コマンド
+    \`\`\`
 
     #### 実行例
     \`\`\`bash
