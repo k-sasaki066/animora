@@ -1,5 +1,4 @@
 import type { DetailKey } from "./linux-details/detail-map";
-import dedent from "dedent";
 
 export type CommandItem = {
     command: string;
