@@ -9,10 +9,12 @@ export const detail = dedent(`
     \`\`\`
 
     #### 表示項目
+    \`\`\`txt
     - Images          : イメージが使用している容量
     - Containers      : 実行中・停止中コンテナの容量
     - Local Volumes   : コンテナにマウントされたボリュームの容量
     - Build Cache     : ビルドキャッシュが使用している容量
+    \`\`\`
 
     #### オプション
     \`\`\`bash

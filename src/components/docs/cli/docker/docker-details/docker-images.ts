@@ -9,11 +9,13 @@ export const detail = dedent(`
     \`\`\`
 
     #### 出力項目
+    \`\`\`txt
     - IMAGE	        : イメージ名、タグ
     - ID	            : イメージ固有ID
     - DISK USAGE	    : ディスク使用量
     - CONTENT SIZE	: 中身レイヤーサイズ
     - EXTRA	        : 状態情報(U = In Use, 現在コンテナで使用中のイメージ)
+    \`\`\`
 
     #### オプション
     \`\`\`bash

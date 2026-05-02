@@ -9,8 +9,10 @@ export const detail = dedent(`
     \`\`\`
 
     #### 表示項目
+    \`\`\`txt
     - DRIVER        : ボリュームドライバー（通常は local）
     - VOLUME NAME   : ボリューム名（コンテナで使用しているデータ名）
+    \`\`\`
 
     #### オプション
     \`\`\`bash
