@@ -25,6 +25,8 @@ import { detailMap as dockerMap } from "./cli/docker/docker-details/detail-map";
 import { detailMap as dockerComposeMap } from "./cli/docker-compose/docker-compose-details/detail-map";
 import { detailMap as gitMap } from "./cli/git/git-details/detail-map";
 
+import { detailMap as colorMap } from "./colors/color-format-details/detail-map";
+
 export const detailMap = {
     ...cssAnimationMap,
     ...keyframesMap,
@@ -49,6 +51,8 @@ export const detailMap = {
     ...dockerMap,
     ...dockerComposeMap,
     ...gitMap,
+
+    ...colorMap,
 } as const;
 
 export type DetailKey = keyof typeof detailMap;

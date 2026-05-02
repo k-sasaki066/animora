@@ -1,7 +1,19 @@
 import Table from "@/components/docs/ui/Table";
 import { colorData } from "@/components/docs/colors/color-data";
 import { colorColumns } from "@/components/docs/colors/color-columns";
-import { hexRangeData, hexRangeColumns } from "@/components/docs/colors/hex-data";
+import { colorFormatData, colorFormatColumns } from "@/components/docs/colors/color-format-data";
+
+### カラーフォーマットとは？
+「どの色をどのくらい混ぜるか」の表現方法
+
+<Table
+    data={colorFormatData}
+    columns={colorFormatColumns}
+    accordion
+    detailKey="detail"
+/>
+
+
 
 ### よく使用する色
 
@@ -9,48 +21,3 @@ import { hexRangeData, hexRangeColumns } from "@/components/docs/colors/hex-data
     data={colorData}
     columns={colorColumns}
 />
-
-<br />
-### 16進数（Hexadecimal）とは？
-
-**0〜15の16個の数字で数を表す方法**
-
-普段使っている「10進数（0〜9）」は10で繰り上がる仕組み
-
-```txt
-0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-```
-
-16進数
-```txt
-0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
-```
-
-<br />
-**なぜ16進数を使うのか？**<br />
-コンピュータは「0と1（2進数）」で動いているが、2進数は長くなりすぎる<br />
-16進数にすることによりコンピュータが理解しやすい2進数と、人間が読みやすい形式を両立できる
-
-```txt
-11111111（2進数） = 255（10進数）=FF (16進数)
-```
-各色は0〜255の強さで表現される
-
-<br />
-**RGBの値の意味（16進数と10進数）**
-
-各色（R・G・B）は **0〜255（10進数）** で強さを表し、
-それを **16進数（00〜FF）** で書く
-
-<Table
-    data={hexRangeData}
-    columns={hexRangeColumns}
-/>
-
-```txt
-#FF0000 　//赤
-```
-
-FF（赤） = 最大<br />
-00（緑） = なし<br />
-00（青） = なし<br />
