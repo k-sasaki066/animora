@@ -21,6 +21,7 @@ import { detailMap as xhrEventMap } from "./js/xml-http-requests/xhr-event-detai
 
 // cli
 import { detailMap as cliMap } from "./cli/cli/cli-details/detail-map";
+import { detailMap as dockerMap } from "./cli/docker/docker-details/detail-map";
 
 export const detailMap = {
     ...cssAnimationMap,
@@ -43,6 +44,7 @@ export const detailMap = {
     ...xhrEventMap,
 
     ...cliMap,
+    ...dockerMap,
 } as const;
 
 export type DetailKey = keyof typeof detailMap;
