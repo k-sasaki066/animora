@@ -19,10 +19,14 @@ import { detailMap as jsHelperMap } from "./js/helpers/helper-details/detail-map
 import { detailMap as xhrMap } from "./js/xml-http-requests/xml-http-request-details/detail-map";
 import { detailMap as xhrEventMap } from "./js/xml-http-requests/xhr-event-details/detail-map";
 
+// cli
+import { detailMap as cliMap } from "./cli/cli/cli-details/detail-map";
+
 export const detailMap = {
     ...cssAnimationMap,
     ...keyframesMap,
     ...jsAnimationMap,
+
     ...domManipulationMap,
     ...displayTextContentUpdateMap,
     ...displayHtmlContentUpdateMap,
@@ -37,6 +41,8 @@ export const detailMap = {
     ...jsHelperMap,
     ...xhrMap,
     ...xhrEventMap,
+
+    ...cliMap,
 } as const;
 
 export type DetailKey = keyof typeof detailMap;
