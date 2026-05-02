@@ -18,9 +18,7 @@ type Column<T> = {
 type Props<T> = {
     data: T[];
     columns: Column<T>[];
-
     accordion?: boolean;
-    // detailKey?: keyof T;
     defaultOpenIndex?: number | null;
 };
 
@@ -28,7 +26,6 @@ export default function Table<T extends { detailKey?: DetailKey }>({
     data,
     columns,
     accordion = false,
-    // detailKey,
     defaultOpenIndex = null,
 }: Props<T>) {
     const [openIndex, setOpenIndex] =
@@ -76,11 +73,6 @@ export default function Table<T extends { detailKey?: DetailKey }>({
 
                 <tbody>
                     {data.map((row, i) => {
-                        // const detail =
-                        //     accordion && detailKey
-                        //         ? row[detailKey]
-                        //         : null;
-
                         const hasDetail = !!row.detailKey;
                         const isOpen = hasDetail && openIndex === i;
 

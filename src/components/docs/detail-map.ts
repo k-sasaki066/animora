@@ -28,6 +28,7 @@ import { detailMap as gitMap } from "./cli/git/git-details/detail-map";
 import { detailMap as colorMap } from "./colors/color-format-details/detail-map";
 
 import { detailMap as linuxMap } from "./others/linux/linux-details/detail-map";
+import { detailMap as markdownMap } from "./others/markdown/markdown-details/detail-map";
 
 export const detailMap = {
     ...cssAnimationMap,
@@ -57,6 +58,7 @@ export const detailMap = {
     ...colorMap,
 
     ...linuxMap,
+    ...markdownMap,
 } as const;
 
 export type DetailKey = keyof typeof detailMap;
